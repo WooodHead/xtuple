@@ -180,31 +180,33 @@ BEGIN
       RETURN -6;
     END IF;
 
-    FOR _ti IN SELECT toitem_id, toitem_item_id,
-		      toitem_qty_received, toitem_qty_ordered, SUM(shipitem_qty) AS qty
-	      FROM toitem, shipitem
-	      WHERE ((toitem_id=shipitem_orderitem_id)
-		AND  (shipitem_shiphead_id=pshipheadid))
-	      GROUP BY toitem_id, toitem_item_id,
-		       toitem_qty_received, toitem_qty_ordered LOOP
+    FOR _ti IN SELECT toitem_id,
+                      sis.itemsite_id AS src_itemsite_id,
+                      tis.itemsite_id AS trns_itemsite_id,
+                      scc.costcat_shipasset_accnt_id AS src_shipasset_accnt_id,
+                      tcc.costcat_asset_accnt_id AS trns_asset_accnt_id,
+                      itemcost(tis.itemsite_id) AS trns_cost,
+                      SUM(shipitem_qty) AS recall_qty
+               FROM shipitem JOIN toitem ON (toitem_id=shipitem_orderitem_id)
+                             JOIN itemsite sis ON (sis.itemsite_item_id=toitem_item_id AND sis.itemsite_warehous_id=_to.tohead_src_warehous_id)
+                             JOIN itemsite tis ON (tis.itemsite_item_id=toitem_item_id AND tis.itemsite_warehous_id=_to.tohead_trns_warehous_id)
+                             JOIN costcat scc ON (scc.costcat_id=sis.itemsite_costcat_id)
+                             JOIN costcat tcc ON (tcc.costcat_id=tis.itemsite_costcat_id)
+               WHERE (shipitem_shiphead_id=pshipheadid)
+               GROUP BY toitem_id, sis.itemsite_id, tis.itemsite_id,
+                        scc.costcat_shipasset_accnt_id, tcc.costcat_asset_accnt_id
+    LOOP
 
       _itemlocSeries := NEXTVAL('itemloc_series_seq');
       
-      SELECT postInvTrans(si.itemsite_id, 'TS', (_ti.qty * -1.0), 'I/M',
+      SELECT postInvTrans(_ti.src_itemsite_id, 'TS', (_ti.recall_qty * -1.0), 'I/M',
 			  _shiphead.shiphead_order_type, formatToNumber(_ti.toitem_id),
 			  _to.tohead_number,
-			  'Recall Shipment from Transit To Src Warehouse',
-			  sc.costcat_asset_accnt_id,
-			  tc.costcat_shipasset_accnt_id,
-			  _itemlocSeries, _timestamp) INTO _invhistid
-      FROM itemsite AS ti, costcat AS tc,
-	   itemsite AS si, costcat AS sc
-      WHERE ( (ti.itemsite_costcat_id=tc.costcat_id)
-        AND  (si.itemsite_costcat_id=sc.costcat_id)
-        AND  (ti.itemsite_item_id=_ti.toitem_item_id)
-        AND  (si.itemsite_item_id=_ti.toitem_item_id)
-        AND  (ti.itemsite_warehous_id=_to.tohead_src_warehous_id)
-        AND  (si.itemsite_warehous_id=_to.tohead_trns_warehous_id) );
+			  'Recall TO Shipment To Src Warehouse',
+			  _ti.trns_asset_accnt_id,
+			  _ti.src_shipasset_accnt_id,
+			  _itemlocSeries, _timestamp,
+                          (_ti.trns_cost * _ti.recall_qty * -1.0)) INTO _invhistid;
 
       IF (_invhistid < 0) THEN
 	RETURN _invhistid;
@@ -215,19 +217,14 @@ BEGIN
 
       -- record inventory history and qoh changes at transit warehouse but
       -- there is only one g/l account to touch
-      SELECT postInvTrans(ti.itemsite_id, 'TR', (_ti.qty * -1.0), 'I/M',
+      SELECT postInvTrans(_ti.trns_itemsite_id, 'TR', (_ti.recall_qty * -1.0), 'I/M',
 			  _shiphead.shiphead_order_type, formatToNumber(_ti.toitem_id),
 			  _to.tohead_number,
-			  'Recall Shipment from Transit To Src Warehouse',
-			  tc.costcat_asset_accnt_id,
-			  tc.costcat_asset_accnt_id,
+			  'Recall TO Shipment From Transit Warehouse',
+			  _ti.trns_asset_accnt_id,
+			  _ti.trns_asset_accnt_id,
 			  _itemlocSeries, _timestamp,
-			  (invhist_invqty * invhist_unitcost)) INTO _invhistid
-      FROM itemsite AS ti, costcat AS tc, invhist
-      WHERE ((ti.itemsite_costcat_id=tc.costcat_id)
-        AND  (ti.itemsite_item_id=_ti.toitem_item_id)
-        AND  (ti.itemsite_warehous_id=_to.tohead_trns_warehous_id)
-        AND  (invhist_id=_invhistid));
+                          (_ti.trns_cost * _ti.recall_qty * -1.0)) INTO _invhistid;
 
       IF (_invhistid < 0) THEN
 	RETURN _invhistid;
@@ -237,10 +234,12 @@ BEGIN
       PERFORM postItemlocseries(_itemlocSeries);
 
       UPDATE toitem
-      SET toitem_qty_shipped = (toitem_qty_shipped - _ti.qty)
+      SET toitem_qty_shipped = (toitem_qty_shipped - _ti.recall_qty)
       WHERE (toitem_id=_ti.toitem_id);
 
-      UPDATE shipitem SET shipitem_shipdate=NULL, shipitem_shipped=FALSE
+      UPDATE shipitem SET shipitem_shipdate=NULL,
+                          shipitem_shipped=FALSE,
+                          shipitem_value=(shipitem_qty * _ti.trns_cost)
       WHERE ((shipitem_orderitem_id=_ti.toitem_id)
         AND  (shipitem_shiphead_id=pshipheadid));
 
