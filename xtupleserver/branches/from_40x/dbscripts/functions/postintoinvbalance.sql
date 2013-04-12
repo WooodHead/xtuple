@@ -12,11 +12,16 @@ DECLARE
 BEGIN
 
 --  Grab the invhist record to post
-  SELECT invhist_id, invhist_transdate, invhist_itemsite_id, invhist_transtype,
-         invhist_invqty, invhist_unitcost, invhistSense(invhist_id) AS sense,
+--  Special fix for transit sites when transtype=TS and invqty<0
+--  Set the sense to 1 to correct invhist populated incorrectly.
+  SELECT invhist.*,
+         CASE WHEN (invhist_transtype='TS' AND invhist_invqty < 0.0 AND warehous_transit) THEN 1
+              ELSE invhistSense(invhist_id)
+         END AS sense,
          period_id INTO _r
   FROM invhist
     JOIN itemsite ON (itemsite_id=invhist_itemsite_id)
+    JOIN whsinfo ON (warehous_id=itemsite_warehous_id)
     LEFT OUTER JOIN period ON (invhist_transdate::date BETWEEN period_start AND period_end)
   WHERE ( invhist_id=pInvhistId );
 
