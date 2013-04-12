@@ -58,32 +58,31 @@ BEGIN
   END IF;
 
 -- If Kit, check deletion of component items
-  FOR _s IN
-    SELECT a.*
-    FROM coitem a, (SELECT DISTINCT coitem_cohead_id,
-                           coitem_linenumber
-                    FROM coitem
-                    WHERE coitem_id = pSoitemid) b
-    WHERE ((a.coitem_cohead_id = b.coitem_cohead_id)
-       AND (a.coitem_linenumber = b.coitem_linenumber)
-       AND (a.coitem_subnumber > 0))
-  LOOP
-    IF ((COALESCE(_s.coitem_order_id, -1) > 0)
-     AND (_s.coitem_order_type = 'P')) THEN
-      SELECT poitem_status, COALESCE(recv_id, -1)
-        INTO _poStatus, _recvId
-      FROM poitem LEFT OUTER JOIN recv
-             ON ((recv_orderitem_id=poitem_id)
-               AND (recv_order_type='PO'))
-      WHERE (poitem_id = _s.coitem_order_id);
+  IF (_r.coitem_subnumber = 0) THEN
+    FOR _s IN
+      SELECT *
+      FROM coitem
+      WHERE ((coitem_cohead_id = _r.coitem_cohead_id)
+        AND  (coitem_linenumber = _r.coitem_linenumber)
+        AND  (coitem_subnumber > 0))
+    LOOP
+      IF ((COALESCE(_s.coitem_order_id, -1) > 0)
+       AND (_s.coitem_order_type = 'P')) THEN
+        SELECT poitem_status, COALESCE(recv_id, -1)
+          INTO _poStatus, _recvId
+        FROM poitem LEFT OUTER JOIN recv
+               ON ((recv_orderitem_id=poitem_id)
+                 AND (recv_order_type='PO'))
+        WHERE (poitem_id = _s.coitem_order_id);
 
-      IF ((_recvId > 0) OR (_poStatus = 'C')) THEN
-        RETURN -10;
-      ELSIF ((_recvId = -1) AND (_poStatus = 'O')) THEN
-        _deletePO := _deletePO - 1;
+        IF ((_recvId > 0) OR (_poStatus = 'C')) THEN
+          RETURN -10;
+        ELSIF ((_recvId = -1) AND (_poStatus = 'O')) THEN
+          _deletePO := _deletePO - 1;
+        END IF;
       END IF;
-    END IF;
-  END LOOP;
+    END LOOP;
+  END IF;
 
 
   SELECT (itemsite_costmethod='J') INTO _jobItem
