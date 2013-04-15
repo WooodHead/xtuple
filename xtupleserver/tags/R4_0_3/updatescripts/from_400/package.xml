@@ -1,0 +1,51 @@
+<package id        = "from_400"
+         version   = "4.0.1"
+         developer = "xTuple"
+         descrip   = "patch 4.0.1"
+         updater   = "2.2.4" >
+
+  <prerequisite type = "query"
+                name = "Checking xTuple Edition" >
+    <query>SELECT fetchMetricText('Application') = 'PostBooks';</query>
+    <message>This package must be applied to a PostBooks database.</message>
+  </prerequisite>
+
+  <prerequisite type = "query"
+                name = "Checking xTuple ERP database version" >
+    <query>SELECT fetchMetricText('ServerVersion') IN ('4.0.0',
+                                                       '.4.0.0-4.0.1');
+    </query>
+    <message>This package must be applied to a 4.0.0 PostBooks database.
+    </message>
+  </prerequisite>
+
+  <initscript file = "initUpgrade.sql" />
+
+  <createfunction file="functions/bomlevelbyitem.sql"                 name="bomlevelbyitem" />
+  <createfunction file="functions/copylocale.sql"                     name="copylocale" />
+  <createfunction file="functions/createpurchasetosale.sql"           name="createpurchasetosale" />
+  <createfunction file="functions/explodewo.sql"                      name="explodewo" />
+  <createfunction file="functions/insertccard.sql"                    name="insertccard" />
+  <createfunction file="functions/postproduction.sql"                 name="postproduction" />
+  <createfunction file="functions/purgeinvoicerecord.sql"             name="purgeinvoicerecord" />
+  <createfunction file="functions/saveaddr.sql"                       name="saveaddr" />
+
+  <createview file="api/views/vendor.sql"                       name="vendor"	schema="api" />
+
+  <loadmetasql file="metasql/bomItems-detail.mql" />
+  <loadmetasql file="metasql/itemcostdetail_detail.mql" />
+  <loadmetasql file="metasql/runningAvailability-detail.mql" />
+  <loadmetasql file="metasql/saletype-table.mql" />
+  <loadmetasql file="metasql/schedule-plannedorders.mql" />
+
+  <createtrigger file="triggers/saletype.sql"     name="saletypebeforedeletetrigger" />
+
+  <loadreport file="reports/CustomerBOL.xml" />
+  <loadreport file="reports/DepositsRegister.xml" />
+  <loadreport file="reports/InventoryHistory.xml" />
+  <loadreport file="reports/PackingList-Shipment.xml" />
+  <loadreport file="reports/Quote.xml" />
+
+  <finalscript file = "setVersion.sql" />
+
+</package>

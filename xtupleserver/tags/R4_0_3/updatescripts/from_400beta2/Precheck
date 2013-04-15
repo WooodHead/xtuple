@@ -1,0 +1,96 @@
+-- pkg? image    image_name
+-- pkg? priv     priv_name
+-- the columns without "add constraint ... unique" should already be marked unique in the db
+
+SELECT NOT EXISTS(SELECT 1 FROM country WHERE country_abbr = '' OR country_name = '');
+
+SELECT NOT EXISTS(SELECT COUNT(*), char_name FROM "char" GROUP BY char_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), addr_number FROM addr GROUP BY addr_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), atlasmap_name FROM atlasmap GROUP BY atlasmap_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), bankaccnt_name FROM bankaccnt GROUP BY bankaccnt_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), bankadjtype_name FROM bankadjtype GROUP BY bankadjtype_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), budghead_name FROM budghead GROUP BY budghead_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), calhead_name FROM calhead GROUP BY calhead_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), cashrcpt_number FROM cashrcpt GROUP BY cashrcpt_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), classcode_code FROM classcode GROUP BY classcode_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), cmhead_number FROM cmhead GROUP BY cmhead_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), cmnttype_name FROM cmnttype GROUP BY cmnttype_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), cohead_number FROM cohead GROUP BY cohead_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), company_number FROM company GROUP BY company_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), costcat_code FROM costcat GROUP BY costcat_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), costelem_type FROM costelem GROUP BY costelem_type HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), crmacct_number FROM crmacct GROUP BY crmacct_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), custgrp_name FROM custgrp GROUP BY custgrp_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), cust_number FROM custinfo GROUP BY cust_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), custtype_code FROM custtype GROUP BY custtype_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), dept_number FROM dept GROUP BY dept_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), emp_code FROM emp GROUP BY emp_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), emp_number FROM emp GROUP BY emp_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), empgrp_name FROM empgrp GROUP BY empgrp_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), evnttype_name FROM evnttype GROUP BY evnttype_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), expcat_code FROM expcat GROUP BY expcat_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), flhead_name FROM flhead GROUP BY flhead_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), form_name FROM form GROUP BY form_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), freightclass_code FROM freightclass GROUP BY freightclass_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), grp_name FROM grp GROUP BY grp_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), hnfc_code FROM hnfc GROUP BY hnfc_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), incdtcat_name FROM incdtcat GROUP BY incdtcat_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), incdtpriority_name FROM incdtpriority GROUP BY incdtpriority_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), incdtresolution_name FROM incdtresolution GROUP BY incdtresolution_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), incdtseverity_name FROM incdtseverity GROUP BY incdtseverity_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), invchead_invcnumber FROM invchead GROUP BY invchead_invcnumber HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), ipshead_name FROM ipshead GROUP BY ipshead_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), item_number FROM item GROUP BY item_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), itemgrp_name FROM itemgrp GROUP BY itemgrp_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), labelform_name FROM labelform GROUP BY labelform_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), locale_code FROM locale GROUP BY locale_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), metric_name FROM metric GROUP BY metric_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), metricenc_name FROM metricenc GROUP BY metricenc_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), ophead_number FROM ophead GROUP BY ophead_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), opsource_name FROM opsource GROUP BY opsource_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), opstage_name FROM opstage GROUP BY opstage_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), optype_name FROM optype GROUP BY optype_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), orderseq_name FROM orderseq GROUP BY orderseq_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), pkghead_name FROM pkghead GROUP BY pkghead_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), plancode_code FROM plancode GROUP BY plancode_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), pohead_number FROM pohead GROUP BY pohead_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), prftcntr_number FROM prftcntr GROUP BY prftcntr_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), prj_number FROM prj GROUP BY prj_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), prodcat_code FROM prodcat GROUP BY prodcat_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), prospect_number FROM prospect GROUP BY prospect_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), qryhead_name FROM qryhead GROUP BY qryhead_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), quhead_number FROM quhead GROUP BY quhead_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), rjctcode_code FROM rjctcode GROUP BY rjctcode_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), rsncode_code FROM rsncode GROUP BY rsncode_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), sale_name FROM sale GROUP BY sale_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), salescat_name FROM salescat GROUP BY salescat_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), salesrep_number FROM salesrep GROUP BY salesrep_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), schemaord_name FROM schemaord GROUP BY schemaord_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), shift_number FROM shift GROUP BY shift_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), shipchrg_name FROM shipchrg GROUP BY shipchrg_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), shipform_name FROM shipform GROUP BY shipform_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), shiphead_number FROM shiphead GROUP BY shiphead_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), shipvia_code FROM shipvia GROUP BY shipvia_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), shipzone_name FROM shipzone GROUP BY shipzone_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), sitetype_name FROM sitetype GROUP BY sitetype_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), source_name FROM source GROUP BY source_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), state_name FROM state GROUP BY state_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), stdjrnl_name FROM stdjrnl GROUP BY stdjrnl_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), stdjrnlgrp_name FROM stdjrnlgrp GROUP BY stdjrnlgrp_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), subaccnt_number FROM subaccnt GROUP BY subaccnt_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), tax_code FROM tax GROUP BY tax_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), taxauth_code FROM taxauth GROUP BY taxauth_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), taxclass_code FROM taxclass GROUP BY taxclass_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), taxtype_name FROM taxtype GROUP BY taxtype_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), taxzone_code FROM taxzone GROUP BY taxzone_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), terms_code FROM terms GROUP BY terms_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), uom_name FROM uom GROUP BY uom_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), uomtype_name FROM uomtype GROUP BY uomtype_name HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), vend_number FROM vendinfo GROUP BY vend_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), vendtype_code FROM vendtype GROUP BY vendtype_code HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), vohead_number FROM vohead GROUP BY vohead_number HAVING COUNT(*) > 1);
+SELECT NOT EXISTS(SELECT COUNT(*), warehous_code FROM whsinfo GROUP BY warehous_code HAVING COUNT(*) > 1);
+
+
+
+

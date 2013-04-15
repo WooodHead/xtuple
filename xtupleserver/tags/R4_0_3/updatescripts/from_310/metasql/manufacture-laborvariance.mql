@@ -1,0 +1,46 @@
+-- Group: manufacture
+-- Name:  laborvariance
+-- Notes: shared by dspLaborVarianceBy*
+
+SELECT woopervar.*,
+       item_number, wrkcnt_code,
+       (woopervar_sutime - woopervar_stdsutime) AS suvar,
+       (woopervar_rntime - woopervar_stdrntime) AS rnvar,
+       'qty' AS woopervar_qtyord_xtnumericrole,
+       'qty' AS woopervar_qtyrcv_xtnumericrole,
+       '1'   AS woopervar_stdsutime_xtnumericrole,
+       '1'   AS woopervar_stdrntime_xtnumericrole,
+       '1'   AS woopervar_sutime_xtnumericrole,
+       '1'   AS woopervar_rntime_xtnumericrole,
+       '1'   AS suvar_xtnumericrole,
+       '1'   AS rnvar_xtnumericrole
+FROM woopervar
+<? if exists("wo_id") ?>
+     JOIN wo ON ((woopervar_number=wo_number)
+             AND (woopervar_subnumber=wo_subnumber))
+<? endif ?>
+     JOIN itemsite ON (woopervar_parent_itemsite_id=itemsite_id)
+     JOIN item ON (itemsite_item_id=item_id)
+     LEFT OUTER JOIN wrkcnt ON (woopervar_wrkcnt_id=wrkcnt_id)
+WHERE (true
+<? if exists("startDate") ?>
+   AND (woopervar_posted BETWEEN <? value("startDate") ?>
+                             AND <? value("endDate") ?>)
+<? endif ?>
+<? if exists("item_id") ?>
+   AND (itemsite_item_id=<? value("item_id") ?>)
+<? endif ?>
+<? if exists("booitem_id") ?>
+   AND (woopervar_booitem_id=<? value("booitem_id") ?>)
+<? endif ?>
+<? if exists("wrkcnt_id") ?>
+   AND (wrkcnt_id=<? value("wrkcnt_id") ?>)
+<? endif ?>
+<? if exists("wo_id") ?>
+   AND (wo_id=<? value("wo_id") ?>)
+<? endif ?>
+<? if exists("warehous_id") ?>
+   AND (itemsite_warehous_id=<? value("warehous_id") ?>)
+<? endif ?>
+)
+ORDER BY woopervar_posted DESC, woopervar_seqnumber;
