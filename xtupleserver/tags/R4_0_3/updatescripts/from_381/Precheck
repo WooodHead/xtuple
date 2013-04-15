@@ -1,0 +1,4 @@
+ <prerequisite type="Query" name="Check bank reconciliations" >
+  <query>select count(*) = 0 from bankrec where not bankrec_posted</query>
+  <message>All open bank reconciliations must be completed before upgrading.</message>
+ </prerequisite>

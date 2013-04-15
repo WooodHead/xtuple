@@ -1,0 +1,1 @@
+ALTER TABLE cntcteml ADD PRIMARY KEY (cntcteml_id);

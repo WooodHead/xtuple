@@ -1,0 +1,38 @@
+<package id="from_402"
+         developer="xTuple"
+         updater="2.2.0" >
+
+  <prerequisite type="Query" name="Checking xTuple Edition">
+    <query>SELECT fetchMetricText('Application') = 'PostBooks';</query>
+    <message>This package must be applied against a PostBooks database.</message>
+  </prerequisite>
+
+  <prerequisite type="Query" name="Checking xTuple ERP database version">
+    <query>SELECT fetchMetricText('ServerVersion') IN ('4.0.2',
+                                                       '.4.0.2-4.0.3');
+    </query>
+    <message>This package must be applied against a 4.0.2 PostBooks database.</message>
+  </prerequisite>
+
+  <initscript file="initUpgrade.sql" />
+
+  <script file="functions/buildinvbal.sql" />
+  <script file="functions/createwomaterial.sql" />
+  <script file="functions/deletesoitem.sql" />
+  <script file="functions/freightdetail.sql" />
+  <script file="functions/itemipsprice.sql" />
+  <script file="functions/itemuomtouom.sql" />
+  <script file="functions/itemuomtouomratio.sql" />
+  <script file="functions/login.sql" />
+  <script file="functions/postintoinvbalance.sql" />
+  <script file="functions/postvoucher.sql" />
+  <script file="functions/recallshipment.sql" />
+  <script file="functions/summtranss.sql" />
+  <script file="functions/valueatshipping.sql" />
+
+  <script file="triggers/coitem.sql" />
+
+  <loadmetasql file="metasql/incidents-detail.mql" />
+
+  <finalscript file="setVersion.sql" />
+</package>

@@ -1,0 +1,22 @@
+<package id="from_401"
+         developer="xTuple"
+         updater="2.2.0" >
+
+  <prerequisite type="Query" name="Checking xTuple Edition">
+    <query>SELECT fetchMetricText('Application') = 'PostBooks';</query>
+    <message>This package must be applied against a PostBooks database.</message>
+  </prerequisite>
+
+  <prerequisite type="Query" name="Checking xTuple ERP database version">
+    <query>SELECT fetchMetricText('ServerVersion') IN ('4.0.1',
+                                                       '.4.0.1-4.0.2pre');
+    </query>
+    <message>This package must be applied against a 4.0.1 PostBooks database.</message>
+  </prerequisite>
+
+  <initscript file="initUpgradePre.sql" />
+
+  <script file="functions/login.sql" />
+
+  <finalscript file="setVersionPre.sql" />
+</package>
