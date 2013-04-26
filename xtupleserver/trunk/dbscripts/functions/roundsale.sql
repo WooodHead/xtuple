@@ -1,22 +1,20 @@
 
-CREATE OR REPLACE FUNCTION roundSale(NUMERIC) RETURNS NUMERIC AS $$
+CREATE OR REPLACE FUNCTION roundSale(pSale NUMERIC) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  _pSale ALIAS FOR $1;
   _scale INTEGER;
 
 BEGIN
-  IF (_pSale IS NULL) THEN
+  IF (pSale IS NULL) THEN
     RETURN NULL;
   END IF;
 
   SELECT locale_salesprice_scale INTO _scale
-  FROM locale, usr
-  WHERE ((usr_locale_id=locale_id)
-     AND (usr_username=getEffectiveXtUser()));
+  FROM locale
+  WHERE (locale_id=getUsrLocaleId());
 
-  RETURN ROUND(_pSale, _scale);
+  RETURN ROUND(pSale, _scale);
 
 END;
 $$ LANGUAGE 'plpgsql';

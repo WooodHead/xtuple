@@ -1,26 +1,25 @@
 
-CREATE OR REPLACE FUNCTION roundQty(BOOLEAN, NUMERIC) RETURNS NUMERIC AS '
+CREATE OR REPLACE FUNCTION roundQty(pFractional BOOLEAN,
+                                    pQty NUMERIC) RETURNS NUMERIC STABLE AS $$
 -- Copyright (c) 1999-2012 by OpenMFG LLC, d/b/a xTuple. 
 -- See www.xtuple.com/CPAL for the full text of the software license.
 DECLARE
-  _fractional ALIAS FOR $1;
-  _qty ALIAS FOR $2;
   _scale INTEGER;
 
 BEGIN
   SELECT locale_qty_scale INTO _scale
-  FROM locale, usr
-  WHERE ((usr_locale_id=locale_id) AND (usr_username=getEffectiveXtUser()));
+  FROM locale
+  WHERE (locale_id=getUsrLocaleId());
 
-  IF (_fractional) THEN
-    RETURN ROUND(_qty, _scale);
+  IF (pFractional) THEN
+    RETURN ROUND(pQty, _scale);
   ELSE
-    IF (TRUNC(_qty) < ROUND(_qty, _scale)) THEN
-      RETURN (TRUNC(_qty) + 1);
+    IF (TRUNC(pQty) < ROUND(pQty, _scale)) THEN
+      RETURN (TRUNC(pQty) + 1);
     ELSE
-      RETURN TRUNC(_qty);
+      RETURN TRUNC(pQty);
     END IF;
   END IF;
 END;
-' LANGUAGE 'plpgsql';
+$$ LANGUAGE 'plpgsql';
 

@@ -22,9 +22,8 @@ BEGIN
   END IF;
 
   SELECT * INTO _r
-  FROM locale, usr
-  WHERE ((usr_locale_id=locale_id)
-     AND (usr_username=getEffectiveXtUser()));
+  FROM locale
+  WHERE (locale_id=getUsrLocaleId());
 
   _decimal := COALESCE(SUBSTRING(_r.locale_qtyformat FROM 1 FOR 1), '.');
   _neg     := COALESCE(SUBSTRING(_r.locale_qtyformat FROM 2 FOR 1), '-');

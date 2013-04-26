@@ -11,8 +11,8 @@ DECLARE
 BEGIN
   IF (pFractional) THEN
     SELECT * INTO _r
-    FROM locale, usr
-    WHERE ((usr_locale_id=locale_id) AND (usr_username=getEffectiveXtUser()));
+    FROM locale
+    WHERE (locale_id=getUsrLocaleId());
 
     _scale := CASE pLocale WHEN 'qtyper' THEN _r.locale_qtyper_scale
                            WHEN 'cost' THEN _r.locale_cost_scale
