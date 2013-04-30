@@ -1,0 +1,5 @@
+BEGIN;
+
+SELECT dropIfExists('FUNCTION', 'scrapWoMaterial(INTEGER, NUMERIC, BOOLEAN)');
+
+COMMIT;
