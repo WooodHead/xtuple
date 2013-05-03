@@ -30,10 +30,6 @@ BEGIN
 -- If no as of passed, use current date
   _asof := COALESCE(pAsOf, CURRENT_DATE);
 
--- Get a value here so we do not have to call the function several times
-  SELECT itemuomtouomratio(pItemid, pPriceUOM, NULL) AS ratio
-    INTO _iteminvpricerat;
-
 --  Cache Item, Customer and Shipto
   SELECT * INTO _item
   FROM item
@@ -47,6 +43,10 @@ BEGIN
   FROM shiptoinfo
   WHERE (shipto_id=pShiptoid);
 
+-- Get a value here so we do not have to call the function several times
+  SELECT itemuomtouomratio(pItemid, pPriceUOM, _item.item_price_uom_id) AS ratio
+    INTO _iteminvpricerat;
+
 -- First get a sales price if any so we when we find other prices
 -- we can determine if we want that price or this price.
 --  Check for a Sale Price
@@ -54,9 +54,9 @@ BEGIN
     currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective) AS rightprice, ipsitem_type AS righttype
   FROM (
   SELECT ipsitem_ipshead_id AS ipsprice_ipshead_id, ipsitem_type,
-         CASE WHEN ipsitem_type = 'N' THEN (ipsitem_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat
-              WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount)
-              WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount)
+         CASE WHEN ipsitem_type = 'N' THEN (ipsitem_price * itemuomtouomratio(_item.item_id, pPriceUOM, ipsitem_price_uom_id))
+              WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount) * _iteminvpricerat
+              WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount) * _iteminvpricerat
               ELSE 0.00
          END AS ipsprice_price,
          CASE WHEN (ipsitem_item_id=_item.item_id) THEN itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak)
@@ -87,9 +87,9 @@ BEGIN
              WHEN (COALESCE(LENGTH(ipsass_custtype_pattern), 0) > 0) THEN 5
              ELSE 99
            END AS assignseq,
-           CASE WHEN ipsitem_type = 'N' THEN (ipsitem_price * itemuomtouomratio(_item.item_id, NULL, ipsitem_price_uom_id)) * _iteminvpricerat
-                WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount)
-                WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount)
+           CASE WHEN ipsitem_type = 'N' THEN (ipsitem_price * itemuomtouomratio(_item.item_id, pPriceUOM, ipsitem_price_uom_id))
+                WHEN ipsitem_type = 'D' THEN noNeg(_item.item_listprice - (_item.item_listprice * ipsitem_discntprcnt) - ipsitem_fixedamtdiscount) * _iteminvpricerat
+                WHEN ipsitem_type = 'M' THEN (_item.item_listcost + (_item.item_listcost * ipsitem_discntprcnt) + ipsitem_fixedamtdiscount) * _iteminvpricerat
                 ELSE 0.00
            END AS protoprice,
            CASE WHEN (ipsitem_item_id=_item.item_id) THEN itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak)
