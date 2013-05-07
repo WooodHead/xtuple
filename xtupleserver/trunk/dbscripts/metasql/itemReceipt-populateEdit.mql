@@ -30,7 +30,7 @@ SELECT pohead_number AS order_number, poitem_linenumber AS orderitem_linenumber,
        'qty' AS qtyreturned_xtnumericrole, 
        'qty' AS qtytoreceive_xtnumericrole, 
        'qty' AS receivable_xtnumericrole,
-       'curr' AS recv_purchcost_xtnumericrole 
+       'purchprice' AS recv_purchcost_xtnumericrole 
 FROM recv 
   JOIN  poitem ON ((recv_orderitem_id=poitem_id)
                AND (recv_order_type='PO'))
@@ -63,7 +63,7 @@ SELECT rahead_number AS order_number, raitem_linenumber AS orderitem_linenumber,
        'qty' AS qtyreturned_xtnumericrole, 
        'qty' AS qtytoreceive_xtnumericrole, 
        'qty' AS receivable_xtnumericrole,
-       'curr' AS recv_purchcost_xtnumericrole 
+       'purchprice' AS recv_purchcost_xtnumericrole 
 FROM recv
   JOIN  raitem ON ((recv_orderitem_id=raitem_id)
                AND (recv_order_type='RA'))
@@ -96,7 +96,7 @@ SELECT tohead_number AS order_number, toitem_linenumber AS orderitem_linenumber,
        'qty' AS qtyreturned_xtnumericrole, 
        'qty' AS qtytoreceive_xtnumericrole, 
        'qty' AS receivable_xtnumericrole,
-       'curr' AS recv_purchcost_xtnumericrole 
+       'purchprice' AS recv_purchcost_xtnumericrole 
 FROM itemsite, recv
   JOIN  toitem ON ((recv_orderitem_id=toitem_id)
                AND (recv_order_type='TO'))

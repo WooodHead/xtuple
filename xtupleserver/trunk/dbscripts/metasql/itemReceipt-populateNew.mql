@@ -39,7 +39,7 @@ SELECT pohead_number AS order_number, poitem_linenumber AS orderitem_linenumber,
        'qty' AS qtyreturned_xtnumericrole, 
        'qty' AS qtytoreceive_xtnumericrole, 
        'qty' AS receivable_xtnumericrole,
-       'curr' AS recv_purchcost_xtnumericrole 
+       'purchprice' AS recv_purchcost_xtnumericrole 
 FROM pohead
   JOIN poitem ON (pohead_id=poitem_pohead_id)
   LEFT OUTER JOIN itemsite ON (poitem_itemsite_id=itemsite_id)
@@ -79,7 +79,7 @@ SELECT rahead_number AS order_number, raitem_linenumber AS orderitem_linenumber,
        'qty' AS qtyreturned_xtnumericrole, 
        'qty' AS qtytoreceive_xtnumericrole, 
        'qty' AS receivable_xtnumericrole,
-       'curr' AS recv_purchcost_xtnumericrole 
+       'purchprice' AS recv_purchcost_xtnumericrole 
 FROM rahead
   JOIN raitem ON (rahead_id=raitem_rahead_id)
 WHERE ((raitem_status <> 'C')
@@ -119,7 +119,7 @@ SELECT tohead_number AS order_number, toitem_linenumber AS orderitem_linenumber,
        'qty' AS qtyreturned_xtnumericrole, 
        'qty' AS qtytoreceive_xtnumericrole, 
        'qty' AS receivable_xtnumericrole,
-       'curr' AS recv_purchcost_xtnumericrole 
+       'purchprice' AS recv_purchcost_xtnumericrole 
 FROM itemsite, tohead
   JOIN toitem ON (tohead_id=toitem_tohead_id) 
 WHERE ((toitem_status NOT IN ('C', 'X'))
