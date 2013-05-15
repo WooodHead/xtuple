@@ -16,13 +16,14 @@ DECLARE
   _ordertypeabbr	TEXT;
   _r			RECORD;
   _ra			RECORD;
-  _recvvalue		NUMERIC := 0;
-  _pricevar             NUMERIC := 0.00;
+  _recvinvqty          NUMERIC := 0.00;
+  _recvvalue		NUMERIC := 0.00;
+  _pricevar            NUMERIC := 0.00;
   _tmp			INTEGER;
   _toitemitemid		INTEGER;
   _coheadid		INTEGER;
   _coitemid		INTEGER;
-  _linenumber           INTEGER;
+  _linenumber          INTEGER;
   _invhistid		INTEGER;
   _shipheadid		INTEGER;
   _ship               	BOOLEAN;
@@ -34,7 +35,7 @@ BEGIN
 	       2) AS recv_freight_base,
 	 recv_freight, recv_freight_curr_id, recv_date, recv_gldistdate,
 	 itemsite_id, itemsite_item_id, item_inv_uom_id, itemsite_costmethod,
-         itemsite_controlmethod, vend_name, item_number
+         itemsite_controlmethod, vend_name, item_number, item_fractional
 	 INTO _r
   FROM recv LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
             LEFT OUTER JOIN item ON (itemsite_item_id=item_id)
@@ -115,6 +116,7 @@ BEGIN
   END IF;
 
   _glDate := COALESCE(_r.recv_gldistdate, _r.recv_date);
+  _recvinvqty := roundQty(_r.item_fractional, (_r.recv_qty * _o.invvenduomratio));
 
   IF ( (_r.recv_order_type = 'PO') AND
         (_r.itemsite_id = -1 OR _r.itemsite_id IS NULL OR _r.itemsite_controlmethod = 'N') ) THEN
@@ -194,7 +196,7 @@ BEGIN
   ELSE	-- not ELSIF: some code is shared between diff order types
     IF (_r.recv_order_type = 'PO') THEN
       SELECT postInvTrans( itemsite_id, 'RP'::TEXT,
-			   (_r.recv_qty * _o.invvenduomratio),
+			   _recvinvqty,
 			   'S/R'::TEXT,
 			   _r.recv_order_type::TEXT, _o.orderhead_number::TEXT || '-' || _o.orderitem_linenumber::TEXT,
 			   ''::TEXT,
@@ -284,7 +286,7 @@ BEGIN
         WHERE ((rahead_id=raitem_rahead_id)
         AND  (raitem_id=_r.recv_orderitem_id));
       SELECT postInvTrans(_r.itemsite_id, 'RR',
-			  (_r.recv_qty * _o.invvenduomratio),
+			  _recvinvqty,
 			  'S/R',
 			  _r.recv_order_type, _ra.rahead_number::TEXT || '-' || _ra.raitem_linenumber::TEXT,
 			  '',
@@ -296,7 +298,7 @@ BEGIN
 			         getPrjAccntId(_o.prj_id, resolveCOWAccount(_r.itemsite_id, _ra.rahead_cust_id, _ra.rahead_saletype_id, _ra.rahead_shipzone_id))
 			       ELSE getPrjAccntId(_o.prj_id, resolveCORAccount(_r.itemsite_id, _ra.rahead_cust_id, _ra.rahead_saletype_id, _ra.rahead_shipzone_id))
 			  END,
-			  _itemlocSeries, _glDate, COALESCE(_o.unitcost,stdcost(itemsite_item_id)) * _r.recv_qty * _o.invvenduomratio) INTO _tmp
+			  _itemlocSeries, _glDate, COALESCE(_o.unitcost,stdcost(itemsite_item_id)) * _recvinvqty) INTO _tmp
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
        AND (itemsite_id=_r.itemsite_id) );
@@ -317,7 +319,7 @@ BEGIN
 			  rahist_source, rahist_source_id, rahist_rahead_id
 	  ) VALUES (_r.itemsite_id, _glDate,
 		      'Receive Inventory from ' || _ordertypeabbr,
-		      _r.recv_qty * _o.invvenduomratio, _r.item_inv_uom_id,
+		      _recvinvqty, _r.item_inv_uom_id,
 		      'RR', _r.recv_id, _ra.rahead_id
 	          );
 
@@ -549,7 +551,7 @@ BEGIN
     ELSIF (fetchMetricBool('RecordPPVonReceipt')) THEN
       _recvvalue := ROUND((_o.item_unitprice_base * _r.recv_qty), 2);
     ELSE
-      _recvvalue := ROUND(stdcost(_r.itemsite_item_id) * _r.recv_qty * _o.invvenduomratio, 2);
+      _recvvalue := ROUND(stdcost(_r.itemsite_item_id) * _recvinvqty, 2);
     END IF;
   END IF;
 
