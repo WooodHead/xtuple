@@ -17,7 +17,7 @@ BEGIN
   SELECT CAST(orderseq_number AS text), orderseq_number, orderseq_table, orderseq_numcol, COALESCE(orderseq_seqiss, ARRAY[]::seqiss[])
     INTO _number, _nextnum, _table, _numcol, __seqiss
   FROM orderseq
-  WHERE (orderseq_name=psequence);
+  WHERE (orderseq_name=psequence) FOR UPDATE;
 
   IF (NOT FOUND) THEN
     RAISE EXCEPTION 'Invalid orderseq_name %', psequence;
