@@ -65,11 +65,18 @@ BEGIN
          (ipsitem_price_uom_id=COALESCE(pPriceUOM,-1)) AS uommatched
     FROM ipsiteminfo
    WHERE(ipsitem_item_id=_item.item_id) OR (ipsitem_prodcat_id=_item.item_prodcat_id) ) AS
-        ipsprice, ipshead, sale
+        ipsprice, ipshead, ipsass, sale
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
     AND   (sale_ipshead_id=ipsprice_ipshead_id)
     AND   (_asof BETWEEN sale_startdate AND sale_enddate)
-    AND   (ipsprice_qtybreak <= _qty) )
+    AND   (ipsprice_qtybreak <= _qty)
+    AND   (ipsass_ipshead_id=ipshead_id)
+    AND ( (ipsass_shipto_id=_shipto.shipto_id)
+     OR   ((COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0) AND (_shipto.shipto_num ~ ipsass_shipto_pattern))
+     OR   (ipsass_cust_id=_cust.cust_id)
+     OR   (ipsass_custtype_id=_cust.cust_custtype_id)
+     OR   ((COALESCE(LENGTH(ipsass_custtype_pattern), 0) > 0) AND (_cust.custtype_code ~ ipsass_custtype_pattern)) )
+        )
   ORDER BY uommatched DESC, ipsprice_qtybreak DESC, ipsprice_price ASC
   LIMIT 1;
 
