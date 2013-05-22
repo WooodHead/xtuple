@@ -23,7 +23,7 @@ BEGIN
 
   IF (_std_cost > 0) THEN
 --Actual Cost is updated to zero to ensure inventory is valued correctly
-    SELECT updateCost(_itemcost_id, 0);
+    PERFORM updateCost(_itemcost_id, 0);
   END IF;
 
   DELETE FROM itemcost
