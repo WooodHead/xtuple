@@ -1,0 +1,28 @@
+<package id="from_403"
+         developer="xTuple"
+         updater="2.2.0" >
+
+  <prerequisite type="Query" name="Checking xTuple Edition">
+    <query>SELECT fetchMetricText('Application') = 'PostBooks';</query>
+    <message>This package must be applied against a PostBooks database.</message>
+  </prerequisite>
+
+  <prerequisite type="Query" name="Checking xTuple ERP database version">
+    <query>SELECT fetchMetricText('ServerVersion') IN ('4.0.3',
+                                                       '.4.0.3-4.0.4');
+    </query>
+    <message>This package must be applied against a 4.0.3 PostBooks database.</message>
+  </prerequisite>
+
+  <initscript file="initUpgrade.sql" />
+
+  <script file="functions/avgcost.sql" />
+  <script file="functions/fetchnextnumber.sql" />
+  <script file="functions/itemipsprice.sql" />
+
+  <loadmetasql file="metasql/itemReceipt-populateEdit.mql" />
+  <loadmetasql file="metasql/itemReceipt-populateNew.mql" />
+  <loadmetasql file="metasql/pricelist-detail.mql" />
+
+  <finalscript file="setVersion.sql" />
+</package>
