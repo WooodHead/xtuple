@@ -61,8 +61,14 @@ FROM (
            ipsitem_type AS price_type
     FROM sale JOIN ipshead ON (ipshead_id=sale_ipshead_id)
               JOIN ipsiteminfo ON (ipsitem_ipshead_id=ipshead_id)
+              JOIN ipsass ON (ipsass_ipshead_id=ipshead_id)
    WHERE ((ipsitem_item_id=<? value('item_id') ?>) OR (ipsitem_prodcat_id=<? value('prodcat_id') ?>))
-     AND (<? value('asof') ?> BETWEEN sale_startdate AND sale_enddate)
+      AND (<? value('asof') ?> BETWEEN sale_startdate AND sale_enddate)
+      AND ( ((COALESCE(ipsass_shipto_id, -1) > 0) AND (ipsass_shipto_id=<? value('shipto_id') ?>))
+       OR   ((COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0) AND (<? value('shipto_num') ?> ~ ipsass_shipto_pattern))
+       OR   (ipsass_cust_id=<? value('cust_id') ?>)
+       OR   (ipsass_custtype_id=<? value('custtype_id') ?>)
+       OR   ((COALESCE(LENGTH(ipsass_custtype_pattern), 0) > 0) AND (<? value('custtype_code') ?> ~ ipsass_custtype_pattern)) )
 
     UNION
 
@@ -107,7 +113,7 @@ FROM (
                 JOIN ipsiteminfo ON (ipsitem_ipshead_id=ipshead_id)
     WHERE ((ipsitem_item_id=<? value('item_id') ?>) OR (ipsitem_prodcat_id=<? value('prodcat_id') ?>))
       AND (<? value('asof') ?> BETWEEN ipshead_effective AND ipshead_expires)
-      AND ( (ipsass_shipto_id=<? value('shipto_id') ?>)
+      AND ( ((COALESCE(ipsass_shipto_id, -1) > 0) AND (ipsass_shipto_id=<? value('shipto_id') ?>))
        OR   ((COALESCE(LENGTH(ipsass_shipto_pattern), 0) > 0) AND (<? value('shipto_num') ?> ~ ipsass_shipto_pattern))
        OR   (ipsass_cust_id=<? value('cust_id') ?>)
        OR   (ipsass_custtype_id=<? value('custtype_id') ?>)
