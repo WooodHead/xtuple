@@ -60,7 +60,8 @@ BEGIN
     quitem_qty_uom_id, quitem_price_uom_id,
     quitem_qty_invuomratio, quitem_price_invuomratio,
     quitem_memo, quitem_custpn, quitem_imported, quitem_taxtype_id,
-    quitem_createorder, quitem_order_warehous_id, quitem_item_id, quitem_prcost )
+    quitem_createorder, quitem_order_warehous_id, quitem_item_id, quitem_prcost,
+    quitem_dropship, quitem_itemsrc_id, quitem_pricemode )
   SELECT _quheadid, quitem_linenumber, quitem_itemsite_id,
          COALESCE(pSchedDate, quitem_scheddate),
          quitem_promdate,
@@ -69,7 +70,8 @@ BEGIN
          quitem_qty_uom_id, quitem_price_uom_id,
          quitem_qty_invuomratio, quitem_price_invuomratio,
          quitem_memo, quitem_custpn, FALSE, quitem_taxtype_id,
-         quitem_createorder, quitem_order_warehous_id, quitem_item_id, quitem_prcost
+         quitem_createorder, quitem_order_warehous_id, quitem_item_id, quitem_prcost,
+         quitem_dropship, quitem_itemsrc_id, quitem_pricemode
   FROM quitem, itemsite
   WHERE ( (quitem_itemsite_id=itemsite_id)
    AND (quitem_quhead_id=pQuheadid));
