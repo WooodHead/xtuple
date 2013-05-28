@@ -44,7 +44,10 @@ CREATE OR REPLACE RULE "_INSERT" AS
                    getUomId(NEW.price_uom),
                    NEW.percent,
                    NEW.fixedamt,
-                   NEW.pricing_type)
+                   CASE NEW.pricing_type WHEN 'Nominal' THEN 'N'
+                                         WHEN 'Discount' THEN 'D'
+                                         WHEN 'Markup' THEN 'M'
+                                         ELSE '?' END)
      WHEN (NEW.type = 'Product Category') THEN
      saveIpsProdcat(NULL,
                     getIpsheadId(NEW.pricing_schedule),
@@ -52,7 +55,10 @@ CREATE OR REPLACE RULE "_INSERT" AS
                     NEW.qty_break,
                     NEW.percent,
                     NEW.fixedamt,
-                    NEW.pricing_type)
+                    CASE NEW.pricing_type WHEN 'Nominal' THEN 'N'
+                                          WHEN 'Discount' THEN 'D'
+                                          WHEN 'Markup' THEN 'M'
+                                          ELSE '?' END)
    END;
           
 CREATE OR REPLACE RULE "_UPDATE" AS
@@ -74,7 +80,10 @@ CREATE OR REPLACE RULE "_UPDATE" AS
                    getUomId(NEW.price_uom),
                    NEW.percent,
                    NEW.fixedamt,
-                   NEW.pricing_type)
+                   CASE NEW.pricing_type WHEN 'Nominal' THEN 'N'
+                                         WHEN 'Discount' THEN 'D'
+                                         WHEN 'Markup' THEN 'M'
+                                         ELSE '?' END)
      WHEN (OLD.type = 'Product Category') THEN
        saveIpsProdcat(getIpsProdcatId(OLD.pricing_schedule,
                                       OLD.product_category,
@@ -84,7 +93,10 @@ CREATE OR REPLACE RULE "_UPDATE" AS
                       NEW.qty_break,
                       NEW.percent,
                       NEW.fixedamt,
-                      NEW.pricing_type)
+                      CASE NEW.pricing_type WHEN 'Nominal' THEN 'N'
+                                            WHEN 'Discount' THEN 'D'
+                                            WHEN 'Markup' THEN 'M'
+                                            ELSE '?' END)
    END AS result;
 
 CREATE OR REPLACE RULE "_DELETE" AS
