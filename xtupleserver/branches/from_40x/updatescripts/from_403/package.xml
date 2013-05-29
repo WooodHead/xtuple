@@ -17,8 +17,10 @@
   <initscript file="initUpgrade.sql" />
 
   <script file="functions/avgcost.sql" />
+  <script file="functions/createuser.sql" />
   <script file="functions/fetchnextnumber.sql" />
   <script file="functions/itemipsprice.sql" />
+  <script file="functions/setusercancreateusers.sql" />
 
   <loadmetasql file="metasql/itemReceipt-populateEdit.mql" />
   <loadmetasql file="metasql/itemReceipt-populateNew.mql" />
