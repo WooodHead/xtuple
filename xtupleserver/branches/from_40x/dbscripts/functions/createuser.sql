@@ -4,9 +4,9 @@ CREATE OR REPLACE FUNCTION createUser(pUsername TEXT, pCreateUsers BOOLEAN) RETU
 -- See www.xtuple.com/CPAL for the full text of the software license.
 BEGIN
   IF (pCreateUsers) THEN
-    EXECUTE 'CREATE USER ' || pUsername || ' CREATEROLE   IN GROUP xtrole;';
+    EXECUTE 'CREATE USER "' || pUsername || '" CREATEROLE   IN GROUP xtrole;';
   ELSE
-    EXECUTE 'CREATE USER ' || pUsername || ' NOCREATEROLE IN GROUP xtrole;';
+    EXECUTE 'CREATE USER "' || pUsername || '" NOCREATEROLE IN GROUP xtrole;';
   END IF;
   RETURN 1;
 END;
