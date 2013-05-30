@@ -1,0 +1,13 @@
+SELECT dropIfExists('FUNCTION', 'createCrmAcct(text, text, boolean, text, integer, integer, integer, integer, integer, integer, integer)');
+SELECT dropIfExists('FUNCTION', 'createCrmAcct(text, text, boolean, text, integer, integer, integer, integer, integer, integer, integer, integer)');
+SELECT dropIfExists('FUNCTION', 'createCrmAcct(text, text, boolean, text, integer, integer, integer, integer, integer, integer, integer, integer, integer, integer, text)');
+SELECT dropIfExists('FUNCTION', 'deleteCrmAccount(integer)');
+SELECT dropIfExists('FUNCTION', 'crmAcctNumberUsed(TEXT, INTEGER)');
+SELECT dropIfExists('FUNCTION', 'createProspectsFromCRMAccts()');
+SELECT dropIfExists('FUNCTION', 'deleteSalesRep(INTEGER)');
+SELECT dropIfExists('FUNCTION', 'deleteCustomer(INTEGER)');
+SELECT dropIfExists('FUNCTION', 'deleteEmp(INTEGER)');
+SELECT dropIfExists('FUNCTION', 'deleteProspect(INTEGER)');
+SELECT dropIfExists('FUNCTION', 'deleteTaxAuthority(INTEGER)');
+SELECT dropIfExists('FUNCTION', 'deleteVendor(INTEGER)');
+SELECT dropIfExists('FUNCTION', 'createProspect(INTEGER)');
