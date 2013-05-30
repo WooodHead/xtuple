@@ -14,6 +14,7 @@ SELECT dropIfExists('VIEW', 'contact', 'api');
     crmacct_number AS crm_account,
     cntct_active AS active,
     cntct_title AS job_title,
+    cntct_owner_username AS owner,
     cntct_phone AS voice,
     cntct_phone2 AS alternate,
     cntct_fax AS fax,
