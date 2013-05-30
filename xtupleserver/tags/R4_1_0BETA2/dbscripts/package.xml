@@ -1,0 +1,2068 @@
+<package id        = "from400beta2to400beta3"
+         version   = "4.0.0Beta3"
+         developer = "xTuple"
+         descrip   = "load PostBooks resources"
+         updater   = "2.2.4" >
+
+  <prerequisite type = "query"
+                name = "Checking xTuple Edition" >
+    <query>SELECT fetchMetricText('Application') = 'PostBooks';</query>
+    <message>This package must be applied to a PostBooks database.</message>
+  </prerequisite>
+
+  <prerequisite type = "query"
+                name = "Checking xTuple ERP database version" >
+    <query>SELECT fetchMetricText('ServerVersion') IN ('4.0.0Beta2',
+                                                       '.4.0.0Beta2-4.0.0Beta3');
+    </query>
+    <message>This package must be applied to a 4.0.0Beta2 PostBooks database.
+    </message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for empty country names and abbreviations " >
+    <query>SELECT NOT EXISTS(SELECT 1 FROM country WHERE country_abbr = '' OR country_name = '');</query>
+    <message>
+      The country table has at least one record with a blank abbreviation or country name.
+      Please update this table so all countries have their standard ISO abbreviations
+      and a valid, unique name.
+    </message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Characteristic names" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), char_name FROM "char" GROUP BY char_name HAVING COUNT(*) > 1);</query>
+  <message>The char table (characteristics) has duplicate values in the char_name column. Please check Products > Setup > Characteristics and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Address numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), addr_number FROM addr GROUP BY addr_number HAVING COUNT(*) > 1);</query>
+  <message>The addr table has duplicate values in the addr_number column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate CSV Atlas mappings" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), atlasmap_name FROM atlasmap GROUP BY atlasmap_name HAVING COUNT(*) > 1);</query>
+  <message>The atlasmap table has duplicate values in the atlasmap_name column. Please check System > Setup > Import/Export > Import Settings > CSV Import Options and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Bank Account names" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), bankaccnt_name FROM bankaccnt GROUP BY bankaccnt_name HAVING COUNT(*) > 1);</query>
+  <message>The bankaccnt table has duplicate values in the bankaccnt_name column. Please check Accounting > Setup > Bank Accounts and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Bank Adjustment Types" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), bankadjtype_name FROM bankadjtype GROUP BY bankadjtype_name HAVING COUNT(*) > 1);</query>
+  <message>The bankadj table has duplicate values in the bankadjtype_name column. Please check Accounting > Setup > Bank Adjustment Types and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Budget names" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), budghead_name FROM budghead GROUP BY budghead_name HAVING COUNT(*) > 1);</query>
+  <message>The budghead table has duplicate values in the budghead_name column. Please check Accounting > Budget > List Budgets and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Calendar names" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), calhead_name FROM calhead GROUP BY calhead_name HAVING COUNT(*) > 1);</query>
+  <message>The calhead table has duplicate values in the calhead_name column. Please check System > Setup > Calendars and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Cash Receipt numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), cashrcpt_number FROM cashrcpt GROUP BY cashrcpt_number HAVING COUNT(*) > 1);</query>
+  <message>The cashrcpt table has duplicate values in the cashrcpt_number column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Class Codes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), classcode_code FROM classcode GROUP BY classcode_code HAVING COUNT(*) > 1);</query>
+  <message>The classcode table has duplicate values in the classcode_code column. Please check Products > Setup > Class Codes and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Credit Memo numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), cmhead_number FROM cmhead GROUP BY cmhead_number HAVING COUNT(*) > 1);</query>
+  <message>The cmhead table has duplicate values in the cmhead_number column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Comment Type names" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), cmnttype_name FROM cmnttype GROUP BY cmnttype_name HAVING COUNT(*) > 1);</query>
+  <message>The cmnttype table has duplicate values in the cmnttype_name column. Please check System > Setup > Comment Types and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Sales Order numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), cohead_number FROM cohead GROUP BY cohead_number HAVING COUNT(*) > 1);</query>
+  <message>The cohead table has duplicate values in the cohead_number column. Please check Sales > Analysis > Sales History and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Company numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), company_number FROM company GROUP BY company_number HAVING COUNT(*) > 1);</query>
+  <message>The company table has duplicate values in the company_number column. Please check Accounting > Account > Companies and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Cost Categories" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), costcat_code FROM costcat GROUP BY costcat_code HAVING COUNT(*) > 1);</query>
+  <message>The costcat table has duplicate values in the costcat_code column. Please check Inventory > Setup > Cost Categories and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Costing Elements" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), costelem_type FROM costelem GROUP BY costelem_type HAVING COUNT(*) > 1);</query>
+  <message>The costelem table has duplicate values in the costelem_type column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate CRM Account numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), crmacct_number FROM crmacct GROUP BY crmacct_number HAVING COUNT(*) > 1);</query>
+  <message>The crmacct table has duplicate values in the crmacct_number column. Please check CRM > Account > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Customer Groups" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), custgrp_name FROM custgrp GROUP BY custgrp_name HAVING COUNT(*) > 1);</query>
+  <message>The custgrp table has duplicate values in the custgrp_name column. Please check Sales > Customer > Groups and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Customers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), cust_number FROM custinfo GROUP BY cust_number HAVING COUNT(*) > 1);</query>
+  <message>The custinfo table has duplicate values in the cust_number column. Please check Sales > Customer > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Customer Types" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), custtype_code FROM custtype GROUP BY custtype_code HAVING COUNT(*) > 1);</query>
+  <message>The custtype table has duplicate values in the custtype_code column. Please check Sales > Setup > Customer Types and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Departments" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), dept_number FROM dept GROUP BY dept_number HAVING COUNT(*) > 1);</query>
+  <message>The dept table has duplicate values in the dept_number column. Please check System > Setup > Departments and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Employee codes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), emp_code FROM emp GROUP BY emp_code HAVING COUNT(*) > 1);</query>
+  <message>The emp table has duplicate values in the emp_code column. Please check System > Employees > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Employee numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), emp_number FROM emp GROUP BY emp_number HAVING COUNT(*) > 1);</query>
+  <message>The emp table has duplicate values in the emp_number column. Please check System > Employees > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Employee Groups" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), empgrp_name FROM empgrp GROUP BY empgrp_name HAVING COUNT(*) > 1);</query>
+  <message>The empgrp table has duplicate values in the empgrp_name column. Please check System > Employees > Employee Groups and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Expense Categories" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), expcat_code FROM expcat GROUP BY expcat_code HAVING COUNT(*) > 1);</query>
+  <message>The expcat table has duplicate values in the expcat_code column. Please check Inventory > Setup > Expense Categories and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Financial Report names" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), flhead_name FROM flhead GROUP BY flhead_name HAVING COUNT(*) > 1);</query>
+  <message>The flhead table has duplicate values in the flhead_name column. Please check Accounting > Financial Statements > List Financial Reports and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Forms" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), form_name FROM form GROUP BY form_name HAVING COUNT(*) > 1);</query>
+  <message>The form table has duplicate values in the form_name column. Please check System > Setup > Forms and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Freight Classes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), freightclass_code FROM freightclass GROUP BY freightclass_code HAVING COUNT(*) > 1);</query>
+  <message>The freightclass table has duplicate values in the freightclass_code column. Please check Products > Setup > Freight Classes and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Groups" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), grp_name FROM grp GROUP BY grp_name HAVING COUNT(*) > 1);</query>
+  <message>The grp table has duplicate values in the grp_name column. Please check System > Maintain Roles and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Titles" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), hnfc_code FROM hnfc GROUP BY hnfc_code HAVING COUNT(*) > 1);</query>
+  <message>The hnfc table has duplicate values in the hnfc_code column. Please check CRM > Setup > Titles and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Incident Categories" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), incdtcat_name FROM incdtcat GROUP BY incdtcat_name HAVING COUNT(*) > 1);</query>
+  <message>The incdtcat table has duplicate values in the incdtcat_name column. Please check CRM > Setup > Incident Categories and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Incident Priorities" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), incdtpriority_name FROM incdtpriority GROUP BY incdtpriority_name HAVING COUNT(*) > 1);</query>
+  <message>The incdtpriority table has duplicate values in the incdtpriority_name column. Please check CRM > Setup > Incident Priorities and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Incident Resolutions" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), incdtresolution_name FROM incdtresolution GROUP BY incdtresolution_name HAVING COUNT(*) > 1);</query>
+  <message>The incdtresolution table has duplicate values in the incdtresolution_name column. Please check CRM > Setup > Incident Resolutions and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Incident Severities" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), incdtseverity_name FROM incdtseverity GROUP BY incdtseverity_name HAVING COUNT(*) > 1);</query>
+  <message>The incdtseverity table has duplicate values in the incdtseverity_name column. Please check CRM > Setup > Incident Severities and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Invoice Numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), invchead_invcnumber FROM invchead GROUP BY invchead_invcnumber HAVING COUNT(*) > 1);</query>
+  <message>The invchead table has duplicate values in the invchead_number column. Please check Accounting > Accounts Receivable > Reports > Invoice Register and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Pricing Schedules" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), ipshead_name FROM ipshead GROUP BY ipshead_name HAVING COUNT(*) > 1);</query>
+  <message>The ipshead table has duplicate values in the ipshead_name column. Please check Sales > Pricing > Pricing Schedules and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Item numbers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), item_number FROM item GROUP BY item_number HAVING COUNT(*) > 1);</query>
+  <message>The item table has duplicate values in the item_number column. Please check Products > Item > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Item Groups" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), itemgrp_name FROM itemgrp GROUP BY itemgrp_name HAVING COUNT(*) > 1);</query>
+  <message>The itemgrp table has duplicate values in the itemgrp_name column. Please check Products > Item > Groups and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Label Forms" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), labelform_name FROM labelform GROUP BY labelform_name HAVING COUNT(*) > 1);</query>
+  <message>The labelform table has duplicate values in the labelform_name column. Please check System > Setup > Label Forms and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Locales" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), locale_code FROM locale GROUP BY locale_code HAVING COUNT(*) > 1);</query>
+  <message>The locale table has duplicate values in the locale_code column. Please check System > Setup > Locales and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Metrics" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), metric_name FROM metric GROUP BY metric_name HAVING COUNT(*) > 1);</query>
+  <message>The metric table has duplicate values in the metric_name column. Please check remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Encrypted Metrics" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), metricenc_name FROM metricenc GROUP BY metricenc_name HAVING COUNT(*) > 1);</query>
+  <message>The metricenc table has duplicate values in the metricenc_name column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Opportunities" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), ophead_number FROM ophead GROUP BY ophead_number HAVING COUNT(*) > 1);</query>
+  <message>The ophead table has duplicate values in the ophead_number column. Please check CRM > Opportunities > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Opportunity Sources" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), opsource_name FROM opsource GROUP BY opsource_name HAVING COUNT(*) > 1);</query>
+  <message>The opsource table has duplicate values in the opsource_name column. Please check CRM > Setup > Opportunity Sources and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Opportunity Stages" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), opstage_name FROM opstage GROUP BY opstage_name HAVING COUNT(*) > 1);</query>
+  <message>The opstage table has duplicate values in the opstage_name column. Please check CRM > Setup > Opportunity Stages and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Opportunity Types" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), optype_name FROM optype GROUP BY optype_name HAVING COUNT(*) > 1);</query>
+  <message>The optype table has duplicate values in the optype_name column. Please check CRM > Setup > Opportunity Types and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Order Sequences" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), orderseq_name FROM orderseq GROUP BY orderseq_name HAVING COUNT(*) > 1);</query>
+  <message>The orderseq table has duplicate values in the orderseq_name column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Packages" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), pkghead_name FROM pkghead GROUP BY pkghead_name HAVING COUNT(*) > 1);</query>
+  <message>The pkghead table has duplicate values in the pkghead_name column. Please check System > Design > Packages and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Planner Codes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), plancode_code FROM plancode GROUP BY plancode_code HAVING COUNT(*) > 1);</query>
+  <message>The plancode table has duplicate values in the plancode_code column. Please check Schedule > Setup > Planner Codes and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Purchase Orders" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), pohead_number FROM pohead GROUP BY pohead_number HAVING COUNT(*) > 1);</query>
+  <message>The pohead table has duplicate values in the pohead_number column. Please check Purchase > Reports > Purchase Order History and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Profit Centers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), prftcntr_number FROM prftcntr GROUP BY prftcntr_number HAVING COUNT(*) > 1);</query>
+  <message>The prftcntr table has duplicate values in the prftcntr_number column. Please check Accounting > Account > Profit Center Numbers and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Projects" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), prj_number FROM prj GROUP BY prj_number HAVING COUNT(*) > 1);</query>
+  <message>The prj table has duplicate values in the prj_number column. Please check CRM > Projects > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Product Categories" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), prodcat_code FROM prodcat GROUP BY prodcat_code HAVING COUNT(*) > 1);</query>
+  <message>The prodcat table has duplicate values in the prodcat_code column. Please check Products > Setup > Product Categories and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Prospects" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), prospect_number FROM prospect GROUP BY prospect_number HAVING COUNT(*) > 1);</query>
+  <message>The prospect table has duplicate values in the prospect_number column. Please check Sales > Prospect > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Query Sets" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), qryhead_name FROM qryhead GROUP BY qryhead_name HAVING COUNT(*) > 1);</query>
+  <message>The qryhead table has duplicate values in the qryhead_name column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Quotes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), quhead_number FROM quhead GROUP BY quhead_number HAVING COUNT(*) > 1);</query>
+  <message>The quhead table has duplicate values in the quhead_number column. Please check Sales > Quote > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Rejection Codes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), rjctcode_code FROM rjctcode GROUP BY rjctcode_code HAVING COUNT(*) > 1);</query>
+  <message>The rjctcode table has duplicate values in the rjctcode_code column. Please check Purchase > Setup > Reject Codes and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Reason Codes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), rsncode_code FROM rsncode GROUP BY rsncode_code HAVING COUNT(*) > 1);</query>
+  <message>The rsncode table has duplicate values in the rsncode_code column. Please check Accounting > Setup > Reason Codes and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Sales" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), sale_name FROM sale GROUP BY sale_name HAVING COUNT(*) > 1);</query>
+  <message>The sale table has duplicate values in the sale_name column. Please check Sales > Pricing > Sales and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Sales Categories" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), salescat_name FROM salescat GROUP BY salescat_name HAVING COUNT(*) > 1);</query>
+  <message>The salescat table has duplicate values in the salescat column. Please check Sales > Setup > Sales Categories and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Sales Reps" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), salesrep_number FROM salesrep GROUP BY salesrep_number HAVING COUNT(*) > 1);</query>
+  <message>The salesrep table has duplicate values in the salesrep_number column. Please check Sales > Setup > Sales Reps and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate parts of the Search Path" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), schemaord_name FROM schemaord GROUP BY schemaord_name HAVING COUNT(*) > 1);</query>
+  <message>The schemaord table has duplicate values in the schemaord_name column. Please check System > Setup > Search Path and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Shifts" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), shift_number FROM shift GROUP BY shift_number HAVING COUNT(*) > 1);</query>
+  <message>The shift table has duplicate values in the shift_number column. Please check Products > Setup > Shifts and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Shipping Charges" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), shipchrg_name FROM shipchrg GROUP BY shipchrg_name HAVING COUNT(*) > 1);</query>
+  <message>The shipchrg table has duplicate values in the shipchrg_name column. Please check Sales > Setup > Shipping Charge Types and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Shipping Forms" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), shipform_name FROM shipform GROUP BY shipform_name HAVING COUNT(*) > 1);</query>
+  <message>The shipform table has duplicate values in the shipform_name column. Please check Sales > Setup > Shipping Forms and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Shipments" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), shiphead_number FROM shiphead GROUP BY shiphead_number HAVING COUNT(*) > 1);</query>
+  <message>The shiphead table has duplicate values in the shiphead_number column. Please check Inventory > Shipping > Reports > Shipments > By Date and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Ship-Vias" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), shipvia_code FROM shipvia GROUP BY shipvia_code HAVING COUNT(*) > 1);</query>
+  <message>The shipvia table has duplicate values in the shipvia_code column. Please check Sales > Setup > Ship Vias and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Shipping Zones" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), shipzone_name FROM shipzone GROUP BY shipzone_name HAVING COUNT(*) > 1);</query>
+  <message>The shipzone table has duplicate values in the shipzone_name column. Please check Sales > Setup > Shipping Zones and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Site Types" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), sitetype_name FROM sitetype GROUP BY sitetype_name HAVING COUNT(*) > 1);</query>
+  <message>The sitetype table has duplicate values in the sitetype_name column. Please check Inventory > Setup > Site Types and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Sources" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), source_name FROM source GROUP BY source_name HAVING COUNT(*) > 1);</query>
+  <message>The source table has duplicate values in the source_name column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Standard Journal names" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), stdjrnl_name FROM stdjrnl GROUP BY stdjrnl_name HAVING COUNT(*) > 1);</query>
+  <message>The stdjrnl table has duplicate values in the stdjrnl_name column. Please check Accounting > General Ledger > Standard Journals > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Standard Journal Groups" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), stdjrnlgrp_name FROM stdjrnlgrp GROUP BY stdjrnlgrp_name HAVING COUNT(*) > 1);</query>
+  <message>The stdjrnlgrp table has duplicate values in the stdjrnlgrp_name column. Please check Accounting > General Ledger > Standard Journals > List Groups and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Subaccounts" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), subaccnt_number FROM subaccnt GROUP BY subaccnt_number HAVING COUNT(*) > 1);</query>
+  <message>The subaccnt table has duplicate values in the subaccnt_number column. Please check Accounting > Account > Subaccount Numbers and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Tax Codes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), tax_code FROM tax GROUP BY tax_code HAVING COUNT(*) > 1);</query>
+  <message>The tax table has duplicate values in the tax_code column. Please check Accounting > Tax > Tax Codes and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Tax Authorities" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), taxauth_code FROM taxauth GROUP BY taxauth_code HAVING COUNT(*) > 1);</query>
+  <message>The taxauth table has duplicate values in the taxauth_code column. Please check Accounting > Tax > Tax Authorities and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Tax Classes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), taxclass_code FROM taxclass GROUP BY taxclass_code HAVING COUNT(*) > 1);</query>
+  <message>The taxclass table has duplicate values in the taxclass_code column. Please check Accounting > Tax > Tax Classes and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Tax Types" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), taxtype_name FROM taxtype GROUP BY taxtype_name HAVING COUNT(*) > 1);</query>
+  <message>The taxtype table has duplicate values in the taxtype_name column. Please check Accounting > Tax > Tax Types and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Tax Zones" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), taxzone_code FROM taxzone GROUP BY taxzone_code HAVING COUNT(*) > 1);</query>
+  <message>The taxzone table has duplicate values in the taxzone_code column. Please check Accounting > Tax > Tax Zones and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Terms codes" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), terms_code FROM terms GROUP BY terms_code HAVING COUNT(*) > 1);</query>
+  <message>The terms table has duplicate values in the terms_code column. Please check Terms under Purchase > Setup, Sales > Setup, or Accounting > Setup, and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Units of Measure" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), uom_name FROM uom GROUP BY uom_name HAVING COUNT(*) > 1);</query>
+  <message>The uom table has duplicate values in the uom_name column. Please check Products > Setup > Units of Measure and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Unit of Measure Types" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), uomtype_name FROM uomtype GROUP BY uomtype_name HAVING COUNT(*) > 1);</query>
+  <message>The uomtype table has duplicate values in the uomtype_name column. Please remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Vendors" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), vend_number FROM vendinfo GROUP BY vend_number HAVING COUNT(*) > 1);</query>
+  <message>The vendinfo table has duplicate values in the vend_number column. Please check Purchase > Vendor > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Vendor Types" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), vendtype_code FROM vendtype GROUP BY vendtype_code HAVING COUNT(*) > 1);</query>
+  <message>The vendtype table has duplicate values in the vendtype_code column. Please check Purchase > Setup > Vendor Types and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Vouchers" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), vohead_number FROM vohead GROUP BY vohead_number HAVING COUNT(*) > 1);</query>
+  <message>The vohead table has duplicate values in the vohead_number column. Please check Accounting > Accounts Payable > Reports > Voucher Register and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <prerequisite type = "query" name = "Checking for duplicate Sites" >
+  <query>SELECT NOT EXISTS(SELECT COUNT(*), warehous_code FROM whsinfo GROUP BY warehous_code HAVING COUNT(*) > 1);</query>
+  <message>The whsinfo table has duplicate values in the warehous_code column. Please check Inventory > Site > List and remove or change these duplicates before upgrading.</message>
+  </prerequisite>
+
+  <initscript file = "initUpgrade.sql" />
+  <initscript file = "fixDuplicateEventTypeNames.sql" />
+
+  <script file="createContrct.sql" />
+  <script file="createSaletype.sql" />
+  <script file="alterCmhead.sql" />
+  <script file="alterCohead.sql" />
+  <script file="alterCohist.sql" />
+  <script file="alterCoitem.sql" />
+  <script file="alterInvchead.sql" />
+  <script file="alterInvhistexpcatSeq.sql" />
+  <script file="alterIpsiteminfo.sql" />
+  <script file="alterItem.sql" />
+  <script file="alterItemsrc.sql" />
+  <script file="alterItemsrcp.sql" />
+  <script file="alterPrecision.sql" />
+  <script file="alterQuhead.sql" />
+  <script file="alterQuitem.sql" />
+  <script file="alterSalesaccnt.sql" />
+  <script file="deletePriv.sql" />
+  <script file="dropOldIps.sql" />
+  <script file="dropOldViews.sql" />
+  <script file="fixNonUniqueCodes.sql" />
+  <script file="insertEvnttype.sql" />
+  <script file="insertPriv.sql" />
+  <script file="insertState.sql" />
+  <script file="uniqueCodes.sql" />
+
+
+  <createfunction file="api/functions/getcustnumberfrominfo.sql"      name="getcustnumberfrominfo"	schema="api" />
+  <createfunction file="api/functions/insertphysinvcount.sql"         name="insertphysinvcount"	        schema="api" />
+  <createfunction file="api/functions/insertsalesline.sql"            name="insertsalesline"	        schema="api" />
+  <createfunction file="functions/acknowledgemessage.sql"             name="acknowledgemessage" />
+  <createfunction file="functions/actcost.sql"                        name="actcost" />
+  <createfunction file="functions/addrusecount.sql"                   name="addrusecount" />
+  <createfunction file="functions/addtaxtoglseries.sql"               name="addtaxtoglseries" />
+  <createfunction file="functions/addtopackinglistbatch.sql"          name="addtopackinglistbatch" />
+  <createfunction file="functions/adjustinvvalue.sql"                 name="adjustinvvalue" />
+  <createfunction file="functions/adjustments.sql"                    name="adjustments" />
+  <createfunction file="functions/allocatedforso.sql"                 name="allocatedforso" />
+  <createfunction file="functions/allocatedforwo.sql"                 name="allocatedforwo" />
+  <createfunction file="functions/alterencrypt.sql"                   name="alterencrypt" />
+  <createfunction file="functions/apaging.sql"                        name="apaging" />
+  <createfunction file="functions/apapplied.sql"                      name="apapplied" />
+  <createfunction file="functions/apcheckpending.sql"                 name="apcheckpending" />
+  <createfunction file="functions/apcurrgain.sql"                     name="apcurrgain" />
+  <createfunction file="functions/applyapcreditmemotobalance.sql"     name="applyapcreditmemotobalance" />
+  <createfunction file="functions/applyapcredits.sql"                 name="applyapcredits" />
+  <createfunction file="functions/applyarcreditmemotobalance.sql"     name="applyarcreditmemotobalance" />
+  <createfunction file="functions/applycashreceiptlinebalance.sql"    name="applycashreceiptlinebalance" />
+  <createfunction file="functions/applycashreceipttobalance.sql"      name="applycashreceipttobalance" />
+  <createfunction file="functions/araging.sql"                        name="araging" />
+  <createfunction file="functions/arapplied.sql"                      name="arapplied" />
+  <createfunction file="functions/archivesaleshistory.sql"            name="archivesaleshistory" />
+  <createfunction file="functions/arcurrgain.sql"                     name="arcurrgain" />
+  <createfunction file="functions/asofinvbal.sql"                     name="asofinvbal" />
+  <createfunction file="functions/asofinvnn.sql"                      name="asofinvnn" />
+  <createfunction file="functions/asofinvqty.sql"                     name="asofinvqty" />
+  <createfunction file="functions/attachcontact.sql"                  name="attachcontact" />
+  <createfunction file="functions/attachquotetoopportunity.sql"       name="attachquotetoopportunity" />
+  <createfunction file="functions/attachsalesordertoopportunity.sql"  name="attachsalesordertoopportunity" />
+  <createfunction file="functions/averagesalesprice.sql"              name="averagesalesprice" />
+  <createfunction file="functions/avgcost.sql"                        name="avgcost" />
+  <createfunction file="functions/balanceitemsite.sql"                name="balanceitemsite" />
+  <createfunction file="functions/basecurrid.sql"                     name="basecurrid" />
+  <createfunction file="functions/bomcontains.sql"                    name="bomcontains" />
+  <createfunction file="functions/bomhistsequence.sql"                name="bomhistsequence" />
+  <createfunction file="functions/bomitem.sql"                        name="bomitem" />
+  <createfunction file="functions/bomlevelbyitem.sql"                 name="bomlevelbyitem" />
+  <createfunction file="functions/bomworkeffective.sql"               name="bomworkeffective" />
+  <createfunction file="functions/bomworkexpired.sql"                 name="bomworkexpired" />
+  <createfunction file="functions/bomworkitemsequence.sql"            name="bomworkitemsequence" />
+  <createfunction file="functions/bomworksequence.sql"                name="bomworksequence" />
+  <createfunction file="functions/buildinvbal.sql"                    name="buildinvbal" />
+  <createfunction file="functions/buildsearchpath.sql"                name="buildsearchpath" />
+  <createfunction file="functions/calcbillingamts.sql"                name="calccobillamt" />
+  <createfunction file="functions/calccashbudget.sql"                 name="calccashbudget" />
+  <createfunction file="functions/calccreditmemoamts.sql"             name="calccmheadamt" />
+  <createfunction file="functions/calcpendingarapplications.sql"      name="calcpendingarapplications" />
+  <createfunction file="functions/calcquoteamt.sql"                   name="calcquoteamt" />
+  <createfunction file="functions/calcsalesorderamt.sql"              name="calcsalesorderamt" />
+  <createfunction file="functions/calcshipfreight.sql"                name="calcshipfreight" />
+  <createfunction file="functions/calctotalslipqty.sql"               name="calctotalslipqty" />
+  <createfunction file="functions/calculatefreightdetail.sql"         name="calculatefreightdetail" />
+  <createfunction file="functions/calculatesubtax.sql"                name="calculatesubtax" />
+  <createfunction file="functions/calculatetax.sql"                   name="calculatetax" />
+  <createfunction file="functions/calculatetaxdetail.sql"             name="calculatetaxdetail" />
+  <createfunction file="functions/calculatetaxdetailline.sql"         name="calculatetaxdetailline" />
+  <createfunction file="functions/calculatetaxdetailsummary.sql"      name="calculatetaxdetailsummary" />
+  <createfunction file="functions/calculatetaxhist.sql"               name="calculatetaxhist" />
+  <createfunction file="functions/calcvoucheramts.sql"                name="calcvoucheramt" />
+  <createfunction file="functions/calcwooperstartstub.sql"            name="calcwooperstartstub" />
+  <createfunction file="functions/cancelbillingselection.sql"         name="cancelbillingselection" />
+  <createfunction file="functions/changeaccountingperioddates.sql"    name="changeaccountingperioddates" />
+  <createfunction file="functions/changeaccountingyearperioddates.sql" name="changeaccountingyearperioddates" />
+  <createfunction file="functions/changefkeypointers.sql"             name="changefkeypointers" />
+  <createfunction file="functions/changepoitemduedate.sql"            name="changepoitemduedate" />
+  <createfunction file="functions/changepoitemqty.sql"                name="changepoitemqty" />
+  <createfunction file="functions/changeprdate.sql"                   name="changeprdate" />
+  <createfunction file="functions/changeprqty.sql"                    name="changeprqty" />
+  <createfunction file="functions/changepseudofkeypointers.sql"       name="changepseudofkeypointers" />
+  <createfunction file="functions/changewodates.sql"                  name="changewodates" />
+  <createfunction file="functions/changewoproject.sql"                name="changewoproject" />
+  <createfunction file="functions/changewoqty.sql"                    name="changewoqty" />
+  <createfunction file="functions/characteristicstostring.sql"        name="characteristicstostring" />
+  <createfunction file="functions/checkcreditmemositeprivs.sql"       name="checkcreditmemositeprivs" />
+  <createfunction file="functions/checkdetailformatted.sql"           name="checkdetailformatted" />
+  <createfunction file="functions/checkinvoicesiteprivs.sql"          name="checkinvoicesiteprivs" />
+  <createfunction file="functions/checkpositeprivs.sql"               name="checkpositeprivs" />
+  <createfunction file="functions/checkprivilege.sql"                 name="checkprivilege" />
+  <createfunction file="functions/checkquotesiteprivs.sql"            name="checkquotesiteprivs" />
+  <createfunction file="functions/checkrasiteprivs.sql"               name="checkrasiteprivs" />
+  <createfunction file="functions/checkshipmentsiteprivs.sql"         name="checkshipmentsiteprivs" />
+  <createfunction file="functions/checksositeprivs.sql"               name="checksositeprivs" />
+  <createfunction file="functions/checkvouchersiteprivs.sql"          name="checkvouchersiteprivs" />
+  <createfunction file="functions/clearnumberissue.sql"               name="clearnumberissue" />
+  <createfunction file="functions/clearpayment.sql"                   name="clearpayment" />
+  <createfunction file="functions/closeaccountingperiod.sql"          name="closeaccountingperiod" />
+  <createfunction file="functions/closeaccountingyearperiod.sql"      name="closeaccountingyearperiod" />
+  <createfunction file="functions/closepo.sql"                        name="closepo" />
+  <createfunction file="functions/closewo.sql"                        name="closewo" />
+  <createfunction file="functions/cntct.sql"                          name="cntct" />
+  <createfunction file="functions/cntctdups.sql"                      name="cntctdups" />
+  <createfunction file="functions/cntctmerge.sql"                     name="cntctmerge" />
+  <createfunction file="functions/cntctrestore.sql"                   name="cntctrestore" />
+  <createfunction file="functions/cntctselect.sql"                    name="cntctselect" />
+  <createfunction file="functions/cntctselectcol.sql"                 name="cntctselectcol" />
+  <createfunction file="functions/cntctused.sql"                      name="cntctused" />
+  <createfunction file="functions/coheadstatecolor.sql"               name="coheadstatecolor" />
+  <createfunction file="functions/concatagg.sql"                      name="concatagg" />
+  <createfunction file="functions/consolidatelocations.sql"           name="consolidatelocations" />
+  <createfunction file="functions/convertcustomertoprospect.sql"      name="convertcustomertoprospect" />
+  <createfunction file="functions/convertprospecttocustomer.sql"      name="convertprospecttocustomer" />
+  <createfunction file="functions/convertquote.sql"                   name="convertquote" />
+  <createfunction file="functions/convertquotetoinvoice.sql"          name="convertquotetoinvoice" />
+  <createfunction file="functions/copybom.sql"                        name="copybom" />
+  <createfunction file="functions/copybudget.sql"                     name="copybudget" />
+  <createfunction file="functions/copycmd.sql"                        name="copycmd" />
+  <createfunction file="functions/copycontract.sql"                   name="copycontract" />
+  <createfunction file="functions/copyfinancialgroup.sql"             name="copyfinancialgroup" />
+  <createfunction file="functions/copyglseries.sql"                   name="copyglseries" />
+  <createfunction file="functions/copyincdt.sql"                      name="copyincdt" />
+  <createfunction file="functions/copyinvoice.sql"                    name="copyinvoice" />
+  <createfunction file="functions/copyitem.sql"                       name="copyitem" />
+  <createfunction file="functions/copyitemsite.sql"                   name="copyitemsite" />
+  <createfunction file="functions/copylocale.sql"                     name="copylocale" />
+  <createfunction file="functions/copypo.sql"                         name="copypo" />
+  <createfunction file="functions/copypricingschedule.sql"            name="copypricingschedule" />
+  <createfunction file="functions/copyprj.sql"                        name="copyprj" />
+  <createfunction file="functions/copyproject.sql"                    name="copyproject" />
+  <createfunction file="functions/copyquote.sql"                      name="copyquote" />
+  <createfunction file="functions/copyso.sql"                         name="copyso" />
+  <createfunction file="functions/copytodoitem.sql"                   name="copytodoitem" />
+  <createfunction file="functions/copyvoucher.sql"                    name="copyvoucher" />
+  <createfunction file="functions/correctporeceipt.sql"               name="correctporeceipt" />
+  <createfunction file="functions/correctproduction.sql"              name="correctproduction" />
+  <createfunction file="functions/correctreceipt.sql"                 name="correctreceipt" />
+  <createfunction file="functions/cosbycustomervalue.sql"             name="cosbycustomervalue" />
+  <createfunction file="functions/costsbycustomerbyitemsite.sql"      name="costsbycustomerbyitemsite" />
+  <createfunction file="functions/costsbycustomervalue.sql"           name="costsbycustomervalue" />
+  <createfunction file="functions/createaccountingperiod.sql"         name="createaccountingperiod" />
+  <createfunction file="functions/createaccountingyearperiod.sql"     name="createaccountingyearperiod" />
+  <createfunction file="functions/createapchecks.sql"                 name="createapchecks" />
+  <createfunction file="functions/createapcreditmemo.sql"             name="createapcreditmemo" />
+  <createfunction file="functions/createapcreditmemoapplication.sql"  name="createapcreditmemoapplication" />
+  <createfunction file="functions/createapdebitmemo.sql"              name="createapdebitmemo" />
+  <createfunction file="functions/createapdiscount.sql"               name="createapdiscount" />
+  <createfunction file="functions/createarcashdeposit.sql"            name="createarcashdeposit" />
+  <createfunction file="functions/createarcreditmemo.sql"             name="createarcreditmemo" />
+  <createfunction file="functions/createardebitmemo.sql"              name="createardebitmemo" />
+  <createfunction file="functions/createbillingheader.sql"            name="createbillingheader" />
+  <createfunction file="functions/createbomitem.sql"                  name="createbomitem" />
+  <createfunction file="functions/createcheck.sql"                    name="createcheck" />
+  <createfunction file="functions/createchecks.sql"                   name="createchecks" />
+  <createfunction file="functions/createcounttag.sql"                 name="createcounttag" />
+  <createfunction file="functions/createcyclecountsbywarehouse.sql"   name="createcyclecountsbywarehouse" />
+  <createfunction file="functions/createcyclecountsbywarehousebyclasscode.sql"   name="createcyclecountsbywarehousebyclasscode" />
+  <createfunction file="functions/createcyclecountsbywarehousebyplannercode.sql" name="createcyclecountsbywarehousebyplannercode" />
+  <createfunction file="functions/createfile.sql"                     name="createfile" />
+  <createfunction file="functions/createinvoice.sql"                  name="createinvoice" />
+  <createfunction file="functions/createinvoiceconsolidated.sql"      name="createinvoiceconsolidated" />
+  <createfunction file="functions/createinvoices.sql"                 name="createinvoices" />
+  <createfunction file="functions/createmiscapcheck.sql"              name="createmiscapcheck" />
+  <createfunction file="functions/createpkgschema.sql"                name="createpkgschema" />
+  <createfunction file="functions/createpr.sql"                       name="createpr" />
+  <createfunction file="functions/createpriv.sql"                     name="createpriv" />
+  <createfunction file="functions/createpurchasetosale.sql"           name="createpurchasetosale" />
+  <createfunction file="functions/createrecurringinvoices.sql"        name="createrecurringinvoices" />
+  <createfunction file="functions/createrecurringitems.sql"           name="createrecurringitems" />
+  <createfunction file="functions/createtodoitem.sql"                 name="createtodoitem" />
+  <createfunction file="functions/createurl.sql"                      name="createurl" />
+  <createfunction file="functions/createuser.sql"                     name="createuser" />
+  <createfunction file="functions/createwo.sql"                       name="createwo" />
+  <createfunction file="functions/createwomaterial.sql"               name="createwomaterial" />
+  <createfunction file="functions/creditmemototal.sql"                name="creditmemototal" />
+  <createfunction file="functions/crmacct.sql"                        name="crmacct" />
+  <createfunction file="functions/currconcat.sql"                     name="currconcat" />
+  <createfunction file="functions/currentapmemonumber.sql"            name="currentapmemonumber" />
+  <createfunction file="functions/currentarmemonumber.sql"            name="currentarmemonumber" />
+  <createfunction file="functions/currentcashrcptnumber.sql"          name="currentcashrcptnumber" />
+  <createfunction file="functions/currentnumber.sql"                  name="currentnumber" />
+  <createfunction file="functions/currgain.sql"                       name="currgain" />
+  <createfunction file="functions/currrate.sql"                       name="currrate" />
+  <createfunction file="functions/currtobase.sql"                     name="currtobase" />
+  <createfunction file="functions/currtocurr.sql"                     name="currtocurr" />
+  <createfunction file="functions/currtolocal.sql"                    name="currtolocal" />
+  <createfunction file="functions/custitem.sql"                       name="custitem" />
+  <createfunction file="functions/customercanpurchase.sql"            name="customercanpurchase" />
+  <createfunction file="functions/defaultlocationname.sql"            name="defaultlocationname" />
+  <createfunction file="functions/deleteaccount.sql"                  name="deleteaccount" />
+  <createfunction file="functions/deleteaccountingperiod.sql"         name="deleteaccountingperiod" />
+  <createfunction file="functions/deleteaccountingyearperiod.sql"     name="deleteaccountingyearperiod" />
+  <createfunction file="functions/deleteaddress.sql"                  name="deleteaddress" />
+  <createfunction file="functions/deleteapcheck.sql"                  name="deleteapcheck" />
+  <createfunction file="functions/deletebankadjustmenttype.sql"       name="deletebankadjustmenttype" />
+  <createfunction file="functions/deletebankreconciliation.sql"       name="deletebankreconciliation" />
+  <createfunction file="functions/deletebom.sql"                      name="deletebom" />
+  <createfunction file="functions/deletebomworkset.sql"               name="deletebomworkset" />
+  <createfunction file="functions/deletebudget.sql"                   name="deletebudget" />
+  <createfunction file="functions/deletebudgetitems.sql"              name="deletebudgetitems" />
+  <createfunction file="functions/deletecashrcpt.sql"                 name="deletecashrcpt" />
+  <createfunction file="functions/deletecharacteristic.sql"           name="deletecharacteristic" />
+  <createfunction file="functions/deletecheck.sql"                    name="deletecheck" />
+  <createfunction file="functions/deleteclasscode.sql"                name="deleteclasscode" />
+  <createfunction file="functions/deletecompany.sql"                  name="deletecompany" />
+  <createfunction file="functions/deletecreditmemo.sql"               name="deletecreditmemo" />
+  <createfunction file="functions/deletecustomer.sql"                 name="deletecustomer" />
+  <createfunction file="functions/deletecustomertype.sql"             name="deletecustomertype" />
+  <createfunction file="functions/deleteempgrp.sql"                   name="deleteempgrp" />
+  <createfunction file="functions/deleteexpiredips.sql"               name="deleteexpiredips" />
+  <createfunction file="functions/deletefile.sql"                     name="deletefile" />
+  <createfunction file="functions/deleteflgroup.sql"                  name="deleteflgrp" />
+  <createfunction file="functions/deleteform.sql"                     name="deleteform" />
+  <createfunction file="functions/deletefreightclass.sql"             name="deletefreightclass" />
+  <createfunction file="functions/deleteglseries.sql"                 name="deleteglseries" />
+  <createfunction file="functions/deleteincident.sql"                 name="deleteincident" />
+  <createfunction file="functions/deleteinvoice.sql"                  name="deleteinvoice" />
+  <createfunction file="functions/deleteipsitem.sql"                  name="deleteipsitem" />
+  <createfunction file="functions/deleteipsprodcat.sql"               name="deleteipsprodcat" />
+  <createfunction file="functions/deleteitem.sql"                     name="deleteitem" />
+  <createfunction file="functions/deleteitemcost.sql"                 name="deleteitemcost" />
+  <createfunction file="functions/deleteitemsite.sql"                 name="deleteitemsite" />
+  <createfunction file="functions/deleteitemuom.sql"                  name="deleteitemuom" />
+  <createfunction file="functions/deleteitemuomconv.sql"              name="deleteitemuomconv" />
+  <createfunction file="functions/deletelocation.sql"                 name="deletelocation" />
+  <createfunction file="functions/deletemetasql.sql"                  name="deletemetasql" />
+  <createfunction file="functions/deleteopenrecurringitems.sql"       name="deleteopenrecurringitems" />
+  <createfunction file="functions/deleteopportunity.sql"              name="deleteopportunity" />
+  <createfunction file="functions/deletepackage.sql"                  name="deletepackage" />
+  <createfunction file="functions/deletepo.sql"                       name="deletepo" />
+  <createfunction file="functions/deletepoitem.sql"                   name="deletepoitem" />
+  <createfunction file="functions/deletepr.sql"                       name="deletepr" />
+  <createfunction file="functions/deleteproductcategory.sql"          name="deleteproductcategory" />
+  <createfunction file="functions/deleteprofitcenter.sql"             name="deleteprofitcenter" />
+  <createfunction file="functions/deleteproject.sql"                  name="deleteproject" />
+  <createfunction file="functions/deleteprojecttask.sql"              name="deleteprojecttask" />
+  <createfunction file="functions/deleteqryhead.sql"                  name="deleteqryhead" />
+  <createfunction file="functions/deletequote.sql"                    name="deletequote" />
+  <createfunction file="functions/deleterecvfororder.sql"             name="deleterecvfororder" />
+  <createfunction file="functions/deletesalescategory.sql"            name="deletesalescategory" />
+  <createfunction file="functions/deletesaletype.sql"                 name="deletesaletype" />
+  <createfunction file="functions/deleteshippingcharge.sql"           name="deleteshippingcharge" />
+  <createfunction file="functions/deleteshippingchargetype.sql"       name="deleteshippingchargetype" />
+  <createfunction file="functions/deleteshipto.sql"                   name="deleteshipto" />
+  <createfunction file="functions/deleteso.sql"                       name="deleteso" />
+  <createfunction file="functions/deletesoitem.sql"                   name="deletesoitem" />
+  <createfunction file="functions/deletestandardjournal.sql"          name="deletestandardjournal" />
+  <createfunction file="functions/deletestandardjournalgroup.sql"     name="deletestandardjournalgroup" />
+  <createfunction file="functions/deletesubaccount.sql"               name="deletesubaccount" />
+  <createfunction file="functions/deletesubaccounttype.sql"           name="deletesubaccounttype" />
+  <createfunction file="functions/deletetax.sql"                      name="deletetax" />
+  <createfunction file="functions/deletetaxclass.sql"                 name="deletetaxclass" />
+  <createfunction file="functions/deletetaxtype.sql"                  name="deletetaxtype" />
+  <createfunction file="functions/deletetaxzone.sql"                  name="deletetaxzone" />
+  <createfunction file="functions/deletetodoitem.sql"                 name="deletetodoitem" />
+  <createfunction file="functions/deleteunusedclasscodes.sql"         name="deleteunusedclasscodes" />
+  <createfunction file="functions/deleteunusedfreightclasses.sql"     name="deleteunusedfreightclasses" />
+  <createfunction file="functions/deleteunusedproductcategories.sql"  name="deleteunusedproductcategories" />
+  <createfunction file="functions/deleteuom.sql"                      name="deleteuom" />
+  <createfunction file="functions/deleteuomconv.sql"                  name="deleteuomconv" />
+  <createfunction file="functions/deleteurl.sql"                      name="deleteurl" />
+  <createfunction file="functions/deleteuserpreference.sql"           name="deleteuserpreference" />
+  <createfunction file="functions/deletevendoraddr.sql"               name="deletevendoraddress" />
+  <createfunction file="functions/deletevendortype.sql"               name="deletevendortype" />
+  <createfunction file="functions/deletewo.sql"                       name="deletewo" />
+  <createfunction file="functions/deletewomaterial.sql"               name="deletewomaterial" />
+  <createfunction file="functions/detachccpayfromso.sql"              name="detachccpayfromso" />
+  <createfunction file="functions/detachcontact.sql"                  name="detachcontact" />
+  <createfunction file="functions/detag.sql"                          name="detag" />
+  <createfunction file="functions/detailednnqoh.sql"                  name="detailednnqoh" />
+  <createfunction file="functions/detailedqoh.sql"                    name="detailedqoh" />
+  <createfunction file="functions/determinediscountdate.sql"          name="determinediscountdate" />
+  <createfunction file="functions/determineduedate.sql"               name="determineduedate" />
+  <createfunction file="functions/disablepackage.sql"                 name="disablepackage" />
+  <createfunction file="functions/distributeitemlocseries.sql"        name="distributeitemlocseries" />
+  <createfunction file="functions/distributetodefault.sql"            name="distributetodefault" />
+  <createfunction file="functions/distributetodefaultitemloc.sql"     name="distributetodefaultitemloc" />
+  <createfunction file="functions/distributetolocations.sql"          name="distributetolocations" />
+  <createfunction file="functions/distributevoucherline.sql"          name="distributevoucherline" />
+  <createfunction file="functions/dopostcosts.sql"                    name="dopostcosts" />
+  <createfunction file="functions/doupdatecosts.sql"                  name="doupdatecosts" />
+  <createfunction file="functions/dropifexists.sql"                   name="dropifexists" />
+  <createfunction file="functions/editccnumber.sql"                   name="editccnumber" />
+  <createfunction file="functions/enablepackage.sql"                  name="enablepackage" />
+  <createfunction file="functions/endoftime.sql"                      name="endoftime" />
+  <createfunction file="functions/entercount.sql"                     name="entercount" />
+  <createfunction file="functions/enterporeceipt.sql"                 name="enterporeceipt" />
+  <createfunction file="functions/enterporeturn.sql"                  name="enterporeturn" />
+  <createfunction file="functions/enterreceipt.sql"                   name="enterreceipt" />
+  <createfunction file="functions/expirecreditcard.sql"               name="expirecreditcard" />
+  <createfunction file="functions/explodebom.sql"                     name="explodebom" />
+  <createfunction file="functions/explodekit.sql"                     name="explodekit" />
+  <createfunction file="functions/explodephantomorder.sql"            name="explodephantomorder" />
+  <createfunction file="functions/explodewo.sql"                      name="explodewo" />
+  <createfunction file="functions/explodewoeffective.sql"             name="explodewoeffective" />
+  <createfunction file="functions/fetchapmemonumber.sql"              name="fetchapmemonumber" />
+  <createfunction file="functions/fetcharmemonumber.sql"              name="fetcharmemonumber" />
+  <createfunction file="functions/fetchcashrcptnumber.sql"            name="fetchcashrcptnumber" />
+  <createfunction file="functions/fetchcmnumber.sql"                  name="fetchcmnumber" />
+  <createfunction file="functions/fetchcrmaccountnumber.sql"          name="fetchcrmaccountnumber" />
+  <createfunction file="functions/fetchdefaultfob.sql"                name="fetchdefaultfob" />
+  <createfunction file="functions/fetchdefaultshipvia.sql"            name="fetchdefaultshipvia" />
+  <createfunction file="functions/fetchglsequence.sql"                name="fetchglsequence" />
+  <createfunction file="functions/fetchincidentnumber.sql"            name="fetchincidentnumber" />
+  <createfunction file="functions/fetchinvcnumber.sql"                name="fetchinvcnumber" />
+  <createfunction file="functions/fetchitemuomconvtypes.sql"          name="fetchitemuomconvtypes" />
+  <createfunction file="functions/fetchjournalnumber.sql"             name="fetchjournalnumber" />
+  <createfunction file="functions/fetchmetricbool.sql"                name="fetchmetricbool" />
+  <createfunction file="functions/fetchmetrictext.sql"                name="fetchmetrictext" />
+  <createfunction file="functions/fetchmetricvalue.sql"               name="fetchmetricvalue" />
+  <createfunction file="functions/fetchnextchecknumber.sql"           name="fetchnextchecknumber" />
+  <createfunction file="functions/fetchnextnumber.sql"                name="fetchnextnumber" />
+  <createfunction file="functions/fetchponumber.sql"                  name="fetchponumber" />
+  <createfunction file="functions/fetchprefwarehousid.sql"            name="fetchprefwarehousid" />
+  <createfunction file="functions/fetchprnumber.sql"                  name="fetchprnumber" />
+  <createfunction file="functions/fetchqunumber.sql"                  name="fetchqunumber" />
+  <createfunction file="functions/fetchshipmentnumber.sql"            name="fetchshipmentnumber" />
+  <createfunction file="functions/fetchsonumber.sql"                  name="fetchsonumber" />
+  <createfunction file="functions/fetchtonumber.sql"                  name="fetchtonumber" />
+  <createfunction file="functions/fetchusrprefbool.sql"               name="fetchusrprefbool" />
+  <createfunction file="functions/fetchvonumber.sql"                  name="fetchvonumber" />
+  <createfunction file="functions/fetchwonumber.sql"                  name="fetchwonumber" />
+  <createfunction file="functions/financialreport.sql"                name="financialreport" />
+  <createfunction file="functions/findapaccount.sql"                  name="findapaccount" />
+  <createfunction file="functions/findapdiscountaccount.sql"          name="findapdiscountaccount" />
+  <createfunction file="functions/findapprepaidaccount.sql"           name="findapprepaidaccount" />
+  <createfunction file="functions/findaraccount.sql"                  name="findaraccount" />
+  <createfunction file="functions/findardiscountaccount.sql"          name="findardiscountaccount" />
+  <createfunction file="functions/findcalendarorigin.sql"             name="findcalendarorigin" />
+  <createfunction file="functions/findcustomerform.sql"               name="findcustomerform" />
+  <createfunction file="functions/finddeferredaccount.sql"            name="finddeferredaccount" />
+  <createfunction file="functions/findfreightaccount.sql"             name="findfreightaccount" />
+  <createfunction file="functions/findperiodend.sql"                  name="findperiodend" />
+  <createfunction file="functions/findperiodstart.sql"                name="findperiodstart" />
+  <createfunction file="functions/findprepaidaccount.sql"             name="findprepaidaccount" />
+  <createfunction file="functions/findsalesaccnt.sql"                 name="findsalesaccnt" />
+  <createfunction file="functions/findspecialfinancial.sql"           name="findspecialfinancial" />
+  <createfunction file="functions/first_agg.sql"                      name="first_agg" />
+  <createfunction file="functions/firstline.sql"                      name="firstline" />
+  <createfunction file="functions/fixacl.sql"                         name="fixacl" />
+  <createfunction file="functions/formatabachecks.sql"                name="formatabachecks" />
+  <createfunction file="functions/formatachchecks.sql"                name="formatachchecks" />
+  <createfunction file="functions/formatachcompanyid.sql"             name="formatachcompanyid" />
+  <createfunction file="functions/formataddr.sql"                     name="formataddr" />
+  <createfunction file="functions/formatboolyn.sql"                   name="formatboolyn" />
+  <createfunction file="functions/formatbooseq.sql"                   name="formatbooseq" />
+  <createfunction file="functions/formatbytea.sql"                    name="formatbytea" />
+  <createfunction file="functions/formatccdashes.sql"                 name="formatccdashes" />
+  <createfunction file="functions/formatccnumber.sql"                 name="formatccnumber" />
+  <createfunction file="functions/formatcntctname.sql"                name="formatcntctname" />
+  <createfunction file="functions/formatcost.sql"                     name="formatcost" />
+  <createfunction file="functions/formatcounttagbarcode.sql"          name="formatcounttagbarcode" />
+  <createfunction file="functions/formatcreditmemonumber.sql"         name="formatcreditmemonumber" />
+  <createfunction file="functions/formatdate.sql"                     name="formatdate" />
+  <createfunction file="functions/formatdatetime.sql"                 name="formatdatetime" />
+  <createfunction file="functions/formatextprice.sql"                 name="formatextprice" />
+  <createfunction file="functions/formatflitemdescrip.sql"            name="formatflitemdescrip" />
+  <createfunction file="functions/formatglaccount.sql"                name="formatglaccount" />
+  <createfunction file="functions/formatglaccountlong.sql"            name="formatglaccountlong" />
+  <createfunction file="functions/formatindent.sql"                   name="formatindent" />
+  <createfunction file="functions/formatinterval.sql"                 name="formatinterval" />
+  <createfunction file="functions/formatinvcnumber.sql"               name="formatinvcnumber" />
+  <createfunction file="functions/formatitemsitebarcode.sql"          name="formatitemsitebarcode" />
+  <createfunction file="functions/formatlocationbarcode.sql"          name="formatlocationbarcode" />
+  <createfunction file="functions/formatlocationcontentsbarcode.sql"  name="formatlocationcontentsbarcode" />
+  <createfunction file="functions/formatlocationissuebarcode.sql"     name="formatlocationissuebarcode" />
+  <createfunction file="functions/formatlocationname.sql"             name="formatlocationname" />
+  <createfunction file="functions/formatlotserialnumber.sql"          name="formatlotserialnumber" />
+  <createfunction file="functions/formatmoney.sql"                    name="formatmoney" />
+  <createfunction file="functions/formatnumeric.sql"                  name="formatnumeric" />
+  <createfunction file="functions/formatperiodname.sql"               name="formatperiodname" />
+  <createfunction file="functions/formatplonumber.sql"                name="formatplonumber" />
+  <createfunction file="functions/formatprcnt.sql"                    name="formatprcnt" />
+  <createfunction file="functions/formatprice.sql"                    name="formatprice" />
+  <createfunction file="functions/formatpurchprice.sql"               name="formatpurchprice" />
+  <createfunction file="functions/formatqty.sql"                      name="formatqty" />
+  <createfunction file="functions/formatqtyper.sql"                   name="formatqtyper" />
+  <createfunction file="functions/formatratio.sql"                    name="formatratio" />
+  <createfunction file="functions/formatrevnumber.sql"                name="formatrevnumber" />
+  <createfunction file="functions/formatsalesprice.sql"               name="formatsalesprice" />
+  <createfunction file="functions/formatscrap.sql"                    name="formatscrap" />
+  <createfunction file="functions/formatshipmentnumber.sql"           name="formatshipmentnumber" />
+  <createfunction file="functions/formatsobarcode.sql"                name="formatsobarcode" />
+  <createfunction file="functions/formatsoitembarcode.sql"            name="formatsoitembarcode" />
+  <createfunction file="functions/formatsoitemnumber.sql"             name="formatsoitemnumber" />
+  <createfunction file="functions/formatsolinenumber.sql"             name="formatsolinenumber" />
+  <createfunction file="functions/formatsonumber.sql"                 name="formatsonumber" />
+  <createfunction file="functions/formattime.sql"                     name="formattime" />
+  <createfunction file="functions/formatuomratio.sql"                 name="formatuomratio" />
+  <createfunction file="functions/formatuserbarcode.sql"              name="formatuserbarcode" />
+  <createfunction file="functions/formatweight.sql"                   name="formatweight" />
+  <createfunction file="functions/formatwobarcode.sql"                name="formatwobarcode" />
+  <createfunction file="functions/formatwonumber.sql"                 name="formatwonumber" />
+  <createfunction file="functions/formatwooperseq.sql"                name="formatwooperseq" />
+  <createfunction file="functions/forwardupdateaccount.sql"           name="forwardupdateaccount" />
+  <createfunction file="functions/forwardupdateinvbalance.sql"        name="forwardupdateinvbalance" />
+  <createfunction file="functions/forwardupdateitemsite.sql"          name="forwardupdateitemsite" />
+  <createfunction file="functions/forwardupdatetrialbalance.sql"      name="forwardupdatetrialbalance" />
+  <createfunction file="functions/freezeaccountingperiod.sql"         name="freezeaccountingperiod" />
+  <createfunction file="functions/freightdetail.sql"                  name="freightdetail" />
+  <createfunction file="functions/freightdetailquote.sql"             name="freightdetailquote" />
+  <createfunction file="functions/freightforrecv.sql"                 name="freightforrecv" />
+  <createfunction file="functions/getactiverevid.sql"                 name="getactiverevid" />
+  <createfunction file="functions/getaddrid.sql"                      name="getaddrid" />
+  <createfunction file="functions/getadjustmenttaxtypeid.sql"         name="getadjustmenttaxtypeid" />
+  <createfunction file="functions/getaropenid.sql"                    name="getaropenid" />
+  <createfunction file="functions/getbankaccntid.sql"                 name="getbankaccntid" />
+  <createfunction file="functions/getbomitemid.sql"                   name="getbomitemid" />
+  <createfunction file="functions/getbooitemseqid.sql"                name="getbooitemseqid" />
+  <createfunction file="functions/getbudgheadid.sql"                  name="getbudgheadid" />
+  <createfunction file="functions/getcashrcptid.sql"                  name="getcashrcptid" />
+  <createfunction file="functions/getcharid.sql"                      name="getcharid" />
+  <createfunction file="functions/getclasscodeid.sql"                 name="getclasscodeid" />
+  <createfunction file="functions/getcmheadid.sql"                    name="getcmheadid" />
+  <createfunction file="functions/getcmnttypeid.sql"                  name="getcmnttypeid" />
+  <createfunction file="functions/getcntctid.sql"                     name="getcntctid" />
+  <createfunction file="functions/getcoheadid.sql"                    name="getcoheadid" />
+  <createfunction file="functions/getcoitemid.sql"                    name="getcoitemid" />
+  <createfunction file="functions/getcostcatid.sql"                   name="getcostcatid" />
+  <createfunction file="functions/getcostelemid.sql"                  name="getcostelemid" />
+  <createfunction file="functions/getcrmacctid.sql"                   name="getcrmacctid" />
+  <createfunction file="functions/getcurrid.sql"                      name="getcurrid" />
+  <createfunction file="functions/getcustnamefrominfo.sql"            name="getcustnamefrominfo" />
+  <createfunction file="functions/getcustid.sql"                      name="getcustid" />
+  <createfunction file="functions/getcusttypeid.sql"                  name="getcusttypeid" />
+  <createfunction file="functions/getdeptid.sql"                      name="getdeptid" />
+  <createfunction file="functions/getediprofileid.sql"                name="getediprofileid" />
+  <createfunction file="functions/getediprofilename.sql"              name="getediprofilename" />
+  <createfunction file="functions/geteffectivextuser.sql"             name="geteffectivextuser" />
+  <createfunction file="functions/getempid.sql"                       name="getempid" />
+  <createfunction file="functions/getexpcatid.sql"                    name="getexpcatid" />
+  <createfunction file="functions/getflcoldata.sql"                   name="getflcoldata" />
+  <createfunction file="functions/getflstmthead.sql"                  name="getflstmthead" />
+  <createfunction file="functions/getfltrendhead.sql"                 name="getfltrendhead" />
+  <createfunction file="functions/getfreightclassid.sql"              name="getfreightclassid" />
+  <createfunction file="functions/getfreighttaxtypeid.sql"            name="getfreighttaxtypeid" />
+  <createfunction file="functions/getgainlossaccntid.sql"             name="getgainlossaccntid" />
+  <createfunction file="functions/getglaccntid.sql"                   name="getglaccntid" />
+  <createfunction file="functions/getimageid.sql"                     name="getimageid" />
+  <createfunction file="functions/getincdtcatid.sql"                  name="getincdtcatid" />
+  <createfunction file="functions/getincdtcrmacctid.sql"              name="getincdtcrmacctid" />
+  <createfunction file="functions/getincdtpriorityid.sql"             name="getincdtpriorityid" />
+  <createfunction file="functions/getincdtresolutionid.sql"           name="getincdtresolutionid" />
+  <createfunction file="functions/getincdtseverityid.sql"             name="getincdtseverityid" />
+  <createfunction file="functions/getincidentid.sql"                  name="getincidentid" />
+  <createfunction file="functions/getinvcheadid.sql"                  name="getinvcheadid" />
+  <createfunction file="functions/getinvcitemlotserial.sql"           name="getinvcitemlotserial" />
+  <createfunction file="functions/getipsheadid.sql"                   name="getipsheadid" />
+  <createfunction file="functions/getipsitemid.sql"                   name="getipsitemid" />
+  <createfunction file="functions/getipsprodcatid.sql"                name="getipsprodcatid" />
+  <createfunction file="functions/getitemid.sql"                      name="getitemid" />
+  <createfunction file="functions/getitemidfromupc.sql"               name="getitemidfromupc" />
+  <createfunction file="functions/getitemsiteid.sql"                  name="getitemsiteid" />
+  <createfunction file="functions/getitemsrcid.sql"                   name="getitemsrcid" />
+  <createfunction file="functions/getitemtaxtype.sql"                 name="getitemtaxtype" />
+  <createfunction file="functions/getlasttrialbalid.sql"              name="getlasttrialbalid" />
+  <createfunction file="functions/getlocationid.sql"                  name="getlocationid" />
+  <createfunction file="functions/getlotserialid.sql"                 name="getlotserialid" />
+  <createfunction file="functions/getopheadid.sql"                    name="getopheadid" />
+  <createfunction file="functions/getpacklistcharname.sql"            name="getpacklistcharname" />
+  <createfunction file="functions/getpacklistcharvalue.sql"           name="getpacklistcharvalue" />
+  <createfunction file="functions/getpacklistitemlotserial.sql"       name="getpacklistitemlotserial" />
+  <createfunction file="functions/getperiodid.sql"                    name="getperiodid" />
+  <createfunction file="functions/getpkgheadid.sql"                   name="getpkgheadid" />
+  <createfunction file="functions/getplancodeid.sql"                  name="getplancodeid" />
+  <createfunction file="functions/getpoheadid.sql"                    name="getpoheadid" />
+  <createfunction file="functions/getpoitemid.sql"                    name="getpoitemid" />
+  <createfunction file="functions/getprjaccntid.sql"                  name="getprjaccntid" />
+  <createfunction file="functions/getprjid.sql"                       name="getprjid" />
+  <createfunction file="functions/getprjtaskid.sql"                   name="getprjtaskid" />
+  <createfunction file="functions/getprodcatid.sql"                   name="getprodcatid" />
+  <createfunction file="functions/getprospectid.sql"                  name="getprospectid" />
+  <createfunction file="functions/getquoteid.sql"                     name="getquoteid" />
+  <createfunction file="functions/getquotelineitemid.sql"             name="getquotelineitemid" />
+  <createfunction file="functions/getrevid.sql"                       name="getrevid" />
+  <createfunction file="functions/getrsnid.sql"                       name="getrsnid" />
+  <createfunction file="functions/getsalescatid.sql"                  name="getsalescatid" />
+  <createfunction file="functions/getsaleslineitemid.sql"             name="getsaleslineitemid" />
+  <createfunction file="functions/getsalesorderid.sql"                name="getsalesorderid" />
+  <createfunction file="functions/getsalesrepid.sql"                  name="getsalesrepid" />
+  <createfunction file="functions/getsaletypeid.sql"                  name="getsaletypeid" />
+  <createfunction file="functions/getshiftid.sql"                     name="getshiftid" />
+  <createfunction file="functions/getshipchrgid.sql"                  name="getshipchrgid" />
+  <createfunction file="functions/getshipformid.sql"                  name="getshipformid" />
+  <createfunction file="functions/getshipheadid.sql"                  name="getshipheadid" />
+  <createfunction file="functions/getshiptoid.sql"                    name="getshiptoid" />
+  <createfunction file="functions/getshiptonumberfrominfo.sql"        name="getshiptonumberfrominfo" />
+  <createfunction file="functions/getshipviaid.sql"                   name="getshipviaid" />
+  <createfunction file="functions/getshipzoneid.sql"                  name="getshipzoneid" />
+  <createfunction file="functions/getsitetypeid.sql"                  name="getsitetypeid" />
+  <createfunction file="functions/getsoscheddate.sql"                 name="getsoscheddate" />
+  <createfunction file="functions/getsostatus.sql"                    name="getsostatus" />
+  <createfunction file="functions/getsubtax.sql"                      name="getsubtax" />
+  <createfunction file="functions/gettaxauthid.sql"                   name="gettaxauthid" />
+  <createfunction file="functions/gettaxid.sql"                       name="gettaxid" />
+  <createfunction file="functions/gettaxtypeid.sql"                   name="gettaxtypeid" />
+  <createfunction file="functions/gettaxzoneid.sql"                   name="gettaxzoneid" />
+  <createfunction file="functions/gettermsid.sql"                     name="gettermsid" />
+  <createfunction file="functions/getunassignedaccntid.sql"           name="getunassignedaccntid" />
+  <createfunction file="functions/getuomid.sql"                       name="getuomid" />
+  <createfunction file="functions/getuomtypeid.sql"                   name="getuomtypeid" />
+  <createfunction file="functions/getusrid.sql"                       name="getusrid" />
+  <createfunction file="functions/getvendaddrid.sql"                  name="getvendaddrid" />
+  <createfunction file="functions/getvendid.sql"                      name="getvendid" />
+  <createfunction file="functions/getvendtypeid.sql"                  name="getvendtypeid" />
+  <createfunction file="functions/getwarehousid.sql"                  name="getwarehousid" />
+  <createfunction file="functions/getwhsezoneid.sql"                  name="getwhsezoneid" />
+  <createfunction file="functions/grantallmodulecmnttypesource.sql"   name="grantallmodulecmnttypesource" />
+  <createfunction file="functions/grantallmodulepriv.sql"             name="grantallmodulepriv" />
+  <createfunction file="functions/grantallmoduleprivgroup.sql"        name="grantallmoduleprivgroup" />
+  <createfunction file="functions/grantcmnttypesource.sql"            name="grantcmnttypesource" />
+  <createfunction file="functions/grantgroup.sql"                     name="grantgroup" />
+  <createfunction file="functions/grantpriv.sql"                      name="grantpriv" />
+  <createfunction file="functions/grantprivgroup.sql"                 name="grantprivgroup" />
+  <createfunction file="functions/hasalarms.sql"                      name="hasalarms" />
+  <createfunction file="functions/hasevents.sql"                      name="hasevents" />
+  <createfunction file="functions/hasmessages.sql"                    name="hasmessages" />
+  <createfunction file="functions/haspriv.sql"                        name="haspriv" />
+  <createfunction file="functions/hasprivonobject.sql"                name="hasprivonobject" />
+  <createfunction file="functions/implodewo.sql"                      name="implodewo" />
+  <createfunction file="functions/incdt.sql"                          name="incdt" />
+  <createfunction file="functions/indentedbom.sql"                    name="indentedbom" />
+  <createfunction file="functions/indentedwhereused.sql"              name="indentedwhereused" />
+  <createfunction file="functions/indentedwo.sql"                     name="indentedwo" />
+  <createfunction file="functions/indentedwomatl.sql"                 name="indentedwomatl" />
+  <createfunction file="functions/initeffectivextuser.sql"            name="initeffectivextuser" />
+  <createfunction file="functions/initialdistribution.sql"            name="initialdistribution" />
+  <createfunction file="functions/insertIntoGLSeries.sql"             name="insertintoglseries" />
+  <createfunction file="functions/insertccard.sql"                    name="insertccard" />
+  <createfunction file="functions/insertflgroup.sql"                  name="insertflgroup" />
+  <createfunction file="functions/insertgltransaction.sql"            name="insertgltransaction" />
+  <createfunction file="functions/insertitemcost.sql"                 name="insertitemcost" />
+  <createfunction file="functions/intervaltominutes.sql"              name="intervaltominutes" />
+  <createfunction file="functions/invadjustment.sql"                  name="invadjustment" />
+  <createfunction file="functions/invexpense.sql"                     name="invexpense" />
+  <createfunction file="functions/invhistsense.sql"                   name="invhistsense" />
+  <createfunction file="functions/invoicetotal.sql"                   name="invoicetotal" />
+  <createfunction file="functions/invreceipt.sql"                     name="invreceipt" />
+  <createfunction file="functions/invscrap.sql"                       name="invscrap" />
+  <createfunction file="functions/isdba.sql"                          name="isdba" />
+  <createfunction file="functions/ismulticurr.sql"                    name="ismulticurr" />
+  <createfunction file="functions/isnumeric.sql"                      name="isnumeric" />
+  <createfunction file="functions/issueallbalancetoshipping.sql"      name="issueallbalancetoshipping" />
+  <createfunction file="functions/issuelinebalancetoshipping.sql"     name="issuelinebalancetoshipping" />
+  <createfunction file="functions/issues.sql"                         name="issues" />
+  <createfunction file="functions/issuetoshipping.sql"                name="issuetoshipping" />
+  <createfunction file="functions/issuewomaterial.sql"                name="issuewomaterial" />
+  <createfunction file="functions/issuewomaterialbatch.sql"           name="issuewomaterialbatch" />
+  <createfunction file="functions/itemaltcapinvrat.sql"               name="itemaltcapinvrat" />
+  <createfunction file="functions/itemaltcapuom.sql"                  name="itemaltcapuom" />
+  <createfunction file="functions/itemcapinvrat.sql"                  name="itemcapinvrat" />
+  <createfunction file="functions/itemcapuom.sql"                     name="itemcapuom" />
+  <createfunction file="functions/itemcharprice.sql"                  name="itemcharprice" />
+  <createfunction file="functions/itemcharvalue.sql"                  name="itemcharvalue" />
+  <createfunction file="functions/itemcost.sql"                       name="itemcost" />
+  <createfunction file="functions/iteminventoryuominuse.sql"          name="iteminventoryuominuse" />
+  <createfunction file="functions/iteminvpricerat.sql"                name="iteminvpricerat" />
+  <createfunction file="functions/itemipsprice.sql"                   name="itemipsprice" />
+  <createfunction file="functions/itemlocdistqty.sql"                 name="itemlocdistqty" />
+  <createfunction file="functions/itemprice.sql"                      name="itemprice" />
+  <createfunction file="functions/itemsellinguom.sql"                 name="itemsellinguom" />
+  <createfunction file="functions/itemsrcprice.sql"                   name="itemsrcprice" />
+  <createfunction file="functions/itemuombytype.sql"                  name="itemuombytype" />
+  <createfunction file="functions/itemuomfractionalbytype.sql"        name="itemuomfractionalbytype" />
+  <createfunction file="functions/itemuomfractionalbyuom.sql"         name="itemuomfractionalbyuom" />
+  <createfunction file="functions/itemuomratiobytype.sql"             name="itemuomratiobytype" />
+  <createfunction file="functions/itemuomtouom.sql"                   name="itemuomtouom" />
+  <createfunction file="functions/itemuomtouomratio.sql"              name="itemuomtouomratio" />
+  <createfunction file="functions/last_agg.sql"                       name="last_agg" />
+  <createfunction file="functions/login.sql"                          name="login" />
+  <createfunction file="functions/logout.sql"                         name="logout" />
+  <createfunction file="functions/lowercost.sql"                      name="lowercost" />
+  <createfunction file="functions/maintainbomworkspace.sql"           name="maintainbomworkspace" />
+  <createfunction file="functions/markapcheckasposted.sql"            name="markapcheckasposted" />
+  <createfunction file="functions/markapcheckasprinted.sql"           name="markapcheckasprinted" />
+  <createfunction file="functions/markcheckasposted.sql"              name="markcheckasposted" />
+  <createfunction file="functions/markcheckasprinted.sql"             name="markcheckasprinted" />
+  <createfunction file="functions/massexpirebomitem.sql"              name="massexpirebomitem" />
+  <createfunction file="functions/massreplacebomitem.sql"             name="massreplacebomitem" />
+  <createfunction file="functions/merge2crmaccts.sql"                 name="merge2crmaccts" />
+  <createfunction file="functions/mergecrmaccts.sql"                  name="mergecrmaccts" />
+  <createfunction file="functions/movebomitemdown.sql"                name="movebomitemdown" />
+  <createfunction file="functions/movebomitemup.sql"                  name="movebomitemup" />
+  <createfunction file="functions/moveccarddown.sql"                  name="moveccarddown" />
+  <createfunction file="functions/moveccardup.sql"                    name="moveccardup" />
+  <createfunction file="functions/moveflgroupdown.sql"                name="moveflgroupdown" />
+  <createfunction file="functions/moveflgroupup.sql"                  name="moveflgroupup" />
+  <createfunction file="functions/moveflitemdown.sql"                 name="moveflitemdown" />
+  <createfunction file="functions/moveflitemup.sql"                   name="moveflitemup" />
+  <createfunction file="functions/moveflspecdown.sql"                 name="moveflspecdown" />
+  <createfunction file="functions/moveflspecup.sql"                   name="moveflspecup" />
+  <createfunction file="functions/movescript.sql"                     name="movescript" />
+  <createfunction file="functions/moveuiform.sql"                     name="moveuiform" />
+  <createfunction file="functions/moveupdown.sql"                     name="moveupdown" />
+  <createfunction file="functions/nextperiodbyinterval.sql"           name="nextperiodbyinterval" />
+  <createfunction file="functions/nextprsubnumber.sql"                name="nextprsubnumber" />
+  <createfunction file="functions/nextwosubnumber.sql"                name="nextwosubnumber" />
+  <createfunction file="functions/noneg.sql"                          name="noneg" />
+  <createfunction file="functions/nopos.sql"                          name="nopos" />
+  <createfunction file="functions/normalizetrialbal.sql"              name="normalizetrialbal" />
+  <createfunction file="functions/numofdatabaseusers.sql"             name="numofdatabaseusers" />
+  <createfunction file="functions/numofserverusers.sql"               name="numofserverusers" />
+  <createfunction file="functions/openaccountingperiod.sql"           name="openaccountingperiod" />
+  <createfunction file="functions/openaccountingyearperiod.sql"       name="openaccountingyearperiod" />
+  <createfunction file="functions/openapitemsvalue.sql"               name="openapitemsvalue" />
+  <createfunction file="functions/openaritemsvalue.sql"               name="openaritemsvalue" />
+  <createfunction file="functions/openrecurringitems.sql"             name="openrecurringitems" />
+  <createfunction file="functions/ophead.sql"                         name="ophead" />
+  <createfunction file="functions/orderedbypo.sql"                    name="orderedbypo" />
+  <createfunction file="functions/orderedbywo.sql"                    name="orderedbywo" />
+  <createfunction file="functions/orderhead.sql"                      name="orderhead" />
+  <createfunction file="functions/orderitem.sql"                      name="orderitem" />
+  <createfunction file="functions/orderitemdata.sql"                  name="orderitemdata" />
+  <createfunction file="functions/packageisenabled.sql"               name="packageisenabled" />
+  <createfunction file="functions/pkgmaybemodified.sql"               name="pkgmaybemodified" />
+  <createfunction file="functions/postapcheck.sql"                    name="postapcheck" />
+  <createfunction file="functions/postapchecks.sql"                   name="postapchecks" />
+  <createfunction file="functions/postapcreditmemoapplication.sql"    name="postapcreditmemoapplication" />
+  <createfunction file="functions/postapopenitems.sql"                name="postapopenitems" />
+  <createfunction file="functions/postarcreditmemoapplication.sql"    name="postarcreditmemoapplication" />
+  <createfunction file="functions/postaropenitems.sql"                name="postaropenitems" />
+  <createfunction file="functions/postbankadjustment.sql"             name="postbankadjustment" />
+  <createfunction file="functions/postbankreconciliation.sql"         name="postbankreconciliation" />
+  <createfunction file="functions/postbillingselection.sql"           name="postbillingselection" />
+  <createfunction file="functions/postbillingselectionconsolidated.sql" name="postbillingselectionconsolidated" />
+  <createfunction file="functions/postbillingselections.sql"          name="postbillingselections" />
+  <createfunction file="functions/postcashreceipt.sql"                name="postcashreceipt" />
+  <createfunction file="functions/postcashreceiptdisc.sql"            name="postcashreceiptdisc" />
+  <createfunction file="functions/postcccashreceipt.sql"              name="postcccashreceipt" />
+  <createfunction file="functions/postcccredit.sql"                   name="postcccredit" />
+  <createfunction file="functions/postccvoid.sql"                     name="postccvoid" />
+  <createfunction file="functions/postcheck.sql"                      name="postcheck" />
+  <createfunction file="functions/postchecks.sql"                     name="postchecks" />
+  <createfunction file="functions/postcomment.sql"                    name="postcomment" />
+  <createfunction file="functions/postcost.sql"                       name="postcost" />
+  <createfunction file="functions/postcountslip.sql"                  name="postcountslip" />
+  <createfunction file="functions/postcounttag.sql"                   name="postcounttag" />
+  <createfunction file="functions/postcounttaglocation.sql"           name="postcounttaglocation" />
+  <createfunction file="functions/postcounttags.sql"                  name="postcounttags" />
+  <createfunction file="functions/postcreditmemo.sql"                 name="postcreditmemo" />
+  <createfunction file="functions/postcreditmemos.sql"                name="postcreditmemos" />
+  <createfunction file="functions/postglseries.sql"                   name="postglseries" />
+  <createfunction file="functions/postglseriesnosumm.sql"             name="postglseriesnosumm" />
+  <createfunction file="functions/postintoinvbalance.sql"             name="postintoinvbalance" />
+  <createfunction file="functions/postintotrialbalance.sql"           name="postintotrialbalance" />
+  <createfunction file="functions/postinvhist.sql"                    name="postinvhist" />
+  <createfunction file="functions/postinvoice.sql"                    name="postinvoice" />
+  <createfunction file="functions/postinvoices.sql"                   name="postinvoices" />
+  <createfunction file="functions/postinvtrans.sql"                   name="postinvtrans" />
+  <createfunction file="functions/postitemlocseries.sql"              name="postitemlocseries" />
+  <createfunction file="functions/postjournals.sql"                   name="postjournals" />
+  <createfunction file="functions/postmessage.sql"                    name="postmessage" />
+  <createfunction file="functions/postmisccount.sql"                  name="postmisccount" />
+  <createfunction file="functions/postpogltransactions.sql"           name="postpogltransactions" />
+  <createfunction file="functions/postporeceipt.sql"                  name="postporeceipt" />
+  <createfunction file="functions/postporeceipts.sql"                 name="postporeceipts" />
+  <createfunction file="functions/postporeturncreditmemo.sql"         name="postporeturncreditmemo" />
+  <createfunction file="functions/postporeturns.sql"                  name="postporeturns" />
+  <createfunction file="functions/postproduction.sql"                 name="postproduction" />
+  <createfunction file="functions/postreceipt.sql"                    name="postreceipt" />
+  <createfunction file="functions/postreceipts.sql"                   name="postreceipts" />
+  <createfunction file="functions/postsogltransactions.sql"           name="postsogltransactions" />
+  <createfunction file="functions/postsoitemproduction.sql"           name="postsoitemproduction" />
+  <createfunction file="functions/poststandardjournal.sql"            name="poststandardjournal" />
+  <createfunction file="functions/poststandardjournalgroup.sql"       name="poststandardjournalgroup" />
+  <createfunction file="functions/postvalueintoinvbalance.sql"        name="postvalueintoinvbalance" />
+  <createfunction file="functions/postvoucher.sql"                    name="postvoucher" />
+  <createfunction file="functions/postvouchers.sql"                   name="postvouchers" />
+  <createfunction file="functions/primarykeyfields.sql"               name="primarykeyfields" />
+  <createfunction file="functions/prj.sql"                            name="prj" />
+  <createfunction file="functions/prjtask.sql"                        name="prjtask" />
+  <createfunction file="functions/purgecreditmemos.sql"               name="purgecreditmemos" />
+  <createfunction file="functions/purgecrmacctmerge.sql"              name="purgecrmacctmerge" />
+  <createfunction file="functions/purgeinvoicerecord.sql"             name="purgeinvoicerecord" />
+  <createfunction file="functions/purgeinvoicerecords.sql"            name="purgeinvoicerecords" />
+  <createfunction file="functions/purgepostedcountslips.sql"          name="purgepostedcountslips" />
+  <createfunction file="functions/purgepostedcounttags.sql"           name="purgepostedcounttags" />
+  <createfunction file="functions/purgeshipments.sql"                 name="purgeshipments" />
+  <createfunction file="functions/qtyallocated.sql"                   name="qtyallocated" />
+  <createfunction file="functions/qtyatshipping.sql"                  name="qtyatshipping" />
+  <createfunction file="functions/qtyavailable.sql"                   name="qtyavailable" />
+  <createfunction file="functions/qtyinshipment.sql"                  name="qtyinshipment" />
+  <createfunction file="functions/qtylocation.sql"                    name="qtylocation" />
+  <createfunction file="functions/qtyordered.sql"                     name="qtyordered" />
+  <createfunction file="functions/qtypr.sql"                          name="qtypr" />
+  <createfunction file="functions/qtytoreceive.sql"                   name="qtytoreceive" />
+  <createfunction file="functions/recallshipment.sql"                 name="recallshipment" />
+  <createfunction file="functions/recallwo.sql"                       name="recallwo" />
+  <createfunction file="functions/receipts.sql"                       name="receipts" />
+  <createfunction file="functions/releaseapmemonumber.sql"            name="releaseapmemonumber" />
+  <createfunction file="functions/releasearmemonumber.sql"            name="releasearmemonumber" />
+  <createfunction file="functions/releasecashrcptnumber.sql"          name="releasecashrcptnumber" />
+  <createfunction file="functions/releasecmnumber.sql"                name="releasecmnumber" />
+  <createfunction file="functions/releasecrmaccountnumber.sql"        name="releasecrmaccountnumber" />
+  <createfunction file="functions/releaseincidentnumber.sql"          name="releaseincidentnumber" />
+  <createfunction file="functions/releaseinvcnumber.sql"              name="releaseinvcnumber" />
+  <createfunction file="functions/releasenumber.sql"                  name="releasenumber" />
+  <createfunction file="functions/releaseponumber.sql"                name="releaseponumber" />
+  <createfunction file="functions/releaseprnumber.sql"                name="releaseprnumber" />
+  <createfunction file="functions/releasepurchaseorder.sql"           name="releasepurchaseorder" />
+  <createfunction file="functions/releasequnumber.sql"                name="releasequnumber" />
+  <createfunction file="functions/releaseshipmentnumber.sql"          name="releaseshipmentnumber" />
+  <createfunction file="functions/releasesohead.sql"                  name="releasesohead" />
+  <createfunction file="functions/releasesonumber.sql"                name="releasesonumber" />
+  <createfunction file="functions/releaseunusedbillingheader.sql"     name="releaseunusedbillingheader" />
+  <createfunction file="functions/releasevonumber.sql"                name="releasevonumber" />
+  <createfunction file="functions/releasewo.sql"                      name="releasewo" />
+  <createfunction file="functions/releasewonumber.sql"                name="releasewonumber" />
+  <createfunction file="functions/relocateinventory.sql"              name="relocateinventory" />
+  <createfunction file="functions/reorderdate.sql"                    name="reorderdate" />
+  <createfunction file="functions/replaceallvoidedapchecks.sql"       name="replaceallvoidedapchecks" />
+  <createfunction file="functions/replaceallvoidedchecks.sql"         name="replaceallvoidedchecks" />
+  <createfunction file="functions/replacevoidedapcheck.sql"           name="replacevoidedapcheck" />
+  <createfunction file="functions/replacevoidedcheck.sql"             name="replacevoidedcheck" />
+  <createfunction file="functions/reprioritizewo.sql"                 name="reprioritizewo" />
+  <createfunction file="functions/resetdbobjperms.sql"                name="resetdbobjperms" />
+  <createfunction file="functions/resetlowlevelcode.sql"              name="resetlowlevelcode" />
+  <createfunction file="functions/resetqohbalance.sql"                name="resetqohbalance" />
+  <createfunction file="functions/resolvecosaccount.sql"              name="resolvecosaccount" />
+  <createfunction file="functions/resolvecowaccount.sql"              name="resolvecowaccount" />
+  <createfunction file="functions/resolvecreditaccount.sql"           name="resolvecreditaccount" />
+  <createfunction file="functions/resolvesalesaccount.sql"            name="resolvesalesaccount" />
+  <createfunction file="functions/restoresaleshistory.sql"            name="restoresaleshistory" />
+  <createfunction file="functions/returncompleteshipment.sql"         name="returncompleteshipment" />
+  <createfunction file="functions/returnitemshipments.sql"            name="returnitemshipments" />
+  <createfunction file="functions/returnshipmenttransaction.sql"      name="returnshipmenttransaction" />
+  <createfunction file="functions/returnwomaterial.sql"               name="returnwomaterial" />
+  <createfunction file="functions/returnwomaterialbatch.sql"          name="returnwomaterialbatch" />
+  <createfunction file="functions/reversecashreceipt.sql"             name="reversecashreceipt" />
+  <createfunction file="functions/reversecashreceiptdisc.sql"         name="reversecashreceiptdisc" />
+  <createfunction file="functions/reverseglseries.sql"                name="reverseglseries" />
+  <createfunction file="functions/revokeallmodulecmnttypesource.sql"  name="revokeallmodulecmnttypesource" />
+  <createfunction file="functions/revokeallmodulepriv.sql"            name="revokeallmodulepriv" />
+  <createfunction file="functions/revokeallmoduleprivgroup.sql"       name="revokeallmoduleprivgroup" />
+  <createfunction file="functions/revokecmnttypesource.sql"           name="revokecmnttypesource" />
+  <createfunction file="functions/revokegroup.sql"                    name="revokegroup" />
+  <createfunction file="functions/revokepriv.sql"                     name="revokepriv" />
+  <createfunction file="functions/revokeprivgroup.sql"                name="revokeprivgroup" />
+  <createfunction file="functions/rollupactualcost.sql"               name="rollupactualcost" />
+  <createfunction file="functions/rollupsoracost.sql"                 name="rollupsoracost" />
+  <createfunction file="functions/rollupstandardcost.sql"             name="rollupstandardcost" />
+  <createfunction file="functions/roundcost.sql"                      name="roundcost" />
+  <createfunction file="functions/roundqty.sql"                       name="roundqty" />
+  <createfunction file="functions/roundsale.sql"                      name="roundsale" />
+  <createfunction file="functions/roundup.sql"                        name="roundup" />
+  <createfunction file="functions/saveaddr.sql"                       name="saveaddr" />
+  <createfunction file="functions/savealarm.sql"                      name="savealarm" />
+  <createfunction file="functions/savebomhead.sql"                    name="savebomhead" />
+  <createfunction file="functions/savecntct.sql"                      name="savecntct" />
+  <createfunction file="functions/saveimageass.sql"                   name="saveimageass" />
+  <createfunction file="functions/saveipsitem.sql"                    name="saveipsitem" />
+  <createfunction file="functions/saveipsprodcat.sql"                 name="saveipsprodcat" />
+  <createfunction file="functions/saveitemimage.sql"                  name="saveitemimage" />
+  <createfunction file="functions/saveitemuomconv.sql"                name="saveitemuomconv" />
+  <createfunction file="functions/savemetasql.sql"                    name="savemetasql" />
+  <createfunction file="functions/scraps.sql"                         name="scraps" />
+  <createfunction file="functions/scrapwomaterial.sql"                name="scrapwomaterial" />
+  <createfunction file="functions/selectbalanceforbilling.sql"        name="selectbalanceforbilling" />
+  <createfunction file="functions/selectdiscountitemsforpayment.sql"  name="selectdiscountitemsforpayment" />
+  <createfunction file="functions/selectdueitemsforpayment.sql"       name="selectdueitemsforpayment" />
+  <createfunction file="functions/selectforbilling.sql"               name="selectforbilling" />
+  <createfunction file="functions/selectpayment.sql"                  name="selectpayment" />
+  <createfunction file="functions/selectuninvoicedshipment.sql"       name="selectuninvoicedshipment" />
+  <createfunction file="functions/selectuninvoicedshipments.sql"      name="selectuninvoicedshipments" />
+  <createfunction file="functions/setapjournalnumber.sql"             name="setapjournalnumber" />
+  <createfunction file="functions/setarjournalnumber.sql"             name="setarjournalnumber" />
+  <createfunction file="functions/setbudget.sql"                      name="setbudget" />
+  <createfunction file="functions/setbytea.sql"                       name="setbytea" />
+  <createfunction file="functions/setccbankaccnt.sql"                 name="setccbankaccnt" />
+  <createfunction file="functions/seteffectivextuser.sql"             name="seteffectivextuser" />
+  <createfunction file="functions/setgljournalnumber.sql"             name="setgljournalnumber" />
+  <createfunction file="functions/setmetric.sql"                      name="setmetric" />
+  <createfunction file="functions/setmetricenc.sql"                   name="setmetricenc" />
+  <createfunction file="functions/setnextapmemonumber.sql"            name="setnextapmemonumber" />
+  <createfunction file="functions/setnextarmemonumber.sql"            name="setnextarmemonumber" />
+  <createfunction file="functions/setnextcashrcptnumber.sql"          name="setnextcashrcptnumber" />
+  <createfunction file="functions/setnextchecknumber.sql"             name="setnextchecknumber" />
+  <createfunction file="functions/setnextcmnumber.sql"                name="setnextcmnumber" />
+  <createfunction file="functions/setnextcrmaccountnumber.sql"        name="setnextcrmaccountnumber" />
+  <createfunction file="functions/setnextincidentnumber.sql"          name="setnextincidentnumber" />
+  <createfunction file="functions/setnextinvcnumber.sql"              name="setnextinvcnumber" />
+  <createfunction file="functions/setnextnumber.sql"                  name="setnextnumber" />
+  <createfunction file="functions/setnextponumber.sql"                name="setnextponumber" />
+  <createfunction file="functions/setnextprnumber.sql"                name="setnextprnumber" />
+  <createfunction file="functions/setnextqunumber.sql"                name="setnextqunumber" />
+  <createfunction file="functions/setnextshipmentnumber.sql"          name="setnextshipmentnumber" />
+  <createfunction file="functions/setnextsonumber.sql"                name="setnextsonumber" />
+  <createfunction file="functions/setnextvcnumber.sql"                name="setnextvcnumber" />
+  <createfunction file="functions/setnextwonumber.sql"                name="setnextwonumber" />
+  <createfunction file="functions/setusercancreateusers.sql"          name="setusercancreateusers" />
+  <createfunction file="functions/setuserpreference.sql"              name="setuserpreference" />
+  <createfunction file="functions/shipments.sql"                      name="shipments" />
+  <createfunction file="functions/shipshipment.sql"                   name="shipshipment" />
+  <createfunction file="functions/singlecharacteristicstostring.sql"  name="singlecharacteristicstostring" />
+  <createfunction file="functions/singlelevelbom.sql"                 name="singlelevelbom" />
+  <createfunction file="functions/site.sql"                           name="site" />
+  <createfunction file="functions/snoozemessage.sql"                  name="snoozemessage" />
+  <createfunction file="functions/spellamount.sql"                    name="spellamount" />
+  <createfunction file="functions/splitreceipt.sql"                   name="splitreceipt" />
+  <createfunction file="functions/splitrecurrence.sql"                name="splitrecurrence" />
+  <createfunction file="functions/startoftime.sql"                    name="startoftime" />
+  <createfunction file="functions/stdcost.sql"                        name="stdcost" />
+  <createfunction file="functions/sufficientinventorytoshipitem.sql"  name="sufficientinventorytoshipitem" />
+  <createfunction file="functions/sufficientinventorytoshiporder.sql" name="sufficientinventorytoshiporder" />
+  <createfunction file="functions/summarizedbom.sql"                  name="summarizedbom" />
+  <createfunction file="functions/summarizetransactions.sql"          name="summarizetransactions" />
+  <createfunction file="functions/summdemand.sql"                     name="summdemand" />
+  <createfunction file="functions/summprod.sql"                       name="summprod" />
+  <createfunction file="functions/summtransa.sql"                     name="summtransa" />
+  <createfunction file="functions/summtransc.sql"                     name="summtransc" />
+  <createfunction file="functions/summtransi.sql"                     name="summtransi" />
+  <createfunction file="functions/summtransr.sql"                     name="summtransr" />
+  <createfunction file="functions/summtranss.sql"                     name="summtranss" />
+  <createfunction file="functions/summtranst.sql"                     name="summtranst" />
+  <createfunction file="functions/taxassignments.sql"                 name="taxassignments" />
+  <createfunction file="functions/thawaccountingperiod.sql"           name="thawaccountingperiod" />
+  <createfunction file="functions/thawitemsite.sql"                   name="thawitemsite" />
+  <createfunction file="functions/todoitem.sql"                       name="todoitem" />
+  <createfunction file="functions/todoitemmove.sql"                   name="todoitemmove" />
+  <createfunction file="functions/todoitemmovedown.sql"               name="todoitemmovedown" />
+  <createfunction file="functions/todoitemmoveup.sql"                 name="todoitemmoveup" />
+  <createfunction file="functions/togglebankreccleared.sql"           name="togglebankreccleared" />
+  <createfunction file="functions/togglebomitemcost.sql"              name="togglebomitemcost" />
+  <createfunction file="functions/tonumeric.sql"                      name="tonumeric" />
+  <createfunction file="functions/transitwhs.sql"                     name="transitwhs" />
+  <createfunction file="functions/transtype.sql"                      name="transtype" />
+  <createfunction file="functions/trylock.sql"                        name="trylock" />
+  <createfunction file="functions/undomerge.sql"                      name="undomerge" />
+  <createfunction file="functions/uomusedforitem.sql"                 name="uomusedforitem" />
+  <createfunction file="functions/updateabcclass.sql"                 name="updateabcclass" />
+  <createfunction file="functions/updatecharassignment.sql"           name="updatecharassignment" />
+  <createfunction file="functions/updatecost.sql"                     name="updatecost" />
+  <createfunction file="functions/updatecustomprivs.sql"              name="updatecustomprivs" />
+  <createfunction file="functions/updateitemcost.sql"                 name="updateitemcost" />
+  <createfunction file="functions/updateitemsiteleadtime.sql"         name="updateitemsiteleadtime" />
+  <createfunction file="functions/updatelistprice.sql"                name="updatelistprice" />
+  <createfunction file="functions/updatelowerusercosts.sql"           name="updatelowerusercosts" />
+  <createfunction file="functions/updatelowlevel.sql"                 name="updatelowlevel" />
+  <createfunction file="functions/updateoutlevel.sql"                 name="updateoutlevel" />
+  <createfunction file="functions/updatereorderlevel.sql"             name="updatereorderlevel" />
+  <createfunction file="functions/updateretainedearnings.sql"         name="updateretainedearnings" />
+  <createfunction file="functions/updatesoracost.sql"                 name="updatesoracost" />
+  <createfunction file="functions/updatestdcost.sql"                  name="updatestdcost" />
+  <createfunction file="functions/updatetodoitem.sql"                 name="updatetodoitem" />
+  <createfunction file="functions/usedefaultlocation.sql"             name="usedefaultlocation" />
+  <createfunction file="functions/usercancreateusers.sql"             name="usercancreateusers" />
+  <createfunction file="functions/usercanlogin.sql"                   name="usercanlogin" />
+  <createfunction file="functions/userid.sql"                         name="userid" />
+  <createfunction file="functions/validateorderqty.sql"               name="validateorderqty" />
+  <createfunction file="functions/validlocation.sql"                  name="validlocation" />
+  <createfunction file="functions/valueatshipping.sql"                name="valueatshipping" />
+  <createfunction file="functions/voidapcheck.sql"                    name="voidapcheck" />
+  <createfunction file="functions/voidapopenvoucher.sql"              name="voidapopenvoucher" />
+  <createfunction file="functions/voidcheck.sql"                      name="voidcheck" />
+  <createfunction file="functions/voidcreditmemo.sql"                 name="voidcreditmemo" />
+  <createfunction file="functions/voidinvoice.sql"                    name="voidinvoice" />
+  <createfunction file="functions/voidpostedapcheck.sql"              name="voidpostedapcheck" />
+  <createfunction file="functions/voidpostedcheck.sql"                name="voidpostedcheck" />
+  <createfunction file="functions/woeffectivedate.sql"                name="woeffectivedate" />
+  <createfunction file="functions/woinvavail.sql"                     name="woinvavail" />
+  <createfunction file="functions/woinvavailmatl.sql"                 name="woinvavailmatl" />
+  <createfunction file="functions/wostarted.sql"                      name="wostarted" />
+
+  <createview file="api/views/account.sql"                      name="account"	schema="api" />
+  <createview file="api/views/accountchar.sql"                  name="accountchar"	schema="api" />
+  <createview file="api/views/accountcomment.sql"               name="accountcomment"	schema="api" />
+  <createview file="api/views/accountfile.sql"                  name="accountfile"	schema="api" />
+  <createview file="api/views/accountimage.sql"                 name="accountimage"	schema="api" />
+  <createview file="api/views/address.sql"                      name="address"	schema="api" />
+  <createview file="api/views/addresschar.sql"                  name="addresschar"	schema="api" />
+  <createview file="api/views/addresscomment.sql"               name="addresscomment"	schema="api" />
+  <createview file="api/views/apmemo.sql"                       name="apmemo"	schema="api" />
+  <createview file="api/views/armemo.sql"                       name="armemo"	schema="api" />
+  <createview file="api/views/bom.sql"                          name="bom"	schema="api" />
+  <createview file="api/views/bomitem.sql"                      name="bomitem"	schema="api" />
+  <createview file="api/views/bomitemcomment.sql"               name="bomitemcomment"	schema="api" />
+  <createview file="api/views/bomitemsubstitute.sql"            name="bomitemsubstitute"	schema="api" />
+  <createview file="api/views/budget.sql"                       name="budget"	schema="api" />
+  <createview file="api/views/budgetentry.sql"                  name="budgetentry"	schema="api" />
+  <createview file="api/views/cashreceipt.sql"                  name="cashreceipt"	schema="api" />
+  <createview file="api/views/cashreceiptapply.sql"             name="cashreceiptapply"	schema="api" />
+  <createview file="api/views/cashreceiptapplymisc.sql"         name="cashreceiptapplymisc"	schema="api" />
+  <createview file="api/views/contact.sql"                      name="contact"	schema="api" />
+  <createview file="api/views/contactchar.sql"                  name="contactchar"	schema="api" />
+  <createview file="api/views/contactcomment.sql"               name="contactcomment"	schema="api" />
+  <createview file="api/views/creditmemo.sql"                   name="creditmemo"	schema="api" />
+  <createview file="api/views/creditmemoline.sql"               name="creditmemoline"	schema="api" />
+  <createview file="api/views/custchar.sql"                     name="custchar"	schema="api" />
+  <createview file="api/views/custcomment.sql"                  name="custcomment"	schema="api" />
+  <createview file="api/views/custcreditcard.sql"               name="custcreditcard"	schema="api" />
+  <createview file="api/views/customer.sql"                     name="customer"	schema="api" />
+  <createview file="api/views/customertaxreg.sql"               name="customertaxreg"	schema="api" />
+  <createview file="api/views/customertype.sql"                 name="customertype"	schema="api" />
+  <createview file="api/views/customertypechar.sql"             name="customertypechar"	schema="api" />
+  <createview file="api/views/custshipto.sql"                   name="custshipto"	schema="api" />
+  <createview file="api/views/custtax.sql"                      name="custtax"	schema="api" />
+  <createview file="api/views/employee.sql"                     name="employee"	schema="api" />
+  <createview file="api/views/employeechar.sql"                 name="employeechar"	schema="api" />
+  <createview file="api/views/employeecomment.sql"              name="employeecomment"	schema="api" />
+  <createview file="api/views/extshipmaint.sql"                 name="extshipmaint"	schema="api" />
+  <createview file="api/views/freightpricingscheduleitem.sql"   name="freightpricingscheduleitem"	schema="api" />
+  <createview file="api/views/glaccount.sql"                    name="glaccount"	schema="api" />
+  <createview file="api/views/incident.sql"                     name="incident"	schema="api" />
+  <createview file="api/views/incidentchar.sql"                 name="incidentchar"	schema="api" />
+  <createview file="api/views/incidentcomment.sql"              name="incidentcomment"	schema="api" />
+  <createview file="api/views/incidentfile.sql"                 name="incidentfile"	schema="api" />
+  <createview file="api/views/incidentimage.sql"                name="incidentimage"	schema="api" />
+  <createview file="api/views/invoice.sql"                      name="invoice"	schema="api" />
+  <createview file="api/views/invoiceline.sql"                  name="invoiceline"	schema="api" />
+  <createview file="api/views/item.sql"                         name="item"	schema="api" />
+  <createview file="api/views/itemalias.sql"                    name="itemalias"	schema="api" />
+  <createview file="api/views/itemchar.sql"                     name="itemchar"	schema="api" />
+  <createview file="api/views/itemcomment.sql"                  name="itemcomment"	schema="api" />
+  <createview file="api/views/itemcost.sql"                     name="itemcost"	schema="api" />
+  <createview file="api/views/itemfile.sql"                     name="itemfile"	schema="api" />
+  <createview file="api/views/itemimage.sql"                    name="itemimage"	schema="api" />
+  <createview file="api/views/itemsite.sql"                     name="itemsite"	schema="api" />
+  <createview file="api/views/itemsitecomment.sql"              name="itemsitecomment"	schema="api" />
+  <createview file="api/views/itemsource.sql"                   name="itemsource"	schema="api" />
+  <createview file="api/views/itemsourceprice.sql"              name="itemsourceprice"	schema="api" />
+  <createview file="api/views/itemsubstitute.sql"               name="itemsubstitute"	schema="api" />
+  <createview file="api/views/itemtaxtype.sql"                  name="itemtaxtype"	schema="api" />
+  <createview file="api/views/itemuomconversion.sql"            name="itemuomconversion"	schema="api" />
+  <createview file="api/views/journalentry.sql"                 name="journalentry"	schema="api" />
+  <createview file="api/views/location.sql"                     name="location"	schema="api" />
+  <createview file="api/views/misccounttag.sql"                 name="misccounttag"	schema="api" />
+  <createview file="api/views/physinvcount.sql"                 name="physinvcount"	schema="api" />
+  <createview file="api/views/pricingschedule.sql"              name="pricingschedule"	schema="api" />
+  <createview file="api/views/pricingscheduleassign.sql"        name="pricingscheduleassign"	schema="api" />
+  <createview file="api/views/pricingscheduleitem.sql"          name="pricingscheduleitem"	schema="api" />
+  <createview file="api/views/pricingscheduleitemchar.sql"      name="pricingscheduleitemchar"	schema="api" />
+  <createview file="api/views/project.sql"                      name="project"	schema="api" />
+  <createview file="api/views/projectcomment.sql"               name="projectcomment"	schema="api" />
+  <createview file="api/views/prospect.sql"                     name="prospect"	schema="api" />
+  <createview file="api/views/purchaseline.sql"                 name="purchaseline"	schema="api" />
+  <createview file="api/views/purchaselinechar.sql"             name="purchaselinechar"	schema="api" />
+  <createview file="api/views/purchaselinecomment.sql"          name="purchaselinecomment"	schema="api" />
+  <createview file="api/views/purchaseorder.sql"                name="purchaseorder"	schema="api" />
+  <createview file="api/views/purchaseordercomment.sql"         name="purchaseordercomment"	schema="api" />
+  <createview file="api/views/quote.sql"                        name="quote"	schema="api" />
+  <createview file="api/views/quotecomment.sql"                 name="quotecomment"	schema="api" />
+  <createview file="api/views/quoteline.sql"                    name="quoteline"	schema="api" />
+  <createview file="api/views/quotelinechar.sql"                name="quotelinechar"	schema="api" />
+  <createview file="api/views/quotelinecomment.sql"             name="quotelinecomment"	schema="api" />
+  <createview file="api/views/salescredit.sql"                  name="salescredit"      schema="api" />
+  <createview file="api/views/saleshistory.sql"                 name="saleshistory"	schema="api" />
+  <createview file="api/views/salesline.sql"                    name="salesline"	schema="api" />
+  <createview file="api/views/saleslinechar.sql"                name="saleslinechar"	schema="api" />
+  <createview file="api/views/saleslinecomment.sql"             name="saleslinecomment"	schema="api" />
+  <createview file="api/views/salesorder.sql"                   name="salesorder"	schema="api" />
+  <createview file="api/views/salesordercomment.sql"            name="salesordercomment"	schema="api" />
+  <createview file="api/views/salesrep.sql"                     name="salesrep"	schema="api" />
+  <createview file="api/views/site.sql"                         name="site"	schema="api" />
+  <createview file="api/views/sitezone.sql"                     name="sitezone"	schema="api" />
+  <createview file="api/views/task.sql"                         name="task"	schema="api" />
+  <createview file="api/views/taskcomment.sql"                  name="taskcomment"	schema="api" />
+  <createview file="api/views/todo.sql"                         name="todo"	schema="api" />
+  <createview file="api/views/vendor.sql"                       name="vendor"	schema="api" />
+  <createview file="api/views/vendoraddress.sql"                name="vendoraddress"	schema="api" />
+  <createview file="api/views/vendortype.sql"                   name="vendortype"	schema="api" />
+
+  <script file="indexes/evntlog.sql" />
+  <script file="indexes/invcitemtax.sql" />
+  <script file="indexes/shipitem.sql" />
+
+  <loadmetasql file="metasql/accountNumbers-detail.mql" />
+  <loadmetasql file="metasql/addresses-detail.mql" />
+  <loadmetasql file="metasql/allocations-detail.mql" />
+  <loadmetasql file="metasql/apAging-detail.mql" />
+  <loadmetasql file="metasql/apApplications-detail.mql" />
+  <loadmetasql file="metasql/apOpenItems-detail.mql" />
+  <loadmetasql file="metasql/apOpenItems-selectedpayments.mql" />
+  <loadmetasql file="metasql/apOpenItems-selectpayments.mql" />
+  <loadmetasql file="metasql/arAging-detail.mql" />
+  <loadmetasql file="metasql/arApplications-detail.mql" />
+  <loadmetasql file="metasql/arHistory-detail.mql" />
+  <loadmetasql file="metasql/arOpenApplications-detail.mql" />
+  <loadmetasql file="metasql/arOpenItems-detail.mql" />
+  <loadmetasql file="metasql/arOpenItems-f_detail.mql" />
+  <loadmetasql file="metasql/backlog-detail.mql" />
+  <loadmetasql file="metasql/bankrec-checks.mql" />
+  <loadmetasql file="metasql/bankrec-clearedbalance.mql" />
+  <loadmetasql file="metasql/bankrec-receipts.mql" />
+  <loadmetasql file="metasql/bankrecHistory-reconciled.mql" />
+  <loadmetasql file="metasql/bankrecHistory-unreconciled.mql" />
+  <loadmetasql file="metasql/billingSelections-detail.mql" />
+  <loadmetasql file="metasql/bom-detail.mql" />
+  <loadmetasql file="metasql/bomItems-detail.mql" />
+  <loadmetasql file="metasql/bookings-detail.mql" />
+  <loadmetasql file="metasql/briefEarnedCommission-detail.mql" />
+  <loadmetasql file="metasql/briefSalesHistory-detail.mql" />
+  <loadmetasql file="metasql/capacityUOMs-detail.mql" />
+  <loadmetasql file="metasql/cashReceipts-detail.mql" />
+  <loadmetasql file="metasql/ccpayments.mql" />
+  <loadmetasql file="metasql/charass-populate.mql" />
+  <loadmetasql file="metasql/checkRegister-detail.mql" />
+  <loadmetasql file="metasql/checks-detail.mql" />
+  <loadmetasql file="metasql/contact-muststayactive.mql" />
+  <loadmetasql file="metasql/contact-uses.mql" />
+  <loadmetasql file="metasql/contactmerge-contactused.mql" />
+  <loadmetasql file="metasql/contactmerge-delete.mql" />
+  <loadmetasql file="metasql/contactmerge-deselect.mql" />
+  <loadmetasql file="metasql/contactmerge-merge.mql" />
+  <loadmetasql file="metasql/contactmerge-merged.mql" />
+  <loadmetasql file="metasql/contactmerge-populate.mql" />
+  <loadmetasql file="metasql/contactmerge-purge.mql" />
+  <loadmetasql file="metasql/contactmerge-restore.mql" />
+  <loadmetasql file="metasql/contactmerge-search.mql" />
+  <loadmetasql file="metasql/contactmerge-select.mql" />
+  <loadmetasql file="metasql/contactmerge-selectcol.mql" />
+  <loadmetasql file="metasql/contacts-detail.mql" />
+  <loadmetasql file="metasql/contracts-detail.mql" />
+  <loadmetasql file="metasql/costedBOM-detail.mql" />
+  <loadmetasql file="metasql/costelem_unusedbyitem.mql" />
+  <loadmetasql file="metasql/countSlip-detail.mql" />
+  <loadmetasql file="metasql/countTag-detail.mql" />
+  <loadmetasql file="metasql/countTags-create.mql" />
+  <loadmetasql file="metasql/countTags-detail.mql" />
+  <loadmetasql file="metasql/creditCards-detail.mql" />
+  <loadmetasql file="metasql/creditMemo-editlist.mql" />
+  <loadmetasql file="metasql/creditMemoCreditCards-detail.mql" />
+  <loadmetasql file="metasql/crm_strictcountrycheck.mql" />
+  <loadmetasql file="metasql/crmaccountmerge-pickdatasources.mql" />
+  <loadmetasql file="metasql/crmaccountmerge-wip.mql" />
+  <loadmetasql file="metasql/crmaccounts-detail.mql" />
+  <loadmetasql file="metasql/currencyConversions-detail.mql" />
+  <loadmetasql file="metasql/customers-detail.mql" />
+  <loadmetasql file="metasql/customers-statement.mql" />
+  <loadmetasql file="metasql/depositesRegister-detail.mql" />
+  <loadmetasql file="metasql/detailedInventoryHistory-detail.mql" />
+  <loadmetasql file="metasql/distributeInventory-locations.mql" />
+  <loadmetasql file="metasql/employees-detail.mql" />
+  <loadmetasql file="metasql/events-detail.mql" />
+  <loadmetasql file="metasql/expiredInventory-detail.mql" />
+  <loadmetasql file="metasql/freightPrices-detail.mql" />
+  <loadmetasql file="metasql/frozenItemSites-detail.mql" />
+  <loadmetasql file="metasql/glseries-checkeditable.mql" />
+  <loadmetasql file="metasql/glseries-detail.mql" />
+  <loadmetasql file="metasql/glseries-postjournal.mql" />
+  <loadmetasql file="metasql/gltransactions-detail.mql" />
+  <loadmetasql file="metasql/incidents-detail.mql" />
+  <loadmetasql file="metasql/invalidBillsofMaterials-detail.mql" />
+  <loadmetasql file="metasql/inventoryAvailability-byCustOrSO.mql" />
+  <loadmetasql file="metasql/inventoryAvailability-general.mql" />
+  <loadmetasql file="metasql/inventoryAvailabilitybyWorkorder-detail.mql" />
+  <loadmetasql file="metasql/inventoryHistory-detail.mql" />
+  <loadmetasql file="metasql/inventoryLocator-detail.mql" />
+  <loadmetasql file="metasql/invoiceInformation-detail.mql" />
+  <loadmetasql file="metasql/invoiceRegister-detail.mql" />
+  <loadmetasql file="metasql/invoices-detail.mql" />
+  <loadmetasql file="metasql/invoices-print.mql" />
+  <loadmetasql file="metasql/issueToShipping-detail.mql" />
+  <loadmetasql file="metasql/itemCost-detail.mql" />
+  <loadmetasql file="metasql/itemCost-list.mql" />
+  <loadmetasql file="metasql/itemPricingSchedule-detail.mql" />
+  <loadmetasql file="metasql/itemReceipt-populateEdit.mql" />
+  <loadmetasql file="metasql/itemReceipt-populateNew.mql" />
+  <loadmetasql file="metasql/itemReceipt-sourceItemSite.mql" />
+  <loadmetasql file="metasql/itemSites-detail.mql" />
+  <loadmetasql file="metasql/itemSources-detail.mql" />
+  <loadmetasql file="metasql/itemSources-prices.mql" />
+  <loadmetasql file="metasql/itemSources-search.mql" />
+  <loadmetasql file="metasql/itemcostdetail_detail.mql" />
+  <loadmetasql file="metasql/items-detail.mql" />
+  <loadmetasql file="metasql/itemsWithoutItemSources-detail.mql" />
+  <loadmetasql file="metasql/journals-detail.mql" />
+  <loadmetasql file="metasql/maintainShipping-detail.mql" />
+  <loadmetasql file="metasql/manufacture-jobcosting.mql" />
+  <loadmetasql file="metasql/metasqls-detail.mql" />
+  <loadmetasql file="metasql/mrpDetail-detail.mql" />
+  <loadmetasql file="metasql/mrpDetail-item.mql" />
+  <loadmetasql file="metasql/openVouchers-populate.mql" />
+  <loadmetasql file="metasql/openpurchaseorders-detail.mql" />
+  <loadmetasql file="metasql/opensalesorders-detail.mql" />
+  <loadmetasql file="metasql/opportunities-detail.mql" />
+  <loadmetasql file="metasql/opportunitiesByCRM-detail.mql" />
+  <loadmetasql file="metasql/orderActivityByProject-detail.mql" />
+  <loadmetasql file="metasql/orders-detail.mql" />
+  <loadmetasql file="metasql/package-items.mql" />
+  <loadmetasql file="metasql/packingList-getreport.mql" />
+  <loadmetasql file="metasql/packingList-shipment.mql" />
+  <loadmetasql file="metasql/packingListBatch-detail.mql" />
+  <loadmetasql file="metasql/packingListBatch-print.mql" />
+  <loadmetasql file="metasql/packingListBatchByShipVia-print.mql" />
+  <loadmetasql file="metasql/packingListBatchByShipVia-shipVia.mql" />
+  <loadmetasql file="metasql/partiallyShippedOrders-detail.mql" />
+  <loadmetasql file="metasql/pendingAvailability-detail.mql" />
+  <loadmetasql file="metasql/pendingBOMChanges-detail.mql" />
+  <loadmetasql file="metasql/poDeliveryDateVariances-detail.mql" />
+  <loadmetasql file="metasql/poHistory-detail.mql" />
+  <loadmetasql file="metasql/poItems-detail.mql" />
+  <loadmetasql file="metasql/poItems-list.mql" />
+  <loadmetasql file="metasql/poPriceVariances-detail.mql" />
+  <loadmetasql file="metasql/poReturns-detail.mql" />
+  <loadmetasql file="metasql/postCountTags-post.mql" />
+  <loadmetasql file="metasql/postJournals-detail.mql" />
+  <loadmetasql file="metasql/postJournals-post.mql" />
+  <loadmetasql file="metasql/pricelist-detail.mql" />
+  <loadmetasql file="metasql/prices-detail.mql" />
+  <loadmetasql file="metasql/pricingFreight-detail.mql" />
+  <loadmetasql file="metasql/projectTasks-detail.mql" />
+  <loadmetasql file="metasql/projects-detail.mql" />
+  <loadmetasql file="metasql/prospects-detail.mql" />
+  <loadmetasql file="metasql/purchase-purchaserequests.mql" />
+  <loadmetasql file="metasql/purchaseOrderItems-detail.mql" />
+  <loadmetasql file="metasql/purchaseOrders-detail.mql" />
+  <loadmetasql file="metasql/qoh-detail.mql" />
+  <loadmetasql file="metasql/quoteItems-detail.mql" />
+  <loadmetasql file="metasql/quotes-detail.mql" />
+  <loadmetasql file="metasql/receipt-detail.mql" />
+  <loadmetasql file="metasql/receipt-receiveAll.mql" />
+  <loadmetasql file="metasql/receivings-detail.mql" />
+  <loadmetasql file="metasql/reorderExceptionsByPlannerCode-detail.mql" />
+  <loadmetasql file="metasql/reports-detail.mql" />
+  <loadmetasql file="metasql/reservations-detail.mql" />
+  <loadmetasql file="metasql/returnAuthorizations-detail.mql" />
+  <loadmetasql file="metasql/runningAvailability-detail.mql" />
+  <loadmetasql file="metasql/salesHistory-detail.mql" />
+  <loadmetasql file="metasql/salesOrderItems-detail.mql" />
+  <loadmetasql file="metasql/salesOrderItems-list.mql" />
+  <loadmetasql file="metasql/salesOrderStatus-detail.mql" />
+  <loadmetasql file="metasql/salesOrders-detail.mql" />
+  <loadmetasql file="metasql/saletype-table.mql" />
+  <loadmetasql file="metasql/schedule-plannedorders.mql" />
+  <loadmetasql file="metasql/scripts-detail.mql" />
+  <loadmetasql file="metasql/selectPayments-applyallcredits.mql" />
+  <loadmetasql file="metasql/shipments-detail.mql" />
+  <loadmetasql file="metasql/shippingForm-shipment.mql" />
+  <loadmetasql file="metasql/slowMovingInventoryByClassCode-detail.mql" />
+  <loadmetasql file="metasql/standardJournalHistory-detail.mql" />
+  <loadmetasql file="metasql/substituteAvailability-detail.mql" />
+  <loadmetasql file="metasql/summarizedBacklogByWarehouse-counts.mql" />
+  <loadmetasql file="metasql/summarizedBacklogByWarehouse-detail.mql" />
+  <loadmetasql file="metasql/summarizedBacklogByWarehouse-qtys.mql" />
+  <loadmetasql file="metasql/summarizedBacklogByWarehouse-totals.mql" />
+  <loadmetasql file="metasql/summarizedBankrecHistory-detail.mql" />
+  <loadmetasql file="metasql/summarizedGLTransactions-detail.mql" />
+  <loadmetasql file="metasql/summarizedSalesHistory-detail.mql" />
+  <loadmetasql file="metasql/taxAuthorities-detail.mql" />
+  <loadmetasql file="metasql/taxBreakdown-detail.mql" />
+  <loadmetasql file="metasql/taxHistory-detail.mql" />
+  <loadmetasql file="metasql/timePhasedAvailability-detail.mql" />
+  <loadmetasql file="metasql/timePhasedBookings-detail.mql" />
+  <loadmetasql file="metasql/timePhasedSales-detail.mql" />
+  <loadmetasql file="metasql/timePhasedUsageStatisticsByItem-detail.mql" />
+  <loadmetasql file="metasql/todolist-detail.mql" />
+  <loadmetasql file="metasql/trialBalances-detail.mql" />
+  <loadmetasql file="metasql/uiforms-detail.mql" />
+  <loadmetasql file="metasql/unbalancedQOHByClassCode-detail.mql" />
+  <loadmetasql file="metasql/undefinedManufacturedItems-detail.mql" />
+  <loadmetasql file="metasql/uninvoicedReceivings-detail.mql" />
+  <loadmetasql file="metasql/uninvoicedShipments-detail.mql" />
+  <loadmetasql file="metasql/unpostedCashReceipts-detail.mql" />
+  <loadmetasql file="metasql/unpostedReceipts-detail.mql" />
+  <loadmetasql file="metasql/unusedPurchasedItems-detail.mql" />
+  <loadmetasql file="metasql/uoms-item.mql" />
+  <loadmetasql file="metasql/updateListPrices-update.mql" />
+  <loadmetasql file="metasql/updatePrices-add.mql" />
+  <loadmetasql file="metasql/updatePrices-availsched.mql" />
+  <loadmetasql file="metasql/updatePrices-createselsched.mql" />
+  <loadmetasql file="metasql/updatePrices-dropselsched.mql" />
+  <loadmetasql file="metasql/updatePrices-remove.mql" />
+  <loadmetasql file="metasql/updatePrices-selsched.mql" />
+  <loadmetasql file="metasql/updatePrices-update.mql" />
+  <loadmetasql file="metasql/updatePrices-updatechar.mql" />
+  <loadmetasql file="metasql/updateReorderLevels-post.mql" />
+  <loadmetasql file="metasql/updateReorderLevels-query.mql" />
+  <loadmetasql file="metasql/updateReorderLevels-update.mql" />
+  <loadmetasql file="metasql/usageStatistics-detail.mql" />
+  <loadmetasql file="metasql/validLocationsByItem-detail.mql" />
+  <loadmetasql file="metasql/vendorAPHistory-detail.mql" />
+  <loadmetasql file="metasql/vendors-detail.mql" />
+  <loadmetasql file="metasql/voucher-editlist.mql" />
+  <loadmetasql file="metasql/voucherItem-distributions.mql" />
+  <loadmetasql file="metasql/voucherItem-receipts.mql" />
+  <loadmetasql file="metasql/voucherRegister-detail.mql" />
+  <loadmetasql file="metasql/whereUsed-detail.mql" />
+  <loadmetasql file="metasql/workOrderHistory-detail.mql" />
+  <loadmetasql file="metasql/workOrderMaterial-detail.mql" />
+  <loadmetasql file="metasql/workOrderSchedule-detail.mql" />
+  <loadmetasql file="metasql/workOrderSchedule-parameterlist.mql" />
+  <loadmetasql file="metasql/workOrderVariance-material.mql" />
+
+  <createtrigger file="triggers/accnt.sql"        name="accnttrigger" />
+  <createtrigger file="triggers/addr.sql"         name="addrtrigger" />
+  <createtrigger file="triggers/alarm.sql"        name="alarmbeforetrigger" />
+  <createtrigger file="triggers/apapply.sql"      name="apapplytrigger" />
+  <createtrigger file="triggers/apopen.sql"       name="apopentrigger" />
+  <createtrigger file="triggers/arapply.sql"      name="arapplytrigger" />
+  <createtrigger file="triggers/aropen.sql"       name="aropentrigger" />
+  <createtrigger file="triggers/bomhead.sql"      name="bomheadtrigger" />
+  <createtrigger file="triggers/bomitem.sql"      name="bomitembeforetrigger" />
+  <createtrigger file="triggers/bomitemsub.sql"   name="bomitemsubtrigger" />
+  <createtrigger file="triggers/cashrcpt.sql"     name="cashrcpttrigger" />
+  <createtrigger file="triggers/cashrcptitem.sql" name="cashrcptitemtrigger" />
+  <createtrigger file="triggers/cashrcptmisc.sql" name="cashrcptmisctrigger" />
+  <createtrigger file="triggers/ccard.sql"        name="ccardtrigger" />
+  <createtrigger file="triggers/char.sql"         name="charbeforetrigger" />
+  <createtrigger file="triggers/charass.sql"      name="charasstrigger" />
+  <createtrigger file="triggers/charopt.sql"      name="charopttrigger" />
+  <createtrigger file="triggers/checkhead.sql"    name="checkheadbeforetrigger" />
+  <createtrigger file="triggers/cmhead.sql"       name="cmheadtrigger" />
+  <createtrigger file="triggers/cmitem.sql"       name="cmitemtrigger" />
+  <createtrigger file="triggers/cntct.sql"        name="cntcttrigger" />
+  <createtrigger file="triggers/cntslip.sql"      name="cntsliptrigger" />
+  <createtrigger file="triggers/cobill.sql"       name="cobilltrigger" />
+  <createtrigger file="triggers/cobmisc.sql"      name="cobmisctrigger" />
+  <createtrigger file="triggers/cohead.sql"       name="soheadtrigger" />
+  <createtrigger file="triggers/coitem.sql"       name="soitemtrigger" />
+  <createtrigger file="triggers/comment.sql"      name="commenttrigger" />
+  <createtrigger file="triggers/company.sql"      name="companytrigger" />
+  <createtrigger file="triggers/contrct.sql"      name="contrctaftertrigger" />
+  <createtrigger file="triggers/crmacct.sql"      name="crmacctbeforetrigger" />
+  <createtrigger file="triggers/curr_rate.sql"    name="currexchangecheckoverlap" />
+  <createtrigger file="triggers/curr_symbol.sql"  name="curronebase" />
+  <createtrigger file="triggers/cust.sql"         name="custtrigger" />
+  <createtrigger file="triggers/custtype.sql"     name="custtypetrigger" />
+  <createtrigger file="triggers/docass.sql"       name="docasstrigger" />
+  <createtrigger file="triggers/emp.sql"          name="empbeforetrigger" />
+  <createtrigger file="triggers/gltrans.sql"      name="gltransaltertrigger" />
+  <createtrigger file="triggers/grppriv.sql"      name="grpprivtrigger" />
+  <createtrigger file="triggers/imageass.sql"     name="imageasstrigger" />
+  <createtrigger file="triggers/incdt.sql"        name="incdttrigger" />
+  <createtrigger file="triggers/invchead.sql"     name="invcheadbeforetrigger" />
+  <createtrigger file="triggers/invcitem.sql"     name="invcitemtrigger" />
+  <createtrigger file="triggers/invhist.sql"      name="invhisttrigger" />
+  <createtrigger file="triggers/ipsass.sql"       name="ipsassbeforetrigger" />
+  <createtrigger file="triggers/ipshead.sql"      name="ipsheadbeforetrigger" />
+  <createtrigger file="triggers/ipsitemchar.sql"  name="ipsitemcharbeforetrigger" />
+  <createtrigger file="triggers/ipsiteminfo.sql"  name="ipsiteminfobeforetrigger" />
+  <createtrigger file="triggers/item.sql"         name="itemtrigger" />
+  <createtrigger file="triggers/itemalias.sql"    name="itemaliastrigger" />
+  <createtrigger file="triggers/itemcost.sql"     name="itemcosttrigger" />
+  <createtrigger file="triggers/itemsite.sql"     name="itemsitetrigger" />
+  <createtrigger file="triggers/itemsrc.sql"      name="itemsrctrigger" />
+  <createtrigger file="triggers/itemsrcp.sql"     name="itemsrcptrigger" />
+  <createtrigger file="triggers/itemsub.sql"      name="itemsubtrigger" />
+  <createtrigger file="triggers/itemtax.sql"      name="itemtaxtrigger" />
+  <createtrigger file="triggers/itemuomconv.sql"  name="itemuomconvtrigger" />
+  <createtrigger file="triggers/location.sql"     name="locationtrigger" />
+  <createtrigger file="triggers/ophead.sql"       name="opheadbeforetrigger" />
+  <createtrigger file="triggers/pack.sql"         name="packbeforetrigger" />
+  <createtrigger file="triggers/period.sql"       name="periodaftertrigger" />
+
+  <createtrigger file="triggers/pkghead.sql"      name="pkgheadbeforetrigger" />
+  <createtrigger file="triggers/pkgitem.sql"      name="pkgitembeforetrigger" />
+  <createtrigger file="triggers/pkgcmd.sql"       name="pkgheadbeforetrigger" />
+  <createtrigger file="triggers/pkgcmdarg.sql"    name="pkgheadbeforetrigger" />
+  <createtrigger file="triggers/pkgimage.sql"     name="pkgheadbeforetrigger" />
+  <createtrigger file="triggers/pkgmetasql.sql"   name="pkgheadbeforetrigger" />
+  <createtrigger file="triggers/pkgpriv.sql"      name="pkgheadbeforetrigger" />
+  <createtrigger file="triggers/pkgreport.sql"    name="pkgheadbeforetrigger" />
+  <createtrigger file="triggers/pkgscript.sql"    name="pkgheadbeforetrigger" />
+  <createtrigger file="triggers/pkguiform.sql"    name="pkgheadbeforetrigger" />
+
+  <createtrigger file="triggers/pohead.sql"       name="poheadtrigger" />
+  <createtrigger file="triggers/poitem.sql"       name="poitemtrigger" />
+  <createtrigger file="triggers/pr.sql"           name="prtrigger" />
+  <createtrigger file="triggers/prj.sql"          name="prjaftertrigger" />
+  <createtrigger file="triggers/prjtask.sql"      name="prjtasktrigger" />
+  <createtrigger file="triggers/prospect.sql"     name="prospecttrigger" />
+  <createtrigger file="triggers/quhead.sql"       name="quheadtrigger" />
+  <createtrigger file="triggers/quitem.sql"       name="quitemtrigger" />
+  <createtrigger file="triggers/recur.sql"        name="recuraftertrigger" />
+  <createtrigger file="triggers/report.sql"       name="reporttrigger" />
+  <createtrigger file="triggers/salesrep.sql"     name="salesrepbeforetrigger" />
+  <createtrigger file="triggers/saletype.sql"     name="saletypebeforedeletetrigger" />
+  <createtrigger file="triggers/shipdata.sql"     name="shipdatatrigger" />
+  <createtrigger file="triggers/shipdatasum.sql"  name="shipdatasumtrigger" />
+  <createtrigger file="triggers/shipform.sql"     name="shipformafterdeletetrigger" />
+  <createtrigger file="triggers/shiphead.sql"     name="shipheadbeforetrigger" />
+  <createtrigger file="triggers/shiptoinfo.sql"   name="shiptoinfoaftertrigger" />
+  <createtrigger file="triggers/shipvia.sql"      name="shipviaafterdeletetrigger" />
+  <createtrigger file="triggers/sltrans.sql"      name="sltransinserttrigger" />
+  <createtrigger file="triggers/taxauth.sql"      name="taxauthbeforetrigger" />
+  <createtrigger file="triggers/terms.sql"        name="termsafterdeletetrigger" />
+  <createtrigger file="triggers/todoitem.sql"     name="todoitemtrigger" />
+  <createtrigger file="triggers/uomconv.sql"      name="uomconvupdate" />
+  <createtrigger file="triggers/usrpref.sql"      name="usrprefbeforetrigger" />
+  <createtrigger file="triggers/usrpriv.sql"      name="usrprivtrigger" />
+  <createtrigger file="triggers/vend.sql"         name="vendtrigger" />
+  <createtrigger file="triggers/vendaddr.sql"     name="vendaddrtrigger" />
+  <createtrigger file="triggers/vodist.sql"       name="vodistbeforetrigger" />
+  <createtrigger file="triggers/vohead.sql"       name="voheadbeforetrigger" />
+  <createtrigger file="triggers/voitem.sql"       name="voitembeforetrigger" />
+  <createtrigger file="triggers/whsezone.sql"     name="whsezonetrigger" />
+  <createtrigger file="triggers/whsinfo.sql"      name="warehoustrigger" />
+  <createtrigger file="triggers/wo.sql"           name="wotrigger" />
+  <createtrigger file="triggers/womatl.sql"       name="womatlaftertrigger" />
+
+  <script file="types/achline.sql" />
+  <script file="types/apaging.sql" />
+  <script file="types/araging.sql" />
+  <script file="types/bomdata.sql" />
+  <script file="types/cntctdup.sql" />
+  <script file="types/flcoldata.sql" />
+  <script file="types/flstmtitem.sql" />
+  <script file="types/freightdata.sql" />
+  <script file="types/itemprice.sql" />
+  <script file="types/ordhead.sql" />
+  <script file="types/orditem.sql" />
+  <script file="types/reordlvl.sql" />
+  <script file="types/seqiss.sql" />
+  <script file="types/subtax.sql" />
+  <script file="types/taxassign.sql" />
+  <script file="types/taxdetail.sql" />
+  <script file="types/wodata.sql" />
+  <script file="types/woinvav.sql" />
+
+  <createview file="views/address.sql"            name="address" />
+  <createview file="views/apmemo.sql"             name="apmemo" />
+  <createview file="views/armemo.sql"             name="armemo" />
+  <createview file="views/budget.sql"             name="budget" />
+  <createview file="views/checkrecip.sql"         name="checkrecip" />
+  <createview file="views/creditmemoeditlist.sql" name="creditmemoeditlist" />
+  <createview file="views/creditmemoitem.sql"     name="creditmemoitem" />
+  <createview file="views/docinfo.sql"            name="docinfo" />
+  <createview file="views/flaccnt.sql"            name="flaccnt" />
+  <createview file="views/invoiceitem.sql"        name="invoiceitem" />
+  <createview file="views/ipsprice.sql"           name="ipsprice" />
+  <createview file="views/orderhead.sql"          name="orderhead" />
+  <createview file="views/orderitem.sql"          name="orderitem" />
+  <createview file="views/privgranted.sql"        name="privgranted" />
+  <createview file="views/remitto.sql"            name="remitto" />
+  <createview file="views/saleshistory.sql"       name="saleshistory" />
+  <createview file="views/saleshistorymisc.sql"   name="saleshistorymisc" />
+  <createview file="views/url.sql"                name="url" />
+  <createview file="views/usr.sql"                name="usr" />
+
+  <loadreport file="reports/APAging.xml" />
+  <loadreport file="reports/APApplications.xml" />
+  <loadreport file="reports/APAssignmentsMasterList.xml" />
+  <loadreport file="reports/APCheck.xml" />
+  <loadreport file="reports/APOpenItemsByVendor.xml" />
+  <loadreport file="reports/ARAging.xml" />
+  <loadreport file="reports/ARApplications.xml" />
+  <loadreport file="reports/AROpenItem.xml" />
+  <loadreport file="reports/AROpenItems.xml" />
+  <loadreport file="reports/AccountNumberMasterList.xml" />
+  <loadreport file="reports/AccountingPeriodsMasterList.xml" />
+  <loadreport file="reports/AccountingYearPeriodsMasterList.xml" />
+  <loadreport file="reports/AddressesMasterList.xml" />
+  <loadreport file="reports/AdjustmentTypes.xml" />
+  <loadreport file="reports/Alignment.xml" />
+  <loadreport file="reports/Backlog.xml" />
+  <loadreport file="reports/BankAccountsMasterList.xml" />
+  <loadreport file="reports/BankAdjustmentEditList.xml" />
+  <loadreport file="reports/BankrecHistory.xml" />
+  <loadreport file="reports/BillingSelections.xml" />
+  <loadreport file="reports/Bookings.xml" />
+  <loadreport file="reports/BriefEarnedCommissions.xml" />
+  <loadreport file="reports/BriefSalesHistory.xml" />
+  <loadreport file="reports/Budget.xml" />
+  <loadreport file="reports/BudgetsMasterList.xml" />
+  <loadreport file="reports/BuyCard.xml" />
+  <loadreport file="reports/CCReceipt.xml" />
+  <loadreport file="reports/CRMAccountMasterList.xml" />
+  <loadreport file="reports/CapacityUOMsByClassCode.xml" />
+  <loadreport file="reports/CapacityUOMsByProductCategory.xml" />
+  <loadreport file="reports/CashReceipts.xml" />
+  <loadreport file="reports/CashReceiptsEditList.xml" />
+  <loadreport file="reports/CharacteristicsMasterList.xml" />
+  <loadreport file="reports/CheckMultiPage.xml" />
+  <loadreport file="reports/CheckRegister.xml" />
+  <loadreport file="reports/ClassCodesMasterList.xml" />
+  <loadreport file="reports/ContactsMasterList.xml" />
+  <loadreport file="reports/Contracts.xml" />
+  <loadreport file="reports/CostCategoriesMasterList.xml" />
+  <loadreport file="reports/CostedIndentedBOM.xml" />
+  <loadreport file="reports/CostedSingleLevelBOM.xml" />
+  <loadreport file="reports/CostedSummarizedBOM.xml" />
+  <loadreport file="reports/CountSlipEditList.xml" />
+  <loadreport file="reports/CountSlipsByWarehouse.xml" />
+  <loadreport file="reports/CountTagEditList.xml" />
+  <loadreport file="reports/CountTagsByClassCode.xml" />
+  <loadreport file="reports/CountTagsByItem.xml" />
+  <loadreport file="reports/CountTagsByWarehouse.xml" />
+  <loadreport file="reports/CreditMemo.xml" />
+  <loadreport file="reports/CreditMemoEditList.xml" />
+  <loadreport file="reports/CurrencyConversionList.xml" />
+  <loadreport file="reports/CustOrdAcknowledgement.xml" />
+  <loadreport file="reports/CustomerARHistory.xml" />
+  <loadreport file="reports/CustomerBOL.xml" />
+  <loadreport file="reports/CustomerInformation.xml" />
+  <loadreport file="reports/CustomerTypesMasterList.xml" />
+  <loadreport file="reports/Customers.xml" />
+  <loadreport file="reports/DeliveryDateVariancesByItem.xml" />
+  <loadreport file="reports/DeliveryDateVariancesByVendor.xml" />
+  <loadreport file="reports/DepartmentsMasterList.xml" />
+  <loadreport file="reports/DepositsRegister.xml" />
+  <loadreport file="reports/DetailedInventoryHistoryByLocation.xml" />
+  <loadreport file="reports/EarnedCommissions.xml" />
+  <loadreport file="reports/EmployeeList.xml" />
+  <loadreport file="reports/ExpenseCategoriesMasterList.xml" />
+  <loadreport file="reports/ExpiredInventoryByClassCode.xml" />
+  <loadreport file="reports/FinancialReport.xml" />
+  <loadreport file="reports/FinancialReportMonth.xml" />
+  <loadreport file="reports/FinancialReportMonthBudget.xml" />
+  <loadreport file="reports/FinancialReportMonthDbCr.xml" />
+  <loadreport file="reports/FinancialReportMonthPriorMonth.xml" />
+  <loadreport file="reports/FinancialReportMonthPriorQuarter.xml" />
+  <loadreport file="reports/FinancialReportMonthPriorYear.xml" />
+  <loadreport file="reports/FinancialReportMonthQuarter.xml" />
+  <loadreport file="reports/FinancialReportMonthYear.xml" />
+  <loadreport file="reports/FinancialReportQuarter.xml" />
+  <loadreport file="reports/FinancialReportQuarterBudget.xml" />
+  <loadreport file="reports/FinancialReportQuarterPriorQuarter.xml" />
+  <loadreport file="reports/FinancialReportYear.xml" />
+  <loadreport file="reports/FinancialReportYearBudget.xml" />
+  <loadreport file="reports/FinancialReportYearPriorYear.xml" />
+  <loadreport file="reports/FinancialTrend.xml" />
+  <loadreport file="reports/FreightAccountAssignmentsMasterList.xml" />
+  <loadreport file="reports/FreightClassesMasterList.xml" />
+  <loadreport file="reports/FreightPricesByCustomer.xml" />
+  <loadreport file="reports/FreightPricesByCustomerType.xml" />
+  <loadreport file="reports/FrozenItemSites.xml" />
+  <loadreport file="reports/GLSeries.xml" />
+  <loadreport file="reports/GLTransactions.xml" />
+  <loadreport file="reports/Image.xml" />
+  <loadreport file="reports/Incident.xml" />
+  <loadreport file="reports/IncidentCategoriesList.xml" />
+  <loadreport file="reports/IncidentPrioritiesList.xml" />
+  <loadreport file="reports/IncidentResolutionsList.xml" />
+  <loadreport file="reports/IncidentSeveritiesList.xml" />
+  <loadreport file="reports/IncidentWorkbenchList.xml" />
+  <loadreport file="reports/IndentedBOM.xml" />
+  <loadreport file="reports/IndentedWhereUsed.xml" />
+  <loadreport file="reports/InventoryAvailability.xml" />
+  <loadreport file="reports/InventoryAvailabilityByCustomerType.xml" />
+  <loadreport file="reports/InventoryAvailabilityBySalesOrder.xml" />
+  <loadreport file="reports/InventoryAvailabilityBySourceVendor.xml" />
+  <loadreport file="reports/InventoryHistory.xml" />
+  <loadreport file="reports/Invoice.xml" />
+  <loadreport file="reports/InvoiceInformation.xml" />
+  <loadreport file="reports/InvoiceRegister.xml" />
+  <loadreport file="reports/ItemCostDetail.xml" />
+  <loadreport file="reports/ItemCostHistory.xml" />
+  <loadreport file="reports/ItemCostSummary.xml" />
+  <loadreport file="reports/ItemCostsByClassCode.xml" />
+  <loadreport file="reports/ItemMaster.xml" />
+  <loadreport file="reports/ItemSites.xml" />
+  <loadreport file="reports/ItemSources.xml" />
+  <loadreport file="reports/JobCosting.xml" />
+  <loadreport file="reports/Journals.xml" />
+  <loadreport file="reports/ListOpenReturnAuthorizations.xml" />
+  <loadreport file="reports/ListOpenSalesOrders.xml" />
+  <loadreport file="reports/ListTransferOrders.xml" />
+  <loadreport file="reports/LocationDispatchList.xml" />
+  <loadreport file="reports/MaterialUsageVarianceByBOMItem.xml" />
+  <loadreport file="reports/MaterialUsageVarianceByComponentItem.xml" />
+  <loadreport file="reports/MaterialUsageVarianceByItem.xml" />
+  <loadreport file="reports/MaterialUsageVarianceByWarehouse.xml" />
+  <loadreport file="reports/MaterialUsageVarianceByWorkOrder.xml" />
+  <loadreport file="reports/MetaSQLMasterList.xml" />
+  <loadreport file="reports/OpenWorkOrdersWithClosedParentSalesOrders.xml" />
+  <loadreport file="reports/OpenWorkOrdersWithParentSalesOrders.xml" />
+  <loadreport file="reports/OpportunityList.xml" />
+  <loadreport file="reports/OrderActivityByProject.xml" />
+  <loadreport file="reports/POHistory.xml" />
+  <loadreport file="reports/POLineItemsByDate.xml" />
+  <loadreport file="reports/POLineItemsByItem.xml" />
+  <loadreport file="reports/POLineItemsByVendor.xml" />
+  <loadreport file="reports/POsByDate.xml" />
+  <loadreport file="reports/POsByVendor.xml" />
+  <loadreport file="reports/PackageMasterList.xml" />
+  <loadreport file="reports/PackingList-Shipment.xml" />
+  <loadreport file="reports/PackingList.xml" />
+  <loadreport file="reports/PackingListBatchEditList.xml" />
+  <loadreport file="reports/PartiallyShippedOrders.xml" />
+  <loadreport file="reports/PendingBOMChanges.xml" />
+  <loadreport file="reports/PendingWOMaterialAvailability.xml" />
+  <loadreport file="reports/PickList.xml" />
+  <loadreport file="reports/PickListWOShowLocations.xml" />
+  <loadreport file="reports/PickingListSOClosedLines.xml" />
+  <loadreport file="reports/PickingListSOLocsNoClosedLines.xml" />
+  <loadreport file="reports/PickingListSONoClosedLines.xml" />
+  <loadreport file="reports/PlannerCodeMasterList.xml" />
+  <loadreport file="reports/PricesByCustomer.xml" />
+  <loadreport file="reports/PricesByCustomerType.xml" />
+  <loadreport file="reports/PricesByItem.xml" />
+  <loadreport file="reports/PricingScheduleAssignments.xml" />
+  <loadreport file="reports/ProductCategoriesMasterList.xml" />
+  <loadreport file="reports/ProjectTaskList.xml" />
+  <loadreport file="reports/PurchaseOrder.xml" />
+  <loadreport file="reports/PurchaseOrderTypes.xml" />
+  <loadreport file="reports/PurchasePriceVariancesByItem.xml" />
+  <loadreport file="reports/PurchasePriceVariancesByVendor.xml" />
+  <loadreport file="reports/PurchaseReqsByPlannerCode.xml" />
+  <loadreport file="reports/PurchaseRequestsByItem.xml" />
+  <loadreport file="reports/PurchaseRequestsByPlannerCode.xml" />
+  <loadreport file="reports/QOH.xml" />
+  <loadreport file="reports/QOHByLocation.xml" />
+  <loadreport file="reports/Quote.xml" />
+  <loadreport file="reports/ReasonCodeMasterList.xml" />
+  <loadreport file="reports/ReceiptsReturnsByDate.xml" />
+  <loadreport file="reports/ReceiptsReturnsByItem.xml" />
+  <loadreport file="reports/ReceiptsReturnsByVendor.xml" />
+  <loadreport file="reports/ReceivingLabel.xml" />
+  <loadreport file="reports/ReceivingLabelOrder.xml" />
+  <loadreport file="reports/RejectCodeMasterList.xml" />
+  <loadreport file="reports/RejectedMaterialByVendor.xml" />
+  <loadreport file="reports/ReorderExceptionsByPlannerCode.xml" />
+  <loadreport file="reports/ReportsMasterList.xml" />
+  <loadreport file="reports/ReturnAuthorizationWorkbenchDueCredit.xml" />
+  <loadreport file="reports/ReturnAuthorizationWorkbenchReview.xml" />
+  <loadreport file="reports/RunningAvailability.xml" />
+  <loadreport file="reports/SalesAccountAssignmentsMasterList.xml" />
+  <loadreport file="reports/SalesCategoriesMasterList.xml" />
+  <loadreport file="reports/SalesHistory.xml" />
+  <loadreport file="reports/SalesOrderAcknowledgement.xml" />
+  <loadreport file="reports/SalesOrderStatus.xml" />
+  <loadreport file="reports/SalesRepsMasterList.xml" />
+  <loadreport file="reports/SaleTypesMasterList.xml" />
+  <loadreport file="reports/SelectPaymentsList.xml" />
+  <loadreport file="reports/SelectedPaymentsList.xml" />
+  <loadreport file="reports/ShipToMasterList.xml" />
+  <loadreport file="reports/ShipmentsByDate.xml" />
+  <loadreport file="reports/ShipmentsBySalesOrder.xml" />
+  <loadreport file="reports/ShipmentsByShipment.xml" />
+  <loadreport file="reports/ShipmentsPending.xml" />
+  <loadreport file="reports/ShippingLabelsByInvoice.xml" />
+  <loadreport file="reports/ShippingLabelsBySO.xml" />
+  <loadreport file="reports/ShippingZonesMasterList.xml" />
+  <loadreport file="reports/SingleLevelBOM.xml" />
+  <loadreport file="reports/SingleLevelWhereUsed.xml" />
+  <loadreport file="reports/SiteTypesMasterList.xml" />
+  <loadreport file="reports/SlowMovingInventoryByClassCode.xml" />
+  <loadreport file="reports/StandardBOL.xml" />
+  <loadreport file="reports/StandardJournalGroupMasterList.xml" />
+  <loadreport file="reports/StandardJournalHistory.xml" />
+  <loadreport file="reports/StandardJournalMasterList.xml" />
+  <loadreport file="reports/Statement.xml" />
+  <loadreport file="reports/SubAccountTypeMasterList.xml" />
+  <loadreport file="reports/SubstituteAvailabilityByRootItem.xml" />
+  <loadreport file="reports/SummarizedBOM.xml" />
+  <loadreport file="reports/SummarizedBacklogByWarehouse.xml" />
+  <loadreport file="reports/SummarizedBankrecHistory.xml" />
+  <loadreport file="reports/SummarizedGLTransactions.xml" />
+  <loadreport file="reports/SummarizedSalesHistory.xml" />
+  <loadreport file="reports/TaxAuthoritiesMasterList.xml" />
+  <loadreport file="reports/TaxHistoryDetail.xml" />
+  <loadreport file="reports/TaxHistorySummary.xml" />
+  <loadreport file="reports/TaxTypesMasterList.xml" />
+  <loadreport file="reports/TermsMasterList.xml" />
+  <loadreport file="reports/TimePhasedAvailability.xml" />
+  <loadreport file="reports/TimePhasedBookings.xml" />
+  <loadreport file="reports/TimePhasedDemandByPlannerCode.xml" />
+  <loadreport file="reports/TimePhasedOpenAPItems.xml" />
+  <loadreport file="reports/TimePhasedOpenARItems.xml" />
+  <loadreport file="reports/TimePhasedPlannedRevenueExpensesByPlannerCode.xml" />
+  <loadreport file="reports/TimePhasedProductionByItem.xml" />
+  <loadreport file="reports/TimePhasedProductionByPlannerCode.xml" />
+  <loadreport file="reports/TimePhasedSalesHistory.xml" />
+  <loadreport file="reports/TimePhasedStatisticsByItem.xml" />
+  <loadreport file="reports/TimePhasedUsageStatisticsByItem.xml" />
+  <loadreport file="reports/TitleList.xml" />
+  <loadreport file="reports/TodoItem.xml" />
+  <loadreport file="reports/TodoList.xml" />
+  <loadreport file="reports/TrialBalances.xml" />
+  <loadreport file="reports/UOMs.xml" />
+  <loadreport file="reports/UnappliedAPCreditMemos.xml" />
+  <loadreport file="reports/UnappliedARCreditMemos.xml" />
+  <loadreport file="reports/UniformBOL.xml" />
+  <loadreport file="reports/UninvoicedReceipts.xml" />
+  <loadreport file="reports/UninvoicedShipments.xml" />
+  <loadreport file="reports/UnpostedGLTransactions.xml" />
+  <loadreport file="reports/UnpostedGlSeries.xml" />
+  <loadreport file="reports/UnpostedPoReceipts.xml" />
+  <loadreport file="reports/UnpostedReturnsForPO.xml" />
+  <loadreport file="reports/UnpostedVouchers.xml" />
+  <loadreport file="reports/UnusedPurchasedItems.xml" />
+  <loadreport file="reports/UsageStatistics.xml" />
+  <loadreport file="reports/UsersMasterList.xml" />
+  <loadreport file="reports/ValidLocationsByItem.xml" />
+  <loadreport file="reports/VendorAPHistory.xml" />
+  <loadreport file="reports/VendorAddressList.xml" />
+  <loadreport file="reports/VendorInformation.xml" />
+  <loadreport file="reports/VendorMasterList.xml" />
+  <loadreport file="reports/VendorTypesMasterList.xml" />
+  <loadreport file="reports/ViewAPCheckRunEditList.xml" />
+  <loadreport file="reports/VoucherRegister.xml" />
+  <loadreport file="reports/WOHistoryByClassCode.xml" />
+  <loadreport file="reports/WOHistoryByItem.xml" />
+  <loadreport file="reports/WOHistoryByNumber.xml" />
+  <loadreport file="reports/WOLabel.xml" />
+  <loadreport file="reports/WOLabelX.xml" />
+  <loadreport file="reports/WOMaterialAvailabilityByWorkOrder.xml" />
+  <loadreport file="reports/WOMaterialRequirementsByComponentItem.xml" />
+  <loadreport file="reports/WOMaterialRequirementsByWorkOrder.xml" />
+  <loadreport file="reports/WOSchedule.xml" />
+  <loadreport file="reports/WarehouseLocationMasterList.xml" />
+  <loadreport file="reports/WarehouseMasterList.xml" />
+  <loadreport file="reports/items.xml" />
+
+  <finalscript file = "triggers/metasql.sql" />
+  <finalscript file = "setVersion.sql" />
+
+</package>

@@ -1,0 +1,1 @@
+COMMENT ON TABLE sltrans IS 'Journal transaction information';
