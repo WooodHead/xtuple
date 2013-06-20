@@ -5,6 +5,7 @@
 --        See www.xtuple.com/CPAL for the full text of the software license.
 
 SELECT
+  teitem_id AS id, tehead_emp_id AS altid,
   teitem.*,
   item_number, item_descrip1,
   cust_number, cust_name,
