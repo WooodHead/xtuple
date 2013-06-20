@@ -330,9 +330,9 @@ xtte.timeExpenseSheetItem.save = function()
     return false;
   }
 
-  if (_hours.toDouble() <= 0 && _type.code == 'E' && !_prepaid.checked)
+  if ((_hours.toDouble() <= 0 || _total.localValue <= 0) && _type.code == 'E' && !_prepaid.checked)
   {
-    var msg = qsTr("The system only supports vouchering positive expense quantities.  "
+    var msg = qsTr("The system only supports vouchering positive expense quantities and amounts.  "
             +      "Do you want to save anyway?")
     if (QMessageBox.question( mywindow, mywindow.windowTitle, msg, 
         QMessageBox.Yes | QMessageBox.Escape, QMessageBox.No | QMessageBox.Default) == QMessageBox.No)

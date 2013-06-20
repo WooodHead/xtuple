@@ -111,7 +111,7 @@ xtte.dspTimeExpenseHistory.print = function()
 xtte.dspTimeExpenseHistory.fillList = function()
 {
   var qry = toolbox.executeDbQuery("timeexpensehistory", "detail",   xtte.dspTimeExpenseHistory.getParams());
-  _list.populate(qry)
+  _list.populate(qry, true)
   if(!qry.first())
     xtte.errorCheck(qry);
 }
@@ -133,6 +133,7 @@ xtte.dspTimeExpenseHistory.openItem = function(mode)
   var params   = new Object;
   params.mode = mode;
   params.teitem_id = _list.id();
+  params.emp_id = _list.altId();
 
   var wnd = toolbox.openWindow("timeExpenseSheetItem", mywindow);
   toolbox.lastWindow().set(params);

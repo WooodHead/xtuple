@@ -55,7 +55,7 @@ BEGIN
                 WHEN teitem_empcost > 0 THEN teitem_empcost
                 ELSE te.calcRate(_v.emp_wage, _v.emp_wage_period)
               END AS rate,
-              teitem_total,    teitem_type,
+              teitem_total,    teitem_type, teitem_notes,
               teexp_expcat_id, teexp_accnt_id
          FROM te.teitem
          JOIN te.teexp ON (teitem_item_id=teexp_id)
@@ -88,7 +88,7 @@ BEGIN
           _distamt := _s.rate * _s.teitem_qty;
         ELSE -- Expense record
           _notes := formatdate(_s.teitem_workdate) || E'\t' || _s.item_number ||
-                    E'\t' || E'\t';
+                    E'\t' || _s.teitem_notes || E'\t';
           _distamt := _s.teitem_total;
         END IF;
 
