@@ -84,11 +84,11 @@
       <term>As of Date</term>
       <listitem>
         <para>Specify the date you want the open receivables to be relative
-        to. The report will include any open receivables which were
-        open&mdash;that is, not yet paid&mdash;as of the specified date. This
-        feature provides "point-in-time" open balance functionality. The
-        payment date used as a reference for the "As of Date" field is the G/L
-        distribution date, not the posting date.</para>
+        to. The report will include any open receivables which were open—that
+        is, not yet paid—as of the specified date. This feature provides
+        "point-in-time" open balance functionality. The payment date used as a
+        reference for the "As of Date" field is the G/L distribution date, not
+        the posting date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -232,6 +232,12 @@
       <listitem>
         <para>Refund the balance on the selected document if it was paid with
         a credit card.</para>
+        <note>
+          <para>If you are using the Authorize.Net payment gateway, refunds
+          must be processed at least one day after the original charge.
+          Authorize.Net does not allow you to refund a transaction that was
+          charged on the same day.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
