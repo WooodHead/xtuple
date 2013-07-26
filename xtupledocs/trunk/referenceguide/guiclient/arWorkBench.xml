@@ -144,6 +144,12 @@
         transaction to refund the transaction amount. This option only works
         for Credit Memos specifically created from Credit Card
         transactions.</para>
+        <note>
+          <para>If you are using the Authorize.Net payment gateway, refunds
+          must be processed at least one day after the original charge.
+          Authorize.Net does not allow you to refund a transaction that was
+          charged on the same day.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>

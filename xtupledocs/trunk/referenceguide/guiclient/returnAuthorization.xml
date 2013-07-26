@@ -620,6 +620,12 @@
         Card. This option is only available for credits issued by Credit Card.
         Your system must also be configured to use Credit Cards for this
         option to work.</para>
+        <note>
+          <para>If you are using the Authorize.Net payment gateway, refunds
+          must be processed at least one day after the original charge.
+          Authorize.Net does not allow you to refund a transaction that was
+          charged on the same day.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
