@@ -10,6 +10,10 @@
       <primary>sales orders</primary>
       <secondary>reservation utility for</secondary>
     </indexterm>Allocate Reservations</title>
+  <note>
+    <para>To use the Allocate Reservations utility it is necessary to select
+    <guilabel>Enable Sales Reservations</guilabel> in Sales Setup.</para>
+  </note>
   <para>The Allocate Reservations utility enables you to allocate Inventory to
   batches of open Sales Orders. This can be a more efficient method for
   quickly making hard Inventory allocations, as compared to allocating
@@ -113,6 +117,13 @@
       <listitem>
         <para>Select to automatically add affected Sales Orders to the Packing
         List Batch.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Allow Partial Reservations</term>
+      <listitem>
+        <para>Select to allow a partial quantity reservation when the quantity
+        to reserve is greater than the quantity available to reserve.</para>
       </listitem>
     </varlistentry>
   </variablelist>
