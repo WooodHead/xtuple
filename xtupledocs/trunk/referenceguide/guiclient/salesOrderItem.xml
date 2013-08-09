@@ -211,7 +211,10 @@
     <tip>
       <para>The system can be configured to prevent users from editing the Net
       Unit Price. If your system is configured that way, the Net Unit Price
-      field will not be editable.</para>
+      field will not be editable. The Unit Cost and Unit Cost Markup % values
+      on the Details tab can also be configured to be editable with permission
+      settings. These values, if changed, will adjust the Net Unit
+      Price.</para>
     </tip>
     <varlistentry>
       <term>Price UOM</term>
@@ -431,6 +434,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Item Sources</term>
+      <listitem>
+        <para>Select radio button to see a list of Item Sources.<note>
+            <para>Item Sources are set up against the Item in the Products
+            module. </para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Dependencies</term>
       <listitem>
         <para>Select radio button to review any components dependent on
@@ -448,6 +460,21 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Substitutes</term>
+      <listitem>
+        <para>Select radio button to display a list of substitutes for the
+        selected Item or Site with availability information.<tip>
+            <para>Right click on an item in the list and select
+            <guimenuitem>Substitute</guimenuitem> to set the selected Item as
+            Line Item. The original Line Item will be moved to the
+            <guilabel>Substitute For</guilabel> field.</para>
+          </tip><note>
+            <para>Substitues are set up against the Item in the Products
+            module.</para>
+          </note></para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -551,10 +578,14 @@
   Item, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Unit Cost (Inv. UOM)</term>
+      <term>Unit Cost</term>
       <listitem>
-        <para>Displays the Standard Cost per unit based on the Inventory Unit
-        of Measure.</para>
+        <para>Depending on configuration settings, the Unit Cost displays the
+        Wholesale Price, or the standard or average Inventory Cost.<note>
+            <para>This value can be changed if the user has the necessary
+            permissions. A change in this value will result in a new Net Unit
+            Price.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -575,12 +606,30 @@
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>discount percentages for</secondary>
-        </indexterm>List Discount %</term>
+        </indexterm>List Price Discount %</term>
       <listitem>
         <para>Displays the percentage discount off the List Price. Indicates
         the difference between the List Price for an Item and the Net Unit
         Price as a percentage. This is the margin between the Net Unit Price
         and the List Price.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Cost Markup %</term>
+      <listitem>
+        <para>Displays the effective markup which is based on the Unit Cost
+        and Net Unit Price values.<note>
+            <para>Like the Unit Cost, this value can be changed by a user with
+            sufficient permissions and such a change will adjust Net Unit
+            Price.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Margin</term>
+      <listitem>
+        <para>Displays the difference between extended price and extended
+        cost.</para>
       </listitem>
     </varlistentry>
   </variablelist>

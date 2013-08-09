@@ -93,9 +93,8 @@
   <tip>
     <para>If a preferred Selling Site is specified for the Customer, then that
     Site will be selected here by default. If the preferred Selling Site is
-    not selected&mdash;and you think it should be&mdash;verify that the Item
-    Site master for the Line Item in question is marked as a "Sold from"
-    Site.</para>
+    not selected—and you think it should be—verify that the Item Site master
+    for the Line Item in question is marked as a "Sold from" Site.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -151,17 +150,20 @@
         <para>If your Pricing Schedule has multiple Units of Measure (UOM) on
         it (or if several Pricing Schedules share the same level of Price
         specificity, but they have different UOMs) then the UOM which matches
-        the selected UOM will be chosen&mdash;that is, as long as the quantity
-        break does not exceed the quantity being priced. If no entry matches
-        the UOM with a quantity break less than the quantity being priced,
-        then the lowest value Price for any UOM will be chosen. To make sure a
-        specific UOM is always chosen at the desired level of Price
-        specificity, then your Pricing Schedules should include at least one
-        UOM with a quantity break of 0.</para>
+        the selected UOM will be chosen—that is, as long as the quantity break
+        does not exceed the quantity being priced. If no entry matches the UOM
+        with a quantity break less than the quantity being priced, then the
+        lowest value Price for any UOM will be chosen. To make sure a specific
+        UOM is always chosen at the desired level of Price specificity, then
+        your Pricing Schedules should include at least one UOM with a quantity
+        break of 0.</para>
         <tip>
           <para>The system can be configured to prevent users from editing the
           Net Unit Price. If your system is configured that way, the Net Unit
-          Price field will not be editable.</para>
+          Price field will not be editable. The Unit Cost and Unit Cost Markup
+          % values on the Details tab can also be configured to be editable
+          with permission settings. These values, if changed, will adjust the
+          Net Unit Price.</para>
         </tip>
       </listitem>
     </varlistentry>
@@ -240,12 +242,12 @@
               <para>Displays the quantity allocated to current Sales Orders
               and/or Work Orders in the system. An Item is considered
               allocated to a Sales Order if a Sales Order Line Item exists for
-              the Item&mdash;and that Line Item has not yet been issued to
-              Shipping. An Item is considered allocated to a Work Order if the
-              Item is a material requirement&mdash;and the material has not
-              yet been issued to the Work Order. Once the current Sales Order
-              Line Item is saved, the "Allocated" value will increase by the
-              quantity ordered.</para>
+              the Item—and that Line Item has not yet been issued to Shipping.
+              An Item is considered allocated to a Work Order if the Item is a
+              material requirement—and the material has not yet been issued to
+              the Work Order. Once the current Sales Order Line Item is saved,
+              the "Allocated" value will increase by the quantity
+              ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -312,8 +314,8 @@
         as make-to-order if the "Stocked at" flag on the Item Site master is
         not selected. A Work Order created automatically from a Sales Order
         Line Item will assume the same Order Number as the Sales Order the
-        Line Item is associated with&mdash;even if that Order Number has
-        already been used by a previous Work Order.</para>
+        Line Item is associated with—even if that Order Number has already
+        been used by a previous Work Order.</para>
         <note>
           <para>For purchased Items, two different options may appear,
           depending on how the Item Site for the Item is set up:</para>
@@ -332,10 +334,10 @@
           flag will also be shown for linked Purchase Orders. The drop ship
           function will search for an existing Purchase Order linked to the
           Sales Order with a matching Ship-To Address and add the Line Item to
-          that Order&mdash;or create a new Order if none exists. Drop ship
-          Purchase Orders inherit the Ship-To Address and Contact information
-          from the Sales Order. Item Sources must be defined for drop ship
-          Items&mdash;including each component of a Kit Item.</para>
+          that Order—or create a new Order if none exists. Drop ship Purchase
+          Orders inherit the Ship-To Address and Contact information from the
+          Sales Order. Item Sources must be defined for drop ship
+          Items—including each component of a Kit Item.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -466,10 +468,14 @@
   you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Unit Cost (Inv. UOM)</term>
+      <term>Unit Cost</term>
       <listitem>
-        <para>Displays the Standard Cost per unit based on the Inventory Unit
-        of Measure.</para>
+        <para>Depending on configuration settings, the Unit Cost displays the
+        Wholesale Price, or the standard or average Inventory Cost.<note>
+            <para>This value can be changed if the user has the necessary
+            permissions. A change in this value will result in a new Net Unit
+            Price.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -490,12 +496,30 @@
       <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>discount percentages for</secondary>
-        </indexterm>List Discount %</term>
+        </indexterm>List Price Discount %</term>
       <listitem>
         <para>Displays the percentage discount off the List Price. Indicates
         the difference between the List Price for an Item and the Net Unit
         Price as a percentage. This is the margin between the Net Unit Price
         and the List Price.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Cost Markup %</term>
+      <listitem>
+        <para>Displays the effective markup which is based on the Unit Cost
+        and Net Unit Price values.<note>
+            <para>Like the Unit Cost, this value can be changed by a user with
+            sufficient permissions and such a change will adjust Net Unit
+            Price.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Margin</term>
+      <listitem>
+        <para>Displays the difference between extended price and extended
+        cost.</para>
       </listitem>
     </varlistentry>
   </variablelist>

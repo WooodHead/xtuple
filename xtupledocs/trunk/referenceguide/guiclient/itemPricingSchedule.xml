@@ -8,8 +8,8 @@
       <secondary>creating new</secondary>
     </indexterm>Pricing Schedule</title>
   <para>A single Pricing Schedule may contain multiple Items or Product
-  Categories&mdash;and multiple Quantity Breaks. To create a new Pricing
-  Schedule, select the NEW button. The following screen will appear:</para>
+  Categories—and multiple Quantity Breaks. To create a new Pricing Schedule,
+  select the NEW button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -66,8 +66,23 @@
         this Pricing Schedule.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Select the Site to be used for calculating Net Price when
+        Average Cost is used as the markup basis.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Currency</term>
+      <listitem>
+        <para>Select the currency.<note>
+            <para>This field is only enabled when multiple currencies are
+            used.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <xi:include href="itemPricingScheduleItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include href="itemPricingScheduleItem.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

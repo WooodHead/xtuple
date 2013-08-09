@@ -32,7 +32,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Discount</term>
+            <term>Discount♠</term>
             <listitem>
               <para>Select this option if the Price is calculated according to
               a Discount.</para>
@@ -81,11 +81,14 @@
       <term>Price per Unit (Inventory UOM)</term>
       <listitem>
         <para>Specify the Price per unit if the Quantity Break requirements
-        are met.</para>
+        are met.<note>
+            <para>This field is only available if the Pricing Type is set to
+            Nominal.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Discount Percent (List Cost)</term>
+      <term>Discount Percent (Wholesale Price)</term>
       <listitem>
         <para>Specify the Discount Percent.<note>
             <para>This field is only available if the Pricing Type is set to
@@ -104,9 +107,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>List Cost</term>
+      <term>Wholesale Price</term>
       <listitem>
-        <para>This field displays the List Cost.</para>
+        <para>This field displays the Wholesale Price.</para>
       </listitem>
     </varlistentry>
   </variablelist>
