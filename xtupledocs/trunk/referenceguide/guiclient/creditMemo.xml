@@ -73,9 +73,9 @@
       <listitem>
         <para>Specify the Sales Representative associated with the Order. By
         default, the Customer's designated Sales Representative will appear in
-        the field&mdash;except if you have selected an Invoice to apply the
-        Credit Memo to. In that case, the Sales Representative credited with
-        the Invoice will be selected.</para>
+        the field—except if you have selected an Invoice to apply the Credit
+        Memo to. In that case, the Sales Representative credited with the
+        Invoice will be selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -126,9 +126,9 @@
         <para>If your system is configured to use Projects, select a Project
         Number to associate with the Credit Memo.</para>
         <para role="xtprjaccnt">When you have the xTuple Project Accounting
-        package installed&mdash;and you link a Project to the Credit Memo&mdash;the
+        package installed—and you link a Project to the Credit Memo—the
         Project Number will be added as the final segment of affected G/L
-        Account Numbers when the Credit Memo is posted. </para>
+        Account Numbers when the Credit Memo is posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -171,12 +171,14 @@
       <term>Address</term>
       <listitem>
         <para>Displays the Customer's Bill-To Address. You may manually
-        override the displayed Address information in the fields
-        below&mdash;or use the lookup feature to select another Address. If a
-        new Address is manually entered here, that Address will be added
-        automatically to the master list of Addresses. For additional
-        documentation related to creating Addresses, see <xref
-        linkend="address" />.</para>
+        override the displayed Address information in the fields below—or use
+        the lookup feature to select another Address. If a new Address is
+        manually entered here, that Address will be added automatically to the
+        master list of Addresses. For additional documentation related to
+        creating Addresses, see <xref linkend="address" />.<note>
+            <para>A Credit Memo that is applied to an Invoice will by default
+            have the Address that appeared on the Invoice.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -212,12 +214,11 @@
       <term>Address</term>
       <listitem>
         <para>Displays the specified Ship-To Address. You may manually
-        override the displayed Address information in the fields
-        below&mdash;or use the lookup feature to select another Address. If a
-        new Address is manually entered here, that Address will be added
-        automatically to the master list of Addresses. For additional
-        documentation related to creating Addresses, see <xref
-        linkend="address" />.</para>
+        override the displayed Address information in the fields below—or use
+        the lookup feature to select another Address. If a new Address is
+        manually entered here, that Address will be added automatically to the
+        master list of Addresses. For additional documentation related to
+        creating Addresses, see <xref linkend="address" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -246,10 +247,10 @@
       <listitem>
         <para>By default, the Customer Purchase Order Number associated with
         the Invoice being credited will display here. If no Customer Purchase
-        Order Number was entered at the time of the original Sales
-        Order&mdash;or if the Credit Memo is not being applied to a specific
-        Invoice&mdash;the field will remain blank. Enter or edit a Customer
-        Purchase Order Number as necessary.</para>
+        Order Number was entered at the time of the original Sales Order—or if
+        the Credit Memo is not being applied to a specific Invoice—the field
+        will remain blank. Enter or edit a Customer Purchase Order Number as
+        necessary.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -320,7 +321,7 @@
       <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. The freight charge may be entered during the creation or
-        modification of a Credit Memo&mdash;or at the time of shipment.</para>
+        modification of a Credit Memo—or at the time of shipment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

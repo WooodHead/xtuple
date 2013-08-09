@@ -547,6 +547,31 @@
               hide this functionality to avoid confusion.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>Item Precedence Over Product Category Pricing</term>
+            <listitem>
+              <para>If selected, Item specific Price Schedule pricing takes
+              precedence over Product Category pricing. Leave unchecked if the
+              lowest overall price should be selected.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Wholesale Price as Unit Cost for Markups</term>
+            <listitem>
+              <para>If selected, the Item wholesale price is used as basis for
+              markup pricing. Leave unchecked to use the standard or average
+              cost against the Item or Item Site cost.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use "Long 30 " Method for Markups</term>
+            <listitem>
+              <para>Select to calculate markup percentage up to 50% as unit
+              cost divided by (1 / markup). The price will otherwise be
+              calculated as the sum of the unit cost and (unit cost *
+              markup).</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
