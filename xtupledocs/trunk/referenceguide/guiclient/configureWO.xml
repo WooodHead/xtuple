@@ -27,10 +27,10 @@
         </indexterm>Next Work Order #</term>
       <listitem>
         <para>The next sequentially available Work Order Number will display
-        here. You may change the number&mdash;creating a new basis for the
-        next Work Order Number&mdash;by typing the new number into this field.
-        Any changes you make here will be reflected the next time a new Work
-        Order is created.</para>
+        here. You may change the number—creating a new basis for the next Work
+        Order Number—by typing the new number into this field. Any changes you
+        make here will be reflected the next time a new Work Order is
+        created.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -121,9 +121,9 @@
               effective on that date.</para>
               <tip>
                 <para>Pick a default explosion level if you have not
-                configured the Manufacture module to automatically explode Work
-                Orders. If Work Orders are exploded by default, the selection
-                of an explosion level is not relevant.</para>
+                configured the Manufacture module to automatically explode
+                Work Orders. If Work Orders are exploded by default, the
+                selection of an explosion level is not relevant.</para>
               </tip>
             </listitem>
           </varlistentry>
@@ -245,9 +245,9 @@
               shipped, a value up to the proportional value of the total
               quantity shipped will be charged to Cost of Sales. For example,
               if 3 Items are to be shipped on a Job Work Order and all the
-              material has been issued&mdash;and if only 1 of the 3 is
-              shipped&mdash;then 1/3 of the value charged to WIP at that point
-              will be charged to Cost of Sales.</para>
+              material has been issued—and if only 1 of the 3 is shipped—then
+              1/3 of the value charged to WIP at that point will be charged to
+              Cost of Sales.</para>
               <para role="manufacturing"><tip>
                   <para>The appropriate reporting selections must be made in
                   the Bill of Operations to ensure that labor and overhead
@@ -259,5 +259,70 @@
         </variablelist>
       </listitem>
     </varlistentry>
+    <varlistentry role="manufacturing">
+      <term>Shop Floor Workbench Posts</term>
+      <listitem>
+        <para>Select one of the following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Production</term>
+            <listitem>
+              <para>Selecting this option will default to production posting
+              when you to select the Shop Floor Workbench under
+              <guimenu>Manufacture &gt; Transactions</guimenu>.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Operations</term>
+            <listitem>
+              <para>Select this option will default to operations when you
+              select the Shop Floor Workbench.<note>
+                  <para>When recording Time and Attendance by Employee, you
+                  will be able to select the Time Clock under
+                  <guimenu>Manufacture &gt; Transactions</guimenu>.</para>
+                </note></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="manufacturing">
+      <term>Time and Attendance Recording</term>
+      <listitem>
+        <para>Select to post by User or Employee and assign a clearing
+        account:</para>
+        <variablelist>
+          <varlistentry>
+            <term>User</term>
+            <listitem>
+              <para>Select if time will be recorded for a User. The system
+              will prompt you for the User name when you post time. The Shop
+              Floor Workbench will be available for posting production or
+              operations.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Employee</term>
+            <listitem>
+              <para>Select if time will be recorded for an Employee. You will
+              need to enter the Employee number when posting time. The Time
+              Clock will be available for posting operations.</para>
+              <note>
+                <para>Once you have selected this option, you will not be able
+                to change it to User at a later stage.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Labor Overhead Clearing</term>
+            <listitem>
+              <para>Enter the General Ledger Account to which labor overhead
+              clearing will be posted.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
   </variablelist>
+  <para role="manufacturing"></para>
 </section>
