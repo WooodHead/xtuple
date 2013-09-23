@@ -36,6 +36,44 @@
     </screenshot></para>
   <para>The "Sales Assignments" screen displays information on existing Sales
   Account assignments.</para>
+  <note>
+    <para>Sales Account Assignments uses a weighted calculation. The weight of
+    each Sales Account Assignment is calculated according to a point system
+    and the highest weight is selected. </para>
+    <itemizedlist>
+      <listitem>
+        <para>Matching Sales Type = 5 points</para>
+      </listitem>
+      <listitem>
+        <para>Matching Shipping Zone = 4 points</para>
+      </listitem>
+      <listitem>
+        <para>Matching Product Category = 3 points</para>
+      </listitem>
+      <listitem>
+        <para>Matching Customer Type = 2 points</para>
+      </listitem>
+      <listitem>
+        <para>Matching Site = 1 point</para>
+      </listitem>
+    </itemizedlist>
+    <para>When the same weight exists for more than one Account Assignment,
+    the first sorted value in the following order is selected:</para>
+    <orderedlist>
+      <listitem>
+        <para>Customer Type</para>
+      </listitem>
+      <listitem>
+        <para>Product Category</para>
+      </listitem>
+      <listitem>
+        <para>Sales Type</para>
+      </listitem>
+      <listitem>
+        <para>Shipping Zone</para>
+      </listitem>
+    </orderedlist>
+  </note>
   <xi:include href="salesAccount.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
