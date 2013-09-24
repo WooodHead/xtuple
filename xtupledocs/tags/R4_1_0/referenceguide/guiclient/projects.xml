@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="projects">
+  <title>List Projects</title>
+  <para>The "Projects" screen displays information on all existing Projects.
+  Using the search feature, you can quickly locate the Projects you're looking
+  for. And with the right-click menu you can drill down into individual
+  records to examine them more closely.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Locate records quickly by entering portions of project names or
+      descriptions in the search window.</para>
+    </listitem>
+    <listitem>
+      <para>Look up Projects by CRM Account, using the CRM Account filter
+      option.</para>
+    </listitem>
+    <listitem>
+      <para>The date range filter allows you to search for Projects within
+      specified date ranges.</para>
+    </listitem>
+    <listitem>
+      <para>Select the "Show Complete" option to include completed Projects in
+      your search results.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Projects" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/projects.png" />
+        </imageobject>
+        <caption>Projects Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Projects" screen shows all open Projects.
+  You can build your own search criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="configureSearchPath">
+  <title><indexterm significance="normal">
+      <primary>configuration</primary>
+      <secondary>of crm module</secondary>
+    </indexterm>Configure Search Path</title>
+  <para>To configure the search path, select the "Search Path" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureSearchPath.png" />
+        </imageobject>
+        <caption>Configure Search Path</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When configuring the search path, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Schemas Not in Order</term>
+      <listitem>
+        <para>A list of schemas that exist in the xTuple PostgreSQL database.
+        The list is not displayed in a particular sort order. You can view
+        whether a Schema forms part of a Package, and whether or not it is
+        enabled.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Show all schemas</term>
+            <listitem>
+              <para>Check this box to display all schemas in the PostgreSQL
+              database. Uncheck this to only see schemas that relates to
+              xTuple.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Schemas in Order</term>
+      <listitem>
+        <para>From the <emphasis>Schemas Not in Order</emphasis> list,
+        consecutively select schemas that you want to be searched in a
+        particular order by PostgreSQL. You can use the MOVE UP and MOVE DOWN
+        buttons to change the order of the selected schemas.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>New Search Path</term>
+      <listitem>
+        <para>The Search Path that will be used is displayed in this area. Any
+        schemas that you have selected to be searched in order will take
+        priority in the selected sequence in the Search Path. Apply or save
+        your changes and restart xTuple to put the New Search Path into
+        effect.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

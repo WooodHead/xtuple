@@ -1,0 +1,38 @@
+Release Notes
+xTuple ERP
+PostBooks, Standard, and Manufacturing Editions
+Version 3.3.1
+October 21, 2009
+==================================
+
+This is the 3.3.1 Maintenance Release for xTuple ERP. A number of
+critical issues have been addressed in this release. Thanks to all
+who have contributed to this release--either through sponsorship,
+code contributions, or testing feedback.
+
+==================================
+
+The following features and bug fixes have been added to the
+applications since the release of 3.3.1. Additional detail for
+each item listed below may be found on our community website
+(www.xtuple.org). Simply go to the Issue Tracker and select the
+Changelog option.
+
+New Features:
+
+N/A
+
+Bug Fixes:
+
+New Features:
+
+* [Accounting] Cannot select main account segments in FRE
+* [Accounting] Cash Receipts posting can lead to improperly closed aropen
+  records
+* [Architectural] Misc voucher screen can lead to orphan transactions
+* [Inventory] Assigning all Lot-controlled items to a single lot even
+  when unchecked.
+* [Inventory] Endless loop on Return WO material by Item
+* [Inventory] Recalling TO shipment of a L/S item creates frozen transaction
+* [Inventory] Post Receipt on T/O results in SQL error
+* [Manufacture] Cannot create wo if there is a phantom in BOM
