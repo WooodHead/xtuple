@@ -91,7 +91,9 @@
               changed.</para>
               <tip>
                 <para>The active Revision becomes inactive when a pending
-                Revision is activated. Inactive Revisions cannot be
+                Revision is activated. To activate a pending Revision, right
+                click on the magnifying glass next to the Item number and
+                select "Activate". Inactive Revisions cannot be
                 modified.</para>
               </tip>
             </listitem>
@@ -102,9 +104,11 @@
               <para>This is a Revision that has never been used, but is under
               development or consideration. You may store multiple pending
               Revisions. When a pending Revision is entered in the "Revision"
-              field, an ACTIVATE button will dynamically appear to the far
-              right of the screen. Select the ACTIVATE button to convert a
-              pending Revision to the active Revision.</para>
+              field, an option to activate the item will dynamically appear in
+              the context menu when you right click on the magnifying glass
+              next to the Item number . Select "Activate" from this context
+              menu to convert a pending Revision to the active
+              Revision.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -226,19 +230,6 @@
   </variablelist>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
-    <varlistentry role="standard">
-      <term>ACTIVATE</term>
-      <listitem>
-        <para>Select to activate a pending Revision. This button will only be
-        visible when a pending Revision number is entered in the "Revision"
-        field.</para>
-        <tip>
-          <para>When you activate a pending Revision, the currently active
-          Revision will become inactive. Inactive Revisions cannot be
-          modified.</para>
-        </tip>
-      </listitem>
-    </varlistentry>
     <varlistentry>
       <term>EXPIRE</term>
       <listitem id="bomEXPIRE">
