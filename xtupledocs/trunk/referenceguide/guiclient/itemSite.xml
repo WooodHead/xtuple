@@ -563,6 +563,10 @@
               opportunity to override the default. This will effectively allow
               the posting of inventory transactions for multi-location Items
               without having to make any distribution decisions.</para>
+              <note>
+                <para>This option is not available for Items that are Serial
+                or Lot controlled.</para>
+              </note>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -990,8 +994,7 @@
         <listitem>
           <para>Select to automatically create a registration for Lot/Serial
           Items when they are issued to Shipping. You can learn more about
-          registrations in <xref
-          linkend="lotSerialRegistration" />.</para>
+          registrations in <xref linkend="lotSerialRegistration" />.</para>
         </listitem>
       </varlistentry>
     </variablelist></para>
