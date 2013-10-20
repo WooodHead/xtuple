@@ -176,8 +176,8 @@
   </variablelist>
   <tip>
     <para>You may select multiple Purchase Order Line Items for distribution
-    or clearing by highlighting them using your mouse&mdash;or a combination
-    of your mouse and either the SHIFT or CTRL keys.</para>
+    or clearing by highlighting them using your mouse—or a combination of your
+    mouse and either the SHIFT or CTRL keys.</para>
   </tip>
   <para>To add miscellaneous Cost distributions to a Voucher, select the
   "Misc. Distributions" tab. The following screen will appear:</para>
@@ -221,6 +221,10 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To associate documents with a Voucher, select the "Documents"
+  tab.</para>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="voucherItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="voucherMiscDistrib.xml" xpointer="element(/1)"
