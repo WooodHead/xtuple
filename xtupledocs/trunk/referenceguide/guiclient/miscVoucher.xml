@@ -25,7 +25,7 @@
     </screenshot></para>
   <note>
     <para>A Voucher posts to the General Ledger effective on the Invoice Date
-    entered on the Voucher&mdash;not on the date it is posted, as might be
+    entered on the Voucher—not on the date it is posted, as might be
     assumed.</para>
   </note>
   <para>When entering a new Voucher, you are presented with the following
@@ -170,6 +170,10 @@
     </screenshot></para>
   <xi:include href="../widgets/recurrencewidget.xml"
               xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To associate documents with a Miscellaneous Voucher, select the
+  "Documents" tab.</para>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="voucherMiscDistrib.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />

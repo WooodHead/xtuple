@@ -281,6 +281,15 @@
         Notes may be printed on shipping paperwork.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Documents</term>
+      <listitem>
+        <para>To associate documents with a Ship-To Address, select the
+        "Documents" tab.</para>
+        <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+                    xmlns:xi="http://www.w3.org/2001/XInclude" />
+      </listitem>
+    </varlistentry>
     <varlistentry role="xtconnect">
       <term>Transmission</term>
       <listitem>
@@ -1095,8 +1104,7 @@
         <para>Select to view the list of Sales Orders associated with the
         Customer. On this screen you can create new Sales Orders or edit
         existing ones. For additional documentation related to entering Sales
-        Orders for Customers, please see <xref
-        linkend="salesOrder" />.</para>
+        Orders for Customers, please see <xref linkend="salesOrder" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
