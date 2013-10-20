@@ -875,8 +875,8 @@
                 <entry><para>A standalone number will enter the day of the
                 current month represented by that
                 number.</para><para>Examples:</para><para>Entering "12" in the
-                month of March, 2003 would give you March 12, 2003. Similarly,
-                the number "23" would give you March 23, 2003,
+                month of March, 2013 would give you March 12, 2013. Similarly,
+                the number "23" would give you March 23, 2013,
                 etc.</para><para>Any number from 1 to 99 may be entered. If
                 the number entered is greater than the last day of the current
                 month, the date will automatically default to the last day of
@@ -889,9 +889,17 @@
                 <entry><para>The "#" symbol followed by a whole number will
                 enter the day of the current Julian calendar year represented
                 by that number.</para><para>Examples:</para><para>Entering
-                "#1" in the year 2003 would give you January 1, 2003.
-                Similarly, "#100" would give you April 10, 2003. Entering
-                "#365" would give you December 31, 2003.</para></entry>
+                "#1" in the year 2013 would give you January 1, 2013.
+                Similarly, "#100" would give you April 10, 2013. Entering
+                "#365" would give you December 31, 2013.</para></entry>
+              </row>
+              <row>
+                <entry>#-num</entry>
+                <entry><para>The "#" symbol followed by the "-" symbol and a
+                whole number will enter the day occuring num number of days
+                before the end of the
+                year.</para><para>Example:</para><para>Entering "#-100" in the
+                year 2013 would give you September 23, 2013</para></entry>
               </row>
             </tbody>
           </tgroup>
