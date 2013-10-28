@@ -87,72 +87,62 @@
     <varlistentry>
       <term>May be used on</term>
       <listitem>
-        <para>Select one of the following Characteristic assignment
-        options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Address</term>
-            <listitem>
-              <para>Select to make Characteristic available to
-              Addresses.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>CRM Account</term>
-            <listitem>
-              <para>Select to make Characteristic available for CRM
-              Accounts.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Item</term>
-            <listitem>
-              <para>Select to make Characteristic available for Items.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Contact</term>
-            <listitem>
-              <para>Select to make Characteristic available for
-              Contacts.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Employee</term>
-            <listitem>
-              <para>Select to make Characteristic available for
-              Employees.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Lot/Serial</term>
-            <listitem>
-              <para>Select to make Characteristic available for Lot/Serial
-              records.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Customer</term>
-            <listitem>
-              <para>Select to make Characteristic available for
-              Customers.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Incident</term>
-            <listitem>
-              <para>Select to make Characteristic available for
-              Incidents.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Opportunity</term>
-            <listitem>
-              <para>Select to make Characteristic available for
-              Opportunities.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Select one or more of the following Characteristic assignment
+        options by checking the relevant check boxes. The Characteristic will
+        then be available for use in that window.</para>
+        <itemizedlist>
+          <listitem>
+            <para>Address</para>
+          </listitem>
+          <listitem>
+            <para>CRM Account</para>
+          </listitem>
+          <listitem>
+            <para>Item</para>
+          </listitem>
+          <listitem>
+            <para>Quote</para>
+          </listitem>
+          <listitem>
+            <para>Vendor</para>
+          </listitem>
+          <listitem>
+            <para>Projects</para>
+          </listitem>
+          <listitem>
+            <para>Contact</para>
+          </listitem>
+          <listitem>
+            <para>Employee</para>
+          </listitem>
+          <listitem>
+            <para>Lot/Serial</para>
+          </listitem>
+          <listitem>
+            <para>Sales Order</para>
+          </listitem>
+          <listitem>
+            <para>Purchase Order</para>
+          </listitem>
+          <listitem>
+            <para>Project Tasks</para>
+          </listitem>
+          <listitem>
+            <para>Customer</para>
+          </listitem>
+          <listitem>
+            <para>Incident</para>
+          </listitem>
+          <listitem>
+            <para>Opportunity</para>
+          </listitem>
+          <listitem>
+            <para>Invoice</para>
+          </listitem>
+          <listitem>
+            <para>Voucher</para>
+          </listitem>
+        </itemizedlist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -171,20 +161,20 @@
               values entered for your text type Characteristics. Typically
               when using these advanced validation features, you will specify
               either an input mask or a validator. If you decide to use both
-              at once, they must be coordinated and consistent&mdash;otherwise
-              users will experience difficulties when attempting to enter text
-              type Characteristic values.</para>
+              at once, they must be coordinated and consistent—otherwise users
+              will experience difficulties when attempting to enter text type
+              Characteristic values.</para>
               <variablelist>
                 <varlistentry>
                   <term>Input Mask</term>
                   <listitem>
-                    <para>Select from the available options&mdash;or manually
-                    enter an input mask of your own design. An input mask
-                    creates a template to guide users as they enter values for
-                    a Characteristic. It is a form of light data validation.
-                    For example, if you specify the input mask 00/00/0000,
-                    then users will be presented with the following template
-                    when they are entering values for the Characteristic :
+                    <para>Select from the available options—or manually enter
+                    an input mask of your own design. An input mask creates a
+                    template to guide users as they enter values for a
+                    Characteristic. It is a form of light data validation. For
+                    example, if you specify the input mask 00/00/0000, then
+                    users will be presented with the following template when
+                    they are entering values for the Characteristic :
                     "__/__/____". In this case, users will simply have to fill
                     in the blanks between the separators.</para>
                     <variablelist>
@@ -227,10 +217,10 @@
                 <varlistentry>
                   <term>Validator</term>
                   <listitem>
-                    <para>Select from the available options&mdash;or manually
-                    enter a validator of your own design. A validator is used
-                    to strictly enforce the format of data users can enter in
-                    a field. If you specify a validator for a Characteristic,
+                    <para>Select from the available options—or manually enter
+                    a validator of your own design. A validator is used to
+                    strictly enforce the format of data users can enter in a
+                    field. If you specify a validator for a Characteristic,
                     then users will have to conform to the format when
                     entering values for the Characteristic. Values which do
                     not conform will not be accepted.</para>
@@ -306,8 +296,8 @@
                     typing your value information. The value entered here will
                     appear as a listed option when the specified
                     Characteristic is used. For example, possible values might
-                    be "True" and "False"&mdash;or any other combination of
-                    values you can imagine.</para>
+                    be "True" and "False"—or any other combination of values
+                    you can imagine.</para>
                   </listitem>
                 </varlistentry>
                 <varlistentry>

@@ -904,9 +904,10 @@
     </indexterm> <indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>credit cards and</secondary>
-    </indexterm>To authorize or charge Customer Credit Cards, select the
-  "Payment" tab at the top of the "Sales Order" screen. The following screen
-  will appear:</para>
+    </indexterm>To receive payments for the Sales Order, select the "Payment"
+  tab at the top of the "Sales Order" screen. To authorize or charge Customer
+  Credit Cards, select the "Credit Card" tab in the window. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -988,6 +989,137 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To post a cash payment, select the "Cash" tab in the "Payments"
+  window. The following screen will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/salesOrder_PaymentCash.png" />
+    </imageobject>
+    <caption><para>Customer Cash Payment</para></caption>
+  </mediaobject>
+  <para>When posting cash to the Sales Order, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Order Total</term>
+      <listitem>
+        <para>The Sales Order total.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount Applied</term>
+      <listitem>
+        <para>Displays the amount of Cash that has been applied to the
+        specified Customer's Invoice(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Balance</term>
+      <listitem>
+        <para>Displays the difference between the Sales Order total and any
+        payments that have been applied.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Amount Received</term>
+      <listitem>
+        <para>Enter the cash payment amount that should be applied to the
+        Sales Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Funds Type</term>
+      <listitem>
+        <para>Specify the type of the Cash Receipt. Choose from following
+        Funds Types: Check, Certified Check, Cash, Wire Transfer, and
+        Other.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>You can use the Funds Type "Other" for entering Credit Card
+    information if you are not using xTuple's Credit Card processing
+    functionality at your site.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Check/Document #</term>
+      <listitem>
+        <para>Use this field to enter the Customer's Check Number, transaction
+        number, Credit Card number, or any other Document Number associated
+        with the Cash Receipt.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Check/Document Date</term>
+      <listitem>
+        <para>Use this field to specify the date on the Check you received.
+        This is the Document date used when running the Receivables aging
+        report.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post to</term>
+      <listitem>
+        <para>Select the Bank Account you want to post the Cash Receipt to.
+        The Asset Account used for the selected Bank Account is specified on
+        the Bank Account master.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If your site uses a unique Bank Account for receiving Credit Card
+    payments, make sure to select the appropriate Bank Account when entering
+    payments from a Credit Card.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Distribution Date</term>
+      <listitem>
+        <para>Specify the date of the cash distribution. This is the date the
+        Cash Receipt will hit the General Ledger (G/L). By default, the
+        current day's date will appear. If the distribution date precedes the
+        application date, the label "Apply Balance As" will change to "Record
+        Receipt as" to clarify that the cash will be recorded as a Credit Memo
+        or Customer Deposit until the application date arrives. On the
+        application date, the Credit Memo or Customer Deposit will
+        automatically be applied to its specified receivable
+        document(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Application Date</term>
+      <listitem>
+        <para>Specify the date you want the cash to be applied to the selected
+        receivables. By default, the current day's date will appear. To
+        prevent Receivable aging and G/L balance mismatches, you may not enter
+        an application date prior to the earliest document date of receivables
+        the cash is being applied to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Alternate Receivables Account From Sales Category</term>
+      <listitem>
+        <para>Select one of the following optional Receivables
+        Accounts:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Sales Category</term>
+            <listitem>
+              <para>Specify a Sales Category whose Receivables Account option
+              you want to use instead of the default Receivables
+              Account.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If an alternate Receivables Account is not specified, the system
+    will use the default Receivables Account specified for the Customer Type
+    under Receivables Account Assignments.</para>
+  </note>
   <xi:include href="salesOrderItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

@@ -35,6 +35,10 @@
       <para>Unreleased Purchase Orders are considered to be a valid source of
       supply by the planning systems.</para>
     </listitem>
+    <listitem>
+      <para>An open released Purchase Order can only be unreleased when it has
+      no receiving, return, and vouchering activity.</para>
+    </listitem>
   </itemizedlist>
   <para>The following screenshot shows the "Open Purchase Orders"
   screen:</para>
