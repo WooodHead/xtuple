@@ -238,7 +238,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Copy to Ship-to -\&gt;</term>
+      <term>Copy to Ship-to -&gt;</term>
       <listitem>
         <para>Select to copy contents of billing address into Ship-To address
         field. This option is enabled if the Customer master for the specified
@@ -821,6 +821,18 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To add Comments related to a Sales Order, select the "Comments" tab.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesOrder_orderComments.png" />
+        </imageobject>
+        <caption>Sales Order Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>Order Notes added to a Sales Order are used for internal purposes
   only. If an Invoice results from the Sales Order, these Notes will be
   transferred to the Invoice. To add Notes to a Sales Order, select the "Order
@@ -829,7 +841,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrder_orderCommentsPage.png" />
+          <imagedata fileref="images/salesOrder_orderNotes.png" />
         </imageobject>
         <caption>Sales Order Notes</caption>
       </mediaobject>
@@ -845,44 +857,18 @@
         use only.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>To add Comments related to a Sales Order, select the "Comments" tab.
-  The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/salesOrder_orderComments.png" />
-        </imageobject>
-        <caption>Sales Order Comments</caption>
-      </mediaobject>
-    </screenshot></para>
-  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para>Shipping Notes are drawn from the Customer master—specifically from
-  the "Shipping Notes" tab on the Ship-To Address master. The Notes may vary
-  depending on the Ship-To Address specified for the Order. These Notes
-  provide a mechanism for transferring shipping information from the Customer
-  master to the Sales Order. Ultimately, Shipping Notes may be printed on
-  shipping paperwork. To view Sales Order Shipping Notes, select the "Shipping
-  Notes" tab at the top of the "Sales Order" screen. The following screen will
-  appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/salesOrder_shippingComments.png" />
-        </imageobject>
-        <caption>Sales Order Shipping Notes</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When viewing or editing Shipping Notes for a Sales Order, you are
-  presented with the following options:</para>
-  <variablelist>
     <varlistentry>
       <term>Shipping Notes</term>
       <listitem>
-        <para>While Shipping Notes content may originate from the Customer
-        master, you can edit the Notes to fit the requirements of an Order.
-        Shipping Notes may be printed on shipping paperwork.</para>
+        <para>Shipping Notes are drawn from the Customer master—specifically
+        from the "Shipping Notes" tab on the Ship-To Address master. The Notes
+        may vary depending on the Ship-To Address specified for the Order.
+        These Notes provide a mechanism for transferring shipping information
+        from the Customer master to the Sales Order. Ultimately, Shipping
+        Notes may be printed on shipping paperwork. While Shipping Notes
+        content may originate from the Customer master, you can edit the Notes
+        to fit the requirements of an Order. Shipping Notes may be printed on
+        shipping paperwork.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -911,7 +897,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrder_Payment.png" />
+          <imagedata fileref="images/salesOrder_paymentCredit.png" />
         </imageobject>
         <caption>Customer Credit Card Payment</caption>
       </mediaobject>
@@ -993,7 +979,7 @@
   window. The following screen will be displayed:</para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/salesOrder_PaymentCash.png" />
+      <imagedata fileref="images/salesOrder_paymentCash.png" />
     </imageobject>
     <caption><para>Customer Cash Payment</para></caption>
   </mediaobject>
