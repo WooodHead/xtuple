@@ -271,7 +271,7 @@
   <para>When entering Sales Orders you have the ability to view current supply
   considerations, including Item availability and dependencies. You may also
   create replenishment Orders (if they are needed) and change Work Order
-  Materials and Operations. </para>
+  Materials and Operations.</para>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -478,8 +478,9 @@
     <varlistentry>
       <term>Rollup Prices</term>
       <listitem>
-        <para>Select if you wish to view the Sales Order Net Unit Price in the
-        "Unit Price" column in the displayed list.</para>
+        <para>If this option is selected, the price will be based on the price
+        of all materials and operations. These material and operations prices
+        can be edited from the SO Item screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
