@@ -27,7 +27,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>UOM</term>
+      <term>UOMTo </term>
       <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
@@ -37,13 +37,6 @@
       <listitem>
         <para>The target Item Number must be a unique Item Number new to the
         system.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Copy Item Costs</term>
-      <listitem>
-        <para>Select if you want to copy the Item Costs for the source
-        Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -60,13 +53,139 @@
         Operations.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Rollup Prices</term>
+      <listitem>
+        <para>Select if the Price should be based on the price of all the
+        target Material and Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Copy Item Sites</term>
+      <listitem>
+        <para>Select if you want to copy the source Item's Item Sites.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry role="manufacturing">
       <term>Copy Used At Operation</term>
       <listitem>
         <para>Select if you want to include the "Used At" Operation
-        information when copying a Source Item's Bill of Materials. If
+        information when copying a source Item's Bill of Materials. If
         selected, the "Schedule w/ W/O Operation" information will also be
         copied.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>COPY</term>
+      <listitem>
+        <para>Click the COPY button to copy the Item according to the
+        selections made on this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add or remove components in the Bill of Material for the target
+  Item, click on the "Bill of Material" tab. The following is
+  displayed:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Search for Item</term>
+      <listitem>
+        <para>Start typing the Item that you would like to add. A list of
+        Items containing the typed characters will appear from where you can
+        select the Item that you want to add to the Bill of Material.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ADD -&gt;</term>
+      <listitem>
+        <para>Clicking the ADD-&gt; button will add selected components from
+        the list in the left pane to the "Component Items" list on the
+        right.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REMOVE -&gt;</term>
+      <listitem>
+        <para>To remove components from the source Item's Bill of Material,
+        select the components in the "Bill of Material" list that must be
+        remove and click the REMOVE -&gt; button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Component Items</term>
+      <listitem>
+        <para>Display lists the components that will be part of the target
+        Item's Bill of Material.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add or remove standard Operations, select the "Bill of Operations"
+  tab. The following will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/copyItem_BOO.png" />
+    </imageobject>
+  </mediaobject>
+  <variablelist>
+    <varlistentry>
+      <term>Available Standard Operations</term>
+      <listitem>
+        <para>By default the display lists the source Item's Bill of
+        Operations. Select the Operations that you wish to include in the
+        target Item's Bill of Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ADD -&gt;</term>
+      <listitem>
+        <para>Clicking the ADD-&gt; button will add selected Operations from
+        the list in the left pane to the "Bill of Operations" list on the
+        right.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REMOVE -&gt;</term>
+      <listitem>
+        <para>To remove Operations from the source Item's Bill of Operations,
+        highlight the relevant Operations in the "Bill of Operations" list and
+        click the REMOVE -&gt; button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bill of Operations</term>
+      <listitem>
+        <para>Display lists the target Item's Bill of Operations.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To add or remove Item Sites for the target Item, select the "Item
+  Site" tab. The following will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/copyItem_itemSite.png" />
+    </imageobject>
+  </mediaobject>
+  <variablelist>
+    <varlistentry>
+      <term>Item Sites</term>
+      <listitem>
+        <para>By default the list will display the source Item's Item Sites.
+        From this list, you can select the Item Sites that you do not wish to
+        copy to the target Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>COPY</term>
+      <listitem>
+        <para>The list of Item Sites displayed will be copied to the target
+        item when the COPY button is clicked.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REMOVE</term>
+      <listitem>
+        <para>Click the REMOVE button to remove the selected Item Sites that
+        should not be copied to the target Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
