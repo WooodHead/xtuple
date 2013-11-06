@@ -46,7 +46,7 @@
     </varlistentry>
   </variablelist>
   <para id="Para678051">To view Inventory Availability for the specified Item,
-  select the "Availability" radio button on the "Availability" tab.</para>
+  select the "Availability" option on the "Availability" tab.</para>
   <para id="Para678057">When displaying Inventory Availability by Item, you
   are presented with the following options:</para>
   <variablelist>
@@ -123,22 +123,22 @@
     <varlistentry>
       <term id="Para678035">QOH</term>
       <listitem>
-        <para>Displays Quantity on Hand for specified Item.</para>
+        <para>Displays the Quantity on Hand for the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term id="Para678036">Order Multiple</term>
       <listitem>
-        <para>Displays Order Multiple specifying the increments the Item must
-        be ordered in. Order Multiple is maintained in the Item Site
-        master.</para>
+        <para>Displays the Order Multiple, which specifies the increments the
+        Item must be ordered in. The Order Multiple is maintained in the Item
+        Site master.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term id="Para678037">Reorder Level</term>
       <listitem>
-        <para>Displays the Reorder Level specifying the minimum Quantity on
-        Hand allowed before an Item must be reordered. Reorder Level is
+        <para>Displays the Reorder Level, which specifies the minimum Quantity
+        on Hand allowed before an Item must be reordered. The Reorder Level is
         maintained in the Item Site master.</para>
       </listitem>
     </varlistentry>
@@ -166,7 +166,7 @@
         <imageobject>
           <imagedata fileref="images/itemAvailabilityWorkbench_lotserial.png" />
         </imageobject>
-        <caption>Inventory Location/Lot/Serial Detail on Workbench</caption>
+        <caption>Location/Lot/Serial Detail on Workbench</caption>
       </mediaobject>
     </screenshot></para>
   <para id="Para678170" role="standard">When displaying detailed Inventory
@@ -195,10 +195,9 @@
         </listitem>
       </varlistentry>
     </variablelist></para>
-  <para>To view Order Details for the Item, select the "Orders" tab.</para>
-  <para>To view Purchase Order details for the Item, select the "Purchase
-  Orders" radio button on the "Orders" tab. The following screen will
-  appear:</para>
+  <para>To view Order Details for the Item, select the "Orders" tab. If you
+  want to view Purchase Order information for the Item, select the "Purchase
+  Orders" option. The following screen will appear:</para>
   <para id="Para678055"><screenshot>
       <mediaobject>
         <imageobject>
@@ -210,13 +209,13 @@
   <para>When displaying Purchase Orders for the Item, you are presented with
   the following options:</para>
   <variablelist>
-    <varlistentry>
+    <varlistentry role="standard">
       <term id="Para678068">All Sites</term>
       <listitem>
         <para>Select to display Inventory Availability for all Sites.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term id="Para678069">Selected</term>
       <listitem>
         <para>Specify Site whose Inventory Availability you want to
@@ -226,7 +225,7 @@
     <varlistentry>
       <term>All Items</term>
       <listitem>
-        <para>Select if you would like to view all Purchase Orders for the
+        <para>Select if you want to view all Purchase Orders for the
         Item.</para>
       </listitem>
     </varlistentry>
@@ -266,14 +265,14 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view Sales Order details for the Item, select the "Sales Orders"
-  radio button on the "Orders" tab. The following screen will appear:</para>
+  <para>To view Sales Order information for the Item, select the "Sales
+  Orders" option on the "Orders" tab. The following screen will appear:</para>
   <para id="Para678055"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/itemAvailabilityWorkbench_salesOrders.png" />
         </imageobject>
-        <caption>Item Sales Order Details on Workbench</caption>
+        <caption>Sales Order Details on Workbench</caption>
       </mediaobject>
     </screenshot></para>
   <para>When displaying Sales Orders for the Item, you are presented with the
@@ -282,32 +281,32 @@
     <varlistentry>
       <term>Starting Order Date</term>
       <listitem>
-        <para>Enter the earliest Order date for which you wish to view Sales
-        Orders.</para>
+        <para>Enter the earliest Order date you want to include in the
+        report.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ending Order Date</term>
       <listitem>
-        <para>Enter the latest Order date for which you want to view Sales
-        Orders.</para>
+        <para>Enter the latest Order date you want to include in the
+        report.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Sales Orders</term>
       <listitem>
-        <para>Display lists Sales Orders for the item according to the
+        <para>Display lists Sales Orders for the Item according to the
         selected date range.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view Quotation details for the Item, select the "Quotes" radio
-  button on the "Orders" tab. The following screen will appear:</para>
+  <para>To view Quote information for the Item, select the "Quotes" option on
+  the "Orders" tab. The following screen will appear:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/itemAvailabilityWorkbench_quotes.png" />
     </imageobject>
-    <caption>Item Quotation Details on Workbench</caption>
+    <caption>Quote Details on Workbench</caption>
   </mediaobject>
   <para>When displaying Quotes for the Item, you are presented with the
   following options:</para>
@@ -315,27 +314,32 @@
     <varlistentry>
       <term>Starting Order Date</term>
       <listitem>
-        <para>Enter the earliest Order date for which you wish to view
-        Quotes.</para>
+        <para>Enter the earliest Quote date you want to include in the
+        report.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ending Order Date</term>
       <listitem>
-        <para>Enter the latest Order date for which you want to view
-        Quotes.</para>
+        <para>Enter the latest Quote date you want to include in the
+        report.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Converted</term>
       <listitem>
-        <para>Select if you wish to see Quotes that have been converted to
-        Sales Orders.</para>
+        <para>Select to include Quotes that have been converted to Sales
+        Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Quotes</term>
+      <listitem>
+        <para>Display lists Quotes for the Item according to the specified
+        selections.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Display lists Quotes for the Item according to the specified
-  selections.</para>
   <para id="Para678120">To view History details for the specified Item, select
   the "History" tab. The following screen will appear:</para>
   <para id="Para678124"><screenshot>
@@ -353,7 +357,11 @@
       <term id="Para678148">Inventory History</term>
       <listitem>
         <para>Display lists Inventory history by Item, using the specified
-        parameters. </para>
+        parameters. This display is a nested list, with a plus ("+") sign
+        located to the far left of the display next to each transaction that
+        may be expanded to lower levels. By clicking your mouse on a plus
+        sign, you reveal lower levels of information related to the
+        Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -473,7 +481,7 @@
   </mediaobject>
   <para>The information displayed on the Item Master tab is for viewing
   purposes only. These viewable fields are defined in the Products Chapter
-  under <ulink url="item.xml">Item</ulink></para>
+  under <ulink url="item.xml">Item.</ulink></para>
   <para id="Para678091">To view Bill of Materials information for the
   specified Item, select the "Bill of Materials" tab.</para>
   <para>To view the Costed Indented BOM, select the "Costed Indented BOM"
