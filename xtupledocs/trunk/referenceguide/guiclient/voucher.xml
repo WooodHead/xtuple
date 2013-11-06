@@ -199,12 +199,40 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Voucher Characteristics are user-defined definitions which may be used
+  to provide additional layers of description about Vouchers. These
+  descriptions are static and not processed by the system, but are useful for
+  informational purposes. To enter Characteristics associated with a Voucher,
+  select the "Characteristics" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/voucher_characteristics.png" />
+    </imageobject>
+    <caption><para>Voucher Characteristics</para></caption>
+  </mediaobject>
+  <para>When creating a new Voucher Characteristic, you are presented with the
+  following options:<variablelist>
+      <varlistentry>
+        <term>Characteristic</term>
+        <listitem>
+          <para>Select a Characteristic from the list of Characteristics
+          designated as being available for use as Voucher
+          Characteristics.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Value</term>
+        <listitem>
+          <para>Enter a description for the Voucher Characteristic.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To add Notes to a Voucher, select the "Notes" tab. The following
   screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/voucher_notesTab.png" />
+          <imagedata fileref="images/voucher_notes.png" />
         </imageobject>
         <caption>Add Notes to Voucher</caption>
       </mediaobject>

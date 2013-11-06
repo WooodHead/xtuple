@@ -77,8 +77,8 @@
       <listitem>
         <para>Specify the name of the agent assigned to the Order. By default,
         the name of the logged-in user will be entered as Purchasing
-        Agent&mdash;assuming that user is designated as a Purchasing Agent. If
-        the user is not a Purchasing Agent, the first alphabetical name in the
+        Agent—assuming that user is designated as a Purchasing Agent. If the
+        user is not a Purchasing Agent, the first alphabetical name in the
         list of Purchasing Agents will be entered.</para>
       </listitem>
     </varlistentry>
@@ -108,11 +108,11 @@
             <listitem>
               <para>Displays the Vendor's main Address. You may manually
               override the displayed Address information in the fields
-              below&mdash;or use the lookup feature to select another Address.
-              If a new Address is manually entered here, that Address will be
-              added automatically to the master list of Addresses. For
-              additional documentation related to creating Addresses, see
-              <xref linkend="address" />.</para>
+              below—or use the lookup feature to select another Address. If a
+              new Address is manually entered here, that Address will be added
+              automatically to the master list of Addresses. For additional
+              documentation related to creating Addresses, see <xref
+              linkend="address" />.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -120,11 +120,11 @@
             <listitem>
               <para>Displays the Vendor's primary Contact. You may manually
               override the displayed Contact information in the fields
-              below&mdash;or use the lookup feature to select another Contact.
-              If a new Contact is manually entered here, that Contact will be
-              added automatically to the master list of Contacts. For
-              additional documentation related to creating Addresses, see
-              <xref linkend="contact" />.</para>
+              below—or use the lookup feature to select another Contact. If a
+              new Contact is manually entered here, that Contact will be added
+              automatically to the master list of Contacts. For additional
+              documentation related to creating Addresses, see <xref
+              linkend="contact" />.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -158,11 +158,11 @@
               <para>Displays either the Site Address for the specified
               receiving Site or, for drop ship Orders, the Customer Ship-To
               Address from the linked Sales Order. You may manually override
-              the displayed Address information in the fields below&mdash;or
-              use the lookup feature to select another Address. If a new
-              Address is manually entered here, that Address will be added
-              automatically to the master list of Addresses. For additional
-              documentation related to creating Addresses, see <xref
+              the displayed Address information in the fields below—or use the
+              lookup feature to select another Address. If a new Address is
+              manually entered here, that Address will be added automatically
+              to the master list of Addresses. For additional documentation
+              related to creating Addresses, see <xref
               linkend="contact" />.</para>
             </listitem>
           </varlistentry>
@@ -173,7 +173,7 @@
               receiving Site or, for drop ship Orders, the Contact for the
               Customer Ship-To Address on the linked Sales Order. You may
               manually override the displayed Contact information in the
-              fields below&mdash;or use the lookup feature to select another
+              fields below—or use the lookup feature to select another
               Contact. If a new Contact is manually entered here, that Contact
               will be added automatically to the master list of Contacts. For
               additional documentation related to creating Addresses, see
@@ -208,7 +208,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/purchaseOrder_lineItemsPage.png" />
+          <imagedata fileref="images/purchaseOrder_lineItems.png" />
         </imageobject>
         <caption>Purchase Order Line Items</caption>
       </mediaobject>
@@ -264,6 +264,36 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Purchase Order Characteristics are user-defined definitions which may
+  be used to provide additional layers of description about Purchase Orders.
+  These descriptions are static and not processed by the system, but are
+  useful for informational purposes. To enter Characteristics associated with
+  a Purchase Order, select the "Characteristics" tab. The following screen
+  will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/purchaseOrder_characteristics.png" />
+    </imageobject>
+    <caption><para>Purchase Order Characteristics</para></caption>
+  </mediaobject>
+  <para>When creating a new Purchase Order Characteristic, you are presented
+  with the following options:<variablelist>
+      <varlistentry>
+        <term>Characteristic</term>
+        <listitem>
+          <para>Select a Characteristic from the list of Characteristics
+          designated as being available for use as Purchase Order
+          Characteristics.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Value</term>
+        <listitem>
+          <para>Enter a description for the Purchase Order
+          Characteristic.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To add Notes to a Purchase Order, select the "Notes" tab at the top of
   the "Purchase Order" screen. The following screen will appear:</para>
   <para><screenshot>
@@ -285,8 +315,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to a Purchase Order&mdash;or to view system-generated
-  Comments&mdash;select the "Comments" tab at the top of the "Purchase Order"
+  <para>To add Comments to a Purchase Order—or to view system-generated
+  Comments—select the "Comments" tab at the top of the "Purchase Order"
   screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -307,7 +337,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/purchaseOrder_quickEntryTab.png" />
+          <imagedata fileref="images/purchaseOrder_quickEntry.png" />
         </imageobject>
         <caption>Purchase Order Quick Entry</caption>
       </mediaobject>
@@ -414,7 +444,7 @@
   <para>To view the documents associated with a Purchase Order, select the
   "Documents" tab. The following screen will appear:<mediaobject>
       <imageobject>
-        <imagedata fileref="images/purchaseOrder_documentsTab.png" />
+        <imagedata fileref="images/purchaseOrder_documents.png" />
       </imageobject>
       <caption><para>Purchase Order Documents</para></caption>
     </mediaobject></para>

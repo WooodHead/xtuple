@@ -593,29 +593,6 @@
   </note>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para>To define an alternate Cost of Sales Account for a Sales Order Line
-  Item, select the "Accounting" tab at the bottom of the screen, as shown
-  below:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/quoteItem_costofsalesTab.png" />
-        </imageobject>
-        <caption>Quote Line Item Accounting</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When defining an alternate Cost of Sales Account for a Sales Order
-  Line Item, you are presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term>Alternate Cost of Sales Account</term>
-      <listitem>
-        <para>Specify an alternate Account to be used for the Cost of Sales.
-        The Account you specify will be used instead of the typical Account
-        pre-defined in the Sales Account Assignments.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
   <xi:include href="priceListQuote.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

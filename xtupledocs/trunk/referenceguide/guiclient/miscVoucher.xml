@@ -136,12 +136,42 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Miscellaneous Characteristics are user-defined definitions which may
+  be used to provide additional layers of description about a Miscellaneous
+  Voucher. These descriptions are static and not processed by the system, but
+  are useful for informational purposes. To enter Characteristics associated
+  with a Miscellaneous Voucher, select the "Characteristics" tab. The
+  following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/miscVoucher_characteristics.png" />
+    </imageobject>
+    <caption><para>Miscellaneous Voucher Characteristics</para></caption>
+  </mediaobject>
+  <para>When creating a new Miscellaneous Voucher Characteristic, you are
+  presented with the following options:<variablelist>
+      <varlistentry>
+        <term>Characteristic</term>
+        <listitem>
+          <para>Select a Characteristic from the list of Characteristics
+          designated as being available for use as Miscellaneous Voucher
+          Characteristics.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Value</term>
+        <listitem>
+          <para>Enter a description for the Miscellaneous Voucher
+          Characteristic.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To add Notes to a Miscellaneous Voucher, select the "Notes" tab. The
   following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/miscVoucher_notesTab.png" />
+          <imagedata fileref="images/miscVoucher_notes.png" />
         </imageobject>
         <caption>Add Notes to Voucher</caption>
       </mediaobject>
@@ -158,12 +188,21 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To associate documents with a Miscellaneous Voucher, select the
+  "Documents" tab. The following screen will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/miscVoucher_documents.png" />
+    </imageobject>
+  </mediaobject>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To create recurring Vouchers, select the "Advanced" tab. The following
   screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/miscVoucher_advancedTab.png" />
+          <imagedata fileref="images/miscVoucher_advanced.png" />
         </imageobject>
         <caption>Recurring Vouchers</caption>
       </mediaobject>
