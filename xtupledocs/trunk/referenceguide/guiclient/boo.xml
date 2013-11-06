@@ -87,10 +87,18 @@
               However, once a Revision becomes inactive, it may no longer be
               changed.</para>
               <tip>
-                <para>The active Revision becomes inactive when a pending
-                Revision is activated. Inactive Revisions cannot be
-                modified.</para>
+                <para>The active Revision is set to Inactive or Substitute
+                when a pending Revision is activated. Inactive Revisions
+                cannot be modified.</para>
               </tip>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Substitue</term>
+            <listitem>
+              <para>Substitute BOOs may be selected as Alternate Routings
+              instead of the current Active BOO. Substitue Revisions can be
+              viewed and modified.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -108,7 +116,7 @@
             <term>Inactive</term>
             <listitem>
               <para>This is a formerly active Revision. Inactive Revisions
-              cannot be modified&mdash;only viewed. They are stored to provide
+              cannot be modified—only viewed. They are stored to provide
               historical, point-in-time build information, which may be used
               for various purposes throughout the application. For example,
               privileged users may select inactive Revisions when processing
@@ -117,6 +125,12 @@
             </listitem>
           </varlistentry>
         </variablelist>
+        <note>
+          <para>The setting "Change current Active BOO to Substitute BOO when
+          activating a Pending BOO" int Product Setup determines whether A BOO
+          will be set to Inactive or Substitute when you select a Pending BOO
+          as the new current Active BOO.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -211,11 +225,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>DEACTIVATE</term>
+      <listitem>
+        <para>Select to deactivate a substitute Revision. This button will
+        only be visible when a substitute Revision number is entered in the
+        "Revision" field. Once the Revision is inactive, it cannot be
+        modified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>EXPIRE</term>
       <listitem id="booEXPIRE">
         <para>Highlight an Operation and then select this button to expire the
-        Operation, causing it to be hidden from view on the list&mdash;unless
-        the "Show Expired Operations" option is specifically chosen.</para>
+        Operation, causing it to be hidden from view on the list—unless the
+        "Show Expired Operations" option is specifically chosen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
