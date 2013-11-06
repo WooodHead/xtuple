@@ -71,10 +71,10 @@
     </orderedlist>
     <tip>
       <para>A Purchase Order will remain open if at least one of its Line
-      Items is open. Once all Line Items are closed, the Purchase Order will
-      also be closed. To reopen a closed Purchase Order, simply open one of
-      its closed Line Items. Closed Line Items can be re-opened using the
-      right-click menus found here:</para>
+      Items is open. Once all Line Items are closed and vouchered, the
+      Purchase Order will also be closed. To reopen a closed Purchase Order,
+      simply open one of its closed Line Items. Closed Line Items can be
+      re-opened using the right-click menus found here:</para>
       <para><guimenuitem>Purchase &gt; Reports &gt; Purchase Order
       Items.</guimenuitem></para>
     </tip>
@@ -120,6 +120,36 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/postVouchers.xml"
                 xpointer="element(postVouchers)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+  </section>
+  <section>
+    <title>Lookup</title>
+    <para>Purchase Lookup section.</para>
+    <section>
+      <title>Purchase Orders</title>
+      <para>Purchase Orders Lookup section.</para>
+      <xi:include href="guiclient/dspPOsByVendor.xml"
+                  xpointer="element(dspPOsByVendor)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspPOsByDate.xml"
+                  xpointer="element(dspPOsByDate)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Purchase Order Items</title>
+      <para>Purchase Order Items Lookup section.</para>
+      <xi:include href="guiclient/dspPoItemsByVendor.xml"
+                  xpointer="element(dspPoItemsByVendor)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspPoItemsByDate.xml"
+                  xpointer="element(dspPoItemsByDate)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+      <xi:include href="guiclient/dspPoItemsByItem.xml"
+                  xpointer="element(dspPoItemsByItem)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <xi:include href="guiclient/dspPoHistory.xml"
+                xpointer="element(dspPoHistory)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
@@ -186,34 +216,8 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
-    <section>
-      <title>Purchase Orders</title>
-      <para>Purchase Orders Reports section.</para>
-      <xi:include href="guiclient/dspPOsByVendor.xml"
-                  xpointer="element(dspPOsByVendor)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspPOsByDate.xml"
-                  xpointer="element(dspPOsByDate)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
-    <section>
-      <title>Purchase Order Items</title>
-      <para>Purchase Order Items Reports section.</para>
-      <xi:include href="guiclient/dspPoItemsByVendor.xml"
-                  xpointer="element(dspPoItemsByVendor)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspPoItemsByDate.xml"
-                  xpointer="element(dspPoItemsByDate)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspPoItemsByItem.xml"
-                  xpointer="element(dspPoItemsByItem)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
     <xi:include href="guiclient/dspPoItemsByBufferStatus.xml"
                 xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/dspPoHistory.xml"
-                xpointer="element(dspPoHistory)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Receipts and Returns</title>
