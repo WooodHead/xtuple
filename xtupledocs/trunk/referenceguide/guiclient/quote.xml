@@ -437,7 +437,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/quote_lineItemsPage.png" />
+          <imagedata fileref="images/quote_lineItems.png" />
         </imageobject>
         <caption>Quote Line Items</caption>
       </mediaobject>
@@ -595,15 +595,55 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Quote Characteristics are user-defined definitions which may be used
+  to provide additional layers of description about Quotes. These descriptions
+  are static and not processed by the system, but are useful for informational
+  purposes. To enter Characteristics associated with a Quote, select the
+  "Characteristics" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/quote_characteristics.png" />
+    </imageobject>
+    <caption><para>Quote Characteristics</para></caption>
+  </mediaobject>
+  <para>When creating a new Quote Characteristic, you are presented with the
+  following options:<variablelist>
+      <varlistentry>
+        <term>Characteristic</term>
+        <listitem>
+          <para>Select a Characteristic from the list of Characteristics
+          designated as being available for use as Quote
+          Characteristics.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Value</term>
+        <listitem>
+          <para>Enter a description for the Quote Characteristic.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para>To add Comments related to a Quote, select the "Comments" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quote_comments.png" />
+        </imageobject>
+        <caption>Quote Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>Order Notes added to a Quote are used for internal purposes only. To
   add Order Notes to a Quote, select the "Order Notes" tab at the top of the
   "New Quote" screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/quote_orderCommentsPage.png" />
+          <imagedata fileref="images/quote_notes.png" />
         </imageobject>
-        <caption>Order Notes</caption>
+        <caption>Quote Notes</caption>
       </mediaobject>
     </screenshot></para>
   <para>When adding Order Notes to a Quote, you are presented with the
@@ -617,43 +657,16 @@
         only.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>To add Comments related to a Quote, select the "Comments" tab. The
-  following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/quote_orderComments.png" />
-        </imageobject>
-        <caption>Quote Comments</caption>
-      </mediaobject>
-    </screenshot></para>
-  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para>Shipping Notes are drawn from the Customer master—specifically from
-  the "Shipping Notes" tab on the Ship-To Address master. The Notes may vary
-  depending on the Ship-To Address specified for the Quote. These Notes
-  provide a mechanism for transferring shipping information from the Customer
-  master to the Quote. To add Shipping Notes to a Quote, select the "Shipping
-  Notes" tab at the top of the "New Quote" screen. The following screen will
-  appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/quote_shippingComments.png" />
-        </imageobject>
-        <caption>Quote Shipping Notes</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When adding shipping Notes to a Quote, you are presented with the
-  following options:</para>
-  <variablelist>
     <varlistentry>
       <term>Shipping Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         shipping Notes related to the Quote. These Notes are for internal use
-        only.</para>
+        only. Shipping Notes are drawn from the Customer master—specifically
+        from the "Shipping Notes" tab on the Ship-To Address master. The Notes
+        may vary depending on the Ship-To Address specified for the Quote.
+        These Notes provide a mechanism for transferring shipping information
+        from the Customer master to the Quote.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -662,7 +675,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/quote_documentsTab.png" />
+          <imagedata fileref="images/quote_documents.png" />
         </imageobject>
         <caption>Quote Documents</caption>
       </mediaobject>

@@ -821,12 +821,41 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Sales Order Characteristics are user-defined definitions which may be
+  used to provide additional layers of description about Sales Orders. These
+  descriptions are static and not processed by the system, but are useful for
+  informational purposes. To enter Characteristics associated with a ales
+  Order, select the "Characteristics" tab. The following screen will
+  appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/salesOrder_characteristics.png" />
+    </imageobject>
+    <caption><para>Sales Order Characteristics</para></caption>
+  </mediaobject>
+  <para>When creating new Sales Order Characteristic, you are presented with
+  the following options:<variablelist>
+      <varlistentry>
+        <term>Characteristic</term>
+        <listitem>
+          <para>Select a Characteristic from the list of Characteristics
+          designated as being available for use as Sales Order
+          Characteristics.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Value</term>
+        <listitem>
+          <para>Enter a description for the Sales Order Characteristic.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To add Comments related to a Sales Order, select the "Comments" tab.
   The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrder_orderComments.png" />
+          <imagedata fileref="images/salesOrder_comments.png" />
         </imageobject>
         <caption>Sales Order Comments</caption>
       </mediaobject>
@@ -877,7 +906,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrder_documentsTab.png" />
+          <imagedata fileref="images/salesOrder_documents.png" />
         </imageobject>
         <caption>Sales Order Documents</caption>
       </mediaobject>

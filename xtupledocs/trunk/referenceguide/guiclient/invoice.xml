@@ -225,7 +225,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/invoice_lineItemsTab.png" />
+          <imagedata fileref="images/invoice_lineItems.png" />
         </imageobject>
         <caption>Miscellaneous Invoice Line Items</caption>
       </mediaobject>
@@ -345,9 +345,34 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="../widgets/allocateARCreditMemo.xml"
-              xpointer="allocateARCMs"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>Invoice Characteristics are user-defined definitions which may be used
+  to provide additional layers of description about Invoices. These
+  descriptions are static and not processed by the system, but are useful for
+  informational purposes. To enter Characteristics associated with an Invoice,
+  select the "Characteristics" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/invoice_characteristics.png" />
+    </imageobject>
+    <caption><para>Invoice Characteristics</para></caption>
+  </mediaobject>
+  <para>When creating a new Invoice Characteristic, you are presented with the
+  following options:<variablelist>
+      <varlistentry>
+        <term>Characteristic</term>
+        <listitem>
+          <para>Select a Characteristic from the list of Characteristics
+          designated as being available for use as Invoice
+          Characteristics.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Value</term>
+        <listitem>
+          <para>Enter a description for the Invoice Characteristic.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To add Notes to an Invoice, select the "Notes" tab at the top of the
   "Invoice" screen. If the Invoice was created from a Sales Order, any Sales
   Order Notes will be transferred to the Invoice. The following screen will
@@ -355,7 +380,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/invoice_notesTab.png" />
+          <imagedata fileref="images/invoice_notes.png" />
         </imageobject>
         <caption>Invoice Notes</caption>
       </mediaobject>
@@ -374,12 +399,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/allocateARCreditMemo.xml"
+              xpointer="allocateARCMs"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para id="invoiceAdvancedTab">To create recurring Invoices, select the
   "Advanced" tab. The following screen will appear:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/invoice_advancedTab.png" />
+        <imagedata fileref="images/invoice_advanced.png" />
       </imageobject>
       <caption>Recurring Invoices</caption>
     </mediaobject>

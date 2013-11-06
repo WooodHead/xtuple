@@ -331,9 +331,9 @@
     <varlistentry>
       <term>Contact 1</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the lookup feature to select pre-existing Contact information. If
-        a new Contact is manually entered here, that Contact will be added
+        <para>Manually enter Contact information in the fields below—or use
+        the lookup feature to select pre-existing Contact information. If a
+        new Contact is manually entered here, that Contact will be added
         automatically to the master list of Contacts. For additional
         documentation related to creating Contacts, see <xref
         linkend="contact" />.</para>
@@ -342,9 +342,9 @@
     <varlistentry>
       <term>Contact 2</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the lookup feature to select pre-existing Contact information. If
-        a new Contact is manually entered here, that Contact will be added
+        <para>Manually enter Contact information in the fields below—or use
+        the lookup feature to select pre-existing Contact information. If a
+        new Contact is manually entered here, that Contact will be added
         automatically to the master list of Contacts. For additional
         documentation related to creating Contacts, see <xref
         linkend="contact" />.</para>
@@ -370,12 +370,12 @@
       <term>Main</term>
       <listitem>
         <para>Select to present primary address used by Vendor. Manually enter
-        Address information in the fields below&mdash;or use the lookup
-        feature to select pre-existing Address information. By default, this
-        address will appear as the main address when entering Purchase Orders
-        for the Vendor. If a new Address is manually entered here, that
-        Address will be added automatically to the master list of Addresses.
-        For additional documentation related to creating Addresses, see <xref
+        Address information in the fields below—or use the lookup feature to
+        select pre-existing Address information. By default, this address will
+        appear as the main address when entering Purchase Orders for the
+        Vendor. If a new Address is manually entered here, that Address will
+        be added automatically to the master list of Addresses. For additional
+        documentation related to creating Addresses, see <xref
         linkend="address" />.</para>
       </listitem>
     </varlistentry>
@@ -424,8 +424,8 @@
     <varlistentry>
       <term>Address</term>
       <listitem>
-        <para>Manually enter Address information in the fields below&mdash;or
-        use the lookup feature to select pre-existing Address information. By
+        <para>Manually enter Address information in the fields below—or use
+        the lookup feature to select pre-existing Address information. By
         default, this address will appear as the main address when entering
         Purchase Orders for the Vendor. If a new Address is manually entered
         here, that Address will be added automatically to the master list of
@@ -436,9 +436,9 @@
     <varlistentry>
       <term>Contact</term>
       <listitem>
-        <para>Manually enter Contact information in the fields below&mdash;or
-        use the lookup feature to select pre-existing Contact information. If
-        a new Contact is manually entered here, that Contact will be added
+        <para>Manually enter Contact information in the fields below—or use
+        the lookup feature to select pre-existing Contact information. If a
+        new Contact is manually entered here, that Contact will be added
         automatically to the master list of Contacts. For additional
         documentation related to creating Contacts, see <xref
         linkend="contact" />.</para>
@@ -452,12 +452,40 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Vendor Characteristics are user-defined definitions which may be used
+  to provide additional layers of description about Vendors. These
+  descriptions are static and not processed by the system, but are useful for
+  informational purposes. To enter Characteristics associated with a Vendor,
+  select the "Characteristics" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/vendor_characteristics.png" />
+    </imageobject>
+    <caption><para>Vendor Characteristics</para></caption>
+  </mediaobject>
+  <para>When creating a new ----- Characteristic, you are presented with the
+  following options:<variablelist>
+      <varlistentry>
+        <term>Characteristic</term>
+        <listitem>
+          <para>Select a Characteristic from the list of Characteristics
+          designated as being available for use as -----
+          Characteristics.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Value</term>
+        <listitem>
+          <para>Enter a description for the ----- Characteristic.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>To add Notes related to a Vendor, select the "Notes" tab. The
   following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/vendor_notesTab.png" />
+          <imagedata fileref="images/vendor_characteristics.png" />
         </imageobject>
         <caption>Add Vendor Notes</caption>
       </mediaobject>
@@ -469,7 +497,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/vendor_commentsTab.png" />
+          <imagedata fileref="images/vendor_comments.png" />
         </imageobject>
         <caption>Add Vendor Comments</caption>
       </mediaobject>
@@ -481,7 +509,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/vendor_ponotesTab.png" />
+          <imagedata fileref="images/vendor_notes.png" />
         </imageobject>
         <caption>Add Purchasing Notes</caption>
       </mediaobject>
@@ -490,11 +518,18 @@
   with the following options:</para>
   <variablelist>
     <varlistentry>
+      <term> Notes</term>
+      <listitem>
+        <para>Select the "Notes" tab to access this scrolling text field with
+        word-wrapping for entering general Notes related to the Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Order Notes</term>
       <listitem>
-        <para>Select the "Order Notes" tab to access this scrolling text field
-        with word-wrapping for entering purchasing Notes related to the
-        Vendor.</para>
+        <para>This is a scrolling text field with word-wrapping for entering
+        purchasing Notes related to the Vendor. These Notes are for internal
+        use only. Order Notes are drawn from the Vendor master. </para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -505,7 +540,7 @@
   <para role="xtconnect"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/vendor_ediTab.png" />
+          <imagedata fileref="images/vendor_transmission.png" />
         </imageobject>
         <caption><para>Vendor Transmissions</para></caption>
       </mediaobject>
