@@ -126,26 +126,6 @@
       options:</para>
       <variablelist>
         <varlistentry>
-          <term>Log in to single-user demo with my xTuple web user</term>
-          <listitem>
-            <para>Select this option if you are logging in to a demo database
-            hosted on an xTuple server. The hosted xTuple demo includes
-            commercial features not included in the free PostBooks edition.
-            You can sample these commercial features for free by <ulink
-            url="http://www.xtuple.com/free-demo-of-xtuple-erp">registering
-            for a hosted demo</ulink>. When logging in to a hosted demo
-            account, the OPTIONS button will be disabled.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Log in to server I specify</term>
-          <listitem>
-            <para>Select this option if you are logging in to any database
-            other than an xTuple demo database. If selected, you can specify
-            your connection details using the OPTIONS button.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
           <term><indexterm significance="normal">
               <primary>usernames</primary>
               <secondary>required at log in</secondary>
@@ -204,15 +184,8 @@
         </varlistentry>
       </variablelist>
       <note>
-        <para>If you are not using a Secure Sockets Layer (SSL), you will
-        receive a message that your connection is not secure every time you
-        log into xTuple. More information on using SSL to encrypt your
-        PostgreSQL traffic is available in the <ulink
-        url="http://www.postgresql.org/docs/9.1/static/ssl-tcp.html">PostgreSQL
-        documentation</ulink> and on <ulink
-        url="http://www.xtuple.org/node/4190">xTuple's web site</ulink>.
-        xTuple will automatically connect with SSL and Enhanced Authentication
-        where required by the server.</para>
+        <para> xTuple will automatically connect with SSL and Enhanced
+        Authentication where required by the server.</para>
       </note>
       <para>To the far right of the screen, the following buttons are
       available:</para>
