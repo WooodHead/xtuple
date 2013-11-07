@@ -350,8 +350,8 @@
         <caption>Item Inventory History on Workbench</caption>
       </mediaobject>
     </screenshot></para>
-  <para>To view Inventory history for the Item, select the "Inventory History"
-  radio button on the "History" tab. The following is displayed:</para>
+  <para>When displaying Inventory history for the Item, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term id="Para678148">Inventory History</term>
@@ -362,8 +362,7 @@
     </varlistentry>
   </variablelist>
   <para>To view receiving history for the Item, select the "Receiving History"
-  radio button on the "History" tab. The following screen will be
-  displayed:</para>
+  option on the "History" tab. The following screen will be displayed:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/itemAvailabilityWorkbench_receiving.png" />
@@ -373,13 +372,13 @@
   <para id="Para678126">When displaying receiving history by Item, you are
   presented with the following options:</para>
   <variablelist>
-    <varlistentry>
+    <varlistentry role="standard">
       <term id="Para678068">All Sites</term>
       <listitem>
         <para>Select to display Inventory Availability for all Sites.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="standard">
       <term id="Para678069">Selected</term>
       <listitem>
         <para>Specify Site whose Inventory Availability you want to
@@ -389,21 +388,20 @@
     <varlistentry>
       <term>Show</term>
       <listitem>
-        <para>Select if you would like to view all Purchase Orders for the
-        Item.</para>
+        <para>Select to view all Purchase Orders for the Item.</para>
         <variablelist>
           <varlistentry>
             <term>Unvouchered</term>
             <listitem>
-              <para>Select if you would like to include unvouchered
-              Receipts.</para>
+              <para>Select to include unvouchered Receipts in the
+              display.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Costs</term>
             <listitem>
-              <para>Select if you would like to include Purchasing and
-              Receiving Costs in the display.</para>
+              <para>Select to include Purchasing and Receiving Costs in the
+              display.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -412,7 +410,7 @@
     <varlistentry>
       <term>All Purchasing Agents</term>
       <listitem>
-        <para>Select if you do not want to filter on Purchasing Agents.</para>
+        <para>Select to include all Purchasing Agents in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -425,10 +423,8 @@
     <varlistentry>
       <term>Purchasing Agent</term>
       <listitem>
-        <para>Select the Purchasing Agent.<note>
-            <para>This option is not available if the "All Purchasing Agents"
-            option is selected.</para>
-          </note></para>
+        <para>Specify the Purchasing Agent. This option will not be available
+        if the "All Purchasing Agents" option is selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -456,7 +452,7 @@
     </varlistentry>
   </variablelist>
   <para>To view Sales History details for the specified Item, select the
-  "Sales History" radio button on the "History" tab. The following screen will
+  "Sales History" option on the "History" tab. The following screen will
   appear:</para>
   <para id="Para678124"><screenshot>
       <mediaobject>
@@ -466,7 +462,6 @@
         <caption>Item Sales History on Workbench</caption>
       </mediaobject>
     </screenshot></para>
-  <para>Display lists Sales history for the Item.</para>
   <para>To view Item Master details for the Item, select the "Item Master"
   tab. The following screen will appear:</para>
   <mediaobject>
@@ -476,13 +471,14 @@
     <caption><para>Item Master Detail on Workbench</para></caption>
   </mediaobject>
   <para>The information displayed on the Item Master tab is for viewing
-  purposes only. These viewable fields are defined in the Products Chapter
-  under <ulink url="item.xml">Item.</ulink></para>
+  purposes only. These viewable fields are described in detail in the Products
+  Chapter under <ulink url="item.xml">Item.</ulink></para>
+  <tip>
+    <para id="Para678098">Costed Indented BOM information will be displayed
+    only if the specified Item is a manufactured Item.</para>
+  </tip>
   <para id="Para678091">To view Bill of Materials information for the
   specified Item, select the "Bill of Materials" tab.</para>
-  <para>To view the Costed Indented BOM, select the "Costed Indented BOM"
-  radio button on the "Bill of Materials" tab. The following screen will be
-  displayed:</para>
   <para id="Para678095"><screenshot>
       <mediaobject>
         <imageobject>
@@ -491,19 +487,15 @@
         <caption>Costed Indented BOM on Workbench</caption>
       </mediaobject>
     </screenshot></para>
-  <tip>
-    <para id="Para678098">Costed Indented BOM information will be displayed
-    only if the specified Item is a manufactured Item.</para>
-  </tip>
   <para id="Para678099">When displaying Costs for an indented Bill of
   Materials, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term id="Para678101">Revision</term>
       <listitem>
-        <para>Enter the Revision number for the Costed Indented BOM that you
-        wish to see. The status (Active or Inactive) will then be displayed
-        under the revision number.</para>
+        <para>Enter the Revision number for the Costed Indented BOM you want
+        to display. The status (active or inactive) will be displayed beneath
+        the revision number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -512,7 +504,7 @@
         <para>Select to display Standard Costs for component Items in the
         specified Item's Bill of Materials. Both the Unit Cost and Extended
         Cost for each component Item, expressed in terms of Standard Cost,
-        will display—assuming Standard Costs have been defined for each
+        will be displayed—assuming Standard Costs have been defined for each
         component Item.</para>
       </listitem>
     </varlistentry>
@@ -522,8 +514,8 @@
         <para>Select to display Actual Costs for component Items in the
         specified Item's Bill of Materials. Both the Unit Cost and Extended
         Cost for each component Item, expressed in terms of Actual Cost, will
-        display—assuming Actual Costs have been defined for each component
-        Item.</para>
+        be displayed—assuming Actual Costs have been defined for each
+        component Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -569,8 +561,8 @@
     </variablelist>
   </note>
   <para id="Para678181">To view where the specified Item is used for
-  manufacturing, select the "Where Used" radio button on the "Bill of
-  Materials" tab. The following screen will appear:</para>
+  manufacturing, select the "Where Used" option on the "Bill of Materials"
+  tab. The following screen will appear:</para>
   <para id="Para678185"><screenshot>
       <mediaobject>
         <imageobject>
