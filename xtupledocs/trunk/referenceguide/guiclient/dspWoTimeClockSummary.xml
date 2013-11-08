@@ -4,6 +4,12 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>Time Clock Summary</title>
+  <note>
+    <para>This function is only available if Time &amp; Attendance is set to
+    be recorded by Employee. This setting can be found under
+    <guimenuitem>Manufacturing &gt; Setup &gt; Configure &gt;
+    Manufacture</guimenuitem>. </para>
+  </note>
   <para>To view a summary of Time Clock information related to Employees,
   select the "Time Clock Summary" option. The following screen will
   appear:</para>
@@ -38,44 +44,44 @@
     <varlistentry>
       <term>Time Entries</term>
       <listitem>
-        <para>Display lists users who have clocked-in to the specified Work
-        Order. If the totals row displays in red, this means the sum of total
-        setup and run times does not equal the total effort.</para>
+        <para>Display lists time entries according to the selected dates for
+        Employees who have clocked-in and clocked-out using the Time
+        Clock.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
-      <term>Post Employee</term>
+      <term>POST EMPLOYEE</term>
       <listitem>
         <para>All the time for the selected employee will be posted. Time not
-        associated to a Work Order will be posted to the labor overhead
+        associated with a Work Order will be posted to the labor overhead
         account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Post All</term>
+      <term>POST ALL</term>
       <listitem>
         <para>All unposted time displayed will be posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Edit</term>
+      <term>EDIT</term>
       <listitem>
-        <para>You can edit unposted time form an Employee. The following
-        screen will appear when you click the EDIT button when a specific time
-        entry is selected:</para>
+        <para>You can edit unposted time for an Employee. The following screen
+        will appear when you click the EDIT button when a specific time entry
+        is selected:</para>
         <para><mediaobject>
             <imageobject>
               <imagedata fileref="images/dspWoTimeClockDetail.png" />
             </imageobject>
           </mediaobject></para>
         <para>To reverse time, highlight the entry you wish to reverse and
-        click the REVERSE BUTTON.</para>
+        click the REVERSE button.</para>
         <para>Select a time entry to change and click the EDIT button. You
-        will be presented where you can change the start and end times for the
-        entry:</para>
+        will be presented with a screen where you can change the start and end
+        times for the entry:</para>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/dspWoTimeClockEdit.png" />
