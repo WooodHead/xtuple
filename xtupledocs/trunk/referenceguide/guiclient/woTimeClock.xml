@@ -7,8 +7,8 @@
   <note>
     <para>The Shop Floor Workbench's Time Clock is only available when the
     Manufacture module is configured to record Time and Attendance by User.
-    When recording by Employee, you will be presented with the Time Clock that
-    is Employee based.</para>
+    When recording by Employee, you will be presented with the Employee-based
+    version of the Time Clock.</para>
   </note>
   <para>The Shop Floor Workbench offers enhanced labor tracking and
   streamlined Work Order processing for either Operations or Production
@@ -101,8 +101,8 @@
     <varlistentry>
       <term>User</term>
       <listitem>
-        <para>The User field is available when Time &amp; Attendance is set up
-        to be User based. Enter the name of the User wanting to clock-in or
+        <para>The user field is available when Time &amp; Attendance is set up
+        to be user-based. Enter the name of the User wanting to clock-in or
         clock-out of a Work Order. Once a username is entered, the display at
         the bottom of the screen will show all the Work Orders the user is
         currently clocked-in to.</para>
@@ -117,8 +117,8 @@
       <term>Employee</term>
       <listitem>
         <para>The Employee field will be visible when Time &amp; Attendance is
-        set up for Employee based (and not User based) tracking. Enter the
-        name of the Employee wanting to clock-in or clock-out.<note>
+        set up for Employee-based (vs. User-based) tracking. Enter the name of
+        the Employee wanting to clock-in or clock-out.<note>
             <para>When employees clock into a job, they are clocked out of
             Overhead. When an employee clocks out of all jobs, they are
             clocked into Overhead. When an employee clocks in or out, time
@@ -136,7 +136,7 @@
             or clock out. The release of a Work Order occurs after the Work
             Order has been exploded.</para>
           </note></para>
-        <para>For Employee based Time &amp; Attendance tracking, Employees are
+        <para>For Employee-based Time &amp; Attendance tracking, Employees are
         allowed to clock in without specifying a Work Order number.</para>
       </listitem>
     </varlistentry>
