@@ -8,7 +8,7 @@
     <para>This function is only available if Time &amp; Attendance is set to
     be recorded by Employee. This setting can be found under
     <guimenuitem>Manufacturing &gt; Setup &gt; Configure &gt;
-    Manufacture</guimenuitem>. </para>
+    Manufacture</guimenuitem>.</para>
   </note>
   <para>To view a summary of Time Clock information related to Employees,
   select the "Time Clock Summary" option. The following screen will
@@ -55,7 +55,7 @@
     <varlistentry>
       <term>POST EMPLOYEE</term>
       <listitem>
-        <para>All the time for the selected employee will be posted. Time not
+        <para>All the time for the selected Employee will be posted. Time not
         associated with a Work Order will be posted to the labor overhead
         account.</para>
       </listitem>
@@ -77,11 +77,13 @@
               <imagedata fileref="images/dspWoTimeClockDetail.png" />
             </imageobject>
           </mediaobject></para>
-        <para>To reverse time, highlight the entry you wish to reverse and
-        click the REVERSE button.</para>
-        <para>Select a time entry to change and click the EDIT button. You
-        will be presented with a screen where you can change the start and end
-        times for the entry:</para>
+        <tip>
+          <para>To reverse time, highlight the entry you wish to reverse and
+          click the REVERSE button.</para>
+        </tip>
+        <para>To edit a time entry, select the EDIT button. You will be
+        presented with a screen where you can change the start and end times
+        for the entry:</para>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/dspWoTimeClockEdit.png" />
@@ -91,42 +93,42 @@
           <varlistentry>
             <term>Employee</term>
             <listitem>
-              <para>The selected Employee will be displayed</para>
+              <para>Displays the selected Employee.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Type</term>
             <listitem>
-              <para>The type of labor will be displayed. Time not associated
-              with a Work Order is overhead.</para>
+              <para>Displays the type of labor. Time not associated with a
+              Work Order is considered overhead.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Start Date</term>
             <listitem>
-              <para>Change the date and/or time of the time entry for the
-              selected Employee.</para>
+              <para>Enables you to change the start date and/or time of the
+              time entry for the selected Employee.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>End Date</term>
             <listitem>
-              <para>In this field you can change the end date and/or time that
-              was initially entered.</para>
+              <para>Enables you to change the end date and/or time of the time
+              entry for the selected Employee.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Hours</term>
             <listitem>
-              <para>The number of hours that have been calculated previously
-              is displayed.</para>
+              <para>Displays the number of hours that have been calculated
+              previously.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Overtime</term>
             <listitem>
-              <para>The number of hours that have been calculated after the
-              specified time in the Shift will be displayed.</para>
+              <para>Displays the number of hours that have been calculated
+              after the specified time in the Shift.</para>
             </listitem>
           </varlistentry>
         </variablelist>
