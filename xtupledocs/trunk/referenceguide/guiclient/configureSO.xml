@@ -402,8 +402,12 @@
               locations and will prevent other orders from issuing reserved
               inventory. The Sales Order Pick List will print the reserved
               location to expedite inventory picking. You may choose the order
-              of precedence for selecting locations; Lowest Quantity First,
+              of precedence for selecting locations: Lowest Quantity First,
               Highest Quantity First, or Alpha by Location Name.</para>
+              <note>
+                <para>Changing the "Reserve by Location" option from enabled
+                to disabled will remove all location reservations.</para>
+              </note>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -432,11 +436,6 @@
               with the first Location and continue until the quantity required
               is fully reserved or there is insufficient quantity on
               hand.</para>
-              <note>
-                <para>The change of Reserve by Location from a state of
-                enabled to disabled will remove all location
-                reservations.</para>
-              </note>
             </listitem>
           </varlistentry>
         </variablelist>

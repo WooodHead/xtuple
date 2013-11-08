@@ -478,7 +478,9 @@
         unshipped Line Item is not in the future, the date will display in red
         text. Once shipped, all Line Items revert to black text. For Kit
         Items, the Kit components will be given sub line numbers which will be
-        displayed in an indented view.</para>
+        displayed in an indented view. If a Line Item is firmed, that means it
+        cannot be edited. Firmed Line Items must be softened before they can
+        be edited.</para>
         <note>
           <para>Sales Order Line Items may exist in any of the following
           statuses:</para>
