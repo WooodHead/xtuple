@@ -1096,7 +1096,9 @@
         <varlistentry>
           <term>Firm Line</term>
           <listitem>
-            <para>Allows you to firm items on the Sales Order.</para>
+            <para>Allows you to firm items on the Sales Order. A firmed Sales
+            Order Line Item cannot be edited, unless it is softened
+            first.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -1215,6 +1217,14 @@
           <term>Show Reservations</term>
           <listitem>
             <para>Show Sales Order Reservations for the specified Item.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Soften Line</term>
+          <listitem>
+            <para>Allows you to soften items on the Sales Order. Firmed Sales
+            Order Line Items must be softened before they can be
+            edited.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
