@@ -4,8 +4,9 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>Time Clock Summary</title>
-  <para>To view a summary of Time Clock for Employees, select the "Time Clock
-  Summary" option. The following screen will appear:</para>
+  <para>To view a summary of Time Clock information related to Employees,
+  select the "Time Clock Summary" option. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -14,40 +15,28 @@
         <caption>Production Time Clock by Work Order</caption>
       </mediaobject>
     </screenshot></para>
-  <para>You can post Employee time from the Time Clock Summary.</para>
-  <note>
+  <tip>
     <para>Click the MORE button to display more filtering options.</para>
-  </note>
+  </tip>
+  <para>When viewing Time Clock information related to Employees, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Enter the date for the beginning of the date range you want as a
-        filter in the report.</para>
+        <para>Time Clock entries posted on and after this date will be
+        displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Enter the last date of the date range you want to use as a
-        filter</para>
+        <para>Time Clock entries posted on and before this date will be
+        displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Time Entries</term>
-      <listitem>
-        <para>Displays Item Number automatically when Work Order Number is
-        entered into "Work Order #" field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>UOM</term>
-      <listitem>
-        <para>Inventory Unit of Measure.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Users</term>
       <listitem>
         <para>Display lists users who have clocked-in to the specified Work
         Order. If the totals row displays in red, this means the sum of total
