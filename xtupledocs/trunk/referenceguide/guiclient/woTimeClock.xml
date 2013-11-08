@@ -5,9 +5,10 @@
 <section id="woTimeClock" role="manufacturing">
   <title>Shop Floor Workbench</title>
   <note>
-    <para>The Shop Floor Workbench is only available when the Manufacture
-    module is configured to record Time and Attendance by User. When recording
-    by Employee, you will be presented with the Time Clock.</para>
+    <para>The Shop Floor Workbench's Time Clock is only available when the
+    Manufacture module is configured to record Time and Attendance by User.
+    When recording by Employee, you will be presented with the Time Clock that
+    is Employee based.</para>
   </note>
   <para>The Shop Floor Workbench offers enhanced labor tracking and
   streamlined Work Order processing for either Operations or Production
@@ -98,12 +99,13 @@
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Username</term>
+      <term>User</term>
       <listitem>
-        <para>Enter the name of the user wanting to clock-in or clock-out of a
-        Work Order. Once a username is entered, the display at the bottom of
-        the screen will show all the Work Orders the user is currently
-        clocked-in to.</para>
+        <para>The User field is available when Time &amp; Attendance is set up
+        to be User based. Enter the name of the User wanting to clock-in or
+        clock-out of a Work Order. Once a username is entered, the display at
+        the bottom of the screen will show all the Work Orders the user is
+        currently clocked-in to.</para>
         <tip>
           <para>At the system level, you can restrict a user's privileges so
           the Shop Floor Workbench is the only interface they see when they
@@ -112,16 +114,30 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Employee</term>
+      <listitem>
+        <para>The Employee field will be visible when Time &amp; Attendance is
+        set up for Employee based (and not User based) tracking. Enter the
+        name of the Employee wanting to clock-in or clock-out.<note>
+            <para>When employees clock into a job, they are clocked out of
+            Overhead. When an employee clocks out of all jobs, they are
+            clocked into Overhead. When an employee clocks in or out, time
+            entries are automatically created to account for breaks.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Work Order #</term>
       <listitem>
         <para>Enter the Work Order Number of the Work Order the user wants to
         clock-in to or clock-out of. Only released "R" and in-process "I" Work
-        Orders may be processed using the Shop Floor Workbench.</para>
-        <note>
-          <para>A Work Order must be released "R" before users may clock-in or
-          clock out. The release of a Work Order occurs after the Work Order
-          has been exploded.</para>
-        </note>
+        Orders may be processed using the Shop Floor Workbench.<note>
+            <para>A Work Order must be released "R" before users may clock-in
+            or clock out. The release of a Work Order occurs after the Work
+            Order has been exploded.</para>
+          </note></para>
+        <para>For Employee based Time &amp; Attendance tracking, Employees are
+        allowed to clock in without specifying a Work Order number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -163,7 +179,9 @@
         user may be clocked-in to multiple Operations simultaneously. Also,
         multiple users may be clocked-in to the same Operation. Whatever the
         case, the run-time clock starts when a user(s) clocks in to an
-        Operation, and it stops when the user(s) clocks out.</para>
+        Operation, and it stops when the user(s) clocks out. In the case of
+        Employee based Time &amp; Attendance tracking, Employees are allowed
+        to clock in without specifying a Job or Operation.</para>
       </listitem>
     </varlistentry>
   </variablelist>
