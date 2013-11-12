@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="accountingPeriods">
+  <title><indexterm significance="normal">
+      <primary>accounting periods</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Accounting Periods</title>
+  <para>Accounting Periods contain transactional activity within clearly
+  defined time periods―usually months. You will typically find twelve
+  Accounting Periods within a Fiscal Year. An Accounting Period must be
+  defined in order to post transactions to the General Ledger. If no
+  Accounting Period exists, transactions cannot be posted. It is likewise not
+  possible to post transactions into closed Accounting Periods. You may only
+  post into open Accounting Periods. Privileged users may post into frozen
+  Periods, but the frozen Period must be open in order for the posting to
+  succeed.</para>
+  <note>
+    <para>The privilege <literal>PostFrozenPeriod</literal> allows users who
+    are granted this privilege to post transactions into frozen Accounting
+    Periods. For transactions to post successfully, frozen Periods must also
+    be open.</para>
+  </note>
+  <para>To access the master list of Accounting Periods, select the
+  "Accounting Periods" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/accountingPeriods.png" />
+        </imageobject>
+        <caption>Accounting Periods Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Accounting Periods" screen displays information on all existing
+  Accounting Periods, including Period name, Period start date, Period end
+  date, Period Number, Period Qtr, Period Year, closed status and frozen
+  status.</para>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE PERIOD</term>
+      <listitem>
+        <para>Highlight an Accounting Period and then select this button to
+        close the Period. Transactions may not be posted into closed Periods.
+        To post transactions to a closed Period, you must reopen the
+        Period.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>FREEZE PERIOD</term>
+      <listitem id="accountingPeriodsFREEZEPERIOD">
+        <para>Highlight an Accounting Period and then select this button to
+        freeze the Period. Privileged users may post transactions into frozen
+        Periods, as long as the frozen Period is open.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="accountingPeriod.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

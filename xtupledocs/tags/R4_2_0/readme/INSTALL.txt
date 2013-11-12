@@ -1,0 +1,108 @@
+Installing xTuple ERP
+===========================================
+Last Updated: February 9, 2012
+
+Thank you for your interest in xTuple ERP: PostBooks Edition, an
+OSI-certified open source application from xTuple. This file provides
+a brief overview of the steps required to manually prepare your
+PostgreSQL server to run xTuple ERP: PostBooks Edition.
+
+For up-to-date instructions and full details, please visit xtuple.org
+and click on Docs > Admin and Setup.
+
+The easiest way to get started is to use the xTuple all-in-one
+installer. The xTuple installer is available for Windows, Mac, and
+Linux. You can download the installer from the PostBooks-installers
+directory on the PostBooks SourceForge page.
+
+For more advanced users who prefer not to use the PostBooks installer,
+the following steps will get you started:
+
+1. Install and configure PostgreSQL
+
+2. Create the PostgreSQL database superuser 'admin' and
+   the group 'xtrole'
+   $ psql -U postgres -f init.sql template0     # see init.sql below
+
+3. Create a new PostgreSQL database
+   $ createdb -U admin production
+
+4. Restore one of the xTuple starter databases into it
+   (see Starter Databases below), for example:
+   $ pg_restore -U admin -d production quickstart.backup -v
+
+
+PostgreSQL Considerations
+-------------------------
+
+Before you can start using the xTuple Applications, you must first
+have PostgreSQL installed and properly configured. Check
+http://www.xtuple.org/compatibility-matrix to make sure the version
+of PostgreSQL you are running is compatible with the version of
+xTuple ERP you are installing.
+
+For additional information on installing PostgreSQL, please visit
+http://www.postgresql.org where you will find in-depth documentation
+and other resources related to PostgreSQL. Installation support is
+also available from xTuple. To learn more about xTuple's PostgreSQL
+services, please visit http://www.xtuple.com/postgres.
+
+NOTE: The xTuple applications require the PostgreSQL pgcrypto module.
+      This is used for credit card processing and storing other
+      sensitive information. You should be sure to include the
+      pgcrypto module when installing PostgreSQL.  If you do not,
+      you will encounter errors when running the xTuple ERP
+      application.
+
+
+init.sql: Creating the admin user and xtrole group
+--------------------------------------------------
+
+Run the following SQL script using either psql, pgAdmin, or some
+other program that allows connecting directly to a PostgreSQL
+database server before creating your xTuple ERP database:
+
+--
+-- This script creates the group xtrole and the user admin
+--
+
+CREATE GROUP xtrole;
+
+-- Create the user 'admin' with the password 'admin',
+-- give it permission to create databases and users,
+-- and place it in the xtrole group.
+CREATE USER admin WITH PASSWORD 'admin'
+                       CREATEDB CREATEUSER
+                       IN GROUP xtrole;
+
+-- End of init.sql
+
+
+NOTE: Since the default password for the user admin is 'admin', you'll
+      want to change it immediately.
+
+
+Starter databases
+-----------------
+
+xTuple supplies three different databases to help get you started:
+
+* empty.backup
+  This is an empty database with no data, but with all the tables
+  and structures created.
+
+* quickstart.backup 
+  This database contains a basic Chart of Accounts and also the
+  Account Assignments required to run the full range of transactions.
+
+* demo.backup
+  This database contains a suite of sample data built on top of the
+  'quickstart' database
+
+
+-----------------
+
+Again, thank you for your interest in xTuple ERP.
+You can find more information, full documentation, discussion forums,
+support options, training opportunities, and commercial offerings at
+http://www.xtuple.org
