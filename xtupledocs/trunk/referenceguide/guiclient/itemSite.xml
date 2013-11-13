@@ -55,12 +55,9 @@
       <listitem>
         <para>Select if the Item can be manufactured at the specified Site.
         Planned Work Orders from the Material Requirements Planning (MRP)
-        system can only be created for Item Sites having this option
-        selected.</para>
-        <note>
-          <para>This option is not available for Purchased or Outside Process
-          Items if the job costing is selected.</para>
-        </note>
+        system can only be created for Item Sites having this option selected.
+        This option is not available for purchased or outside process Items if
+        job costing is selected.</para>
         <variablelist>
           <varlistentry>
             <term>Create Work Orders linked to Sales Orders</term>
@@ -88,12 +85,9 @@
       <term>Site can purchase this Item</term>
       <listitem>
         <para>Select if you want the Item Site to be used for purchasing the
-        Item.</para>
-        <note>
-          <para>When job costing is selected as costing method, this option is
-          automatically selected for purchased or outside process Items and
-          cannot be changed.</para>
-        </note>
+        Item. This option will be selected automatically (and cannot be
+        changed) for purchased or outside process Items when the job costing
+        method is specified.</para>
         <variablelist>
           <varlistentry>
             <term>Create Purchase Requests for Work Order requirements</term>
