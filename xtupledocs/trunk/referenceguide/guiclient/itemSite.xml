@@ -525,24 +525,24 @@
                 <varlistentry>
                   <term>Receive</term>
                   <listitem>
-                    <para>The Receive default Location is used for production
-                    W/O receipts, P/O receipts, R/A receipts and miscellaneous
-                    inventory receipts.</para>
+                    <para>Used for production Work Order receipts, Purchase
+                    Order receipts, Return Authorization receipts and
+                    miscellaneous inventory receipts.</para>
                   </listitem>
                 </varlistentry>
                 <varlistentry>
                   <term>Stock</term>
                   <listitem>
-                    <para>The Stock default Location will be used for
-                    transaction types that does not fall under the Receive or
-                    W/O default Locations.</para>
+                    <para>Used for transaction types that do not fall under
+                    the other default types (i.e., Receive and W/O
+                    Issue).</para>
                   </listitem>
                 </varlistentry>
                 <varlistentry>
                   <term>W/O Issue</term>
                   <listitem>
-                    <para>The W/O Issue default Location will be used for W/O
-                    material issues and backflushing.</para>
+                    <para>Used for Work Order material issues and
+                    backflushing.</para>
                   </listitem>
                 </varlistentry>
               </variablelist>
