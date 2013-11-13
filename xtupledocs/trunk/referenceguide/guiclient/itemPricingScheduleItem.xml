@@ -317,14 +317,15 @@
     </varlistentry>
   </variablelist>
   <para>Select the "Markup" option to calculate the Price as a markup on the
-  Wholesale Price. When the "Markup" option is selected, you will be presented
-  with the following choices:</para>
+  Wholesale Price. </para>
   <para><mediaobject>
       <imageobject>
         <imagedata fileref="images/itemPricingScheduleItem_markupSelected.png" />
       </imageobject>
       <caption>Markup</caption>
     </mediaobject></para>
+  <para>When the "Markup" option is selected, you will be presented with the
+  following choices:</para>
   <variablelist>
     <varlistentry>
       <term>Markup By</term>
@@ -339,8 +340,8 @@
                 <varlistentry>
                   <term>Item Number</term>
                   <listitem>
-                    <para>Enter the Item Number to which this Pricing Schedule
-                    Item will be applied.</para>
+                    <para>Enter the Item Number this Pricing Schedule Item
+                    will be applied to.</para>
                   </listitem>
                 </varlistentry>
               </variablelist>
@@ -356,8 +357,8 @@
                 <varlistentry>
                   <term>Product Category</term>
                   <listitem>
-                    <para>Enter the Product Category to which this Pricing
-                    Schedule Item will be applied.</para>
+                    <para>Enter the Product Category this Pricing Schedule
+                    Item will be applied to.</para>
                   </listitem>
                 </varlistentry>
               </variablelist>
@@ -370,7 +371,7 @@
       <term>Qty. Break (Inventory UOM)</term>
       <listitem>
         <para>Enter the lowest quantity that must be purchased for the
-        specified markup to be applied.</para>
+        specified Markup to be applied.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -383,8 +384,8 @@
     <varlistentry>
       <term>Markup By Fixed Amount</term>
       <listitem>
-        <para>Enter the Fixed Amount by which the Inventory Cost will be
-        increased.</para>
+        <para>Enter the Fixed Amount the Inventory Cost will be increased
+        by.</para>
       </listitem>
     </varlistentry>
   </variablelist>
