@@ -7,7 +7,7 @@
       <primary>projects</primary>
       <secondary>copying of</secondary>
     </indexterm>Copy Projects</title>
-  <para>To make a copy of a project, select the "Copy Project" option. The
+  <para>To make a copy of a Project, select the "Copy Project" option. The
   following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -17,13 +17,13 @@
         <caption>New Project Number</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When copying a Bill of Materials, you are presented with the following
+  <para>When copying a Project, you are presented with the following
   option:</para>
   <variablelist>
     <varlistentry>
       <term>Project Number for the new Project</term>
       <listitem>
-        <para>Enter the Project Number for the new Project.</para>
+        <para>Enter the Project Number for the new target Project.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -42,7 +42,8 @@
     <varlistentry>
       <term>Offset from old Due Date</term>
       <listitem>
-        <para>Enter the new Due Date offset.</para>
+        <para>Enter the new due date, represented as an offset (i.e., number
+        of days) from the due date of the original Project.</para>
       </listitem>
     </varlistentry>
   </variablelist>
