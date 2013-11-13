@@ -280,13 +280,11 @@
       <term>Allow Inventory Receipt Cost Override (Average costing method
       only)</term>
       <listitem>
-        <para>Select this check box to allow time of inventory receipt line
-        item cost override for items costed at Average.<note>
-            <para>When a user deselects this option, any unposted or
-            uninvoiced receipts or PO returns against items previously
-            received at an override cost value could be negatively
-            affected.</para>
-          </note></para>
+        <para>Select this option to enable cost overrides for Average costed
+        Items at the point when inventory is received. If not selected, any
+        unposted or uninvoiced Receipts or PO Returns against Items previously
+        received at an override cost value could be negatively
+        affected.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -362,8 +360,8 @@
       <term>Record Purchase Price Variance on Receipt</term>
       <listitem>
         <para>If selected, Purchase Price Variances (PPV) will be recorded
-        when Purchase Order receipts are posted. This applies to Inventory
-        Items using Standard Cost. If not selected, then the default system
+        when Purchase Order Receipts are posted. This option applies to
+        Standard costed Items. If not selected, then the default system
         behavior will be in effect—that is, PPV will be recorded when Vouchers
         are posted. It's technically possible (although unlikely) for PPV be
         recorded both at receipt and at Voucher time. This situation would
