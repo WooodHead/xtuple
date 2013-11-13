@@ -45,46 +45,64 @@
       <listitem>
         <para>Select one of the available Production Plan schedule
         types:</para>
-        <para><indexterm significance="normal">
-            <primary>mps</primary>
-            <secondary>forecast reporting and</secondary>
-          </indexterm> <indexterm significance="normal">
-            <primary>forecast</primary>
-            <secondary>reporting for mps</secondary>
-          </indexterm>Forecast Reporting: Planning Items having this schedule
-        type are not taken into account by MPS. Instead, use this schedule
-        type for reporting purposes only, such as the reporting found on the
-        MPS Detail screen. Forecast reporting can be useful as a reference of
-        progress against Cumulative MPS Schedules, usually in scenarios where
-        demand is discontinuous or "lumpy," but production schedules are
-        continuous.</para>
-        <para>Forecast Netted to MPS: Used for forecast reporting and netted
-        as demand to existing supply by the MPS processor for Items scheduled
-        inside the Demand Time Fence. Use where you desire supply to
-        automatically be created to fulfill, but not exceed, the greater of
-        forecasted and actual demand. Inside the Demand Time Fence, MPS
-        ignores the forecast and plans an amount based on actual demand net of
-        projected Availability. Outside of the Demand Time Fence, MPS uses the
-        larger of actual demand or the forecast and nets this against
-        projected Availability.</para>
-        <para><indexterm significance="normal">
-            <primary>mps</primary>
-            <secondary>cumulative schedules and</secondary>
-          </indexterm> <indexterm significance="normal">
-            <primary>cumulative schedules</primary>
-            <secondary>explained</secondary>
-          </indexterm>Cumulative MPS: Cumulative Schedules allow the forced
-        accumulation of inventory in a discontinuous or "lumpy" demand
-        situation where load leveling or continuous production is desired.
-        With this setting, MPS may release more, but never less, than the
-        quantity dictated in a Cumulative MPS Schedule. Inside the Demand Time
-        Fence, Cumulative Schedules are ignored—and only actual demand is
-        considered. Outside the Demand Time Fence, Planned Orders for
-        Cumulative Schedules are created per the greater of schedule quantity
-        or net actual demand. The system interprets "net actual demand" to
-        mean that it will use, for a given period, the larger of A) Cumulative
-        Schedule quantity or B) quantity required to accommodate time-phased
-        Availability (i.e., QOH + Qty. On Order - Allocations).</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>mps</primary>
+                <secondary>forecast reporting and</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>forecast</primary>
+                <secondary>reporting for mps</secondary>
+              </indexterm>Forecast Reporting</term>
+            <listitem>
+              <para> Planning Items having this schedule type are not taken
+              into account by MPS. Instead, use this schedule type for
+              reporting purposes only, such as the reporting found on the MPS
+              Detail screen. Forecast reporting can be useful as a reference
+              of progress against Cumulative MPS Schedules, usually in
+              scenarios where demand is discontinuous or "lumpy," but
+              production schedules are continuous.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Forecast Netted to MPS</term>
+            <listitem>
+              <para>Used for forecast reporting and netted as demand to
+              existing supply by the MPS processor for Items scheduled inside
+              the Demand Time Fence. Use where you desire supply to
+              automatically be created to fulfill, but not exceed, the greater
+              of forecasted and actual demand. Inside the Demand Time Fence,
+              MPS ignores the forecast and plans an amount based on actual
+              demand net of projected Availability. Outside of the Demand Time
+              Fence, MPS uses the larger of actual demand or the forecast and
+              nets this against projected Availability.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>mps</primary>
+                <secondary>cumulative schedules and</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>cumulative schedules</primary>
+                <secondary>explained</secondary>
+              </indexterm>Cumulative MPS</term>
+            <listitem>
+              <para>Cumulative Schedules allow the forced accumulation of
+              inventory in a discontinuous or "lumpy" demand situation where
+              load leveling or continuous production is desired. With this
+              setting, MPS may release more, but never less, than the quantity
+              dictated in a Cumulative MPS Schedule. Inside the Demand Time
+              Fence, Cumulative Schedules are ignored—and only actual demand
+              is considered. Outside the Demand Time Fence, Planned Orders for
+              Cumulative Schedules are created per the greater of schedule
+              quantity or net actual demand. The system interprets "net actual
+              demand" to mean that it will use, for a given period, the larger
+              of A) Cumulative Schedule quantity or B) quantity required to
+              accommodate time-phased Availability (i.e., QOH + Qty. On Order
+              - Allocations).</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
