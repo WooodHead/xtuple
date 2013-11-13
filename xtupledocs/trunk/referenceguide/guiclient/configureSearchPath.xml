@@ -23,17 +23,16 @@
     <varlistentry>
       <term>Schemas Not in Order</term>
       <listitem>
-        <para>A list of schemas that exist in the xTuple PostgreSQL database.
-        The list is not displayed in a particular sort order. You can view
-        whether a Schema forms part of a Package, and whether or not it is
-        enabled.</para>
+        <para>Displays a list of schemas that exist in the xTuple PostgreSQL
+        database. The list is not displayed in a particular sort order. You
+        have the options to view whether a schema forms part of a package and
+        whether or not it is enabled.</para>
         <variablelist>
           <varlistentry>
             <term>Show all schemas</term>
             <listitem>
               <para>Check this box to display all schemas in the PostgreSQL
-              database. Uncheck this to only see schemas that relates to
-              xTuple.</para>
+              database. Uncheck to show only schemas related to xTuple.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -51,10 +50,10 @@
     <varlistentry>
       <term>New Search Path</term>
       <listitem>
-        <para>The Search Path that will be used is displayed in this area. Any
+        <para>The search path that will be used is displayed in this area. Any
         schemas that you have selected to be searched in order will take
-        priority in the selected sequence in the Search Path. Apply or save
-        your changes and restart xTuple to put the New Search Path into
+        priority in the selected sequence in the search path. Apply or save
+        your changes and restart xTuple to put the new search path into
         effect.</para>
       </listitem>
     </varlistentry>
