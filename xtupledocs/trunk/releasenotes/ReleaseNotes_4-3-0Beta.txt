@@ -14,8 +14,10 @@ of which were made possible by the FeatureMob2 crowd-sourcing
 campaign:
 
 Auto-updating Desktop client
-  * Client checks for newer versions at log in
-  * Newer version downloaded automatically, if desired
+  * Client checks at log into see if clientVersion matches 
+    serverVersion metric
+  * If the two do not match, a new client matching serverVersion 
+    will download if desired
 
 Blanket Purchase Orders
   * Contract-based purchasing
