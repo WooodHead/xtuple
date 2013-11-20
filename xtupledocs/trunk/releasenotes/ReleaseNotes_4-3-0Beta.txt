@@ -14,8 +14,8 @@ of which were made possible by the FeatureMob2 crowd-sourcing
 campaign:
 
 Auto-updating Desktop client
-  * Client checks at log into see if clientVersion matches 
-    serverVersion metric
+  * At log in, the client checks to see if the clientVersion matches 
+    the serverVersion metric
   * If the two do not match, a new client matching serverVersion 
     will download if desired
 
