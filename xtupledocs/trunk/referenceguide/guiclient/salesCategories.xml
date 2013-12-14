@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="salesCategories">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales categories</primary>
       <secondary>master list of</secondary>
     </indexterm>Sales Categories</title>
@@ -11,7 +11,7 @@
   Accounts to be used when processing the following:</para>
   <itemizedlist>
     <listitem>
-      <para>Non-Inventory Receivables Invoices</para>
+      <para>Non-Inventory Invoices</para>
     </listitem>
     <listitem>
       <para>Receivables Credit Memos (optional)</para>
@@ -24,21 +24,20 @@
     </listitem>
   </itemizedlist>
   <para>For example, when creating an Invoice for miscellaneous goods or
-  services unrelated to Inventory, you must select a Sales Category&mdash;thereby
+  services unrelated to Inventory, you must select a Sales Category—thereby
   identifying the G/L Accounts the sales transaction will be distributed to.
   To access the Sales Categories master list, select the "Sales Categories"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesCategories.png"/>
+          <imagedata fileref="images/salesCategories.png" />
         </imageobject>
         <caption>Sales Categories Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The "Sales Categories" screen displays information on existing Sales
   Categories.</para>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="salesCategory.xml" xpointer="element(/1)"/>
+  <xi:include href="salesCategory.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
