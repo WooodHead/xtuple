@@ -8,16 +8,15 @@
       <secondary>adding new</secondary>
     </indexterm>Company</title>
   <para>If you need to track and report on Account activity for multiple
-  Companies&mdash;or if you are consolidating external Companies into your
-  parent xTuple Database&mdash;then you will need to define Company
-  information on this screen. To prevent unbalanced Trial Balances at the
-  Company level, G/L transactions and series postings will not be allowed that
-  cross Companies.</para>
+  Companies—or if you are consolidating external Companies into your parent
+  xTuple Database—then you will need to define Company information on this
+  screen. To prevent unbalanced Trial Balances at the Company level, G/L
+  transactions and series postings will not be allowed that cross
+  Companies.</para>
   <note>
     <para>If prior to xTuple ERP 3.7.0 you were using the Company segment for
-    something other than separate Company reporting&mdash;and you need to
-    continue that usage&mdash;please contact your xTuple support
-    representative.</para>
+    something other than separate Company reporting—and you need to continue
+    that usage—please contact your xTuple support representative.</para>
   </note>
   <para>To add a new Company, select the NEW button. The following screen will
   appear:</para>
@@ -48,13 +47,13 @@
       <term>Retained Earnings</term>
       <listitem>
         <para>Select a valid General Ledger Account. This is an Equity
-        Account. It will be credited if retained earnings are
-        positive&mdash;and debited if retained earnings are negative. The
-        retained earnings calculation occurs when a Fiscal Year is closed.
-        Total Expenses for the year are subtracted from total Revenues, and
-        the balance is transferred to the Year End Equity Account. The system
-        then automatically resets the beginning balances for Revenue and
-        Expense Accounts to $0 for the start of the new Fiscal Year.</para>
+        Account. It will be credited if retained earnings are positive—and
+        debited if retained earnings are negative. The retained earnings
+        calculation occurs when a Fiscal Year is closed. Total Expenses for
+        the year are subtracted from total Revenues, and the balance is
+        transferred to the Year End Equity Account. The system then
+        automatically resets the beginning balances for Revenue and Expense
+        Accounts to $0 for the start of the new Fiscal Year.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -90,8 +89,8 @@
         <para>Select to designate the Company as a pointer to a Company on
         another database. This option will only be visible if external Company
         consolidation is enabled in the system's Accounting configuration.
-        This option is also available only on xTuple ERP Standard Edition and
-        higher.</para>
+        This option is also available only on xTuple ERP Distribution Edition
+        and higher.</para>
         <tip>
           <para>Once G/L Accounts have been created using a defined Company
           segment, either manually or via synchronization, the "External
