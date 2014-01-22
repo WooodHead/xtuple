@@ -100,6 +100,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Check for client updates on login</term>
+      <listitem>
+        <para>If selected, during the login process the software will check to
+        see if the client and database server are matching at the same
+        version. If there is a mismatch, you will be prompted to download a
+        client which matches the server version you are trying to connect to.
+        For example, if you are connecting to a 4.2.0 database server, a 4.2.0
+        client will download and launch.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Disable Auto Completer List</term>
       <listitem>
         <para>Select if you want to disable the auto-complete functionality
