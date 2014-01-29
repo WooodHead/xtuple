@@ -831,14 +831,13 @@
   informational purposes. To enter Characteristics associated with a ales
   Order, select the "Characteristics" tab. The following screen will
   appear:</para>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="images/salesOrder_characteristics.png" />
-    </imageobject>
-    <caption><para>Sales Order Characteristics</para></caption>
-  </mediaobject>
-  <para>When creating new Sales Order Characteristic, you are presented with
-  the following options:<variablelist>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/salesOrder_characteristics.png" />
+      </imageobject>
+      <caption><para>Sales Order Characteristics</para></caption>
+    </mediaobject>When creating new Sales Order Characteristic, you are
+  presented with the following options:<variablelist>
       <varlistentry>
         <term>Characteristic</term>
         <listitem>
@@ -1010,14 +1009,13 @@
   </variablelist>
   <para>To post a cash payment, select the "Cash" tab in the "Payments"
   window. The following screen will be displayed:</para>
-  <mediaobject>
-    <imageobject>
-      <imagedata fileref="images/salesOrder_paymentCash.png" />
-    </imageobject>
-    <caption><para>Customer Cash Payment</para></caption>
-  </mediaobject>
-  <para>When posting cash to the Sales Order, you are presented with the
-  following options:</para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/salesOrder_paymentCash.png" />
+      </imageobject>
+      <caption><para>Customer Cash Payment</para></caption>
+    </mediaobject>When posting cash to the Sales Order, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Order Total</term>
@@ -1139,6 +1137,13 @@
     will use the default Receivables Account specified for the Customer Type
     under Receivables Account Assignments.</para>
   </note>
+  <para></para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata />
+      </imageobject>
+      <caption><para>Sales Order Shipments</para></caption>
+    </mediaobject></para>
   <xi:include href="salesOrderItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
