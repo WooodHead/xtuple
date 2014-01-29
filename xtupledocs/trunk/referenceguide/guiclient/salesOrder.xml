@@ -1137,13 +1137,57 @@
     will use the default Receivables Account specified for the Customer Type
     under Receivables Account Assignments.</para>
   </note>
-  <para></para>
+  <para>To view Shipments associated with the order, select the "Shipments"
+  tab. The following screen will be displayed:</para>
   <para><mediaobject>
       <imageobject>
-        <imagedata />
+        <imagedata fileref="images/salesOrder_shipments.png" />
       </imageobject>
       <caption><para>Sales Order Shipments</para></caption>
     </mediaobject></para>
+  <para>When viewing Shipments associated with the order, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Order #</term>
+      <listitem>
+        <para>Displays the Sales Order Number of the current Sales
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Displays the Order Date of the current Sales Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust. Name</term>
+      <listitem>
+        <para>Displays the Customer Name associated with the specified Sales
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust. Phone</term>
+      <listitem>
+        <para>Displays the Customer's phone number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>P/O Number</term>
+      <listitem>
+        <para>Displays the Purchase Order Number associated with the specified
+        Sales Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipments</term>
+      <listitem>
+        <para>Display lists Shipments for the Sales Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <xi:include href="salesOrderItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
