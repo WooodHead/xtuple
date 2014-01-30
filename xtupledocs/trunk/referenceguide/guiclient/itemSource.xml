@@ -82,19 +82,18 @@
     <varlistentry>
       <term>Inventory/Vendor UOM Ratio</term>
       <listitem>
-        <para>/Vendor UOM Ratio: Specify the ratio between Inventory and
-        Vendor Units of Measure (UOM). For example, if you store an Item in
-        single units, but a Vendor sells you the Item in cases of 12, then you
-        would enter "12" here to represent the 12:1 Inv./Vend. ratio. If the
-        ratio is 1:1, then enter "1" here. When an Inv./Vend. ratio is
-        specified, the system allows you to purchase Items using the Vendor's
-        UOM; however, when the Items are received, the system will
-        automatically convert the Inventory to your Inventory UOM. This same
-        conversion logic flows throughout the system—whether you are viewing
-        Inventory availability or running Material Requirements Planning
-        (MRP). Your Inventory will always be represented in your Inventory
-        UOM, regardless of the Vendor UOMs specified on any open Purchase
-        Orders.</para>
+        <para>Specify the ratio between Inventory and Vendor Units of Measure
+        (UOM). For example, if you store an Item in single units, but a Vendor
+        sells you the Item in cases of 12, then you would enter "12" here to
+        represent the 12:1 Inv./Vend. ratio. If the ratio is 1:1, then enter
+        "1" here. When an Inv./Vend. ratio is specified, the system allows you
+        to purchase Items using the Vendor's UOM; however, when the Items are
+        received, the system will automatically convert the Inventory to your
+        Inventory UOM. This same conversion logic flows throughout the
+        system—whether you are viewing Inventory availability or running
+        Material Requirements Planning (MRP). Your Inventory will always be
+        represented in your Inventory UOM, regardless of the Vendor UOMs
+        specified on any open Purchase Orders.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
