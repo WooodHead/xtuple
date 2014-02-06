@@ -38,9 +38,75 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Product Catalog</term>
+      <listitem>
+        <para>Selecting this option will include the group in the Product
+        Catalog</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Parent Groups</term>
+      <listitem>
+        <para>A list of other Parent Groups that belong to the Item Group
+        defined in this window. Including another Parent Group will also
+        include that Parent Group's Member Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE PARENT</term>
+      <listitem>
+        <para>Click to remove the selected Parent Group from the Item Group.
+        Once deleted, it will no longer display under Parent Groups.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Group</term>
+      <listitem>
+        <para>Select a new Parent Group to include in the Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW PARENT</term>
+      <listitem>
+        <para>Select to apply the selected Item Group as a Parent Group. It
+        will be listed under Parent Groups.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Member Items</term>
       <listitem>
-        <para>Display lists member Items of the Item Group.</para>
+        <para>Display lists Member Items of the Item Group.<note>
+            <para>Only Member Items of the Item Group defined in this window
+            will be listed under Member Items.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE ITEM</term>
+      <listitem>
+        <para>Click to remove a Member Item from the Item Group. Once deleted,
+        it will no longer display under Member Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter an Item Number to be included as a Member Item in the Item
+        Group. The Item description will be displayed underneath the Item
+        Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>The Entered Item's Unit of Measure will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW ITEM</term>
+      <listitem>
+        <para>Select to apply the entered Item as a Member Item. It will be
+        listed under Member Items.</para>
       </listitem>
     </varlistentry>
   </variablelist>
