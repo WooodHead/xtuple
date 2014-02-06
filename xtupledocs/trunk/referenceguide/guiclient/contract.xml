@@ -42,29 +42,28 @@
       <varlistentry>
         <term>Expires</term>
         <listitem>
-          <para>Enter the last date on which the Contract will be valid, e.g.
-          the date the Contract expires.</para>
+          <para>Enter the last date on which the Contract will be valid (e.g.,
+          the date the Contract expires).</para>
         </listitem>
       </varlistentry>
     </variablelist></para>
-  <para>To view or enter Item Sources for this Contract, select the Item
-  Sources tab. The following will be displayed in the window:</para>
+  <para>To view or enter Item Sources for a Contract, select the Item Sources
+  tab. The following screen will be displayed:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/contractItemSources.png" />
     </imageobject>
     <caption><para>Contract Item Sources</para></caption>
   </mediaobject>
-  <para>You will be presented with the following information and
-  options:<variablelist>
+  <para>When viewing Item Sources for a Contract, you will be presented with
+  the following options:<variablelist>
       <varlistentry>
         <term>Item Sources</term>
         <listitem>
-          <para>A list of existing Contract Items with Sources will be
-          displayed.<tip>
-              <para>To see Purchase Orders for the Item Source, click the
-              arrow to the left of the Item. To open the Item Source, double
-              click the Item Source Line.</para>
+          <para>Display lists existing Contract Items and Item Sources.<tip>
+              <para>To see Purchase Orders for an Item Source, click the arrow
+              to the left of the Item. To open the Item Source, double-click
+              on the Item Source line.</para>
             </tip></para>
         </listitem>
       </varlistentry>
@@ -89,53 +88,58 @@
           <para>Select this option to create a Purchase Order under this
           Contract. Detailed information on adding a new Purchase Order is
           available under the section <xref linkend="purchaseOrder" /><note>
-              <para>If an existing Purchase Order already exists under the
-              Contract, you can choose to select to use the existing Purchase
-              Order or to create a new Purchase Order.</para>
+              <para>If a Purchase Order already exists under the Contract, you
+              can specify that you want to use the existing Purchase Order―or
+              create a new Purchase Order.</para>
             </note>.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>EDIT PO</term>
         <listitem>
-          <para>Select to make changes to an existing Purchase Order.<note>
+          <para>Highlight a Purchase Order and then select this option to make
+          changes to the Purchase Order.<note>
               <para>The Contract Item Source line must be expanded in order to
-              highlight the relevant Purchase Order which will enable the
-              buttons for working with the Purchase Order.</para>
+              highlight the relevant Purchase Order. Once that is done, the
+              buttons for working with the Purchase Order will be
+              enabled.</para>
             </note></para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>VIEW PO</term>
         <listitem>
-          <para>Click the VIEW PO button to to view the selected Purchase
-          Order.</para>
+          <para>Highlight a Purchase Order and then select this option to view
+          the selected Purchase Order.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>DELETE PO</term>
         <listitem>
-          <para>Select to delete the highlighted Purchase Order.</para>
+          <para>Highlight a Purchase Order and then select this option to
+          delete the highlighted Purchase Order.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>RELEASE PO</term>
         <listitem>
-          <para>Click RELEASE PO to release the selected Purchase Order
-          without leaving the Contract window.</para>
+          <para>Highlight a Purchase Order and then select this option to
+          release the selected Purchase Order without leaving the Contract
+          window.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>NEW RECEIPT</term>
         <listitem>
-          <para>Select this option to enter a new Purchase Order
-          Receipt.</para>
+          <para>Highlight a Purchase Order and then select this option to
+          enter a new Purchase Order Receipt.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>NEW RETURN</term>
         <listitem>
-          <para>Select this option to enter a Purchase Order return.</para>
+          <para>Highlight a Purchase Order and then select this option to
+          enter a Purchase Order return.</para>
         </listitem>
       </varlistentry>
     </variablelist></para>
