@@ -365,11 +365,11 @@
             <imageobject>
               <imagedata fileref="images/salesOrderItem_availabilitySupply.png" />
             </imageobject>
-            <caption><para>Supply Order Information For Made
+            <caption><para>Supply Order Information For Manufactured
             Item</para></caption>
           </mediaobject><note>
             <para>Supply Orders are created as soon as a valid Item, Order
-            quantity and scheduled date are entered.</para>
+            quantity, and scheduled date are entered.</para>
           </note></para>
         <variablelist>
           <varlistentry>
@@ -479,31 +479,28 @@
     <varlistentry>
       <term>NEW MATL.</term>
       <listitem>
-        <para>Click the NEW MATL. button to add Materials to the BOM for the
-        Work Order.</para>
+        <para>Select to add Materials to the BOM for the Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>NEW OPER.</term>
       <listitem>
-        <para>Click the NEW OPER. button to add Operations to the BOO for this
-        Order Item.</para>
+        <para>Select to add Operations to the BOO for this Order Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
       <listitem>
-        <para>The Work Order Materials and Operations can be changed from this
-        screen while placing the Order. To do this, click the EDIT
-        button.</para>
+        <para>The Materials and Operations can be changed from this screen
+        while placing the Order. To do this, click the EDIT button.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
       <listitem>
-        <para>To remove Material or an Operation from the Work Order,
-        highlight the line in the exploded Work Order view and click the
-        DELETE button. Repeat for every line that needs to be removed.</para>
+        <para>To remove Materials or Operations from the Work Order, highlight
+        the line in the exploded Work Order view and click the DELETE button.
+        Repeat for every line that needs to be removed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -515,7 +512,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>The following will be displayed when the Item is a bought Item:</para>
+  <para>The following will be displayed when the Item is a purchased
+  Item:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/salesOrderItem_availabilitySupply2.png" />
