@@ -365,6 +365,8 @@
             <imageobject>
               <imagedata fileref="images/salesOrderItem_availabilitySupply.png" />
             </imageobject>
+            <caption><para>Supply Order Information For Made
+            Item</para></caption>
           </mediaobject><note>
             <para>Supply Orders are created as soon as a valid Item, Order
             quantity and scheduled date are entered.</para>
@@ -468,14 +470,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Rollup Prices</term>
-      <listitem>
-        <para>If this option is selected, the price will be based on the price
-        of all Materials and Operations. These Material and Operations prices
-        can be edited from the Sales Order Item screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>W/O Materials and Operations</term>
       <listitem>
         <para>Display lists an exploded view of the Materials and Operations
@@ -513,23 +507,62 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Item Sources</term>
+      <term>Rollup Prices</term>
       <listitem>
-        <para>Select to see a list of Item Sources.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Substitutes</term>
-      <listitem>
-        <para>Select to display a list of substitutes for the selected Item or
-        Site with availability information. Substitutes are defined on the
-        Item master. Right-click on an Item in the list and select
-        <guimenuitem>Substitute</guimenuitem> to set the selected Item as a
-        Line Item substitute. The original Line Item will be moved to the
-        <guilabel>Substitute For</guilabel> field.</para>
+        <para>If this option is selected, the price will be based on the price
+        of all Materials and Operations. These Material and Operations prices
+        can be edited from the Sales Order Item screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>The following will be displayed when the Item is a bought Item:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/salesOrderItem_availabilitySupply2.png" />
+    </imageobject>
+    <caption><para>Supply Order Information For Bought Item</para></caption>
+  </mediaobject>
+  <variablelist>
+    <varlistentry>
+      <term>Override Price</term>
+      <listitem>
+        <para>If your site has enabled the "Allow Inventory Receipt Cost
+        Override" option in the Inventory setup, then you will be able to
+        override the default Unit Price here. This option applies only to
+        Average cost Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Drop Ship</term>
+      <listitem>
+        <para>Select this option if the Item should be automatically shipped
+        when the Purchase Order receipt is posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To see a list of Item Sources, select the "Item Sources" option on the
+  "Supply" tab. Available Item Sources will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/salesOrderItem_availabilityItemSources.png" />
+    </imageobject>
+    <caption><para>Available Item Sources</para></caption>
+  </mediaobject>
+  <para>To display a list of substitutes for the selected Item or Site with
+  availability information, select the "Substitutes" option on the "Supply"
+  tab. The following will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/salesOrderItem_availabilitySubstitutes.png" />
+    </imageobject>
+    <caption><para>Available Substitutes</para></caption>
+  </mediaobject>
+  <note>
+    <para>Substitutes are defined on the Item master. Right-click on an Item
+    in the list and select <guimenuitem>Substitute</guimenuitem> to set the
+    selected Item as a Line Item substitute. The original Line Item will be
+    moved to the <guilabel>Substitute For</guilabel> field.</para>
+  </note>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
