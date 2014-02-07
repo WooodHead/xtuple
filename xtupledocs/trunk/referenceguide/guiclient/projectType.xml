@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="copyProject">
+  <title>Project Types</title>
+  <section id="copyProject">
+    <title>List Project Types</title>
+    <para>To view a list of Project Types, select the Project Type menu
+    option. The following screen will be displayed:</para>
+    <para><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/projectTypes.png" />
+          </imageobject>
+          <caption>Project Types List</caption>
+        </mediaobject>
+      </screenshot></para>
+  </section>
+  <section>
+    <title>New Project Type</title>
+    <para>To add a new Project Type, click the NEW button on the Project Types
+    list screen. The following will be displayed:<mediaobject>
+        <imageobject>
+          <imagedata fileref="images/projectType.png" />
+        </imageobject>
+        <caption><para>New Project Type</para></caption>
+      </mediaobject></para>
+    <para>You are presented with the following options:<variablelist>
+        <varlistentry>
+          <term>Code</term>
+          <listitem>
+            <para>Enter a code to identify the Project Type.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Description</term>
+          <listitem>
+            <para>Enter a description for the Project Type.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Active</term>
+          <listitem>
+            <para>Select to indicate that the project is currently
+            active.<note>
+                <para>If "Active" is not selected, the Project Type will not
+                be available for selection under a new or existing
+                Project.</para>
+              </note></para>
+          </listitem>
+        </varlistentry>
+      </variablelist></para>
+  </section>
+</section>

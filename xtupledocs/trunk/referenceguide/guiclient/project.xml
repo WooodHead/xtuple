@@ -39,12 +39,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>CRM Account</term>
-      <listitem>
-        <para>Enter the CRM account that is related to the Project.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Status</term>
       <listitem>
         <para>Specify one of the following statuses to characterize the
@@ -82,6 +76,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Project Type</term>
+      <listitem>
+        <para>Select the Project Type.<tip>
+            <para>You can maintain Project Types by navigating to CRM &gt;
+            Project &gt; Project Types</para>
+          </tip></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CRM Account</term>
+      <listitem>
+        <para>Enter the CRM account that is related to the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Owner</term>
       <listitem>
         <para>Specify the Project Owner.</para>
@@ -100,17 +109,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Started</term>
+      <listitem>
+        <para>Date Project was actually started.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Assigned</term>
       <listitem>
         <para>Date Project was assigned. The Assigned date automatically
         populates when the a user other than the current user is
         assigned.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Started</term>
-      <listitem>
-        <para>Date Project was actually started.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -135,37 +144,31 @@
         name.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Assignable Orders</term>
-      <listitem>
-        <para>Specify which of the following Order types can be linked to the
-        Project.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Sales Orders</term>
-            <listitem>
-              <para>Select to indicate Sales Orders may be linked to the
-              Project.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Work Orders</term>
-            <listitem>
-              <para>Select to indicate Work Orders may be linked to the
-              Project.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Purchase Orders</term>
-            <listitem>
-              <para>Select to indicate Purchase Orders may be linked to the
-              Project.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
   </variablelist>
+  <para>On the "Activity" tab, the following options and information are
+  available:<variablelist>
+      <varlistentry>
+        <term>Show Types</term>
+        <listitem>
+          <para>Select which of the following Project associations should be
+          listed.</para>
+          <itemizedlist>
+            <listitem>
+              <para>Sales Orders</para>
+            </listitem>
+            <listitem>
+              <para>Work Orders</para>
+            </listitem>
+            <listitem>
+              <para>Purchase Orders</para>
+            </listitem>
+            <listitem>
+              <para>Incidents</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>The following button is unique to this screen:</para>
   <variablelist>
     <varlistentry role="xtte">
