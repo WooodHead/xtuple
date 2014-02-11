@@ -106,7 +106,7 @@
         where it may be accessed for reporting purposes.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="manufacturing">
       <term><indexterm significance="normal">
           <primary>sites</primary>
           <secondary>sold from for sales orders</secondary>
@@ -127,12 +127,32 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
+  <tip role="manufacturing">
     <para>If a preferred Selling Site is specified for the Customer, then that
     Site will be selected here by default. If the preferred Selling Site is
     not selected—and you think it should be—verify that the Item Site master
     for the Line Item in question is marked as a "Sold from" Site.</para>
   </tip>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>ADV. ITEM SEARCH</term>
+        <listitem>
+          <para>Advanced Item Search (AIS) is a feature designed specifically
+          with distribution in mind. This feature allows distributors and end
+          users to quickly search for both Items and Item Aliases―as well as
+          current inventory levels―filtering every keystroke. From this screen
+          you also have the ability to create an Item Alias.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>VENDOR CATALOG</term>
+        <listitem>
+          <para>Select to use the External Vendor Catalog screen to view Items
+          as they appear within the various Vendor Catalogs you are subscribed
+          to.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <variablelist>
     <varlistentry>
       <term>Qty. Ordered</term>
