@@ -724,7 +724,11 @@
       <term>RESERVE STOCK</term>
       <listitem>
         <para>Highlight a Sales Order Line Item and then select this button to
-        reserve Inventory quantity for the Line Item.</para>
+        reserve Inventory quantity for the Line Item.<note>
+            <para>In order to manually reserve or unreserve stock for a Line
+            Item, the Sales Configuration option "Allow Manual Reservations"
+            must be selected.</para>
+          </note></para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
