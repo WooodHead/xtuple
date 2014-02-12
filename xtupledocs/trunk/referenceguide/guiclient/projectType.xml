@@ -4,14 +4,16 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="projectType">
   <title>Project Type</title>
-  <para>To add a new Project Type, click the NEW button on the Project Types
-  list screen. The following will be displayed:<mediaobject>
+  <para>Project Types are used to group similar Projects into recognizable
+  categories. To add a new Project Type, click the NEW button on the Project
+  Types list screen. The following will be displayed:<mediaobject>
       <imageobject>
         <imagedata fileref="images/projectType.png" />
       </imageobject>
       <caption><para>New Project Type</para></caption>
     </mediaobject></para>
-  <para>You are presented with the following options:<variablelist>
+  <para>When creating a new Project Type, you are presented with the following
+  options:<variablelist>
       <varlistentry>
         <term>Code</term>
         <listitem>
@@ -27,7 +29,7 @@
       <varlistentry>
         <term>Active</term>
         <listitem>
-          <para>Select to indicate that the project is currently active.<note>
+          <para>Select to indicate that the Project is currently active.<note>
               <para>If "Active" is not selected, the Project Type will not be
               available for selection under a new or existing Project.</para>
             </note></para>
