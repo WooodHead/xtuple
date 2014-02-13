@@ -17,9 +17,15 @@
       <secondary>encryption for</secondary>
     </indexterm>Encryption</title>
   <para>You must have an encryption key defined to successfully process Credit
-  Card and Electronic Funds Transfer (EFT) transactions in xTuple ERP. To
-  define the name of the encryption key and its location in your system,
-  select the "Encryption" option. The following screen will appear:</para>
+  Card and Electronic Funds Transfer (EFT) transactions in xTuple ERP.</para>
+  <caution>
+    <para>It is very important that you keep a backup copy of your encryption
+    key in a safe location. If you lose your encryption key and do not have a
+    backup copy, you risk losing access to your encrypted data.</para>
+  </caution>
+  <para>To define the name of the encryption key and its location in your
+  system, select the "Encryption" option. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
