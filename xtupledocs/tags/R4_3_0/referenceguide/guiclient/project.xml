@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="project">
+  <title><indexterm significance="normal">
+      <primary>projects</primary>
+      <secondary>creating new</secondary>
+    </indexterm>New Project</title>
+  <para>Projects can be created manually or automatically, depending on your
+  needs. To have Projects created automatically whenever a new Sales Order or
+  Quote is entered, choose the appropriate setting in your system-level
+  configuration. Otherwise, Projects will be created manually. Once created,
+  Projects can be linked to Sales Orders, Work Orders, and Purchase
+  Orders.</para>
+  <para>To create a new Project, select the "New Project" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/project.png" />
+        </imageobject>
+        <caption>Create New Project</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Project, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Number</term>
+      <listitem>
+        <para>Enter a code to identify the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a brief name to identify the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Specify one of the following statuses to characterize the
+        Project:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Concept</term>
+            <listitem>
+              <para>Use this status to indicate the Project has not yet
+              begun.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>In-Process</term>
+            <listitem>
+              <para>Use this status to indicate the Project is in-process.
+              Certain functions, like time and expense reporting, can only be
+              performed against in-process Projects.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Complete</term>
+            <listitem>
+              <para>Use this status to indicate the Project is
+              complete.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <note>
+          <para>Projects generated automatically when a new Sales Order or
+          Quote is entered will be assigned the status "Undefined" at first.
+          To remove this initial status, simply edit a Project and assign an
+          appropriate status to it.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project Type</term>
+      <listitem>
+        <para>Specify the Project Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CRM Account</term>
+      <listitem>
+        <para>Enter the CRM account associated with the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Owner</term>
+      <listitem>
+        <para>Specify the Project owner.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned to</term>
+      <listitem>
+        <para>Identify the user assigned to the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due</term>
+      <listitem>
+        <para>Specify the date the Project is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Started</term>
+      <listitem>
+        <para>Specify the start date for the Project.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assigned</term>
+      <listitem>
+        <para>Specify the date the Project was assigned. The Assigned date
+        automatically populates when the a user other than the current user is
+        assigned.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Completed</term>
+      <listitem>
+        <para>Enter the date the Project was completed. The completed date
+        automatically populates when the document status is changed to
+        "Complete".</para>
+        <note>
+          <para>Subsequent changes to the above dates are tracked under the
+          "Comments" tab as change log Comments. The changelogs include user
+          and timestamp information.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Use the lookup feature to add a new Contact or to select a
+        pre-existing Contact linked to the CRM Account that the project is
+        related to. Related Contact information will display below the
+        name.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>On the "Activity" tab, the following options are
+  available:<variablelist>
+      <varlistentry>
+        <term>Show Types</term>
+        <listitem>
+          <para>Select which of the following Project associations should be
+          listed.</para>
+          <itemizedlist>
+            <listitem>
+              <para>Sales Orders</para>
+            </listitem>
+            <listitem>
+              <para>Work Orders</para>
+            </listitem>
+            <listitem>
+              <para>Purchase Orders</para>
+            </listitem>
+            <listitem>
+              <para>Incidents</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para>The following button is unique to this screen:</para>
+  <variablelist>
+    <varlistentry role="xtte">
+      <term>GANTT</term>
+      <listitem>
+        <para>Select to generate a Gantt chart bar chart to illustrate the
+        Project schedule. The Gantt chart presents the Task completion time
+        line in a graphical format.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Tasks</term>
+      <listitem>
+        <para>Displays any Tasks associated with the Project.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view additional information for the Project, select the
+  "Additional" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/project_additional.png" />
+      </imageobject>
+      <caption>Additional Project Information</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When viewing the additional information for a Project, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Assignable Orders</term>
+      <listitem>
+        <para>Specify which of the following Order types can be linked to the
+        Project.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Sales Orders</term>
+            <listitem>
+              <para>Select to indicate Sales Orders may be linked to the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Work Orders</term>
+            <listitem>
+              <para>Select to indicate Work Orders may be linked to the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Purchase Orders</term>
+            <listitem>
+              <para>Select to indicate Purchase Orders may be linked to the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Summary</term>
+      <listitem>
+        <para>When viewing the time and expenses summary for a Project, you
+        are presented with the following information:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Total Hours Budgeted</term>
+            <listitem>
+              <para>Displays the total Task hours budgeted for the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Total Hours Actual</term>
+            <listitem>
+              <para>Displays the actual Task hours used for the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Balance</term>
+            <listitem>
+              <para>Displays the balance difference between budgeted and
+              actual Task hours for the Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Total Expenses Budgeted</term>
+            <listitem>
+              <para>Displays the total Task expenses budgeted for the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Total Expenses Actual</term>
+            <listitem>
+              <para>Displays the actual Task expenses used for the
+              Project.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Balance</term>
+            <listitem>
+              <para>Displays the balance difference between budgeted and
+              actual Task expenses for the Project.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following button is unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>ACTIVITY</term>
+      <listitem>
+        <para>Select to open the "Order Activity by Project" screen. For more
+        information, please see <xref
+        linkend="dspOrderActivityByProject" />.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para role="xtte">You can specify Customer and billing rate information by
+  Project. To specify the Customer and billing rate information, select the
+  "Billing" tab. The following screen will appear:</para>
+  <screenshot role="xtte">
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/project_billing.png" />
+      </imageobject>
+      <caption>Project Billing</caption>
+    </mediaobject>
+  </screenshot>
+  <para role="xtte">When specifying Customer and billing rate information, you
+  are presented with the following options:</para>
+  <para role="xtte"><variablelist>
+      <varlistentry>
+        <term>Customer</term>
+        <listitem>
+          <para>Enter the Customer you want to associate with the
+          Project.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Use specified billing rate</term>
+        <listitem>
+          <para>Select if you want to specify a Customer billing rate for the
+          Project. If not selected, the rate may be entered manually on Time
+          Sheets.</para>
+          <variablelist>
+            <varlistentry>
+              <term>Rate</term>
+              <listitem>
+                <para>Specify the Customer billing rate for the
+                Project.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para>To add Notes related to a Project, select the "Notes" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/project_notes.png" />
+        </imageobject>
+        <caption>Notes Added to Project</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>Notes entered here are displayed in the Description field when
+  Projects are listed.</para>
+  <para>To add Comments related to a Project, select the "Comments" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/project_commentsTab.png" />
+        </imageobject>
+        <caption>Comments Added to Project</caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To view the documents associated with a Project, select the
+  "Documents" tab. The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/project_documentsTab.png" />
+      </imageobject>
+      <caption>Project Documents</caption>
+    </mediaobject>
+  </screenshot>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To create recurring Projects, select the "Advanced" tab. The following
+  screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/project_advancedTab.png" />
+      </imageobject>
+      <caption>Project Advanced</caption>
+    </mediaobject>
+  </screenshot>
+  <xi:include href="../widgets/recurrencewidget.xml"
+              xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <xi:include href="task.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
