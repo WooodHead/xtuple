@@ -4,57 +4,55 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="creditMemoItem">
   <title><indexterm significance="normal">
-      <primary>credit memos</primary>
+      <primary>returns</primary>
       <secondary>adding line items to</secondary>
-    </indexterm>Credit Memo Item</title>
-  <para>To create a new Credit Memo Line Item, select the NEW button. The
-  following screen will appear:</para>
+    </indexterm>Return Item</title>
+  <para>To create a new Return Line Item, select the NEW button. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/creditMemoItem.png" />
         </imageobject>
-        <caption>Create New Credit Memo Line Item</caption>
+        <caption>Create New Return Line Item</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating a new Credit Memo Line Item, you are presented with the
+  <para>When creating a new Return Line Item, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
       <term>Order #</term>
       <listitem>
-        <para>Displays the Credit Memo number for the current Credit
-        Memo.</para>
+        <para>Displays the Return number for the current Return.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Line #</term>
       <listitem>
-        <para>Displays the line number assigned to the Credit Memo
-        Item.</para>
+        <para>Displays the line number assigned to the Return Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
       <listitem>
-        <para>Enter the Item Number of the Item you want to add to the Credit
-        Memo. If the Credit Memo is being applied to an Invoice, only those
-        Line Items which appeared on the Invoice will be available for
-        selection—that is, if the appropriate setting is selected at the
-        system level. Invoices are selected for application by a Credit Memo
-        using the "Apply To" feature on the Credit Memo header screen.</para>
+        <para>Enter the Item Number of the Item you want to add to the Return.
+        If the Return is being applied to an Invoice, only those Line Items
+        which appeared on the Invoice will be available for selection—that is,
+        if the appropriate setting is selected at the system level. Invoices
+        are selected for application by a Return using the "Apply To" feature
+        on the Return header screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The system-level configuration which determines whether Credit Memo
-    Items will be restricted to relevant Invoice Items is the setting
-    "Restrict Credit Memos to Items that appear on their Apply-To Document."
-    Selecting this option narrows the Credit Memo Item selection process to
-    only those Items which appeared on the Invoice the Credit Memo is being
-    applied to. If not selected, a sold Item master list will appear instead
-    when selecting Credit Memo Items for Credit Memos applied to a specific
-    Invoice. This setting has no bearing on unapplied Credit Memos.</para>
+    <para>The system-level configuration which determines whether Return Items
+    will be restricted to relevant Invoice Items is the setting "Restrict
+    Returns to Items that appear on their Apply-To Document." Selecting this
+    option narrows the Return Item selection process to only those Items which
+    appeared on the Invoice the Return is being applied to. If not selected, a
+    sold Item master list will appear instead when selecting Return Items for
+    Returns applied to a specific Invoice. This setting has no bearing on
+    unapplied Returns.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -69,9 +67,9 @@
         <para>Specify the Site returned Inventory will be received into. Items
         designated as Multiple Location Control Items may be received into
         multiple Sites. If this is the case, be sure to specify the correct
-        receiving Site when entering a Credit Memo Line Item. The receiving
-        Site will not necessarily be the same Site as the Site the Item was
-        shipped from.</para>
+        receiving Site when entering a Return Line Item. The receiving Site
+        will not necessarily be the same Site as the Site the Item was shipped
+        from.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -80,8 +78,8 @@
         <para>Specify the reason why an adjustment is being made to a
         Customer's account.</para>
         <para><note>
-            <para>By default, the Reason Code on the Credit Memo header will
-            be used at the Line Item level. However, you may change the Reason
+            <para>By default, the Reason Code on the Return header will be
+            used at the Line Item level. However, you may change the Reason
             Code for individual Line Items.</para>
           </note></para>
       </listitem>
@@ -90,17 +88,17 @@
       <term>Qty. Returned</term>
       <listitem>
         <para>Enter the quantity of the Item returned for credit. If the
-        Credit Memo was created from a Return Authorization, the quantity
-        returned will be zero on the Credit Memo Item screen. Return
-        Authorization returns are handled separately, outside of the normal
-        sales Credit Memo Inventory handling process.</para>
+        Return was created from a Return Authorization, the quantity returned
+        will be zero on the Return Item screen. Return Authorization returns
+        are handled separately, outside of the normal sales Return Inventory
+        handling process.</para>
         <variablelist>
           <varlistentry>
             <term>Update Inventory</term>
             <listitem>
               <para>Select if you want the quantity returned to be added back
-              into Inventory when you post the Credit Memo. If not selected,
-              your Inventory will not be updated.</para>
+              into Inventory when you post the Return. If not selected, your
+              Inventory will not be updated.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -139,19 +137,19 @@
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>credit memos</primary>
+          <primary>returns</primary>
           <secondary>pricing of</secondary>
         </indexterm>Net Unit Price</term>
       <listitem>
         <para>Specify the Net Unit Price to assign the quantity being
-        credited. If the Credit Memo is being applied to a specific Invoice,
-        then the system will automatically enter the Item's Net Unit Price as
-        it appeared on the referring Invoice. If no Invoice is being
-        applied-to, then the system will choose the lower of the following two
-        Prices: A) The most-specific Pricing Schedule Assignment or B) any
-        Sale in effect at the time of Order entry. The specificity of Pricing
-        Schedule Assignments is determined in the following descending order:
-        By Customer Ship-To Address (most specific), by Customer, by Customer
+        credited. If the Return is being applied to a specific Invoice, then
+        the system will automatically enter the Item's Net Unit Price as it
+        appeared on the referring Invoice. If no Invoice is being applied-to,
+        then the system will choose the lower of the following two Prices: A)
+        The most-specific Pricing Schedule Assignment or B) any Sale in effect
+        at the time of Order entry. The specificity of Pricing Schedule
+        Assignments is determined in the following descending order: By
+        Customer Ship-To Address (most specific), by Customer, by Customer
         Type, by Customer Type pattern, by all Customers. The lookup feature
         located to the right of the field leads to a Price List screen.</para>
         <para>If your Pricing Schedule has multiple Units of Measure (UOM) on
@@ -182,9 +180,8 @@
     <varlistentry>
       <term>Extended Price</term>
       <listitem>
-        <para>Displays the Extended Price. The Extended Price for a Credit
-        Memo Item is based on the quantity credited multiplied by the
-        Price.</para>
+        <para>Displays the Extended Price. The Extended Price for a Return
+        Item is based on the quantity credited multiplied by the Price.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -208,7 +205,7 @@
     <varlistentry>
       <term>Tax Type</term>
       <listitem>
-        <para>Specify the Tax Type for the Credit Memo Item.</para>
+        <para>Specify the Tax Type for the Return Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -216,16 +213,16 @@
     <varlistentry>
       <term>Tax</term>
       <listitem>
-        <para>Displays the amount of Tax to be charged for the Credit Memo
-        Line Item quantity. To get a detailed view of the Tax calculation,
-        click on the Tax link using your mouse.</para>
+        <para>Displays the amount of Tax to be charged for the Return Line
+        Item quantity. To get a detailed view of the Tax calculation, click on
+        the Tax link using your mouse.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>credit memos</primary>
+          <primary>returns</primary>
           <secondary>discount pricing for</secondary>
         </indexterm>Discount % from List</term>
       <listitem>
@@ -242,7 +239,7 @@
       <imageobject>
         <imagedata fileref="images/creditMemoItem_notes.png" />
       </imageobject>
-      <caption>Create New Credit Memo Line Item Notes</caption>
+      <caption>Create New Return Line Item Notes</caption>
     </mediaobject>
   </screenshot>
   <variablelist>
@@ -250,7 +247,7 @@
       <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the Credit Memo Item.</para>
+        Notes related to the Return Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>

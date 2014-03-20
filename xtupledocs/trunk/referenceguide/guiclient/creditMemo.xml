@@ -4,27 +4,26 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="creditMemo">
   <title id="Anchor94106"><indexterm significance="normal">
-      <primary>credit memos</primary>
+      <primary>returns</primary>
       <secondary>creating new</secondary>
-    </indexterm> New Credit Memo</title>
-  <para>To create a Credit Memo, select the "New Credit Memo" option. The
-  following screen will appear:</para>
+    </indexterm> New Return</title>
+  <para>To create a Return, select the "New Return" option. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/creditMemo.png" />
         </imageobject>
-        <caption>Create New Credit Memo</caption>
+        <caption>Create New Return</caption>
       </mediaobject>
     </screenshot></para>
   <variablelist>
     <varlistentry>
       <term>Memo #</term>
       <listitem>
-        <para>Next available Credit Memo Number will automatically display,
-        unless your system requires you to enter Credit Memo Numbers
-        manually.</para>
-        <para>Default values and input parameters for Credit Memo Numbers are
+        <para>Next available Return Number will automatically display, unless
+        your system requires you to enter Return Numbers manually.</para>
+        <para>Default values and input parameters for Return Numbers are
         configurable at the system level.</para>
       </listitem>
     </varlistentry>
@@ -32,40 +31,39 @@
       <term>Apply To</term>
       <listitem>
         <para>Specify the Invoice Number of the Invoice you want to apply the
-        Credit Memo to, using the lookup feature located to the right of the
-        field. The list will include Invoices for the specified Customer. If a
-        Credit Memo is applied to a specific Invoice, the Credit Memo may only
-        credit Items which appeared on the chosen Invoice. If for some reason
-        the Credit Memo is applied to a closed Invoice, the Credit Memo will
-        be listed as an unapplied Credit Memo.</para>
+        Return to, using the lookup feature located to the right of the field.
+        The list will include Invoices for the specified Customer. If a Return
+        is applied to a specific Invoice, the Return may only credit Items
+        which appeared on the chosen Invoice. If for some reason the Return is
+        applied to a closed Invoice, the Return will be listed as an unapplied
+        Return.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Memo Date</term>
       <listitem>
-        <para>Enter a date representing the date when you want the Credit Memo
-        to be distributed. When a Credit Memo is posted, it is posted
-        effective as of the Memo date.</para>
+        <para>Enter a date representing the date when you want the Return to
+        be distributed. When a Return is posted, it is posted effective as of
+        the Memo date.</para>
         <para><note>
-            <para>You are not required to apply a Credit Memo to a specific
-            Invoice. If a Credit Memo is applied to an Invoice, any Credit
-            Memo Items will be returned to Inventory when the Credit Memo is
-            posted.</para>
+            <para>You are not required to apply a Return to a specific
+            Invoice. If a Return is applied to an Invoice, any Return Items
+            will be returned to Inventory when the Return is posted.</para>
           </note></para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Status</term>
       <listitem>
-        <para>Indicates whether Credit Memo is posted or unposted.</para>
+        <para>Indicates whether Return is posted or unposted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The quickest way to fill in the Credit Memo screen may be to select
-    the Invoice you intend to credit using the "Apply To" feature. If you use
-    this feature, most of the fields in the Credit Memo screen will
-    automatically populate with the needed Customer information.</para>
+    <para>The quickest way to fill in the Return screen may be to select the
+    Invoice you intend to credit using the "Apply To" feature. If you use this
+    feature, most of the fields in the Return screen will automatically
+    populate with the needed Customer information.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -73,20 +71,20 @@
       <listitem>
         <para>Specify the Sales Representative associated with the Order. By
         default, the Customer's designated Sales Representative will appear in
-        the field—except if you have selected an Invoice to apply the Credit
-        Memo to. In that case, the Sales Representative credited with the
-        Invoice will be selected.</para>
+        the field—except if you have selected an Invoice to apply the Return
+        to. In that case, the Sales Representative credited with the Invoice
+        will be selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>tax zones</primary>
-          <secondary>for credit memos</secondary>
+          <secondary>for returns</secondary>
         </indexterm>Tax Zone</term>
       <listitem>
-        <para>Specify the Tax Zone associated with the Credit Memo. The Tax
-        Zone for the specified Ship-To Address will be entered here by
-        default. Otherwise, the primary Tax Zone for the Customer will be
+        <para>Specify the Tax Zone associated with the Return. The Tax Zone
+        for the specified Ship-To Address will be entered here by default.
+        Otherwise, the primary Tax Zone for the Customer will be
         entered.</para>
       </listitem>
     </varlistentry>
@@ -95,9 +93,9 @@
       <listitem>
         <para>By default, the commission percentage recorded on the Customer
         master will be automatically entered in this field. If for some reason
-        you select a non-default Sales Representative at Credit Memo entry,
-        the commission rate will not change. To adjust the commission rate,
-        you must make the change manually.</para>
+        you select a non-default Sales Representative at Return entry, the
+        commission rate will not change. To adjust the commission rate, you
+        must make the change manually.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -109,58 +107,58 @@
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>credit memos</primary>
+          <primary>returns</primary>
           <secondary>hold options for</secondary>
         </indexterm>Place on Hold</term>
       <listitem>
-        <para>Select to place Credit Memo on hold. If a Credit Memo is placed
-        on hold, it cannot be posted. You would place a Credit Memo on hold,
-        for example, to allow time for producing and processing a Return
-        Material Authorization (RMA) document. To remove a hold and allow
-        posting of a Credit Memo, de-select this option.</para>
+        <para>Select to place Return on hold. If a Return is placed on hold,
+        it cannot be posted. You would place a Return on hold, for example, to
+        allow time for producing and processing a Return Material
+        Authorization (RMA) document. To remove a hold and allow posting of a
+        Return, de-select this option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Project #</term>
       <listitem>
         <para>If your system is configured to use Projects, select a Project
-        Number to associate with the Credit Memo.</para>
+        Number to associate with the Return.</para>
         <para role="xtprjaccnt">When you have the xTuple Project Accounting
-        package installed—and you link a Project to the Credit Memo—the
-        Project Number will be added as the final segment of affected G/L
-        Account Numbers when the Credit Memo is posted.</para>
+        package installed—and you link a Project to the Return—the Project
+        Number will be added as the final segment of affected G/L Account
+        Numbers when the Return is posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>credit memos</primary>
+          <primary>returns</primary>
           <secondary>customers associated with</secondary>
         </indexterm>Customer #</term>
       <listitem>
         <para>Enter the Customer Number of the Customer you want to issue the
-        Credit Memo to. The lookup feature located to the right of the field
-        leads to a searchable Customers list. You may also access this list
-        using the keyboard shortcut "CTRL + L". Once a Customer Number is
-        entered, the Customer name and billing address will display. Select
-        the "?" or "$" symbol to view Customer information for the specified
-        Customer. If a Customer's credit is "In Good Standing," the button
-        will feature a black question mark ("?") icon. If the icon turns to an
-        orange dollar sign ("$"), the Customer's credit Status is "On Credit
-        Warning." A red dollar sign ("$") indicates the Customer's credit
-        Status is "On Credit Hold."</para>
+        Return to. The lookup feature located to the right of the field leads
+        to a searchable Customers list. You may also access this list using
+        the keyboard shortcut "CTRL + L". Once a Customer Number is entered,
+        the Customer name and billing address will display. Select the "?" or
+        "$" symbol to view Customer information for the specified Customer. If
+        a Customer's credit is "In Good Standing," the button will feature a
+        black question mark ("?") icon. If the icon turns to an orange dollar
+        sign ("$"), the Customer's credit Status is "On Credit Warning." A red
+        dollar sign ("$") indicates the Customer's credit Status is "On Credit
+        Hold."</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>Credit Memos may be entered for inactive Customers. The same does
-    not hold true for Sales Orders.</para>
+    <para>Returns may be entered for inactive Customers. The same does not
+    hold true for Sales Orders.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>credit memos</primary>
+          <primary>returns</primary>
           <secondary>billing information for</secondary>
         </indexterm>Bill-To Name</term>
       <listitem>
@@ -176,8 +174,8 @@
         manually entered here, that Address will be added automatically to the
         master list of Addresses. For additional documentation related to
         creating Addresses, see <xref linkend="address" />.<note>
-            <para>A Credit Memo that is applied to an Invoice will by default
-            have the Address that appeared on the Invoice.</para>
+            <para>A Return that is applied to an Invoice will by default have
+            the Address that appeared on the Invoice.</para>
           </note></para>
       </listitem>
     </varlistentry>
@@ -203,7 +201,7 @@
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>credit memos</primary>
+          <primary>returns</primary>
           <secondary>ship-to details for</secondary>
         </indexterm>Ship-To Name</term>
       <listitem>
@@ -237,7 +235,7 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Make sure the Ship-To Address on the Credit Memo matches the Ship-To
+    <para>Make sure the Ship-To Address on the Return matches the Ship-To
     Address on the Customer's Pricing Schedule. If they don"t match, you won"t
     be able to issue credit for exclusively sold Items.</para>
   </tip>
@@ -248,53 +246,53 @@
         <para>By default, the Customer Purchase Order Number associated with
         the Invoice being credited will display here. If no Customer Purchase
         Order Number was entered at the time of the original Sales Order—or if
-        the Credit Memo is not being applied to a specific Invoice—the field
-        will remain blank. Enter or edit a Customer Purchase Order Number as
+        the Return is not being applied to a specific Invoice—the field will
+        remain blank. Enter or edit a Customer Purchase Order Number as
         necessary.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para><indexterm significance="normal">
-      <primary>credit memos</primary>
+      <primary>returns</primary>
       <secondary>adding line items to</secondary>
-    </indexterm>To create or modify Credit Memo Line Items, select the "Line
-  Items" tab at the top of the "Credit Memo" screen. The following screen will
+    </indexterm>To create or modify Return Line Items, select the "Line Items"
+  tab at the top of the "Return" screen. The following screen will
   appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/creditMemo_itemsTab.png" />
         </imageobject>
-        <caption>Credit Memo Line Items</caption>
+        <caption>Return Line Items</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When creating or modifying Credit Memo Line Items, you are presented
-  with the following options:</para>
+  <para>When creating or modifying Return Line Items, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Line Items</term>
       <listitem>
         <para>Display lists Sales Order Line Item quantities that have been
-        returned and selected for credit. Line Items are added to a Credit
-        Memo using the NEW ITEM button.</para>
+        returned and selected for credit. Line Items are added to a Return
+        using the NEW ITEM button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Before creating a new Credit Memo Line Item, be sure to specify an
-    Invoice to apply the Credit Memo to. The "Apply To" feature is found on
-    the Credit Memo header screen.</para>
+    <para>Before creating a new Return Line Item, be sure to specify an
+    Invoice to apply the Return to. The "Apply To" feature is found on the
+    Return header screen.</para>
   </tip>
   <variablelist>
     <varlistentry>
       <term>Subtotal</term>
       <listitem>
-        <para>Displays the subtotal for the Credit Memo Line Items.</para>
+        <para>Displays the subtotal for the Return Line Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>credit memos</primary>
+          <primary>returns</primary>
           <secondary>charges related to</secondary>
         </indexterm>Misc. Charge Amount</term>
       <listitem>
@@ -321,54 +319,54 @@
       <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. The freight charge may be entered during the creation or
-        modification of a Credit Memo—or at the time of shipment.</para>
+        modification of a Return—or at the time of shipment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax</term>
       <listitem>
-        <para>Displays the total amount of Tax to be charged on the Credit
-        Memo. Sales Tax is calculated at the Credit Memo Line Item level. The
-        Tax amount displayed here represents the total for all Line Item Tax
-        amounts. To get a detailed view of the Tax calculation, click on the
-        Tax link using your mouse.</para>
+        <para>Displays the total amount of Tax to be charged on the Return.
+        Sales Tax is calculated at the Return Line Item level. The Tax amount
+        displayed here represents the total for all Line Item Tax amounts. To
+        get a detailed view of the Tax calculation, click on the Tax link
+        using your mouse.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Total</term>
       <listitem>
-        <para>Displays the total amount of the Credit Memo.</para>
+        <para>Displays the total amount of the Return.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Notes to a Credit Memo, select the "Notes" tab at the top of
-  the "Credit Memo" screen. The following screen will appear:</para>
+  <para>To add Notes to a Return, select the "Notes" tab at the top of the
+  "Return" screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/creditMemo_notesTab.png" />
         </imageobject>
-        <caption>Credit Memo Notes</caption>
+        <caption>Return Notes</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding Notes to a Credit Memo, you are presented with the
-  following options:</para>
+  <para>When adding Notes to a Return, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        Notes related to the Credit Memo. Notes entered on this screen will
-        follow the Credit Memo through the billing process. For example, you
-        may view notes associated with a posted Credit Memo within the
-        Customer History report.</para>
+        Notes related to the Return. Notes entered on this screen will follow
+        the Return through the billing process. For example, you may view
+        notes associated with a posted Return within the Customer History
+        report.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Documents</term>
       <listitem>
-        <para>To associate documents with a Credit Memo, select the
-        "Documents" tab.</para>
+        <para>To associate documents with a Return, select the "Documents"
+        tab.</para>
         <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
                     xmlns:xi="http://www.w3.org/2001/XInclude" />
       </listitem>

@@ -3,40 +3,42 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="userPreferences">
-  <title>Preferences</title>
-  <para>The Preferences section enables users to customize the look and feel
-  of their main application window. Users can also specify various application
-  defaults. While users have the ability to modify their own preferences, only
-  those users granted the "MaintainUsers" privilege can change another user's
-  preferences. To access the Preferences area, select the "Preferences"
-  option. The following screen will appear:</para>
+  <title>User Account Preferences</title>
+  <para>The User Account Preferences section enables Users to customize the
+  look and feel of their main application window. Users can also specify
+  various application defaults. While Users have the ability to modify their
+  own preferences, only those Users granted the "MaintainUsers" privilege can
+  change another User's preferences. To access the User Account Preferences
+  area, select the "Preferences" option. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/userPreferences.png" />
         </imageobject>
-        <caption>User Preferences</caption>
+        <caption>User Account Preferences</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When establishing user preferences, you are presented with the
+  <para>When establishing User Account preferences, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Current User</term>
+      <term>Current User Account</term>
       <listitem>
-        <para>Select to edit user preferences for the current user. This is
-        the only option available to users who do not have the "MaintainUsers"
-        privilege.</para>
+        <para>Select to edit User Account preferences for the current User
+        Account. This is the only option available to Users who do not have
+        the "MaintainUsers" privilege.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Selected User</term>
+      <term>Selected User Account</term>
       <listitem>
-        <para>Select an individual user to view and/or edit preferences for
-        that user. This option is only available to system administrators and
-        others who have been granted the "MaintainUsers" privilege. Only users
-        who have been granted this privilege can edit the preferences of other
-        users. The usernames of all users who are registered on the current
+        <para>Select an individual User Account to view and/or edit
+        preferences for that User Account. This option is only available to
+        system administrators and others who have been granted the
+        "MaintainUsers" privilege. Only Users who have been granted this
+        privilege can edit the preferences of other User Accounts. The
+        usernames of all User Accounts who are registered on the current
         Database will appear in the list.</para>
       </listitem>
     </varlistentry>
@@ -102,14 +104,14 @@
               <para>Select to bypass the warning message which may be
               presented at log in to indicate that a translation file is
               missing. The warning may be irrelevant in some cases. This User
-              Preference option will be useful in situations where the default
-              language is acceptable, even though the country designation on
-              the user's Locale might indicate otherwise. For example, in the
-              United Kingdom (UK), the language may be English and the country
-              United Kingdom—allowing for date and time localizations specific
-              to the UK. However, because the default English language
-              translation is acceptable, there's no need for an alternate
-              translation file just for the UK (e.g.,
+              Account Preference option will be useful in situations where the
+              default language is acceptable, even though the country
+              designation on the User's Locale might indicate otherwise. For
+              example, in the United Kingdom (UK), the language may be English
+              and the country United Kingdom—allowing for date and time
+              localizations specific to the UK. However, because the default
+              English language translation is acceptable, there's no need for
+              an alternate translation file just for the UK (e.g.,
               <filename>xTuple.en_uk.qm</filename>).</para>
             </listitem>
           </varlistentry>
@@ -117,7 +119,7 @@
             <term>GET TRANSLATIONS</term>
             <listitem>
               <para>Select to download the latest translation file to match
-              the language defined on your user's Locale. Translation files
+              the language defined on your User's Locale. Translation files
               are downloaded from the xTuple Translation Portal (<ulink
               url="http://www.xtuple.org/translate">www.xtuple.org/translate)</ulink>—and
               they are stored on your local file system in a standard location
@@ -146,7 +148,7 @@
               English.aff) are distributed with the product. However, Hunspell
               dictionaries for other languages are also available for download
               from many sites on the Internet. The spell checking feature has
-              been designed to operate with a user's Locale settings—which
+              been designed to operate with a User's Locale settings—which
               means that if you are using a Locale other than English (and you
               have the correct Hunspell dictionary files installed) the spell
               checker should work in your specified language.</para>
@@ -156,13 +158,13 @@
             <term>GET DICTIONARIES</term>
             <listitem>
               <para>Select to download spell check dictionaries to match the
-              language defined on your user's Locale. A message will alert you
+              language defined on your User's Locale. A message will alert you
               if no dictionaries are available for your language.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><indexterm significance="normal">
-                <primary>users</primary>
+                <primary>user accounts</primary>
                 <secondary>setting idle timeout for</secondary>
               </indexterm><indexterm significance="normal">
                 <primary>idle timeout</primary>
@@ -178,7 +180,7 @@
     </varlistentry>
     <varlistentry role="standard">
       <term><indexterm significance="normal">
-          <primary>users</primary>
+          <primary>user accounts</primary>
           <secondary>preferred sites for</secondary>
         </indexterm>Preferred Site</term>
       <listitem>
@@ -187,7 +189,7 @@
           <varlistentry>
             <term>None</term>
             <listitem>
-              <para>Select if the user does not have a preferred Site.</para>
+              <para>Select if the User does not have a preferred Site.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -195,10 +197,10 @@
             <listitem>
               <para>Specify the preferred Site. Sites designated as preferred
               will appear at the top of Site list by default—eliminating the
-              need to search the menu for the desired Site code. The user may
+              need to search the menu for the desired Site code. The User may
               access other Sites in these lists in the normal way. Assigning a
               preferred Site is simply a time-saving feature and does not
-              affect user access to Site data.</para>
+              affect User access to Site data.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -255,17 +257,17 @@
     </varlistentry>
   </variablelist>
   <para><indexterm significance="normal">
-      <primary>users</primary>
+      <primary>user accounts</primary>
       <secondary>module options for</secondary>
     </indexterm><indexterm significance="normal">
-      <primary>users</primary>
+      <primary>user accounts</primary>
       <secondary>toolbar options for</secondary>
     </indexterm><indexterm significance="normal">
       <primary>toolbars</primary>
-      <secondary>user options for</secondary>
+      <secondary>user account options for</secondary>
     </indexterm><indexterm significance="normal">
       <primary>modules</primary>
-      <secondary>user options involving</secondary>
+      <secondary>user account options involving</secondary>
     </indexterm>The system allows you to show only those menus which you want
   to see. To define your menu preference, select the "Menu" tab. The following
   screen will appear:</para>
@@ -285,14 +287,14 @@
     <varlistentry>
       <term>Show Inventory Menu</term>
       <listitem>
-        <para>Select to display the Inventory module menu on the user's main
+        <para>Select to display the Inventory module menu on the User's main
         application window.</para>
         <variablelist>
           <varlistentry>
             <term>Show Inventory Toolbar</term>
             <listitem>
               <para>Select to display the Inventory module toolbar buttons on
-              the user's main application window.</para>
+              the User's main application window.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -301,14 +303,14 @@
     <varlistentry>
       <term>Show Products Menu</term>
       <listitem>
-        <para>Select to display the Products module menu on the user's main
+        <para>Select to display the Products module menu on the User's main
         application window.</para>
         <variablelist>
           <varlistentry>
             <term>Show Products Toolbar</term>
             <listitem>
               <para>Select to display the Products module toolbar buttons on
-              the user's main application window.</para>
+              the User's main application window.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -317,14 +319,14 @@
     <varlistentry role="standard">
       <term>Show Schedule Menu</term>
       <listitem>
-        <para>Select to display the Schedule module menu on the user's main
+        <para>Select to display the Schedule module menu on the User's main
         application window.</para>
         <variablelist>
           <varlistentry>
             <term>Show Schedule Toolbar</term>
             <listitem>
               <para>Select to display the Schedule module toolbar buttons on
-              the user's main application window.</para>
+              the User's main application window.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -333,14 +335,14 @@
     <varlistentry>
       <term>Show Purchase Menu</term>
       <listitem>
-        <para>Select to display the Purchase module menu on the user's main
+        <para>Select to display the Purchase module menu on the User's main
         application window.</para>
         <variablelist>
           <varlistentry>
             <term>Show Purchase Toolbar</term>
             <listitem>
               <para>Select to display the Purchase module toolbar buttons on
-              the user's main application window.</para>
+              the User's main application window.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -349,14 +351,14 @@
     <varlistentry>
       <term>Show Manufacture Menu</term>
       <listitem>
-        <para>Select to display the Manufacture module menu on the user's main
+        <para>Select to display the Manufacture module menu on the User's main
         application window.</para>
         <variablelist>
           <varlistentry>
             <term>Show Manufacture Toolbar</term>
             <listitem>
               <para>Select to display the Manufacture module toolbar buttons
-              on the user's main application window.</para>
+              on the User's main application window.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -365,14 +367,14 @@
     <varlistentry>
       <term>Show CRM Menu</term>
       <listitem>
-        <para>Select to display the CRM module menu on the user's main
+        <para>Select to display the CRM module menu on the User's main
         application window.</para>
         <variablelist>
           <varlistentry>
             <term>Show CRM Toolbar</term>
             <listitem>
               <para>Select to display the CRM module toolbar buttons on the
-              user's main application window.</para>
+              User's main application window.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -381,14 +383,14 @@
     <varlistentry>
       <term>Show Sales Menu</term>
       <listitem>
-        <para>Select to display the Sales module menu on the user's main
+        <para>Select to display the Sales module menu on the User's main
         application window.</para>
         <variablelist>
           <varlistentry>
             <term>Show Sales Toolbar</term>
             <listitem>
               <para>Select to display the Sales module toolbar buttons on the
-              user's main application window.</para>
+              User's main application window.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -397,14 +399,14 @@
     <varlistentry>
       <term>Show Accounting Menu</term>
       <listitem>
-        <para>Select to display the Accounting module menu on the user's main
+        <para>Select to display the Accounting module menu on the User's main
         application window.</para>
         <variablelist>
           <varlistentry>
             <term>Show Accounting Toolbar</term>
             <listitem>
               <para>Select to display the Accounting module toolbar buttons on
-              the user's main application window.</para>
+              the User's main application window.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -414,7 +416,7 @@
   <para><indexterm significance="normal">
       <primary>hot keys</primary>
       <secondary>master list of</secondary>
-    </indexterm>Each user has the option of setting up custom keyboard
+    </indexterm>Each User has the option of setting up custom keyboard
   shortcuts, otherwise knows as Hot Keys. These Hot Keys make it possible to
   launch individual screens using the keyboard. To set up user-defined Hot
   Keys, select the "Hot Keys" tab. The following screen will appear:</para>
@@ -431,9 +433,9 @@
       <primary>events</primary>
       <secondary>user notification of</secondary>
     </indexterm><indexterm significance="normal">
-      <primary>users</primary>
+      <primary>user accounts</primary>
       <secondary>event notification for</secondary>
-    </indexterm>To define or modify a user's Event notification preferences,
+    </indexterm>To define or modify a User's Event notification preferences,
   select the "Events" tab. The following screen will appear:</para>
   <note>
     <para>For a complete list of user-defined Events see <xref
@@ -445,7 +447,7 @@
       </imageobject>
       <caption>Event Preferences</caption>
     </mediaobject></para>
-  <para>When defining or modifying a user's Event notification preferences,
+  <para>When defining or modifying a User's Event notification preferences,
   you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
@@ -453,9 +455,9 @@
       <listitem>
         <para>Displays the complete list of system-defined Events. Highlight
         an Event and then double-click a Site in the adjacent Site column to
-        set the user's Event notification preference for that Site. Selecting
-        "Yes" means the user will be notified if the specified event occurs in
-        the specified Site. Selecting "No" means the user will not be notified
+        set the User's Event notification preference for that Site. Selecting
+        "Yes" means the User will be notified if the specified event occurs in
+        the specified Site. Selecting "No" means the User will not be notified
         about the Event if it occurs in that Site. To globally affect the
         settings for all Sites, double-click on an Event. Double-clicking on
         an Event causes the Site settings to toggle back-and-forth between
@@ -463,7 +465,7 @@
         <note>
           <para>When an Event occurs, the Event notification button will
           appear in the lower left-hand corner of the application desktop.
-          This alerts the user that one of the Events they subscribe to has
+          This alerts the User that one of the Events they subscribe to has
           occurred. Open the Event Manager to view and respond to the
           Event.</para>
         </note>
@@ -473,10 +475,10 @@
       <term>Sites</term>
       <listitem>
         <para>Displays the complete list of Sites. Highlight an Event in the
-        adjacent Event column and then double-click a Site to set the user's
+        adjacent Event column and then double-click a Site to set the User's
         Event notification preference for that Site. Selecting "Yes" means the
-        user will be notified if the specified event occurs in the specified
-        Site. Selecting "No" means the user will not be notified about the
+        User will be notified if the specified event occurs in the specified
+        Site. Selecting "No" means the User will not be notified about the
         Event if it occurs in that Site. To globally affect the settings for
         all Sites, double-click on an Event. Double-clicking on an Event
         causes the Site settings to toggle back-and-forth between "Yes" and
@@ -484,9 +486,9 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Alarms offer a method for alerting users when Tasks or To-Dos are due
+  <para>Alarms offer a method for alerting Users when Tasks or To-Dos are due
   or near due. The preferences may be changed at the local level, but to
-  define a user's global Alarm preferences, select the "Alarms" tab. The
+  define a User's global Alarm preferences, select the "Alarms" tab. The
   following screen will appear:</para>
   <mediaobject>
     <imageobject>
@@ -494,7 +496,7 @@
     </imageobject>
     <caption>Alarm Preferences</caption>
   </mediaobject>
-  <para>When defining or modifying a user's global Alarm notification
+  <para>When defining or modifying a User's global Alarm notification
   preferences, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
@@ -520,8 +522,8 @@
     </varlistentry>
   </variablelist>
   <para>System administrators typically set the initial password for their
-  users. But then users often like to set their password to something
-  different. If you are a user and want to change your password, select the
+  Users. But then Users often like to set their password to something
+  different. If you are a User and want to change your password, select the
   "Password" tab. The following screen will appear:</para>
   <mediaobject>
     <imageobject>
@@ -558,15 +560,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To specify advanced user preferences, select the "Advanced" tab. The
+  <para>To specify advanced User preferences, select the "Advanced" tab. The
   following screen will appear:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/userPreferences_advancedTab.png" />
     </imageobject>
-    <caption>Change Password Utility</caption>
+    <caption>Advanced Preferences</caption>
   </mediaobject>
-  <para>When specifying advanced user preferences, you are presented with the
+  <para>When specifying advanced User preferences, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
