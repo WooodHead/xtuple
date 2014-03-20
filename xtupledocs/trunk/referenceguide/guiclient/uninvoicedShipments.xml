@@ -11,11 +11,11 @@
       <secondary>identifying</secondary>
     </indexterm>Uninvoiced Shipments</title>
   <para>An uninvoiced shipment is a shipment having one or more uninvoiced
-  Sales Order Line Items. To invoice a Sales Order Line Item, select the Order
-  for billing and specify an Invoice amount for the Item. Once the Invoice is
-  printed and then posted, the selected Line Item will be considered invoiced.
-  To view a list of Uninvoiced Shipments, select the "Uninvoiced Shipments"
-  option. The following screen will appear:</para>
+  Sales Order Line Items. To invoice a Sales Order Line Item, you need to
+  approve the Order for billing and then specifically approve the Line Item
+  quantity. Once the Invoice is created, the selected Line Item will be
+  considered invoiced. To view a list of Uninvoiced Shipments, select the
+  "Uninvoiced Shipments" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -41,7 +41,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Only Show Unselected Shipments</term>
+      <term>Only Show Unapproved Shipments</term>
       <listitem>
         <para>Select to show only shipments which have not yet been selected
         for billing.</para>

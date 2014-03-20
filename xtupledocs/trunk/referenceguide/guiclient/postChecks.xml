@@ -1,55 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="postChecks">
-  <title>
-<indexterm significance="normal">
-      <primary>checks</primary>
+  <title><indexterm significance="normal">
+      <primary>payments</primary>
       <secondary>posting multiple</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>accounts payable</primary>
-      <secondary>posting checks for</secondary>
-    </indexterm>Post Checks</title>
-  <para>To post multiple Checks, select the "Post Checks"
-  option. The following screen will appear:</para>
-  <para>
-<screenshot>
+      <secondary>posting payments for</secondary>
+    </indexterm>Post Payments</title>
+  <para>To post multiple Payments, select the "Post Payments" option. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/postChecks.png"/>
+          <imagedata fileref="images/postChecks.png" />
         </imageobject>
-        <caption>Post Multiple Checks</caption>
+        <caption>Post Multiple Payments</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When posting multiple Checks, you are presented with
-  the following options:</para>
+    </screenshot></para>
+  <para>When posting multiple Payments, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Bank Account</term>
       <listitem>
-        <para>Specify the Bank Account for the multiple Checks you want to
+        <para>Specify the Bank Account for the multiple Payments you want to
         post.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Number of Unposted Checks</term>
+      <term>Number of Unposted Payments</term>
       <listitem>
-        <para>Displays the total number of unposted Checks.</para>
+        <para>Displays the total number of unposted Payments.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>checks</primary>
           <secondary>printing journal</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>check journal</primary>
           <secondary>printing of</secondary>
-        </indexterm>Print Check Journal</term>
+        </indexterm>Print Payment Journal</term>
       <listitem>
-        <para>Select to print the Check Journal.</para>
+        <para>Select to print the Payment Journal.</para>
       </listitem>
     </varlistentry>
   </variablelist>

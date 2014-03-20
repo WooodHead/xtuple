@@ -4,46 +4,44 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="printCreditMemos">
   <title><indexterm significance="normal">
-      <primary>credit memos</primary>
+      <primary>returns</primary>
       <secondary>printing of</secondary>
-    </indexterm>Print Credit Memos</title>
-  <para>Printing a Credit Memo is a required step in the process of posting a
-  Credit Memo. To print a Credit Memo, select the "Print Credit Memos" option.
-  The following screen will appear:</para>
+    </indexterm>Print Returns</title>
+  <para>Printing a Return is a required step in the process of posting a
+  Return. To print a Return, select the "Print Returns" option. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/printCreditMemos.png" />
         </imageobject>
-        <caption>Print Credit Memos</caption>
+        <caption>Print Returns</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When printing Credit Memos, you are presented with the following
+  <para>When printing Returns, you are presented with the following
   options:</para>
   <para role="xtconnect"><note>
-      <para>If the Customer specified on a Credit Memo has an EDI Profile
-      attached, you may encounter an EDI processing interface when printing
-      it.</para>
+      <para>If the Customer specified on a Return has an EDI Profile attached,
+      you may encounter an EDI processing interface when printing it.</para>
     </note></para>
   <variablelist>
     <varlistentry>
-      <term>Post Credit Memos after Printing</term>
+      <term>Post after Printing</term>
       <listitem>
-        <para>Select to automatically post Credit Memos after they have been
+        <para>Select to automatically post Returns after they have been
         printed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>Credit Memos are posted effective on the date they are distributed,
-    not on the date they are posted&mdash;as might be assumed.</para>
+    <para>Returns are posted effective on the date they are distributed, not
+    on the date they are posted—as might be assumed.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term>Credit Memo Copies</term>
+      <term>Copies</term>
       <listitem>
-        <para>Specify details for the Credit Memo copies you want to
-        print.</para>
+        <para>Specify details for the Return copies you want to print.</para>
         <variablelist>
           <varlistentry>
             <term># of Copies</term>
@@ -58,7 +56,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add a Watermark to a Credit Memo, double-click on a copy line. The
+  <para>To add a Watermark to a Return, double-click on a copy line. The
   following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
@@ -68,8 +66,8 @@
         <caption>Add Watermark</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding a Watermark to a Credit Memo copy, you are presented with
-  the following options:</para>
+  <para>When adding a Watermark to a Return copy, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Watermark</term>

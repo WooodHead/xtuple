@@ -19,12 +19,24 @@
     </screenshot></para>
   <tip>
     <para>Before an Order can be shipped successfully, Sales Account and
-    Receivables Assignments for the specified Customer
-    must be in place.</para>
+    Receivables Assignments for the specified Customer must be in
+    place.</para>
   </tip>
   <para>When Shipping an Order, you are presented with the following
   options:</para>
   <variablelist>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Specify the Site you are shipping from.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Date Shipped</term>
+      <listitem>
+        <para>Specify the date you shipped the Order.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Order #</term>
       <listitem>
@@ -34,14 +46,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Select for Billing</term>
+      <term>Shipment #</term>
       <listitem>
-        <para>Specify this option to select the Sales Order for Billing as
+        <para>Displays the Shipment Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Approve for Billing</term>
+      <listitem>
+        <para>Specify this option to approve the Sales Order for Billing as
         soon as it is shipped. If selected, the Order will appear on the
-        Billing Selections list&mdash;making it available to be converted into
-        an Invoice. This option will be selected by default if specified in
-        your system-level configuration. This option will be disabled if a
-        Transfer Order is specified.</para>
+        Billing Approvals list—making it available to be converted into an
+        Invoice. This option will be selected by default if specified in your
+        system-level configuration. This option will be disabled if a Transfer
+        Order is specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -51,7 +69,7 @@
         for the Sales Order as soon as it is shipped. Selecting this option
         enables you to bypass the Billing Selection process. Once the Order is
         shipped, an Invoice will be created and printed. This Invoice will
-        appear on the list of unposted Invoices&mdash;making it available for
+        appear on the list of unposted Invoices—making it available for
         posting. By default, the "Select for Billing" option will also be
         selected. This option will be disabled if a Transfer Order is
         specified.</para>
@@ -67,6 +85,18 @@
       <listitem>
         <para>Specify this option to automatically print a Packing List as
         soon as the Order is shipped.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Shipping</term>
+      <listitem>
+        <para>Select to print the Shipping Form.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print S/O</term>
+      <listitem>
+        <para>Select to print a copy of the Sales Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -99,7 +129,7 @@
         <tip>
           <para>If your site integrates UPS WorldShip with the system, you
           should process Orders in WorldShip after they have been issued to
-          Shipping&mdash;but before they have been shipped.</para>
+          Shipping—but before they have been shipped.</para>
         </tip>
       </listitem>
     </varlistentry>
@@ -122,14 +152,14 @@
       <term><indexterm significance="normal">
           <primary>freight</primary>
           <secondary>on sales orders</secondary>
-        </indexterm> <indexterm significance="normal">
+        </indexterm><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
       <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. Freight charges may be entered during the creation or
-        modification of an Order&mdash;or at the time of shipment.</para>
+        modification of an Order—or at the time of shipment.</para>
         <note>
           <para>The system supports up-to-date shipment tracking with links to
           the websites of many leading shipping companies (i.e., "Ship
