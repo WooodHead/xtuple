@@ -5,22 +5,22 @@
 <section id="selectOrderForBilling">
   <title><indexterm significance="normal">
       <primary>billing</primary>
-      <secondary>select order for</secondary>
-    </indexterm>Select Order for Billing</title>
+      <secondary>approve order for</secondary>
+    </indexterm>Approve Order for Billing</title>
   <para>This utility enables you to manually enter billing details for
   individual Sales Order Line Items. Both shipped Orders and unshipped Line
   Items may be selected for billing in this manner. This individualized
   approach differs from the approach taken by the Select All Shipped Orders
   for Billing utility, which by default selects for billing the full Line Item
   quantities for all shipped Orders. To select an individual shipped Order for
-  billing, select the "Select Order for Billing" option. The following screen
+  billing, select the "Approve Order for Billing" option. The following screen
   will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/selectOrderForBilling.png" />
         </imageobject>
-        <caption>Select Order for Billing</caption>
+        <caption>Approve Order for Billing</caption>
       </mediaobject>
     </screenshot></para>
   <note>
@@ -126,9 +126,9 @@
         </indexterm>Line Items</term>
       <listitem>
         <para>Displays the Sales Order Line Items selected for billing.
-        Double-clicking on a Line Item&mdash;or highlighting it and selecting
-        the EDIT SELECTION button&mdash;enables you to select a billing
-        quantity for that Item.</para>
+        Double-clicking on a Line Item—or highlighting it and selecting the
+        EDIT SELECTION button—enables you to select a billing quantity for
+        that Item.</para>
         <note>
           <para>In the Line Items display, the Uninvoiced column refers to
           quantity that has been shipped but not yet invoiced. Quantity must
@@ -180,7 +180,7 @@
       <listitem>
         <para>Enter the amount of freight charge to be added to the specified
         Order. The freight charge may be entered during the creation or
-        modification of a Sales Order&mdash;or at the time of shipment.</para>
+        modification of a Sales Order—or at the time of shipment.</para>
         <note>
           <para>The Payment Received field is an optional field which may be
           used to provide visibility into prepaid amounts. Because the field
@@ -223,7 +223,7 @@
       <imageobject>
         <imagedata fileref="images/selectOrderForBilling_notes.png" />
       </imageobject>
-      <caption>Select Order for Billing Notes</caption>
+      <caption>Approve Order for Billing Notes</caption>
     </mediaobject>
   </screenshot>
   <variablelist>
