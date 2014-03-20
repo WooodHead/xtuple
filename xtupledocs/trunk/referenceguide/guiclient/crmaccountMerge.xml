@@ -4,25 +4,24 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="crmaccountMerge">
   <title><indexterm significance="normal">
-      <primary>crm accounts</primary>
+      <primary>accounts</primary>
       <secondary>merging</secondary>
-    </indexterm> Merge CRM Accounts</title>
-  <para>If you are importing Customer or Vendor or any other CRM Account
+    </indexterm> Merge Accounts</title>
+  <para>If you are importing Customer or Vendor or any other Account
   information—either through the xTuple web Portal or some other feature—it's
-  possible you will encounter duplicate CRM Account records. It's also
-  possible to create overlapping or duplicate CRM Account records manually by
-  mistake. The Merge CRM Accounts utility is a wizard designed to help you
-  resolve this scenario. Using the Merge CRM Accounts utility, you can easily
-  locate duplicate records and merge them into one single CRM Account
-  record.</para>
+  possible you will encounter duplicate Account records. It's also possible to
+  create overlapping or duplicate Account records manually by mistake. The
+  Merge Accounts utility is a wizard designed to help you resolve this
+  scenario. Using the Merge Accounts utility, you can easily locate duplicate
+  records and merge them into one single Account record.</para>
   <tip>
-    <para>For practical information about how the Merge CRM Accounts utility
-    can be used during an upgrade process, please see the following article
-    posted on our community website here: <ulink
+    <para>For practical information about how the Merge Accounts utility can
+    be used during an upgrade process, please see the following article posted
+    on our community website here: <ulink
     url="http://www.xtuple.org/node/4479">http://www.xtuple.org/node/4479</ulink>.</para>
   </tip>
-  <para>To begin using the Merge CRM Accounts utility, select the "Merge CRM
-  Accounts" option. The following screen will appear:</para>
+  <para>To begin using the Merge Accounts utility, select the "Merge Accounts"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -31,8 +30,8 @@
         <caption>Identify Merge Tasks</caption>
       </mediaobject>
     </screenshot></para>
-  <para>Upon first opening the Merge CRM Accounts utility, you are presented
-  with the following options:</para>
+  <para>Upon first opening the Merge Accounts utility, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Start a new merge</term>
@@ -73,11 +72,11 @@
         <imageobject>
           <imagedata fileref="images/crmaccountMergePickAccountsPage.png" />
         </imageobject>
-        <caption>Select CRM Accounts to be Merged</caption>
+        <caption>Select Accounts to be Merged</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When starting a new merge, you need to identify the CRM Accounts you
-  want to merge. You are presented with the following options:</para>
+  <para>When starting a new merge, you need to identify the Accounts you want
+  to merge. You are presented with the following options:</para>
   <variablelist>
     <xi:include href="../widgets/parameterwidget.xml"
                 xpointer="parameterwidget"
@@ -85,14 +84,14 @@
     <varlistentry>
       <term>QUERY</term>
       <listitem>
-        <para>Select to refresh the CRM Account data after filters have been
+        <para>Select to refresh the Account data after filters have been
         changed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Accounts to Merge</term>
       <listitem>
-        <para>Displays the list of CRM Accounts found in your system. By using
+        <para>Displays the list of Accounts found in your system. By using
         your mouse, you can click on Accounts to specify which ones you want
         to merge. The Accounts you select will appear in the "Destination
         Account" drop-down list.</para>
@@ -101,16 +100,16 @@
     <varlistentry>
       <term>Destination Account</term>
       <listitem>
-        <para>After the CRM Accounts have been selected, specify which of the
+        <para>After the Accounts have been selected, specify which of the
         Accounts is the target or destination Account. Information from the
         other selected Account(s) will be merged into the destination
         Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Once you've selected CRM Accounts to merge, select the NEXT button to
+  <para>Once you've selected Accounts to merge, select the NEXT button to
   reach the next step. The following screenshot shows the next step once
-  you've identified CRM Accounts to merge:</para>
+  you've identified Accounts to merge:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -120,20 +119,20 @@
       </mediaobject>
     </screenshot></para>
   <para>The next step is to pick which details you want to add to the target
-  CRM Account from the source CRM Account(s). When merging specific data
-  elements, you are presented with the following options:</para>
+  Account from the source Account(s). When merging specific data elements, you
+  are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Source CRM Accounts</term>
+      <term>Source Accounts</term>
       <listitem>
-        <para>Displays the CRM Accounts you want to merge. Any information
-        displayed in blue will be added to the target CRM Account. You can
-        select information (i.e., make it blue) by double-clicking on the
-        information with your mouse. You can also click on the information
-        once and then choose either the SELECT or DESELECT button to add or
-        remove the information from the merge. Since the final result can only
-        contain one piece of information per column, only one item in each
-        column can be selected and blue.</para>
+        <para>Displays the Accounts you want to merge. Any information
+        displayed in blue will be added to the target Account. You can select
+        information (i.e., make it blue) by double-clicking on the information
+        with your mouse. You can also click on the information once and then
+        choose either the SELECT or DESELECT button to add or remove the
+        information from the merge. Since the final result can only contain
+        one piece of information per column, only one item in each column can
+        be selected and blue.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -166,7 +165,7 @@
       <imageobject>
         <imagedata fileref="images/crmaccountMergeResultPage.png" />
       </imageobject>
-      <caption>Results of CRM Account Merge</caption>
+      <caption>Results of Account Merge</caption>
     </mediaobject>
   </screenshot>
   <para>To keep the merge result, make sure the "Keep" option is chosen and
@@ -179,7 +178,7 @@
       <imageobject>
         <imagedata fileref="images/crmaccountMergePurgePage.png" />
       </imageobject>
-      <caption>Purge CRM Accounts</caption>
+      <caption>Purge Accounts</caption>
     </mediaobject>
   </screenshot>
   <para>When reviewing the purge screen, pay particular attention to the
@@ -194,7 +193,7 @@
     <varlistentry>
       <term>PURGE</term>
       <listitem>
-        <para>Highlight a target CRM Account and then select this button to
+        <para>Highlight a target Account and then select this button to
         complete the merge and purge the records you are not keeping.</para>
       </listitem>
     </varlistentry>

@@ -4,29 +4,29 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="unpostedCreditMemos">
   <title><indexterm significance="normal">
-      <primary>credit memos</primary>
+      <primary>returns</primary>
       <secondary>list of unposted</secondary>
-    </indexterm>List Unposted Credit Memos</title>
-  <para>To view a list of unposted Credit Memos, select the "List Unposted
-  Credit Memos" option. The following screen will appear:</para>
+    </indexterm>List Unposted Returns</title>
+  <para>To view a list of unposted Returns, select the "List Unposted Returns"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/unpostedCreditMemos.png" />
         </imageobject>
-        <caption>Unposted Credit Memos Master List</caption>
+        <caption>Unposted Returns Master List</caption>
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>If the Credit Memo has been applied to an Invoice, any Credit Memo
-    Items will be returned to Inventory when the Credit Memo is posted.</para>
+    <para>If the Return has been applied to an Invoice, any Return Items will
+    be returned to Inventory when the Return is posted.</para>
   </tip>
-  <para>The unposted Credit Memos master list displays all existing Credit
-  Memo numbers, associated Customer names, accounting date of Credit Memo, and
-  hold status. Users with the appropriate privilege will also see the G/L
-  distribution date column. </para>
+  <para>The unposted Returns master list displays all existing Return numbers,
+  associated Customer names, accounting date of Return, and hold status. Users
+  with the appropriate privilege will also see the G/L distribution date
+  column.</para>
   <para role="xtconnect"><note>
-      <para>If the Customer specified on the Credit Memo has an EDI Profile
+      <para>If the Customer specified on the Return has an EDI Profile
       attached, you may encounter an EDI processing interface when printing
       it.</para>
     </note></para>

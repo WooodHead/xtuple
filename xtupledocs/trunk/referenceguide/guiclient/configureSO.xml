@@ -176,56 +176,55 @@
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>credit memos</primary>
+          <primary>returns</primary>
           <secondary>numbering of</secondary>
-        </indexterm>Credit Memo # Generation</term>
+        </indexterm>Return # Generation</term>
       <listitem>
-        <para>Select one of the available Credit Memo Number generation
+        <para>Select one of the available Return Number generation
         methods:</para>
         <variablelist>
           <varlistentry>
             <term>Manual</term>
             <listitem>
-              <para>Credit Memo Numbers must be entered manually whenever you
-              create a new Credit Memo.</para>
+              <para>Return Numbers must be entered manually whenever you
+              create a new Return.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Automatic, Use C/M #'s</term>
+            <term>Automatic, Use Return #'s</term>
             <listitem>
-              <para>Credit Memo Numbers will be automatically incremented by 1
-              each time you issue a new Credit Memo. These
-              automatically-generated numbers may not be edited. They are
-              read-only.</para>
+              <para>Return Numbers will be automatically incremented by 1 each
+              time you issue a new Return. These automatically-generated
+              numbers may not be edited. They are read-only.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Automatic, Use C/M #"s, Allow Override</term>
+            <term>Automatic, Use Return #'s, Allow Override</term>
             <listitem>
-              <para>Credit Memo Numbers will be automatically generated and
+              <para>Return Numbers will be automatically generated and
               incremented, as under the "Automatic" option described above.
               However, this option also allows you to manually override the
-              Credit Memo Number at the time of Credit Memo creation.</para>
+              Return Number at the time of Return creation.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Automatic, Use S/O #'s</term>
             <listitem>
-              <para>Credit Memo Numbers will be automatically incremented by 1
-              each time a new Credit Memo is created, using the same number
-              generation method specified for the creation of Sales Order
-              Numbers. These automatically-generated numbers may not be
-              edited. They are read-only.</para>
+              <para>Return Numbers will be automatically incremented by 1 each
+              time a new Return is created, using the same number generation
+              method specified for the creation of Sales Order Numbers. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Next #</term>
             <listitem>
-              <para>The next sequentially available Credit Memo Number will
-              display here. You may change the number—creating a new basis for
-              the next Credit Memo Number—by typing the new number into this
-              field. Any changes you make here will be reflected the next time
-              you issue a new Sales Order Credit Memo.</para>
+              <para>The next sequentially available Return Number will display
+              here. You may change the number—creating a new basis for the
+              next Return Number—by typing the new number into this field. Any
+              changes you make here will be reflected the next time you issue
+              a new Return.</para>
             </listitem>
           </varlistentry>
         </variablelist>

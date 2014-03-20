@@ -4,7 +4,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="eventManager">
   <title><indexterm significance="normal">
-      <primary>users</primary>
+      <primary>user accounts</primary>
       <secondary>viewing events for</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>event manager</primary>
@@ -13,20 +13,20 @@
       <primary>events</primary>
       <secondary>management of</secondary>
     </indexterm>Event Manager</title>
-  <para>The Event Manager enables users to view and manage their received
-  Event notifications. Those users granted the System module privilege
-  "ViewOtherEvents" may also view Event notifications sent to other users.
+  <para>The Event Manager enables Users to view and manage their received
+  Event notifications. Those Users granted the System module privilege
+  "ViewOtherEvents" may also view Event notifications sent to other Users.
   Typically, the "ViewOtherEvents" privilege is assigned to managers with
-  responsibility for monitoring the activities of other users. If not granted
-  this privilege, users may only view Event notifications associated with
+  responsibility for monitoring the activities of other Users. If not granted
+  this privilege, Users may only view Event notifications associated with
   their own account. Additional System module privileges grant the ability to
   delete one's own Event notifications and/or the Event notifications assigned
-  to other users.</para>
+  to other Users.</para>
   <tip>
     <para>Consider defining a clear relationship between the Events assigned
-    to a user and the activities a user participates in. For example, if a
-    user is not part of the Sales team, turn off all Sales Events for that
-    user.</para>
+    to a User and the activities a User participates in. For example, if a
+    User is not part of the Sales team, turn off all Sales Events for that
+    User.</para>
   </tip>
   <para>The following screen will appear when you select the "Event Manager"
   option:</para>
@@ -42,23 +42,23 @@
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Current User</term>
+      <term>Current User Account</term>
       <listitem>
-        <para>Select to view the Events for the current user.</para>
-        <para>This is the only option available to users who have not been
-        granted the System module privilege called "ViewOtherEvents." Use the
+        <para>Select to view the Events for the current User Account. This is
+        the only option available to User Accounts who have not been granted
+        the System module privilege called "ViewOtherEvents." Use the
         right-click menu to acknowledge receipt of an Event. Other right-click
         options may also be available, depending on assigned
         privileges.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Selected User</term>
+      <term>Selected User Account</term>
       <listitem>
-        <para>Select to view the Events for a selected user. The ability to
-        view the Events assigned to other users is only available to users who
-        have been granted the System module privilege called
-        "ViewOtherEvents."</para>
+        <para>Select to view the Events for a selected User Account. The
+        ability to view the Events assigned to other User Accounts is only
+        available to User Accounts who have been granted the System module
+        privilege called "ViewOtherEvents."</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -88,14 +88,14 @@
   </variablelist>
   <note>
     <para>The Event acknowledgement feature provides managers with greater
-    visibility into operations. When users acknowledge an Event, they assume
+    visibility into operations. When Users acknowledge an Event, they assume
     responsibility for having seen and received it.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Events</term>
       <listitem>
-        <para>Display lists Events for the specified user, using the specified
+        <para>Display lists Events for the specified User, using the specified
         parameters.</para>
         <para>To view a complete list of system-defined Events, see <xref
         linkend="Section461282" />.</para>
@@ -119,9 +119,8 @@
     <varlistentry>
       <term>ACKNOWLEDGE</term>
       <listitem id="eventManagerACKNOWLEDGE1">
-        <para>Highlight an Event&mdash;or group of Events using the SHIFT
-        and/or CTRL keys&mdash;and then select this button to Acknowledge the
-        Event.</para>
+        <para>Highlight an Event—or group of Events using the SHIFT and/or
+        CTRL keys—and then select this button to Acknowledge the Event.</para>
       </listitem>
     </varlistentry>
   </variablelist>
