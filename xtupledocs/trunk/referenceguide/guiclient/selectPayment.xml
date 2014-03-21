@@ -6,18 +6,18 @@
   <title><indexterm significance="normal">
       <primary>payments</primary>
       <secondary>selection of</secondary>
-    </indexterm>Select Payment</title>
-  <para>To select an individual open Payable for payment, choose the SELECT
+    </indexterm>Approve Payment</title>
+  <para>To approve an individual open Payable for payment, choose the SELECT
   button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/selectPayment.png" />
         </imageobject>
-        <caption>Select Open Payable for Payment</caption>
+        <caption>Approve Open Payable for Payment</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When specifying payment details for a selected open Payable, you are
+  <para>When specifying payment details for an approved open Payable, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
@@ -29,7 +29,7 @@
     <varlistentry>
       <term>Document #</term>
       <listitem>
-        <para>Displays the Document Number of the Document being selected for
+        <para>Displays the Document Number of the Document being approved for
         payment.</para>
         <para>Valid Document Types include posted Vouchers and miscellaneous
         Payables Debit Memos.</para>
@@ -69,8 +69,8 @@
       <term>Total Owed</term>
       <listitem>
         <para>Displays the total amount due to the Vendor.</para>
-        <para>The total owed is equal to the vouchered amount&mdash;or to the
-        amount of the miscellaneous Payables Credit Memo at the time of
+        <para>The total owed is equal to the vouchered amount—or to the amount
+        of the miscellaneous Payables Credit Memo at the time of
         posting.</para>
       </listitem>
     </varlistentry>
@@ -92,14 +92,15 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>The payment amount is the amount which appears on Checks when
-    they are created.</para>
+    <para>The payment amount is the amount which appears on Checks when they
+    are created.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Bank Account</term>
       <listitem>
-        <para>Specify the Bank Account to be used for paying the open Payable.</para>
+        <para>Specify the Bank Account to be used for paying the open
+        Payable.</para>
       </listitem>
     </varlistentry>
   </variablelist>
