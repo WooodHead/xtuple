@@ -4,44 +4,44 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="viewCheckRun">
   <title><indexterm significance="normal">
-      <primary>check runs</primary>
+      <primary>payments</primary>
       <secondary>viewing detailed list of</secondary>
-    </indexterm>View Check Run</title>
-  <para>To view a detailed list of Checks prepared to be run, select the "View
-  Check Run" option. The following screen will appear:</para>
+    </indexterm>View Payment Run</title>
+  <para>To view a detailed list of Payments prepared to be run, select the
+  "View Payment Run" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/viewCheckRun.png" />
         </imageobject>
-        <caption>View Check Run</caption>
+        <caption>View Payment Run</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When viewing the detailed list of Checks prepared to be run, you are
+  <para>When viewing the detailed list of Payments prepared to be run, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Vendor</term>
       <listitem>
-        <para>Select all or specific Vendors whose Checks you would like to
+        <para>Select all or specific Vendors whose Payments you would like to
         view.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Bank Account</term>
       <listitem>
-        <para>Specify the Bank Account whose Check Run you want to
+        <para>Specify the Bank Account whose Payment Run you want to
         view.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Checks</term>
+      <term>Payments</term>
       <listitem>
-        <para>Display lists details for Checks included in the Check Run. This
-        display is a nested list, with a plus ("+") sign located to the far
-        left of the display next to each Check. By clicking your mouse on a
-        plus sign, you reveal lower levels of information related to the
-        Check.</para>
+        <para>Display lists details for Payments included in the Payment Run.
+        This display is a nested list, with a plus ("+") sign located to the
+        far left of the display next to each Payment. By clicking your mouse
+        on a plus sign, you reveal lower levels of information related to the
+        Payment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -50,8 +50,8 @@
     <varlistentry>
       <term>PREPARE</term>
       <listitem>
-        <para>Select to prepare a Check Run. For more information on preparing
-        Check Runs, see <xref linkend="prepareCheckRun" />.</para>
+        <para>Select to prepare a Payment Run. For more information on
+        preparing Payment Runs, see <xref linkend="prepareCheckRun" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -64,27 +64,20 @@
         <variablelist>
           <varlistentry>
             <term><indexterm significance="normal">
-                <primary>checks</primary>
+                <primary>payments</primary>
                 <secondary>printing individual</secondary>
-              </indexterm>Selected Check</term>
+              </indexterm>Selected Payment</term>
             <listitem>
-              <para>Highlight a Check in the list of Checks and then select
-              this button to print the Check.</para>
-              <tip>
-                <para>If Checks being printed contain reference lines which
-                spill over and exceed one standard page, then consider using
-                the report definition CheckMultiPage.xml. This Check Form is
-                designed to support multiple pages for one Check
-                number.</para>
-              </tip>
+              <para>Highlight a Payment in the list of Payments and then
+              select this button to print the Payment.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><indexterm significance="normal">
-                <primary>check runs</primary>
+                <primary>payment runs</primary>
                 <secondary>printing of</secondary>
               </indexterm><indexterm significance="normal">
-                <primary>checks</primary>
+                <primary>payments</primary>
                 <secondary>printing multiple</secondary>
               </indexterm>Check Run</term>
             <listitem>
@@ -100,6 +93,12 @@
             </listitem>
           </varlistentry>
         </variablelist>
+        <tip>
+          <para>If Payments being printed contain reference lines which spill
+          over and exceed one standard page, then consider using the report
+          definition CheckMultiPage.xml. This Payment Form is designed to
+          support multiple pages for one Payment number.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>

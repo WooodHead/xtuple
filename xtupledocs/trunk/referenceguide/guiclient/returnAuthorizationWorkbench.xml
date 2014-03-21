@@ -131,15 +131,15 @@
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Credit Memo</term>
+      <term>Return</term>
       <listitem>
-        <para>Select to include Customer returns eligible for a Credit Memo in
-        the display.</para>
+        <para>Select to include Customer returns eligible for a Return in the
+        display.</para>
         <note>
           <para>Customer returns handled by Return Authorizations are handled
-          outside the normal sales Credit Memo Inventory handling process. By
-          default, Credit Memo Line Items created from a Return Authorization
-          will show a quantity returned value equal to zero.</para>
+          outside the normal Return Inventory handling process. By default,
+          Return Line Items created from a Return Authorization will show a
+          quantity returned value equal to zero.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -165,20 +165,19 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Post Credit Memos Immediately</term>
+      <term>Post Returns Immediately</term>
       <listitem>
-        <para>Select if you want processed Credit Memos to be posted
-        immediately after they are created. If processing a check or credit
-        card, this option is not available as the credit memo must
-        automatically post in order to process a check or credit card against
-        it.</para>
+        <para>Select if you want processed Returns to be posted immediately
+        after they are created. If processing a check or credit card, this
+        option is not available as the Return must automatically post in order
+        to process a check or credit card against it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Print Credit Memo</term>
+      <term>Print Return</term>
       <listitem>
-        <para>Select if you want Credit Memos to be printed when you select
-        the PROCESS button.</para>
+        <para>Select if you want Returns to be printed when you select the
+        PROCESS button.</para>
         <para><tip>
             <para>Some of the processing required for a Return Authorization
             (e.g., posting Receipts) may be handled on the Return
@@ -194,15 +193,14 @@
       <term>PROCESS</term>
       <listitem>
         <para>Highlight a Return Authorization and then select this button to
-        create a Sales Order Credit Memo for the selected item. The Sales
-        Order Credit Memo will be added to the list of unposted Credit Memos
-        in an unprinted state. However, you may print the Credit Memo as you
-        process it by selecting the "Print Credit Memo" option. If you select
-        the "Post Credit Memos Immediately" option, then the Credit Memo will
-        be posted as soon as it is created.</para>
+        create a Return for the selected Item. The Return will be added to the
+        list of unposted Returns in an unprinted state. However, you may print
+        the Return as you process it by selecting the "Print Return" option.
+        If you select the "Post Returns Immediately" option, then the Return
+        will be posted as soon as it is created.</para>
         <note>
-          <para>If the Customer specified on the Credit Memo has an EDI
-          Profile attached, you may encounter an EDI processing interface when
+          <para>If the Customer specified on the Return has an EDI Profile
+          attached, you may encounter an EDI processing interface when
           printing it.</para>
         </note>
       </listitem>

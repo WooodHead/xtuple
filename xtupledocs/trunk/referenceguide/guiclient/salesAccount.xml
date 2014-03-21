@@ -90,26 +90,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Sales Type</term>
+      <term>Sale Type</term>
       <listitem>
-        <para>Select a Sales Type to associate with the Sales
+        <para>Select a Sale Type to associate with the Sales
         Assignment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Sales Account</term>
+      <term>Inventory Sales Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        Sales Account. This is a Revenue Account. It will be credited when
-        Invoices are posted.</para>
+        Inventory Sales Account. This is a Revenue Account. It will be
+        credited when Invoices are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Credit Memo Account</term>
+      <term>Return Account</term>
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        Sales Order Credit Memo Account. This is a Revenue contra Account. It
-        will be debited when Sales Order Credit Memos are posted.</para>
+        Return Account. This is a Revenue contra Account. It will be debited
+        when Returns are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -127,7 +127,7 @@
       <listitem>
         <para>Identify a General Ledger (G/L) Account to assign as the default
         Returns Account. This is a contra Revenue Account. It will be debited
-        when sales Credit Memos are posted.</para>
+        when Returns created by a Return Authorization are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
