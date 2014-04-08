@@ -463,20 +463,20 @@
     </imageobject>
     <caption><para>Vendor Characteristics</para></caption>
   </mediaobject>
-  <para>When creating a new ----- Characteristic, you are presented with the
+  <para>When creating a new Vendor Characteristic, you are presented with the
   following options:<variablelist>
       <varlistentry>
         <term>Characteristic</term>
         <listitem>
           <para>Select a Characteristic from the list of Characteristics
-          designated as being available for use as -----
+          designated as being available for use as Vendor
           Characteristics.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Value</term>
         <listitem>
-          <para>Enter a description for the ----- Characteristic.</para>
+          <para>Enter a description for the Vendor Characteristic.</para>
         </listitem>
       </varlistentry>
     </variablelist></para>
@@ -554,7 +554,17 @@
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To enable Electronic Funds Transfer (EFT) Check printing for the
   Vendor, select the "Checks" option on the "Transmissions" tab. The following
-  options will appear:</para>
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_transmissionCheck.png" />
+        </imageobject>
+        <caption><para>EFT Check Options</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When configuring EFT Check settings for the Vendor, you are presented
+  with the following options:</para>
   <para><variablelist>
       <varlistentry>
         <term>Enable EFT Check Printing</term>
