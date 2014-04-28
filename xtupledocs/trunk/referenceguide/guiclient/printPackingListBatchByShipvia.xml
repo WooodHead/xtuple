@@ -12,36 +12,47 @@
     </indexterm><indexterm significance="normal">
       <primary>ship vias</primary>
       <secondary>printing packing lists by</secondary>
-    </indexterm>Print Packing List Batch by Ship Via</title>
-  <para>If you want to print batches of Packing Lists according to their Ship
-  Via method, select the "Print Packing List Batch by Ship Via" option. Keep
-  in mind: This feature only works if you have unprinted Orders already queued
-  up on the Packing List Batch.</para>
-  <tip>
-    <para>If you don't see any Ship Vias appearing in the Ship Via list, open
-    the Packing List Batch screen to verify you have unprinted Orders listed
-    there.</para>
-  </tip>
+    </indexterm>Print Packing List Batch</title>
+  <para>If you want to print batches of Packing Lists according to specified
+  parameters, select the "Print Packing List Batch" option. Keep in mind: This
+  feature only works if you have unprinted Orders already queued up on the
+  Packing List Batch.</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/printPackingListBatchByShipvia.png" />
+          <imagedata fileref="images/printPackingListBatch.png" />
         </imageobject>
-        <caption>Print Packing List Batch by Ship Via</caption>
+        <caption>Print Packing List Batch</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When printing batches of Packing Lists according to their Ship Via,
-  you are presented with the following options:</para>
+  <para>When printing batches of Packing Lists according to specified
+  parameters, you are presented with the following options:</para>
   <note>
     <para>xTuple supports up-to-date shipment tracking with links to the
     websites of many leading shipping companies (i.e., "Ship Vias").</para>
   </note>
   <variablelist>
     <varlistentry>
+      <term>All Sites</term>
+      <listitem>
+        <para>Select if All Sites should be included.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>To include a single Site, choose this option and select the
+        relevant Site.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Ship Via</term>
       <listitem>
-        <para>Specify the Ship Via whose batched Packing Lists you want to
-        print.</para>
+        <para>Select the Ship Vias that should be included.<tip>
+            <para>If you don't see any Ship Vias appearing in the Ship Via
+            list, open the Packing List Batch screen to verify you have
+            unprinted Orders listed there.</para>
+          </tip></para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -68,8 +79,9 @@
           <varlistentry>
             <term>Pick List</term>
             <listitem>
-              <para>Select to have the Sales Order Pick List form printed. If the
-              Order does not have a Shipment Number, this form is used.</para>
+              <para>Select to have the Sales Order Pick List form printed. If
+              the Order does not have a Shipment Number, this form is
+              used.</para>
             </listitem>
           </varlistentry>
         </variablelist>
