@@ -557,14 +557,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>$ Margin</term>
-      <listitem>
-        <para>Displays the total profit margin for the Order. The profit
-        margin is based on the following formula:</para>
-        <para>Order Subtotal - Total Standard Costs for all Line Items</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Misc. Charge Description</term>
       <listitem>
         <para>Enter a description to identify the miscellaneous charge.</para>
@@ -615,7 +607,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Freight Weight</term>
+      <term>Weight</term>
       <listitem>
         <para>Displays the combined weight of all Sales Order Line Items.
         Freight weight represents the sum of an Item's product weight and
@@ -626,7 +618,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>$ At Shipping</term>
+      <term>Margin</term>
+      <listitem>
+        <para>Displays the total profit margin for the Order. The profit
+        margin is based on the following formula:</para>
+        <para>Order Subtotal - Total Standard Costs for all Line Items</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Margin %</term>
+      <listitem>
+        <para>Displays the profit margin percentage for the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>At Shipping</term>
       <listitem>
         <para>Displays the monetary value of Sales Order Line Items at
         Shipping. The shipment value represents the total of the extended
