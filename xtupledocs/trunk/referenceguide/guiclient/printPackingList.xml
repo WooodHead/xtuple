@@ -7,12 +7,12 @@
       <primary>packing lists</primary>
       <secondary>printing of</secondary>
     </indexterm>Print Packing List</title>
-  <para>To print a Packing List or Sales Order Pick List, select the
-  "Print Packing List" option. If the order has a Shipment Number, the Packing
-  List form should be used. If there is no Shipment Number&mdash;that is, if
-  no Line Item quantity has been issued to shipping&mdash;then the Sales Order Pick
-  List form should be used. Both forms are defined under <guimenuitem>Sales
-  &gt; Master Information &gt; Customer Form Assignments</guimenuitem>.</para>
+  <para>To print a Packing List or Sales Order Pick List, select the "Print
+  Packing List" option. If the order has a Shipment Number, the Packing List
+  form should be used. If there is no Shipment Number—that is, if no Line Item
+  quantity has been issued to shipping—then the Sales Order Pick List form
+  should be used. Both forms are defined under <guimenuitem>Sales &gt; Master
+  Information &gt; Customer Form Assignments</guimenuitem>.</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -24,6 +24,26 @@
   <para>When printing a Packing List, you are presented with the following
   options:</para>
   <variablelist>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>All Sites</term>
+            <listitem>
+              <para>Select if you wish to include all Sites.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Choose this option to include only the selected
+              Site.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Form</term>
       <listitem>
@@ -48,8 +68,9 @@
           <varlistentry>
             <term>Pick List</term>
             <listitem>
-              <para>Select to have the Sales Order Pick List form printed. If the
-              Order does not have a Shipment Number, this form is used.</para>
+              <para>Select to have the Sales Order Pick List form printed. If
+              the Order does not have a Shipment Number, this form is
+              used.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -63,10 +84,10 @@
         use this option if you want to print it again.</para>
         <note>
           <para>A Sales Order Pick List will be printed if the Sales Order
-          does not yet have a Shipment Number associated with it&mdash;that
-          is, if no Line Item quantity has been issued to shipping. If stock
-          has been issued to Shipping, then the Packing List report definition
-          will be used.</para>
+          does not yet have a Shipment Number associated with it—that is, if
+          no Line Item quantity has been issued to shipping. If stock has been
+          issued to Shipping, then the Packing List report definition will be
+          used.</para>
           <para>The system includes two alternate Sales Order Pick List report
           definitions:</para>
           <itemizedlist>
