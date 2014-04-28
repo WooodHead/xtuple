@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="reassignLotSerial">
+  <title>Quick Relocate</title>
+  <para>To relocate location controlled lot or serial Items,select the "Quick
+  Relocate" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quickRelocate.png" />
+        </imageobject>
+        <caption>Quick Relocate Lot</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When relocating Lot/Serial Numbers, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Select the Site where the Inventory is currently located.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Lot/Serial #</term>
+      <listitem>
+        <para>Enter the Lot or Serial number of the Items that you wish to
+        relocate</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Existing Locations</term>
+      <listitem>
+        <para>A list of Locations where the specified Lot/Serial number Items
+        are located will be displayed.<note>
+            <para>You can only select to relocate one Item number at a
+            time.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>New Location</term>
+      <listitem>
+        <para>Enter the new Location to where the specified Items will be
+        relocated.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Relocate the selected Lot/Serial Items to the specified new
+        Location.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
