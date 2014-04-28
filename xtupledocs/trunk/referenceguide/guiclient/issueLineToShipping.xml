@@ -84,6 +84,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Qty. Reserved</term>
+      <listitem>
+        <para>Displays the reserved quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Qty. at Shipping</term>
       <listitem>
         <para>Displays quantity of Item at Shipping for specified
@@ -105,8 +111,11 @@
       <listitem>
         <para>Select to issue the specified Line Item quantity to Shipping. If
         the specified Item is a Multiple Location Control Item, you will be
-        brought to the "Distribute Stock To/From Site Locations"
-        screen.</para>
+        brought to the "Distribute Stock To/From Site Locations" screen.<note>
+            <para>If the "Require Reservations" setting is selected under
+            Sales Order Setup, you cannot issue more than what is
+            reserved.</para>
+          </note></para>
       </listitem>
     </varlistentry>
   </variablelist>
