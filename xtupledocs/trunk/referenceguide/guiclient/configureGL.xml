@@ -672,4 +672,88 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To configure global accounting options, select the "Global" tab. The
+  following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/configureGL_fincharges.png" />
+    </imageobject>
+    <caption><para>Finance Charges Options</para></caption>
+  </mediaobject>
+  <para>When configuring Finance Charges, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Annual Interest Rate (%)</term>
+      <listitem>
+        <para>Specify the the interest rate as an annual percentage.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Minimum Finance Charge</term>
+      <listitem>
+        <para>The minimum Finance Charge to be applied for each time finance
+        charges are calculated.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Grace Period (days)</term>
+      <listitem>
+        <para>The number of days after the due date during which finance
+        charges will not be applied.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Finance Charge Account</term>
+      <listitem>
+        <para>The General Ledger Income Account to which Finance Charges will
+        post.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Category</term>
+      <listitem>
+        <para>The Sales Category under which Finance Charges will be
+        categorized.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Calculate Charges From</term>
+      <listitem>
+        <para>Specify the date from which Finance Charges will be
+        calculated.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Due Date</term>
+            <listitem>
+              <para>Select if Finance Charges should be calculated from the
+              due date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Invoiced/Billed Date</term>
+            <listitem>
+              <para>Select if Finance Charges should be calculated from the
+              Invoice date.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Assess finance charges on overdue finance charges</term>
+      <listitem>
+        <para>Select this option if Finance Charges must be calculated on
+        previous Finance Charges on an overdue invoice.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Mark finance charges as</term>
+      <listitem>
+        <para>Enter the text, e.g. "Finance Charges" that will be used to
+        associate the Finance Charges with the Accounts Receivable
+        entry.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
