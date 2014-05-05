@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="contract">
+  <title>Create New Contract</title>
+  <para>To create a new Contract, select the "New Contract" option. The
+  following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/contract.png" />
+    </imageobject>
+    <caption><para>Create New Contract</para></caption>
+  </mediaobject>
+  <para>When creating a new Contract, you are presented with the following
+  options:<variablelist>
+      <varlistentry>
+        <term>Vendor #</term>
+        <listitem>
+          <para>Enter the Vendor number for the Contract.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Contract #</term>
+        <listitem>
+          <para>Enter a number to identify the Contract.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Description</term>
+        <listitem>
+          <para>Enter a description for the Contract.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Effective</term>
+        <listitem>
+          <para>Enter the first date on which the Contract will be
+          valid.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Expires</term>
+        <listitem>
+          <para>Enter the last date on which the Contract will be valid (e.g.,
+          the date the Contract expires).</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para>To view or enter Item Sources for a Contract, select the Item Sources
+  tab. The following screen will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/contractItemSources.png" />
+    </imageobject>
+    <caption><para>Contract Item Sources</para></caption>
+  </mediaobject>
+  <para>When viewing Item Sources for a Contract, you will be presented with
+  the following options:<variablelist>
+      <varlistentry>
+        <term>Item Sources</term>
+        <listitem>
+          <para>Display lists existing Contract Items and Item Sources.<tip>
+              <para>To see Purchase Orders for an Item Source, click the arrow
+              to the left of the Item. To open the Item Source, double-click
+              on the Item Source line.</para>
+            </tip></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>PRINT</term>
+        <listitem>
+          <para>Select PRINT to print a list of the Contract Item
+          Sources.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>NEW ITEM SOURCE</term>
+        <listitem>
+          <para>Select this option to enter a new Item Source. Detailed
+          information on adding a new Item Source is available under the
+          section <xref linkend="itemSource" />.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>NEW PO</term>
+        <listitem>
+          <para>Select this option to create a Purchase Order under this
+          Contract. Detailed information on adding a new Purchase Order is
+          available under the section <xref linkend="purchaseOrder" /><note>
+              <para>If a Purchase Order already exists under the Contract, you
+              can specify that you want to use the existing Purchase Order―or
+              create a new Purchase Order.</para>
+            </note>.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>EDIT PO</term>
+        <listitem>
+          <para>Highlight a Purchase Order and then select this option to make
+          changes to the Purchase Order.<note>
+              <para>The Contract Item Source line must be expanded in order to
+              highlight the relevant Purchase Order. Once that is done, the
+              buttons for working with the Purchase Order will be
+              enabled.</para>
+            </note></para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>VIEW PO</term>
+        <listitem>
+          <para>Highlight a Purchase Order and then select this option to view
+          the selected Purchase Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>DELETE PO</term>
+        <listitem>
+          <para>Highlight a Purchase Order and then select this option to
+          delete the highlighted Purchase Order.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>RELEASE PO</term>
+        <listitem>
+          <para>Highlight a Purchase Order and then select this option to
+          release the selected Purchase Order without leaving the Contract
+          window.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>NEW RECEIPT</term>
+        <listitem>
+          <para>Highlight a Purchase Order and then select this option to
+          enter a new Purchase Order Receipt.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>NEW RETURN</term>
+        <listitem>
+          <para>Highlight a Purchase Order and then select this option to
+          enter a Purchase Order return.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para>To enter notes for the Contract, select the Notes tab. The following
+  will be displayed in the window:</para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/contractNotes.PNG" />
+      </imageobject>
+      <caption><para>Contract Notes</para></caption>
+    </mediaobject></para>
+  <para>The area in the Notes tab can be use to enter information about the
+  Contract.</para>
+  <para>To attach documents to the Contract, select the Documents tab. The
+  following will be displayed in the window:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/contractsDocuments.PNG" />
+    </imageobject>
+    <caption><para>Contract Documents</para></caption>
+  </mediaobject>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

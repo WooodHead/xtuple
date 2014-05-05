@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="prepareCheckRun">
+  <title><indexterm significance="normal">
+      <primary>payment runs</primary>
+      <secondary>preparation of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>payments</primary>
+      <secondary>preparing runs of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounts payable</primary>
+      <secondary>preparing payment runs for</secondary>
+    </indexterm>Prepare Payment Run</title>
+  <para>To prepare a Payment Run, select the "Prepare Payment Run" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/prepareCheckRun.png" />
+        </imageobject>
+        <caption>Prepare Payment Run</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When preparing a Payment Run, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Bank Account</term>
+      <listitem>
+        <para>Specify the Bank Account to be used for the Payment Run.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Payment Date</term>
+      <listitem>
+        <para>Specify the date to appear on the Payments in the Payment Run.
+        By default, the current day's date will display. You may change the
+        date in this field, thereby changing the date that will appear on the
+        Payments being prepared.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PREPARE</term>
+      <listitem>
+        <para>Prepares the Payment Run.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
