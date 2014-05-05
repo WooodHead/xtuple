@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="salesAccounts">
+  <title><indexterm significance="normal">
+      <primary>sales assignments</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Sales Assignments</title>
+  <para>Sales assignments are used to identify the General Ledger (G/L)
+  Accounts to be used when processing the following:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Sales Orders</para>
+    </listitem>
+    <listitem>
+      <para>Invoices</para>
+    </listitem>
+    <listitem>
+      <para>Sales Order Credit Memos</para>
+    </listitem>
+  </itemizedlist>
+  <para>The Account assignments are made using a combination of Customer Type,
+  Product Category, and Site designations. This means that transactions
+  conforming to the defined combination will follow the assignments
+  established for that combination. To access the Sales Account assignments
+  master list, select the "Sales Account Assignments" option. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesAccounts.png" />
+        </imageobject>
+        <caption>Sales Assignments Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Sales Assignments" screen displays information on existing Sales
+  Account assignments.</para>
+  <note>
+    <para>Sales Account Assignments use a weighted calculation. The weight of
+    each Sales Account Assignment is calculated according to a point system
+    and the highest weight is selected for use in any given situation. Here is
+    how the points are calculated:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Matching Sales Type = 5 points</para>
+      </listitem>
+      <listitem>
+        <para>Matching Shipping Zone = 4 points</para>
+      </listitem>
+      <listitem>
+        <para>Matching Product Category = 3 points</para>
+      </listitem>
+      <listitem>
+        <para>Matching Customer Type = 2 points</para>
+      </listitem>
+      <listitem>
+        <para>Matching Site = 1 point</para>
+      </listitem>
+    </itemizedlist>
+    <para>When the same weight exists for more than one Account Assignment,
+    the first sorted value in the following order is selected:</para>
+    <orderedlist>
+      <listitem>
+        <para>Customer Type</para>
+      </listitem>
+      <listitem>
+        <para>Product Category</para>
+      </listitem>
+      <listitem>
+        <para>Sales Type</para>
+      </listitem>
+      <listitem>
+        <para>Shipping Zone</para>
+      </listitem>
+    </orderedlist>
+  </note>
+  <xi:include href="salesAccount.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>

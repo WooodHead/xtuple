@@ -1,0 +1,62 @@
+<!DOCTYPE openCSVAtlasDef>
+<CSVAtlas>
+ <CSVMap>
+  <Name>QB_COA_Import</Name>
+  <Table>accnt</Table>
+  <Action>Insert</Action>
+  <Description>This definition inserts a QuickBooks Chart Of Accounts into the xTuple DB.
+-------
+NOTE! The Pre-SQL DELETES the entire Chart Of Accounts before performing the import - this facilitates trial and error
+tweaks to the Map.
+-------
+The Post SQL maps the Account Type and the Sub Account Type in the xTuple DB after the import completes.</Description>
+  <PreSQL>DELETE FROM accnt;</PreSQL>
+  <PostSQL>UPDATE accnt SET accnt_type = 'A', accnt_subaccnttype_code = 'FA'   WHERE accnt_comments = 'FIXASSET';
+UPDATE accnt SET accnt_type = 'A', accnt_subaccnttype_code = 'CAS'  WHERE accnt_comments = 'AR';
+UPDATE accnt SET accnt_type = 'L', accnt_subaccnttype_code = 'CL'   WHERE accnt_comments = 'OCLIAB';
+UPDATE accnt SET accnt_type = 'R', accnt_subaccnttype_code = 'SI'   WHERE accnt_comments = 'INC';
+UPDATE accnt SET accnt_type = 'E', accnt_subaccnttype_code = 'COGS' WHERE accnt_comments = 'COGS';
+UPDATE accnt SET accnt_type = 'E', accnt_subaccnttype_code = 'EXP'  WHERE accnt_comments = 'EXP';
+UPDATE accnt SET accnt_type = 'E', accnt_subaccnttype_code = 'EXP'  WHERE accnt_comments = 'EXEXP';
+UPDATE accnt SET accnt_type = 'Q', accnt_subaccnttype_code = 'EDC'  WHERE accnt_comments = 'EQUITY';
+DELETE FROM accnt WHERE accnt_comments = 'NONPOSTING';</PostSQL>
+  <CSVMapField>
+   <Name>accnt_number</Name>
+   <Type>QString</Type>
+   <Column>8</Column>
+  </CSVMapField>
+  <CSVMapField>
+   <Name>accnt_descrip</Name>
+   <Type>QString</Type>
+   <Column>2</Column>
+  </CSVMapField>
+  <CSVMapField>
+   <Name>accnt_comments</Name>
+   <Type>QString</Type>
+   <Column>5</Column>
+  </CSVMapField>
+  <CSVMapField>
+   <Name>accnt_type</Name>
+   <Type>QString</Type>
+   <Action>UseAlternateValue</Action>
+   <AltValue>Q</AltValue>
+  </CSVMapField>
+  <CSVMapField>
+   <Name>accnt_extref</Name>
+   <Type>QString</Type>
+   <Column>9</Column>
+  </CSVMapField>
+  <CSVMapField>
+   <Name>accnt_closedpost</Name>
+   <Type>bool</Type>
+   <Action>UseAlternateValue</Action>
+   <AltValue>n</AltValue>
+  </CSVMapField>
+  <CSVMapField>
+   <Name>accnt_forwardupdate</Name>
+   <Type>bool</Type>
+   <Action>UseAlternateValue</Action>
+   <AltValue>y</AltValue>
+  </CSVMapField>
+ </CSVMap>
+</CSVAtlas>

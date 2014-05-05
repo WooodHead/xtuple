@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="itemGroup">
+  <title><indexterm significance="normal">
+      <primary>item groups</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Item Group</title>
+  <para>To create a new Item Group, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemGroup.png" />
+        </imageobject>
+        <caption>Create New Item Group</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Create your Item Groups using a logical, hierarchical structure.
+    This will make it easier to retrieve Item Group information in the
+    future.</para>
+  </tip>
+  <para>When creating a new Item Group, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Name</term>
+      <listitem>
+        <para>Enter a unique name for the Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further identify the Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Product Catalog</term>
+      <listitem>
+        <para>Select this option to have the group included in the Product
+        Catalog.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Parent Groups</term>
+      <listitem>
+        <para>Display lists Parent Groups that belong to the Item Group.
+        Adding another Parent Group will also add that Parent Group's Member
+        Items to the Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Group</term>
+      <listitem>
+        <para>Select a new Parent Group to include in the Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Member Items</term>
+      <listitem>
+        <para>Display lists Member Items of the Item Group.<note>
+            <para>Only Member Items of the Item Group defined in this window
+            will be listed under Member Items.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter an Item Number you want to include as a Member Item in the
+        Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Displays the Unit of Measure for the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>DELETE PARENT</term>
+      <listitem>
+        <para>Highlight a Parent Group and then select this button to remove
+        the selected Parent Group from the Item Group.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW PARENT</term>
+      <listitem>
+        <para>Select to insert the selected Item Group as a Parent Group. It
+        will be listed under Parent Groups.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE ITEM</term>
+      <listitem>
+        <para>Click to remove a Member Item from the Item Group. Once deleted,
+        it will no longer display under Member Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW ITEM</term>
+      <listitem>
+        <para>Select to insert the entered Item as a Member Item. It will be
+        listed under Member Items.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
