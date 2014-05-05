@@ -2,10 +2,10 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="postInvoices">
+<section id="financeCharges">
   <title>Assess Finance Charges</title>
-  <para>To calculate and apply Finance Charges, select the "Assess Finance
-  Charges" option. The following screen will appear:</para>
+  <para>To calculate and apply Finance Charges to overdue Invoices, select the
+  "Assess Finance Charges" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -14,8 +14,8 @@
         <caption>Assess Finance Charges</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When assessing Finance Charges, you are presented with the following
-  options:</para>
+  <para>When assessing Finance Charges on overdue Invoices, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Customer Selection</term>
@@ -26,33 +26,33 @@
           <varlistentry>
             <term>Select</term>
             <listitem>
-              <para>Choose this option to select a single Customer. Enter the
-              Customer number.</para>
+              <para>Specify the Customer whose Invoices you want to assess
+              with Finance Charges.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Customer Group</term>
             <listitem>
-              <para>Select this option if you only want to assess Finance
-              Charges for a single Customer Group. Select the Customer Group
-              from the drop-down list that will be available once this option
-              is selected.</para>
+              <para>Specify the Customer Group whose Invoices you want to
+              assess with Finance Charges. Select the Customer Group from the
+              drop-down list that will be available once this option is
+              selected.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Customer Type</term>
             <listitem>
-              <para>Select this option if you only want to assess Finance
-              Charges for a single Customer Type. Select the Customer Type
-              from the drop-down list that will be available once this option
-              is selected.</para>
+              <para>Specify the Customer Type whose Invoices you want to
+              assess with Finance Charges. Select the Customer Type from the
+              drop-down list that will be available once this option is
+              selected.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Customer Type Pattern</term>
             <listitem>
               <para>When selecting this option, you are able to filter on
-              customers that belong to the Customer Type(s) that correspond to
+              Customers belonging to the Customer Type(s) that correspond to
               the characters you type in the adjacent text box. The entry is
               case sensitive.</para>
             </listitem>
@@ -63,8 +63,8 @@
     <varlistentry>
       <term>Assessment Date</term>
       <listitem>
-        <para>The assessment date defaults to the current date, but it is
-        possible to enter a past or future date that will be used for the
+        <para>The assessment date defaults to the current date. However, it is
+        possible to enter a past or future date to be used for the
         calculation.</para>
       </listitem>
     </varlistentry>
@@ -72,8 +72,7 @@
       <term>Select Invoices for Finance Charge assessment</term>
       <listitem>
         <para>Overdue Invoices for selected Customers will be displayed.
-        Select the invoices on which Finance Charges should be
-        assessed.</para>
+        Select the Invoices you want to assess Finance Charges on.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -82,7 +81,7 @@
     <varlistentry>
       <term>ASSESS CHARGES</term>
       <listitem>
-        <para>Click this button to calculate Finance Charges on the selected
+        <para>Click this button to calculate Finance Charges for the selected
         Invoices.</para>
       </listitem>
     </varlistentry>
