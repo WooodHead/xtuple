@@ -23,9 +23,15 @@ PostBooks 440 to 441 = pb441.gz
 Distribution 440 to 441= dist441.gz
 Manufacturing/Enterprise 440 to 441 = dist441.gz & xtmfg_update441.gz
 
-It should also be noted that these upgrades will NOT run on any database 
-prior to version 4.4.0. You will need to upgrade to AT LEAST 4.4.0 before 
-trying to run the new 4.4.1 patch upgrade packages. 
+It should also be noted that these upgrades will NOT run on any 
+database prior to version 4.4.0. You will need to upgrade to AT LEAST 
+4.4.0 before trying to run the new 4.4.1 patch upgrade packages.
+
+ALSO: Mobile-enabled databases are not supported through the 
+traditional Desktop update process. Anyone upgrading a mobile-enabled 
+database should follow the process described here:
+
+https://github.com/xtuple/xtuple/wiki/Upgrading  
 
 As always, please review the xTuple Compatibility Matrix before
 upgrading: http://www.xtuple.org/compatibility-matrix.
