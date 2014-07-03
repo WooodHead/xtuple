@@ -631,6 +631,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>Cash Based Tax Distribution</term>
+            <listitem>
+              <para>Select this option if cashed based tax distribution is
+              used.<note>
+                  <para>Activating this feature will create a clearing account
+                  and a distribution account for tax codes. When a bank
+                  reconciliation is posted, the proportional amount of tax
+                  transactions will be moved from the clearing account to the
+                  distribution account. </para>
+                </note></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Interface Control</term>
       <listitem>
         <para>During initial implementations of xTuple ERP (or at other
