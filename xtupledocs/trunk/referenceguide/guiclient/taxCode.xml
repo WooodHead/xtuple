@@ -39,7 +39,12 @@
       <listitem>
         <para>Specify a valid General Ledger Account. This is a Liability
         Account. It will be credited when Invoices are posted and debited when
-        Credit Memos are posted.</para>
+        Credit Memos are posted.<note>
+            <para>When cash based tax distribution is used, a Clearing Account
+            as well as a Distribution Account can be specified. Tax related
+            transactions are posted to the Clearing account when cash related
+            transactions are posted.</para>
+          </note></para>
       </listitem>
     </varlistentry>
   </variablelist>
