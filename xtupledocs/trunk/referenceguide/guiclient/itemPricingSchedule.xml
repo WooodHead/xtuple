@@ -67,18 +67,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Site</term>
-      <listitem>
-        <para>Select the Site to be used for calculating Net Price when
-        Average Cost is used as the markup basis.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Currency</term>
       <listitem>
         <para>Select the currency.<note>
             <para>This field is only enabled when multiple currencies are
             used.</para>
+          </note></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Calculate Net Price using Site</term>
+      <listitem>
+        <para>Select the Site to be used for calculating Net Price when
+        Average Cost is used as the markup basis.<note>
+            <para>Pricing schedules are not updated by Site. The Site
+            indicated here is only used for calculating the Net Price.</para>
           </note></para>
       </listitem>
     </varlistentry>
