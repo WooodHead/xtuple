@@ -637,14 +637,12 @@
           <varlistentry>
             <term>Cash Based Tax Distribution</term>
             <listitem>
-              <para>Select this option if cashed based tax distribution is
-              used.<note>
-                  <para>Activating this feature will create a clearing account
-                  and a distribution account for tax codes. When a bank
-                  reconciliation is posted, the proportional amount of tax
-                  transactions will be moved from the clearing account to the
-                  distribution account. </para>
-                </note></para>
+              <para>Select this option if you want to use cash based tax
+              distribution. Activating this feature will create both a
+              Clearing Account and a Distribution Account for Tax Codes. When
+              a Bank Reconciliation is posted, the proportional amount of tax
+              transactions will be moved from the Clearing Account to the
+              Distribution Account.</para>
             </listitem>
           </varlistentry>
         </variablelist>
