@@ -67,9 +67,12 @@
               manufactured Items. If you select this option, you are
               indicating that you want Work Orders to be generated for the
               Item in question whenever quantities are demanded by a Sales
-              Order. Selecting this option will cause the "Create Work Order"
-              flag to be checked whenever you enter Sales Order Line Items for
-              the Item Site.</para>
+              Order. To ensure the "Create Work Order" flag is always enabled
+              on the Sales Order Line Item screen, set the "Stocked" option on
+              the Item Site screen to "False." When the "Stocked" option is
+              "True," the "Create Work Order" flag will be available but
+              turned off by default on the Sales Order Line Item
+              screen.</para>
               <note>
                 <para>Work Orders created, as specified above, to meet Sales
                 Order demand will be created regardless of an Item's
@@ -338,7 +341,14 @@
             <term>Stocked</term>
             <listitem>
               <para>Select if the Item is stocked at the specified Site. This
-              setting is used to drive the constraint management system. As a
+              option is used in conjunction with the "Create Work Orders
+              linked to Sales Orders" option on the Item Site screen. When the
+              "Stocked" flag is set to "False," the "Create Work Order" flag
+              on the Sales Order Line Item screen will be enabled by default.
+              Conversely, when the "Stocked" flag is set to "True," the
+              "Create Work Order" flag will be available but turned off by
+              default on the Sales Order Line Item screen. This setting is
+              also used to drive the constraint management system. As a
               result, to avoid inaccurate results when running that system, an
               Item Site must also have a Reorder Level defined to use this
               option.</para>
