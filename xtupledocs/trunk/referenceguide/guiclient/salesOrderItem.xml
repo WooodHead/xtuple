@@ -416,14 +416,12 @@
               <para>If the Line Item is a manufactured Item, select this
               option to automatically create a Work Order for the specified
               quantity. For make-to-order manufactured Items, this option will
-              be selected automatically. A Work Order will be created to meet
-              the Sales Order demand once you save the Line Item to the Order.
-              An Item is designated as make-to-order if the "Stocked at" flag
-              on the Item Site master is not selected. A Work Order created
-              automatically from a Sales Order Line Item will assume the same
-              Order Number as the Sales Order the Line Item is associated
-              with—even if that Order Number has already been used by a
-              previous Work Order.</para>
+              be selected automatically―as long as the Item Site's "Stocked"
+              flag is set to "False." The Work Order will be created once you
+              save the Sales Order Line Item. Work Orders created
+              automatically from a Sales Order will assume the same Order
+              Number as the Sales Order—even if that Order Number has already
+              been used by a previous Work Order.</para>
               <para>For purchased Items, the following two different options
               may appear, depending on how the Item Site for the Item is set
               up: "Create Purchase Request" or "Create Purchase Order." In
