@@ -15,7 +15,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/reconcileBankaccount.png" />
+          <imagedata fileref="images/reconcileBankaccount.png"/>
         </imageobject>
         <caption>Reconcile Bank Account</caption>
       </mediaobject>
@@ -59,18 +59,15 @@
         Exchange Rate―then select the UPDATE button to finalize the edit. You
         must select the UPDATE button for the new Exchange Rate to be
         recognized. If this option is not selected, you may not edit Exchange
-        Rates.</para>
+        Rates. When cashed based tax distribution is used, this field is
+        called "Exchange Rate/Effective Date Edit" and double clicking a
+        record will enable you to change the effective date as well as the
+        Exchange Rate.</para>
         <tip>
           <para>To work on a Bank Reconciliation over several sessions, simply
           select the SAVE button. Your work will be saved and ready when you
           return.</para>
         </tip>
-        <note>
-          <para>When cashed based tax distribution is used, this field will
-          change to "Exchange Rate/Effective Date Edit". Toggling an entry to
-          "cleared will display the current Effective Date and the Exchange
-          Rate which can be changed.</para>
-        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -167,7 +164,7 @@
         or Payments list. Bank Adjustments marked as "Cleared" will
         automatically be posted to the General Ledger (G/L) when a Bank
         Account is reconciled. For more information on entering Bank
-        Adjustments, see <xref linkend="bankAdjustment" />.</para>
+        Adjustments, see <xref linkend="bankAdjustment"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
