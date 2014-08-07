@@ -1,0 +1,52 @@
+Release Notes
+xTuple ERP
+Version 4.4.2
+July 14, 2014
+==================================
+
+These are the release notes for the 4.4.2 Patch Release. Thanks
+to all who contributed to make this release possible.
+
+PLEASE NOTE: Beginning with version 4.4.1, we have introduced a 
+new naming convention for our upgrade and installation files. The 
+new convention stems from our unified build process, which now 
+supports both Desktop and Mobile Web installations. Beginning with 
+4.4.1, you will see the following new file naming conventions:
+
+OLD				NEW
+pb440to441.gz		pb441.gz
+dist440to441.gz		dist441.gz
+xtmfg-440to441.gz		xtmfg_update441.gz
+
+To summarize:
+PostBooks 440 to 441 = pb441.gz
+Distribution 440 to 441= dist441.gz
+Manufacturing/Enterprise 440 to 441 = dist441.gz & xtmfg_update441.gz
+
+It should also be noted that these upgrades will NOT run on any 
+database prior to version 4.4.0. You will need to upgrade to AT LEAST 
+4.4.0 before trying to run the new 4.4.1 patch upgrade packages.
+
+ALSO: Mobile-enabled databases are not supported through the 
+traditional Desktop update process. Anyone upgrading a mobile-enabled 
+database should follow the process described here:
+
+https://github.com/xtuple/xtuple/wiki/Upgrading  
+
+As always, please review the xTuple Compatibility Matrix before
+upgrading: http://www.xtuple.org/compatibility-matrix.
+
+==================================
+
+The following bug fixes have been added to the applications since 
+the 4.4.1 release. Additional detail for each item listed below 
+may be found on our community website (www.xtuple.org).
+
+Bug Fixes:
+* Item Workbench Error [23558]
+* Incorrect calculation of quantities when using sales conversions 
+[23992]
+* Sales conversions not working correctly in line item entry [24002]
+* Unnecessary prompt when entering or changing sales order line item 
+characteristics [24003]
+
