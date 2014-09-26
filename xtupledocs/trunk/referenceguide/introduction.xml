@@ -1460,6 +1460,11 @@
           <term>Move Down</term>
           <listitem>
             <para>Moves the Item down the Bill of Materials sequence.</para>
+            <note>
+              <para>For the copy to clipboard options to work, your user
+              preference must be set to copy lists to plain text. Copying
+              lists to rich text is not supported.</para>
+            </note>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -1467,7 +1472,7 @@
           <listitem>
             <para>Copies the header and all visible columns and rows to the
             clipboard in plain-text, TAB-separated format with a carriage
-            return after each row.</para>
+            return after each row. Requires plain text user preference.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -1475,7 +1480,7 @@
           <listitem>
             <para>Copies all visible columns in the selected rows to the
             clipboard in plain-text, TAB-separated format without the header
-            information.</para>
+            information. Requires plain text user preference.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -1483,7 +1488,7 @@
           <listitem>
             <para>Copies all visible information in the selected cell to the
             clipboard in plain-text, TAB-separated format without the header
-            information.</para>
+            information. Requires plain text user preference.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
