@@ -1,0 +1,83 @@
+Database Updater Tool
+For the xTuple Applications (OpenMFG - PostBooks)
+Last Revised: 02/22/08
+===================================
+
+The Database Updater Tool for the xTuple Applications (OpenMFG - 
+PostBooks) enables you to update your databases from one version 
+to the next, using upgrade scripts (.gz files) provided by 
+xTuple. Running the updater will only make changes to database 
+schema. Your data will not be affected. After updating a database, 
+be sure to download and use the corresponding xTuple Client 
+application (OpenMFG - PostBooks), as the Client version used 
+must correspond to the updated database version. 
+
+IMPORTANT NOTE: Before performing any updates to a database, you 
+should first make a backup copy of the database you are updating.
+Having a backup ensures you can always go back to the original
+database if errors occur during the upgrade.
+
+TIP: You should log in to the Updater as the default xTuple 
+superuser (e.g., mfgadmin) to ensure your upgrades are performed
+successfully.
+
+ADDITIONAL NOTE: By default, the latest version of the Updater 
+runs an entire series of upgrade scripts as a single commit that 
+will be rolled back if any errors are encountered. This ensures
+that databases will not be left in a partially-upgraded state if
+errors are encountered during the uprgrade process. Either a 
+databse is upgraded to the next version successfully, or the 
+upgrade is cancelled and the database is restored to its original 
+state.
+
+To use the updater, you must first make sure you have the .gz 
+file(s) required to update your database. When starting the 
+updater, you will be asked to log into the database you want 
+to upgrade. This login procedure is the same as when logging into 
+any xTuple application. Once you have logged in, select the 
+"File | Open..." menu option and choose the first package you want 
+to use.
+
+When a package is loaded it will first check your database for a 
+series of requirements. If those requirements are met, the updater 
+will indicate the check for requirements has been successful. This 
+means you may proceed with the update. 
+
+NOTE: If you do not receive a success indicator, you will be given 
+a reason why the requirements check has failed. Examine any error 
+messages closely to determine the cause of the errors. You may need 
+to stop the update process at this point and investigate the issues 
+more closely.
+
+After a successful requirements check, you may select the START 
+UPDATE button. As the update progresses, you will see various 
+messages indicating the progress of the update. You will also see 
+a progress bar just below the START UPDATE button.
+
+Depending on the exact state of your database, you may get some 
+error messages. Some of these errors may be safely ignored--
+especially those which indicate plainly that they were ignored. 
+Other errors may require you to take specific actions. You should 
+examine such errors closely. After examination, you may either 
+choose to ignore the error, retry after correcting the problem on 
+the database, or abort the update altogether. Of course, you can 
+always go back to your original database as long as you remembered
+to make a backup copy before you started the upgrade.
+
+Once all the database changes have been made, the updater will 
+update any new reports that are available.
+
+NOTE: Reports have grades. When printing reports, the report with 
+the highest grade is the one printed first. You can have any 
+number of reports with varying grades loaded into your database. 
+Reports with a grade of 0 are considered xTuple stock reports. 
+Reports with a grade higher than 0 are considered custom reports. 
+If you have a custom report, you should be sure to save it with 
+a grade of 1 or higher. Grading your custom reports appropriately 
+will prevent custom reports from being overwritten by stock reports 
+during the update process. xTuple reserves the right to upgrade
+any and all reports having a grade of 0 during the update process.
+
+When the updater progress bar reaches 100%, you may open a new 
+package or close the updater application. Your database is now
+updated to the next version.

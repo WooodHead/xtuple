@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="shift">
+  <title><indexterm significance="normal">
+      <primary>shifts</primary>
+      <secondary>adding new</secondary>
+    </indexterm>Shift</title>
+  <para>To add a new Shift to the master list of Shifts, select the NEW
+  button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/shift.png" />
+        </imageobject>
+        <caption>Create New Shift</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When adding a new Shift to the master list of Shifts, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Shift Number</term>
+      <listitem>
+        <para>Enter a unique code to identify the Shift.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shift Name</term>
+      <listitem>
+        <para>Enter a brief name to describe the Shift.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Check this option if the Shift is active.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shift Times</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>Shift Start Time</term>
+            <listitem>
+              <para>Enter the start time for this Shift.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Before Start Rounding</term>
+            <listitem>
+              <para>Enter the amount of time in minutes that a worker can
+              clock in before the Shift start time without adding additional
+              time.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>After Start Rounding</term>
+            <listitem>
+              <para>Enter the amount of time in minutes that a worker can
+              clock in after the Shift start time without any time being
+              subtracted.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Auto Clock Out Time</term>
+            <listitem>
+              <para>The time at which a worker will be automatically clocked
+              out if not manually clocked out.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Breaks</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>First Break Start</term>
+            <listitem>
+              <para>Enter the start time for the first break.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First Break End</term>
+            <listitem>
+              <para>Enter the time when the first break is over.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Paid</term>
+            <listitem>
+              <para>Check this option if the duration of the first break
+              should be added to paid time.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Lunch Start</term>
+            <listitem>
+              <para>Enter the start time for Lunch.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Lunch End</term>
+            <listitem>
+              <para>Enter the end time for Lunch.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Paid</term>
+            <listitem>
+              <para>Check this option if the worker receives payment for the
+              lunch break.<note>
+                  <para>If a lunch break is not paid, the system will
+                  automatically post a zero value at the end of the lunch
+                  break.</para>
+                </note></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Second Break Start</term>
+            <listitem>
+              <para>Enter the start time for the second break in the
+              Shift.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Second Break End</term>
+            <listitem>
+              <para>Enter the end time for the Shift's second break.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Paid</term>
+            <listitem>
+              <para>Check this option if the duration of the first break
+              should be added to paid time.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term>Employee Information</term>
+      <listitem>
+        <variablelist>
+          <varlistentry>
+            <term>Standard Labor Rate</term>
+            <listitem>
+              <para>Select the name of the standard labor rate that should be
+              applied to this shift. Labor rates are set up in Standard Labor
+              Rates under <guimenu>Products &gt; Setup</guimenu></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Overtime Hours (Weekly)</term>
+            <listitem>
+              <para>Overtime will be calculated after this amount of hours has
+              been allocated according to the standard labor rate.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Overtime Rate Multiplier</term>
+            <listitem>
+              <para>The standard labor rate selected above will be multiplied
+              with this factor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Overhead G/L Account</term>
+            <listitem>
+              <para>Time not associated with a shift will be posted to this
+              account.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
