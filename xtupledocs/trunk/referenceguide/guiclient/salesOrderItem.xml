@@ -12,7 +12,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrderItem.png" />
+          <imagedata fileref="images/salesOrderItem.png"/>
         </imageobject>
         <caption>Create New Sales Order Line Item</caption>
       </mediaobject>
@@ -165,12 +165,6 @@
     <para>The quantity ordered is based on the quantity Unit of Measure. If
     the Sales Order Item is being edited and the quantity ordered is reduced
     then all reservations for the line item will be removed.</para>
-  </note>
-  <note>
-    <para>For Job-Costed configured Items that will create a supply order,
-    Characteristics must be maintained before the quantity is entered. The
-    Characteristics tab will be moved to the foreground as a visual
-    cue.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -389,7 +383,7 @@
         a manufactured Item, select the "Supply Order" option on the "Supply"
         tab. The following will be displayed:<mediaobject>
             <imageobject>
-              <imagedata fileref="images/salesOrderItem_availabilitySupply.png" />
+              <imagedata fileref="images/salesOrderItem_availabilitySupply.png"/>
             </imageobject>
             <caption><para>Supply Order Information For Manufactured
             Item</para></caption>
@@ -545,7 +539,7 @@
   Item:</para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/salesOrderItem_availabilitySupply2.png" />
+      <imagedata fileref="images/salesOrderItem_availabilitySupply2.png"/>
     </imageobject>
     <caption><para>Supply Order Information For Bought Item</para></caption>
   </mediaobject>
@@ -571,7 +565,7 @@
   "Supply" tab. Available Item Sources will be displayed:</para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/salesOrderItem_availabilityItemSources.png" />
+      <imagedata fileref="images/salesOrderItem_availabilityItemSources.png"/>
     </imageobject>
     <caption><para>Available Item Sources</para></caption>
   </mediaobject>
@@ -580,7 +574,7 @@
   tab. The following will be displayed:</para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/salesOrderItem_availabilitySubstitutes.png" />
+      <imagedata fileref="images/salesOrderItem_availabilitySubstitutes.png"/>
     </imageobject>
     <caption><para>Available Substitutes</para></caption>
   </mediaobject>
@@ -626,7 +620,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrderItem_itemCharacteristicsTab.png" />
+          <imagedata fileref="images/salesOrderItem_itemCharacteristicsTab.png"/>
         </imageobject>
         <caption>Sales Order Line Item Characteristics</caption>
       </mediaobject>
@@ -672,16 +666,26 @@
         increase. The Base Price shows the Price before any Characteristic
         List Prices have been added to the Net Unit Price. To learn more about
         adding price Characteristics to configured Items, see <xref
-        linkend="configItemChar" />.</para>
+        linkend="configItemChar"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <note>
+    <para>During the creation of a new Sales Order for a configured Item, the
+    Work Order is imploded and the Characteristics will remain enabled and may
+    be edited. When the SAVE button is clicked the Work Order characteristics
+    are updated and the Work Order is exploded. To edit the Sales Order Item
+    for a configured Item, the Work Order needs to be manually imploded first.
+    This will enable the Characteristics and allow editing. When the SAVE
+    button is clicked the Work Order Characteristics are updated and the Work
+    Order exploded.</para>
+  </note>
   <para>To view Costs or adjust Tax information for a Sales Order Line Item,
   select the "Detail" tab at the bottom of the screen, as shown below:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrderItem_costs.png" />
+          <imagedata fileref="images/salesOrderItem_costs.png"/>
         </imageobject>
         <caption>Sales Order Line Item Detail</caption>
       </mediaobject>
@@ -777,7 +781,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrderItem_notesTab.png" />
+          <imagedata fileref="images/salesOrderItem_notesTab.png"/>
         </imageobject>
         <caption>Sales Order Line Item Notes</caption>
       </mediaobject>
@@ -804,7 +808,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrderItem_commentsTab.png" />
+          <imagedata fileref="images/salesOrderItem_commentsTab.png"/>
         </imageobject>
         <caption>Sales Order Line Item Comments</caption>
       </mediaobject>
@@ -815,14 +819,14 @@
     appear in the list of Line Item Comments.</para>
   </note>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
+              xmlns:xi="http://www.w3.org/2001/XInclude"/>
   <para>To define an alternate Cost of Sales Account for a Sales Order Line
   Item, select the "Accounting" tab at the bottom of the screen, as shown
   below:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/salesOrderItem_costofsalesTab.png" />
+          <imagedata fileref="images/salesOrderItem_costofsalesTab.png"/>
         </imageobject>
         <caption>Sales Order Line Item Accounting</caption>
       </mediaobject>
@@ -849,5 +853,5 @@
     </varlistentry>
   </variablelist>
   <xi:include href="priceList.xml" xpointer="element(/1)"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
+              xmlns:xi="http://www.w3.org/2001/XInclude"/>
 </section>
