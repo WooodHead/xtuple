@@ -16,7 +16,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/cashReceipt.png"/>
+          <imagedata fileref="images/cashReceipt.png" />
         </imageobject>
         <caption>Enter Cash Receipt</caption>
       </mediaobject>
@@ -204,9 +204,9 @@
     <varlistentry>
       <term>Use Alternate Exchange Rate</term>
       <listitem>
-        <para>When using an alternate exchange rate, the system will calculate
+        <para>When using an alternate Exchange Rate, the system will calculate
         and display the gain/loss based on the difference between the system
-        exchange rate and the alternate exchange rate. A General Ledger
+        level Exchange Rate and the alternate Exchange Rate. A General Ledger
         transaction will be created and the gain/loss will be posted to the
         appropriate account. The gain/loss amount will be displayed and posted
         in the Base Currency.</para>
@@ -214,7 +214,7 @@
           <varlistentry>
             <term>Exchange Rate</term>
             <listitem>
-              <para>Enter the alternate exchange rate in this field.</para>
+              <para>Enter the alternate Exchange Rate in this field.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -335,7 +335,7 @@
   the following screen will appear:</para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/cashReceipt_tabMiscDist.png"/>
+      <imagedata fileref="images/cashReceipt_tabMiscDist.png" />
     </imageobject>
     <caption>Enter Misc. Distributions for Cash Receipt</caption>
   </mediaobject>
@@ -354,7 +354,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/cashReceipt_cc.png"/>
+          <imagedata fileref="images/cashReceipt_cc.png" />
         </imageobject>
         <caption>Select Credit Card for Cash Receipt</caption>
       </mediaobject>
@@ -407,7 +407,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/cashReceipt_notesTab.png"/>
+          <imagedata fileref="images/cashReceipt_notesTab.png" />
         </imageobject>
         <caption>Enter Cash Receipt Notes</caption>
       </mediaobject>
@@ -425,7 +425,7 @@
     </varlistentry>
   </variablelist>
   <xi:include href="cashReceiptItem.xml" xpointer="element(/1)"
-              xmlns:xi="http://www.w3.org/2001/XInclude"/>
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="cashReceiptMiscDistrib.xml" xpointer="element(/1)"
-              xmlns:xi="http://www.w3.org/2001/XInclude"/>
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>

@@ -39,7 +39,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configureGL.png"/>
+          <imagedata fileref="images/configureGL.png" />
         </imageobject>
         <caption>Configure General Ledger</caption>
       </mediaobject>
@@ -57,7 +57,7 @@
         Account Assignments on this screen for retained earnings, G/L series
         discrepancy, and Currency gain/loss will be disabled. You will need to
         make those Account Assignments on the Company screen. For more
-        information, please see <xref linkend="company"/>. To prevent
+        information, please see <xref linkend="company" />. To prevent
         unbalanced Trial Balances at the Company level, G/L transactions and
         series postings will not be allowed that cross Companies.</para>
         <note>
@@ -140,7 +140,7 @@
               not included in financial reports—that is, until they are posted
               over to the General Ledger. To learn more about posting Journals
               to the General Ledger, please see <xref
-              linkend="postJournals"/>.</para>
+              linkend="postJournals" />.</para>
               <tip>
                 <para>Be sure to give yourself the appropriate privileges to
                 use the Journal feature (i.e., <literal>PostJournals</literal>
@@ -317,7 +317,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/configureGL_ap.png"/>
+        <imagedata fileref="images/configureGL_ap.png" />
       </imageobject>
       <caption><para>Configure Accounts Payable</para></caption>
     </mediaobject>
@@ -431,7 +431,7 @@
         <para>Specify the number of buffer days you want to allow for when
         automatically processing recurring Vouchers. This setting is used by
         the Create Recurring Items utility, which is described in more detail
-        here <xref linkend="createRecurringItems"/>. Essentially, the buffer
+        here <xref linkend="createRecurringItems" />. Essentially, the buffer
         days setting tells the utility how far to look ahead. When it runs,
         the utility will create new Vouchers for any recurring Vouchers having
         Voucher dates within the look-ahead (i.e., buffer) days. If a Voucher
@@ -471,7 +471,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/configureGL_ar.png"/>
+        <imagedata fileref="images/configureGL_ar.png" />
       </imageobject>
       <caption><para>Configure Accounts Receivable</para></caption>
     </mediaobject>
@@ -532,9 +532,9 @@
       <term>Alternate Exchange Rate on Cash Receipt</term>
       <listitem>
         <para>Selecting this option will allow you to enter an alternate
-        exchange rate on a Cash Receipt in which case the gain/loss will be
-        based on the difference between the system exchange rate and the
-        alternate exchange rate.</para>
+        Exchange Rate on a Cash Receipt in which case the gain/loss will be
+        based on the difference between the system level Exchange Rate and the
+        alternate Exchange Rate.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -545,7 +545,7 @@
         If a new Address is manually entered here, that Address will be added
         automatically to the master list of Addresses. For additional
         documentation related to creating Addresses, see <xref
-        linkend="address"/>.</para>
+        linkend="address" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -556,7 +556,7 @@
         late past the specified grace period. If this option is selected, you
         will have the ability to run a utility called "Update Late Customer
         Credit Status" described here: <xref
-        linkend="updateLateCustCreditStatus"/>. When run, this utility will
+        linkend="updateLateCustCreditStatus" />. When run, this utility will
         review all late open Receivables for all Customers. Any Customers
         found to have late items falling outside the grace period will be
         placed on credit warning. These Customers will automatically be taken
@@ -582,7 +582,7 @@
         <para>Specify the number of buffer days you want to allow for when
         automatically processing recurring Invoices. This setting is used by
         the Create Recurring Items utility, which is described in more detail
-        here <xref linkend="createRecurringItems"/>. Essentially, the buffer
+        here <xref linkend="createRecurringItems" />. Essentially, the buffer
         days setting tells the utility how far to look ahead. When it runs,
         the utility will create new Invoices for any recurring Invoices having
         Invoice dates within the look-ahead (i.e., buffer) days. If an Invoice
@@ -610,7 +610,7 @@
   <screenshot>
     <mediaobject>
       <imageobject>
-        <imagedata fileref="images/configureGL_globalTab.png"/>
+        <imagedata fileref="images/configureGL_globalTab.png" />
       </imageobject>
       <caption><para>Global Accounting Options</para></caption>
     </mediaobject>
@@ -703,7 +703,7 @@
   following screen will appear:</para>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/configureGL_fincharges.png"/>
+      <imagedata fileref="images/configureGL_fincharges.png" />
     </imageobject>
     <caption><para>Finance Charges Options</para></caption>
   </mediaobject>
