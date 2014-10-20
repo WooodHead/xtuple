@@ -12,7 +12,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configurePD.png" />
+          <imagedata fileref="images/configurePD.png"/>
         </imageobject>
         <caption>Configure Products Module</caption>
       </mediaobject>
@@ -58,6 +58,14 @@
         Bills of Materials (BOMs). The delete option will be found in the
         right-click menu on the BOM header screen. If you do not select this
         option, users will be able to expire but not delete BOM Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Item Search when no results found</term>
+      <listitem>
+        <para>When an Item number is typed and no results are found, the Item
+        Search Window will open when focus moves away from the Item
+        field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
