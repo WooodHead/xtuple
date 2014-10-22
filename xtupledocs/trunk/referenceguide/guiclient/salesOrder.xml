@@ -170,6 +170,11 @@
               the credit limit defined on their Customer master record. Users
               will be prevented from issuing Stock to Shipping with this hold
               type.</para>
+              <note>
+                <para>If the Sales Order is paid in full, as in a counter
+                sales scenario for cash-only Customers, the order may be
+                issued to Shipping.</para>
+              </note>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -704,11 +709,12 @@
       <term>Total</term>
       <listitem>
         <para>Displays the total amount of the Sales Order.</para>
-        <note>
-          <para>Any Sales Order Line Item may be shipped—even if the Item or
-          Item Site in question becomes inactive after the Sales Order has
-          been created.</para>
-        </note>
+        <tip>
+          <para>If the Sales Order is paid in full, the order can be shipped
+          even though the Customer may be on credit hold. This is to
+          accommodate cash Customers who do not typically have a credit
+          limit.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
