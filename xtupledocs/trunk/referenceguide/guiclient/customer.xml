@@ -567,10 +567,17 @@
     <varlistentry>
       <term>On Credit Hold</term>
       <listitem>
-        <para>Select to inform sales staff that Customer's credit has been
+        <para>Select to inform sales staff that the Customer's credit has been
         suspended. Non-privileged users will be prevented from issuing Stock
         to Shipping for any Customers on credit hold. A red-colored typeface
         will be associated with their account.</para>
+        <tip>
+          <para>Place your cash-only Customers on credit hold when you create
+          their Customer records. That way, their Sales Orders can only be
+          shipped if the balance on the Sales Order = $0. In other words,
+          Sales Orders for cash Customers must be paid in advance before they
+          can be shipped.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
