@@ -698,9 +698,46 @@
         </variablelist>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Bank Reconciliation</term>
+      <listitem>
+        <para>The Bank Reconciliation function can be configured to import and
+        use statement files provided by your Bank. In this way, you can
+        automate the Bank Reconciliation process in xTuple. </para>
+        <variablelist>
+          <varlistentry>
+            <term>Enable Bank Reconciliation Import</term>
+            <listitem>
+              <para>Select to enable the option to import Bank statement files
+              in .CSV format for use in your Bank Reconciliations. When
+              selected, an IMPORT button will appear on the Bank
+              Reconciliation screen. If this option is not enabled, the IMPORT
+              button will be hidden from the Bank Reconciliation
+              screen.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Debit Adjustment Type</term>
+            <listitem>
+              <para>Specify the Adjustment Type to be used for debit
+              transactions when performing manual overrides of the automated
+              reconciliation.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit Adjustment Type</term>
+            <listitem>
+              <para>Specify the Adjustment Type to be used for crebit
+              transactions when performing manual overrides of the automated
+              reconciliation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <para>To configure global accounting options, select the "Global" tab. The
-  following screen will appear:</para>
+  <para>To configure Finance Charge options, select the "Finance Charges" tab.
+  The following screen will appear:</para>
   <mediaobject>
     <imageobject>
       <imagedata fileref="images/configureGL_fincharges.png" />

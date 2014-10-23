@@ -236,14 +236,32 @@
         Bank Reconciliation. The posting may be viewed using the Bank
         Reconciliation History display. The start and end dates for the
         posting are used to identify it.</para>
+        <note>
+          <para>Once a Bank Account is reconciled, any Deposits or Payments
+          which were marked as "Cleared" will no longer be available for
+          future Bank Reconciliations.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>IMPORT</term>
+      <listitem>
+        <para>Select to import a bank statement file in .CSV format. When you
+        select this button, the Import Data screen will be launched using the
+        specified Bank Account and period being reconciled. You will then
+        follow the instructions in the Import Data screen to complete the
+        import. The Data Import program will attempt to match Bank entries
+        with existing records based on Check Numbers, dates, and amounts.
+        During this process, you will be able to manually associate any Bank
+        records that did not find a match. You will also be able to manually
+        disassociate mis-matched entries. In addition, you may convert any
+        unmatched entry into a manual bank adjustment, miscellaneous Check, or
+        journal entry. Color coding is used to indicate cleared records
+        associated with matched bank account imports (i.e., the color green =
+        matched).</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>Once a Bank Account is reconciled, any Deposits or Payments which
-    were marked as "Cleared" will no longer be available for future Bank
-    Reconciliations.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>UPDATE</term>
