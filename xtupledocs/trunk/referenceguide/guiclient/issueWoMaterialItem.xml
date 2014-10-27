@@ -93,6 +93,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Scrap %</term>
+      <listitem>
+        <para>Displayed value represents the allotted Scrap percentage for the
+        component Item when manufacturing the parent Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Qty. Per</term>
       <listitem>
         <para>Displayed value represents the quantity of the component Item
@@ -107,10 +114,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Scrap %</term>
+      <term>Fxd. Qty.</term>
       <listitem>
-        <para>Displayed value represents the allotted Scrap percentage for the
-        component Item when manufacturing the parent Item.</para>
+        <para>Displays the fixed quantity to be issued.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -134,17 +140,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>QOH Before</term>
+      <term>Available QOH Before</term>
       <listitem>
-        <para>Total Quantity on Hand prior to the issue will be
-        displayed.</para>
+        <para>Displays available QOH prior to the issue.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>QOH After</term>
+      <term>Available QOH After</term>
       <listitem>
-        <para>Total Quantity on Hand after the proposed issue will be
-        displayed.</para>
+        <para>Displays available QOH after the issue</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -11,7 +11,8 @@
       <secondary>return material item from</secondary>
     </indexterm>Return Work Order Material Item</title>
   <para>To return Work Order materials to Inventory individually, select the
-  "Return Work Order Material Item" option. The following screen will appear:</para>
+  "Return Work Order Material Item" option. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -85,13 +86,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Qty. Per</term>
-      <listitem>
-        <para>Displayed value represents the quantity of the component Item
-        required per parent Item.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Scrap %</term>
       <listitem>
         <para>Displayed value represents the allotted Scrap percentage for the
@@ -99,24 +93,37 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Qty. Per</term>
+      <listitem>
+        <para>Displayed value represents the quantity of the component Item
+        required per parent Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Qty. Required</term>
       <listitem>
-        <para>Required: Displayed value represents the quantity required to
-        fulfill the specified Work Order.</para>
+        <para>Displayed value represents the quantity required to fulfill the
+        specified Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fxd. Qty.</term>
+      <listitem>
+        <para>Displays the fixed quantity to be returned.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. Issued</term>
       <listitem>
-        <para>Issued: Displayed value represents the quantity issued in
-        fulfillment of the specified Work Order.</para>
+        <para>Displayed value represents the quantity issued in fulfillment of
+        the specified Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Qty. to Return</term>
       <listitem>
-        <para>to Return: Enter the amount of the component Item to be returned
-        to Inventory.</para>
+        <para>Enter the amount of the component Item to be returned to
+        Inventory.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -126,24 +133,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>QOH Before</term>
+      <term>Available QOH Before</term>
       <listitem>
-        <para>Total Quantity on Hand prior to the issue will be
-        displayed.</para>
+        <para>Displays available QOH prior to the return.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>QOH After</term>
+      <term>Available QOH After</term>
       <listitem>
-        <para>Total Quantity on Hand after the proposed issue will be
-        displayed.</para>
+        <para>Displays available QOH after the return.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
-      <term>RETURN MATERIAL</term>
+      <term>POST</term>
       <listitem>
         <para>Returns the material for the specified component Item to
         Inventory.</para>

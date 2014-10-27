@@ -179,7 +179,7 @@
       </indexterm> <indexterm significance="normal">
         <primary>ATP</primary>
         <see>available to promise</see>
-      </indexterm></glossterm>
+      </indexterm>available to promise</glossterm>
     <glossdef>
       <para>Uncommitted Inventory quantity available to support new Sales
       Orders or the difference between Sales Orders already booked and the
@@ -188,17 +188,31 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>availability</primary>
+        <primary>available qoh</primary>
         <secondary>defined</secondary>
       </indexterm> <indexterm significance="normal">
         <primary>inventory</primary>
-        <secondary>availability defined</secondary>
-      </indexterm>Availability</glossterm>
+        <secondary>available qoh defined</secondary>
+      </indexterm>available QOH</glossterm>
     <glossdef>
-      <para>A term used to describe Inventory quantity available for
-      consumption by Work Orders or Sales Orders. Available quantity for an
-      Item Site is determined using the following formula: Unallocated Qty. +
-      On Order Qty. = Available Qty. See also Planned Availability.</para>
+      <para>A term used to describe Inventory that is available immediately to
+      satisfy Work Order and Sales Order demand. Available QOH is the same as
+      usable QOH.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>available qty</primary>
+        <secondary>defined</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>Inventory</primary>
+        <secondary>available qty defined</secondary>
+      </indexterm>available Qty.</glossterm>
+    <glossdef>
+      <para>Also known as availability, this term describes Inventory that
+      considers future demands and orders. The following formula can be used
+      to define available qty.: usable QOH + (future supplies within the time
+      horizon) - (demands within the time horizon).</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -596,7 +610,7 @@
         <secondary>defined</secondary>
       </indexterm>Cumulative Schedules (MPS)</glossterm>
     <glossdef>
-      <para>Cumulative Schedules allow the forced accumulation of inventory in
+      <para>Cumulative Schedules allow the forced accumulation of Inventory in
       a discontinuous or "lumpy" demand situation where load leveling or
       continuous production is desired. With this setting, MPS may release
       more, but never less, than the quantity dictated in a Cumulative MPS
@@ -1017,10 +1031,10 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>insufficient inventory</primary>
+        <primary>insufficient Inventory</primary>
         <secondary>defined</secondary>
       </indexterm> <indexterm significance="normal">
-        <primary>inventory</primary>
+        <primary>Inventory</primary>
         <secondary>insufficiency defined</secondary>
       </indexterm>insufficient Inventory</glossterm>
     <glossdef>
@@ -1034,7 +1048,7 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>inventory</primary>
+        <primary>Inventory</primary>
         <secondary>defined</secondary>
       </indexterm>Inventory</glossterm>
     <glossdef>
@@ -1231,7 +1245,7 @@
       </indexterm>List Price</glossterm>
     <glossdef>
       <para>The stated selling Price for a sold Item. Also known as the
-      "catalogue Price."</para>
+      "catalog Price."</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -1414,24 +1428,56 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>netable</primary>
+        <primary>netable qoh</primary>
         <secondary>defined</secondary>
-      </indexterm>netable</glossterm>
+      </indexterm>netable QOH</glossterm>
     <glossdef>
-      <para>A term used to describe Site Locations. If a Location is netable,
-      Items stored in the Location are included in Quantity on Hand and
-      Availability calculations.</para>
+      <para>A term used to describe Inventory that is allowed to be used for
+      Inventory planning purposes (i.e., MRP). All quantities (usable and
+      non-usable) outside of non-netable Locations are considered part of
+      netable QOH.</para>
     </glossdef>
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>non-netable</primary>
+        <primary>netable location</primary>
         <secondary>defined</secondary>
-      </indexterm>non-netable</glossterm>
+      </indexterm>netable Location</glossterm>
     <glossdef>
-      <para>A term used to describe Site Locations. If a Location is
-      non-netable, Items stored in the Location are not included in Quantity
-      on Hand and Availability calculations.</para>
+      <para>A term for a Location where the Inventory is considered
+      netable.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>non-netable qoh</primary>
+        <secondary>defined</secondary>
+      </indexterm>non-netable QOH</glossterm>
+    <glossdef>
+      <para>A term used to describe Inventory that is not to be used for
+      Inventory planning purposes (i.e., MRP). Only quantities located in
+      non-netable Locations are considered part of non-netable QOH.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>non-netable location</primary>
+        <secondary>defined</secondary>
+      </indexterm>non-netable Location</glossterm>
+    <glossdef>
+      <para>A term for a Location where the Inventory is considered
+      non-netable.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>non-usable qoh</primary>
+        <secondary>defined</secondary>
+      </indexterm>non-usable QOH</glossterm>
+    <glossdef>
+      <para>A term used to describe Inventory which is not available for
+      issuing to Sales Orders or Work Orders. For example, Inventory waiting
+      to be scrapped may be flagged as non-usable.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -1439,7 +1485,7 @@
         <primary>on order</primary>
         <secondary>defined</secondary>
       </indexterm><indexterm significance="normal">
-        <primary>inventory</primary>
+        <primary>Inventory</primary>
         <secondary>on order defined</secondary>
       </indexterm>on Order</glossterm>
     <glossdef>
@@ -1850,7 +1896,8 @@
         <secondary>defined</secondary>
       </indexterm>Quantity on Hand (QOH)</glossterm>
     <glossdef>
-      <para>The actual number of Item units in Inventory.</para>
+      <para>The total of all Inventory regardless of status. QOH includes
+      usable, non-usable, netable, and non-netable Inventory.</para>
     </glossdef>
   </glossentry>
   <glossentry>
@@ -1932,7 +1979,7 @@
   </glossentry>
   <glossentry>
     <glossterm><indexterm significance="normal">
-        <primary>inventory</primary>
+        <primary>Inventory</primary>
         <secondary>relief of defined</secondary>
       </indexterm>relieved</glossterm>
     <glossdef>
@@ -2200,7 +2247,7 @@
         <primary>shortage</primary>
         <secondary>defined</secondary>
       </indexterm> <indexterm significance="normal">
-        <primary>inventory</primary>
+        <primary>Inventory</primary>
         <secondary>shortage defined</secondary>
       </indexterm>shortage</glossterm>
     <glossdef>
@@ -2591,6 +2638,17 @@
       (e.g., "each," "pounds," "gallons," etc.). In addition to its Inventory
       UOM, an Item may be maintained in multiple other Units of Measure,
       including shipping UOM, purchasing UOM, etc.</para>
+    </glossdef>
+  </glossentry>
+  <glossentry>
+    <glossterm><indexterm significance="normal">
+        <primary>usable qoh</primary>
+        <secondary>defined</secondary>
+      </indexterm>usable QOH</glossterm>
+    <glossdef>
+      <para>A term used to describe Inventory that is available immediately to
+      satisfy Work Order and Sales Order demand. Usable QOH is the same as
+      Available QOH.</para>
     </glossdef>
   </glossentry>
   <glossentry>
