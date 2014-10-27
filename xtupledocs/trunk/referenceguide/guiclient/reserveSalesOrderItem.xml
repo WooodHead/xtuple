@@ -81,34 +81,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Qty. to Reserve</term>
-      <listitem>
-        <para>Enter the quantity of Inventory you would like to reserve to the
-        specified Line Item.</para>
-        <tip>
-          <para>You may only reserve quantity to the Line Item if there is
-          currently Quantity on Hand (QOH) for the Item. Also, you may not
-          reserve more than the balance due.</para>
-        </tip>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>UOM</term>
-      <listitem>
-        <para>Sales Order Item Unit of Measure.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Availability</term>
       <listitem>
         <para>The following Availability information for the sold-from Site
         will be displayed:</para>
         <variablelist>
           <varlistentry>
-            <term>On Hand</term>
+            <term>Available QOH</term>
             <listitem>
-              <para>Current Quantity on Hand (QOH) for the specified Item in
-              sold-from Site.</para>
+              <para>Quantity available immediately to satisfy Work Order and
+              Sales Order demand.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -126,6 +108,24 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>To Reserve</term>
+      <listitem>
+        <para>Enter the quantity of Inventory you would like to reserve to the
+        specified Line Item.</para>
+        <tip>
+          <para>You may only reserve quantity to the Line Item if there is
+          available QOH for the Item. Also, you may not reserve more than the
+          balance due.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Sales Order Item Unit of Measure.</para>
       </listitem>
     </varlistentry>
   </variablelist>

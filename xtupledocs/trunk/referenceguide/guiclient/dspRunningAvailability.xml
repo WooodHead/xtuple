@@ -30,15 +30,6 @@
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>When quantity appears in the "Ordered" column, this refers to
-    quantity that is on order through either a Work Order or Purchase Order.
-    In the case of Purchase Orders, the quantity will always be represented in
-    the Inventory Unit of Measure (UOM)&mdash;regardless of the Vendor UOM
-    used on the Purchase Order.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Site</term>
       <listitem>
@@ -46,6 +37,8 @@
         display.</para>
       </listitem>
     </varlistentry>
+  </variablelist>
+  <variablelist>
     <varlistentry role="manufacturing">
       <term>Show Planned Orders</term>
       <listitem>
@@ -54,17 +47,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>QOH</term>
+      <term>Available QOH</term>
       <listitem>
-        <para>Displays Quantity on Hand for specified Item.</para>
+        <para>Quantity available immediately to satisfy Work Order and Sales
+        Order demand.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Order Multiple</term>
+      <term>Netable QOH</term>
       <listitem>
-        <para>Displays Order Multiple specifying the increments the Item must
-        be ordered in. Order Multiple is maintained in the Item Site
-        master.</para>
+        <para>Quantity that is allowed to be used for Inventory planning
+        purposes (i.e., MRP).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -83,11 +76,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Order Multiple</term>
+      <listitem>
+        <para>Displays Order Multiple specifying the increments the Item must
+        be ordered in. Order Multiple is maintained in the Item Site
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Running Availability</term>
       <listitem>
         <para>Display lists Running Availability for the selected Item, using
         the specified parameters. Red lettering indicates the due date has
         passed or Running Availability has dropped below 0.</para>
+        <note>
+          <para>When quantity appears in the "Ordered" column, this refers to
+          quantity that is on order through either a Work Order or Purchase
+          Order. In the case of Purchase Orders, the quantity will always be
+          represented in the Inventory Unit of Measure (UOM)—regardless of the
+          Vendor UOM used on the Purchase Order.</para>
+        </note>
       </listitem>
     </varlistentry>
   </variablelist>
