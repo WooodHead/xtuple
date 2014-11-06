@@ -12,7 +12,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/configureWO.png" />
+          <imagedata fileref="images/configureWO.png"/>
         </imageobject>
         <caption>Configure Manufacture Module</caption>
       </mediaobject>
@@ -276,53 +276,11 @@
             <term>Operations</term>
             <listitem>
               <para>Select this option will default to operations when you
-              select the Shop Floor Workbench.<note>
-                  <para>When recording Time and Attendance by Employee, you
-                  will be able to select the Time Clock under
-                  <guimenu>Manufacture &gt; Transactions</guimenu>.</para>
-                </note></para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="manufacturing">
-      <term>Time and Attendance Recording</term>
-      <listitem>
-        <para>Select to post by User or Employee and assign a clearing
-        account:</para>
-        <variablelist>
-          <varlistentry>
-            <term>User</term>
-            <listitem>
-              <para>Select if time will be recorded for a User. The system
-              will prompt you for the User name when you post time. The Shop
-              Floor Workbench will be available for posting production or
-              operations.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Employee</term>
-            <listitem>
-              <para>Select if time will be recorded for an Employee. You will
-              need to enter the Employee number when posting time. The Time
-              Clock will be available for posting operations.</para>
-              <note>
-                <para>Once you have selected this option, you will not be able
-                to change it to User at a later stage.</para>
-              </note>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Labor Overhead Clearing</term>
-            <listitem>
-              <para>Enter the General Ledger Account to which labor overhead
-              clearing will be posted.</para>
+              select the Shop Floor Workbench.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para role="manufacturing"></para>
 </section>
