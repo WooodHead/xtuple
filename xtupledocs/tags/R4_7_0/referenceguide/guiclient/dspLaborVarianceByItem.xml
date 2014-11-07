@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspLaborVarianceByItem">
+  <title>Labor Variance by Item</title>
+  <para>To view labor variances by Item, select the "Labor Variance by Item"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspLaborVarianceByItem.png" />
+        </imageobject>
+        <caption>Labor Variance by Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Labor Variance by Item" screen shows
+  start/end dates, an Item field, and a Site selector. You can build your own
+  search criteria using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
