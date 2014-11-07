@@ -19,26 +19,26 @@
     </screenshot></para>
   <para role="standard">When configuring the Schedule module, you are
   presented with the following options:</para>
-  <variablelist role="standard">
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>planned orders</primary>
-          <secondary>numbering of</secondary>
-        </indexterm>Next Planned Order #</term>
-      <listitem>
-        <para>Enter a number to establish the basis for the next Planned Order
-        Number. Any changes made here will be reflected the next time a new
-        Planned Order is created.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Default Calendar</term>
-      <listitem>
-        <para>Specify a default Calendar to be used when running the "MPS
-        Detail" report.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term><indexterm significance="normal">
+            <primary>planned orders</primary>
+            <secondary>numbering of</secondary>
+          </indexterm>Next Planned Order #</term>
+        <listitem>
+          <para>Enter a number to establish the basis for the next Planned
+          Order Number. Any changes made here will be reflected the next time
+          a new Planned Order is created.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Default Calendar</term>
+        <listitem>
+          <para>Specify a default Calendar to be used when running the "MPS
+          Detail" report.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para role="manufacturing"><variablelist>
       <varlistentry>
         <term>Enable Constraint Management</term>
