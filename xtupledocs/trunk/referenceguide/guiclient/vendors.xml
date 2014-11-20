@@ -24,6 +24,11 @@
       later use.</para>
     </listitem>
   </itemizedlist>
+  <tip>
+    <para>The address information displayed on this screen reflects the
+    address for the Vendor's primary contact. This may not be the same as the
+    business address listed on the Vendor's CRM Account.</para>
+  </tip>
   <para>The following screenshot shows the "Vendors" screen:</para>
   <para><screenshot>
       <mediaobject>
@@ -33,9 +38,8 @@
         <caption>Vendors Master List</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The default filter on the "Contracts" screen shows all active
-  Contracts. You can build your own search criteria using the following
-  options:</para>
+  <para>The default filter on the "Vendors" screen shows all active Vendors.
+  You can build your own search criteria using the following options:</para>
   <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
