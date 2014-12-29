@@ -233,34 +233,34 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view the Check Run, select the "Checks" tab. The following screen
-  will appear:</para>
+  <para>To view the Payment Run, select the "Payments" tab. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/apWorkBench_checkRunTab.png" />
         </imageobject>
-        <caption>Check Run</caption>
+        <caption>Payment Run</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying the Check Run, you are presented with the following
+  <para>When displaying the Payment Run, you are presented with the following
   options:</para>
   <variablelist>
     <varlistentry>
       <term>Bank Account</term>
       <listitem>
-        <para>Specify the Bank Account whose Check Run you want to
+        <para>Specify the Bank Account whose Payment Run you want to
         view.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Checks</term>
+      <term>Payments</term>
       <listitem>
-        <para>Display lists details for Checks included in the Check Run. This
-        display is a nested list, with a plus ("+") sign located to the far
-        left of the display next to each Check. By clicking your mouse on a
-        plus sign, you reveal lower levels of information related to the
-        Check.</para>
+        <para>Display lists details for Payments included in the Payment Run.
+        This display is a nested list, with a plus ("+") sign located to the
+        far left of the display next to each Payment. By clicking your mouse
+        on a plus sign, you reveal lower levels of information related to the
+        Payment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -269,44 +269,45 @@
     <varlistentry>
       <term>PREPARE</term>
       <listitem>
-        <para>Select to prepare a Check Run. For more information on preparing
-        Check Runs, see <xref linkend="prepareCheckRun" />.</para>
+        <para>Select to prepare a Payment Run. For more information on
+        preparing Payment Runs, see <xref linkend="prepareCheckRun" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>PRINT</term>
       <listitem>
-        <para>Select to print a copy of the list displayed on the
-        screen.</para>
+        <para>Select to print a copy of the list displayed on the screen.
+        </para>
         <variablelist>
           <varlistentry>
             <term><indexterm significance="normal">
-                <primary>checks</primary>
+                <primary>payments</primary>
                 <secondary>printing individual</secondary>
-              </indexterm>SELECTED CHECK</term>
+              </indexterm>SELECTED PAYMENT</term>
             <listitem>
-              <para>Highlight a Check in the list of Checks and then select
-              this button to print the Check.</para>
+              <para>Highlight a Payment in the list of Payments and then
+              select this button to print the Payment. Only Bank Accounts
+              which require printing will have Payments to print.</para>
               <tip>
-                <para>If Checks being printed contain reference lines which
+                <para>If Payments being printed contain reference lines which
                 spill over and exceed one standard page, then consider using
-                the report definition CheckMultiPage.xml. This Check Form is
-                designed to support multiple pages for one Check
+                the report definition CheckMultiPage.xml. This Payment Form is
+                designed to support multiple pages for one Payment
                 number.</para>
               </tip>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term><indexterm significance="normal">
-                <primary>check runs</primary>
+                <primary>payment runs</primary>
                 <secondary>printing of</secondary>
               </indexterm><indexterm significance="normal">
-                <primary>checks</primary>
+                <primary>payment</primary>
                 <secondary>printing multiple</secondary>
-              </indexterm>CHECK RUN</term>
+              </indexterm>PAYMENT RUN</term>
             <listitem>
-              <para>Select to print the Check Run, using the specified Bank
-              Account. For more information on printing Check Runs, see the
+              <para>Select to print the Payment Run, using the specified Bank
+              Account. For more information on printing Payment Runs, see the
               <xref linkend="printChecks" /> section.</para>
             </listitem>
           </varlistentry>
@@ -321,19 +322,21 @@
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>checks</primary>
+          <primary>payments</primary>
           <secondary>posting of</secondary>
         </indexterm>POST</term>
       <listitem>
-        <para>Highlight a Check in the list of Checks and then select this
-        button to post the Check. A Check must be printed before it can be
-        posted. See the "Printed" column in the display to determine a Check's
-        printed status. The following additional option is
-        provided:<variablelist>
+        <para>Highlight a Payment in the list of Payments and then select this
+        button to post the Payment. If the specified Bank Account requires
+        printing, the Payment must be printed before it can be posted. If
+        printing is not required, the Payment may be posted immediately. See
+        the "Printed" column in the display to determine a Payment's printed
+        status. The following additional option is provided:<variablelist>
             <varlistentry>
               <term>POST ALL</term>
               <listitem>
-                <para>Select to post all Checks available for posting.</para>
+                <para>Select to post all Payments available for
+                posting.</para>
               </listitem>
             </varlistentry>
           </variablelist></para>
@@ -341,62 +344,63 @@
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>checks</primary>
+          <primary>payments</primary>
           <secondary>voiding of</secondary>
         </indexterm>VOID</term>
       <listitem>
-        <para>Highlight a Check in the list of Checks and then select this
-        button to void the Check. Voided Checks may not be printed or posted.
-        When a Check is voided, the payable amount will be reopened on the
-        Select Payments screen. In other words, if a Check for $100.00 is
-        voided, that amount will once again be made available for payment on
-        the Select Payments screen. The reopened amount will again be
-        associated with the referring payable Document (i.e., Voucher or Debit
-        Memo).</para>
+        <para>Highlight a Payment in the list of Payments and then select this
+        button to void the Payment. Voided Payments may not be printed or
+        posted. When a Payment is voided, the payable amount will be reopened
+        on the Select Payments screen. In other words, if a Payment for
+        $100.00 is voided, that amount will once again be made available for
+        payment on the Select Payments screen. The reopened amount will again
+        be associated with the referring payable Document (i.e., Voucher or
+        Debit Memo).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
       <listitem>
-        <para>Highlight a miscellaneous Check and then select this button to
-        edit the Check. Only unprinted miscellaneous Checks may be
+        <para>Highlight a miscellaneous Payment and then select this button to
+        edit the Payment. Only unprinted miscellaneous Payments may be
         edited.</para>
         <note>
-          <para>Only unprinted miscellaneous Checks may be edited. Regular
-          Checks may not be edited.</para>
+          <para>Only unprinted miscellaneous Payments may be edited. Regular
+          Payments may not be edited.</para>
         </note>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
       <listitem>
-        <para>Highlight a voided Check in the list of Checks and then select
-        this button to delete the Check. Only voided Checks may be
+        <para>Highlight a voided Payment in the list of Payments and then
+        select this button to delete the Payment. Only voided Payments may be
         deleted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>checks</primary>
-          <secondary>replacing in check run</secondary>
+          <primary>payments</primary>
+          <secondary>replacing in payment run</secondary>
         </indexterm><indexterm significance="normal">
-          <primary>check runs</primary>
-          <secondary>replacing checks in</secondary>
+          <primary>payment runs</primary>
+          <secondary>replacing payments in</secondary>
         </indexterm>REPLACE</term>
       <listitem>
-        <para>Highlight a voided Check in the list of Checks and then select
-        this button to replace the Check. Checks must be voided before they
-        can be replaced. When a voided Check is replaced, the payable amount
-        displayed on the Select Payments screen will be removed. In other
-        words, if a voided Check for $500.00 is replaced, that amount will no
-        longer be available for payment on the Select Payments screen.</para>
+        <para>Highlight a voided Payment in the list of Payments and then
+        select this button to replace the Payment. Payments must be voided
+        before they can be replaced. When a voided Payment is replaced, the
+        payable amount displayed on the Select Payments screen will be
+        removed. In other words, if a voided Payment for $500.00 is replaced,
+        that amount will no longer be available for payment on the Select
+        Payments screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>REPLACE ALL</term>
       <listitem>
-        <para>Select this button to replace all Checks shown in the list of
-        Checks. Checks must be voided before they can be replaced.</para>
+        <para>Select this button to replace all Payments shown in the list of
+        Payments. Payments must be voided before they can be replaced.</para>
       </listitem>
     </varlistentry>
   </variablelist>

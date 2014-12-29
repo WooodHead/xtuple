@@ -49,8 +49,8 @@
     <varlistentry>
       <term>Type</term>
       <listitem>
-        <para>Specify whether the Bank Account is a checking or cash account.
-        The choice you make here is informational only.</para>
+        <para>Specify whether the Bank Account is a checking, cash, or credit
+        card account. The choice you make here is informational only.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -79,6 +79,14 @@
               Account. Check Numbers will increment in intervals of one (1)
               beginning with the Check Number entered here. By default, the
               next available number will display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Print Checks</term>
+            <listitem>
+              <para>Select if you want to require that Checks issued against
+              the Bank Account must be printed. If not selected, Checks for
+              the Bank Account will be posted without printing.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
