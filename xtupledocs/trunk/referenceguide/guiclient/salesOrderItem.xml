@@ -701,7 +701,9 @@
       <term>Unit Cost</term>
       <listitem>
         <para>Depending on configuration settings, the Unit Cost displays the
-        Wholesale Price or the standard or average Inventory Cost.<note>
+        Wholesale Price or the standard or average Inventory Cost. For Average
+        Cost Items having 0 Quantity on Hand, the Standard Cost will be used
+        instead of the Average Cost, if it exists.<note>
             <para>This value can be changed if the user has the necessary
             permissions. A change in this value will result in a new Net Unit
             Price.</para>
