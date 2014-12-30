@@ -71,7 +71,7 @@
       <term><indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>automatic explosion of</secondary>
-        </indexterm>Automatically Explode Work Order's</term>
+        </indexterm>Automatically Explode Work Orders</term>
       <listitem>
         <para>Select if you want Work Orders to be exploded automatically.
         Work Order explosion is the process whereby Work Order Material
@@ -97,6 +97,14 @@
       <listitem>
         <para>Select to post to the Change Log any changes made to Work
         Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry id="AllowIssue">
+      <term>Allow Issue To Exploded Work Orders</term>
+      <listitem>
+        <para>Select if you want to allow material to be issued to exploded
+        Work Orders. If not selected, users will be unable to issue materials
+        to exploded work orders.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -165,7 +173,7 @@
             <term>Production</term>
             <listitem>
               <para>Select to require a Production-posting approach on the
-              Shop Floor Workbench.</para>
+              Shop Floor Workbench. </para>
             </listitem>
           </varlistentry>
           <varlistentry role="manufacturing">
@@ -254,30 +262,6 @@
                   Costs associated with setup and run time Operations are
                   reported.</para>
                 </tip></para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="manufacturing">
-      <term>Shop Floor Workbench Posts</term>
-      <listitem>
-        <para>Select one of the following options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Production</term>
-            <listitem>
-              <para>Selecting this option will default to production posting
-              when you select the Shop Floor Workbench under
-              <guimenu>Manufacture &gt; Transactions</guimenu>.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Operations</term>
-            <listitem>
-              <para>Selecting this option will default to operations posting
-              when you select the Shop Floor Workbench under
-              <guimenu>Manufacture &gt; Transactions</guimenu>.</para>
             </listitem>
           </varlistentry>
         </variablelist>
