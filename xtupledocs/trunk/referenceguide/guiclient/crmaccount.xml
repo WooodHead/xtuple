@@ -28,7 +28,10 @@
     <varlistentry>
       <term>Account Number</term>
       <listitem>
-        <para>The Account Number uniquely identifies the Account.</para>
+        <para>The Account Number uniquely identifies the Account. Users must
+        have sufficient privileges to change the Account Number, particularly
+        when the Account extends to different types (e.g., Customer, Vendor,
+        etc.).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -36,7 +39,10 @@
       <listitem>
         <para>Enter the name of the Account you do business with (e.g.,
         Customer Name or Vendor Name). This field should not to be confused
-        with the Contact name of an individual at the company.</para>
+        with the Contact name of an individual at the company. Users must have
+        sufficient privileges to change the Account Name, particularly when
+        the Account extends to different types (e.g., Customer, Vendor,
+        etc.).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
