@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="printCheck">
+  <title><indexterm significance="normal">
+      <primary>payments</primary>
+      <secondary>printing individual</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounts payable</primary>
+      <secondary>printing payments for</secondary>
+    </indexterm>Print Payment</title>
+  <para>To print an individual Payment, select the "Print Payment" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/printCheck.png" />
+        </imageobject>
+        <caption>Print Payment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>If Payments being printed contain reference lines which spill over
+    and exceed one standard page, then consider using the report definition
+    CheckMultiPage.xml. This Payment Form is designed to support multiple
+    pages for one Payment number.</para>
+  </tip>
+  <para>When printing an individual Payment, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Bank Account</term>
+      <listitem>
+        <para>Specify the Bank Account for the Payment you want to print. Only
+        Bank Accounts which require printing will have Payments to print. If
+        the specified Bank Account is configured to use Electronic Funds
+        Transfer (EFT), the CREATE EFT FILE button will be enabled on this
+        screen. </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Payment</term>
+      <listitem>
+        <para>Specify the Payment Number you want to print. Menu will list
+        Payments from prepared Payment Runs associated with the specified Bank
+        Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Next Payment #</term>
+      <listitem>
+        <para>Specify the next Payment number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CREATE EFT FILE</term>
+      <listitem>
+        <para>Select to create an Electronic Funds Transfer (EFT) file. This
+        button will be enabled only for Bank Accounts which are configured to
+        use EFT.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
