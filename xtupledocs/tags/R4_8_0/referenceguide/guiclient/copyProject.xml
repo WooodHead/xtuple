@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="copyProject">
+  <title><indexterm significance="normal">
+      <primary>projects</primary>
+      <secondary>copying of</secondary>
+    </indexterm>Copy Projects</title>
+  <para>To make a copy of a Project, select the "Copy Project" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/copyProjectNumber.png" />
+        </imageobject>
+        <caption>New Project Number</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When copying a Project, you are presented with the following
+  option:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Project Number for the new Project</term>
+      <listitem>
+        <para>Enter the Project Number for the new target Project.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>After the new Project Number has been entered, the following screen
+  will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/copyProjectdueDate.png" />
+      </imageobject>
+      <caption>New Project Due Date Offset</caption>
+    </mediaobject>
+  </screenshot>
+  <para>You are presented with the following option:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Offset from old Due Date</term>
+      <listitem>
+        <para>Enter the new due date, represented as an offset (i.e., number
+        of days) from the due date of the original Project.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

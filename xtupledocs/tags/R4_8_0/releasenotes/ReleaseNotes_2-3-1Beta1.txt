@@ -1,0 +1,217 @@
+Release Notes
+xTuple Applications
+OpenMFG - PostBooks
+Version 2.3.1Beta1
+February 8, 2008
+==================================
+
+This is the first Beta release of version 2.3.1, marking the end of 
+new feature development for this release cycle. We move now into 
+refining, testing, and bug fixing mode leading up to the final release.
+
+Highlights of this Beta release include the following:
+
+* Consolidated Invoice by Customer
+* API views for Item, BOM, BOO
+* Print Travelers in batch
+* Credit Card support for Authorize.NET
+* Split Receipt capability
+* Redesigned CRM Account screen
+
+
+==================================
+
+The following features and bug fixes have been added to the applications 
+since the release of 2.3.0:
+
+New Features:
+
+* [Accounting] Added option to print a Sales Journal from Unposted 
+Invoices screen
+* [Accounting] Added ability to split a receipt so it may be 
+partially vouchered
+* [Accounting] Enabled time based credit hold capability in OpenMFG
+* [Accounting] Moved Chart of Account to first position in "Accounts" 
+menu structure
+* [Accounting] Added ability to view Voucher line detail from Vendor 
+History 
+* [Accounting] Added ability to view Voucher line G/L detail in Vendor 
+History 
+* [Accounting] Added PO# column in Vendor History
+* [CRM] Added the ability to see merged comments from the Account 
+window for subordinate Customer, Contact, Vendor and Tax Authority 
+records
+* [CRM] Added the ability to see opportunities from the Account 
+window 
+* [CRM] Added default Address to CRM Account master
+* [Manufacture] Added more right-click options to manufacturing 
+windows
+* [Manufacture] Added new Work Order schedule by Work Order Number 
+display 
+* [Manufacture] Added CANCEL button to lot/serial distribution 
+screen
+* [Manufacture] Added batch printing capability for Travelers
+* [Purchase] Reorganized layout of Voucher screen
+* [Purchase] Added New Event For PO Line Item Insert
+* [Sales] Multiple additions to Customer Information Workbench, 
+including: A button linked to CRM Account screen; a button linked 
+to A/R workbench; a QUERY button to refresh all the information in 
+this screen except for C/C payments; Invoice list shows 0 and non-0 
+balance, with most recent records at the top; right-click on Sales 
+Order to find two more menu options (i.e., Shipment status and 
+Shipment information); credit limit added; and credit status made 
+bold
+* [Sales] Added support for lot/serial and Characteristic printing 
+on Packing Lists 
+* [Sales] Allowed viewing and editing of Sales Orders associated 
+with Returns by right click from R/A line items
+* [Sales] Allowed credit to be given on replacement Return 
+Authorizations
+* [Sales] Multiple CRM Account/Customer Workbench enhancements, 
+including: Added a button to launch Customer Workbench from Account 
+window; right-click launch to Sales Order from Invoice Items; 
+allowed printing of Sales Orders, Invoices, and Credit Memos on 
+Customer Workbench; launch Cash Receipt from Invoice tab; link to 
+jump to Shipment tracking from invoice; added due date of Invoices; 
+late Invoices displayed in RED 
+* [Sales] Added Batch Manager support for automatic allocations 
+* [Sales] Added the ability to consolidate Invoices by Customer
+* [System] Changed term "Buffer Management" in Neo menu to 
+"Constraint Management"
+* [System] Added Authorize.net Credit Card processing capability 
+
+Bug Fixes:
+
+* [Accounting] Fixed error received when canceling Cash Receipt
+* [Accounting] Fixed Check Register to print detail
+* [Accounting] Fixed Credit Card error received when posting Cash 
+Receipt
+* [Accounting] Restored TAB order on Expense Category
+* [A/P] Re-enabled copy function of in Bill of Operations list
+* [A/P] Fixed screen resizing problem on AP open Items screen
+* [A/P] Fixed error when attempting to copy an Item Site
+* [A/P] Added line Characteristics and missing Notes to Quote report
+* [A/P] Fixed problem preventing printing of CheckFormat.xml report
+* [A/P] Fixed AP Credit Memos to use Terms from Vendor file 
+* [A/R] Fixed open AR Items screen resizing problem 
+* [A/R] Fixed issue where wrong Customer Invoice was appearing on 
+Customer Information Workbench 
+* [A/R] Fixed loophole where Cash Receipts against Credit Cards 
+could be deleted after the Credit Card charge has been processed
+* [A/R] Fixed problem preventing processing of Credit Card refund 
+against a Customer Deposit
+* [A/R] Fixed erroneous error when posting Misc. Invoices
+* [G/L] Fixed issue with Budgets not updating properly
+* [CRM] Enabled inactive flag for To-Do Items
+* [CRM] Fixed issue with To-Do List right-click options being 
+disabled incorrectly
+* [CRM] Fixed issue with To-Do List requiring two 2 clicks to 
+enable EDIT button
+* [Inventory] Fixed ISSUE ALL BALANCE button on Issue Stock to 
+Shipping screen to honor sufficient Inventory requirement
+* [Inventory] Fixed issue preventing deletion of posted Count Slips 
+from the Count Slip Edit List
+* [Inventory] Fixed issue allowing return of different Serial 
+Numbers when returning line items back to stock
+* [Inventory] Fixed error received when trying to return stock from 
+Shipping
+* [Inventory] Added lot/serial group back to the default Packing 
+List
+* [Inventory] Fixed issue preventing selection of Location radio 
+button on Item Site screen
+* [Inventory] Prevented entry of duplicate Warehouse Locations
+* [Inventory] Enforced relationship between "Stocked" flag and 
+Order Level on Item Site screen
+* [Inventory] Fixed error received when attempting to delete an 
+Item
+* [S/R] Disabled "Require Sufficient Inventory" option on Issue 
+Stock to Shipping screen if S/O Allocations are enabled
+* [S/R] Enabled RA line item notes to transfer to S/O's linked to 
+RAs
+* [Manufacture] Enabled backflush of Job Item Work Order Material 
+Requirements
+* [Manufacture] Fixed issue preventing posting of Misc. Production 
+when "Track Machine Overhead" is flagged as "with General Overhead"
+* [Products] Fixed issue causing Copy Item function to be slow when 
+all options are selected
+* [Products] Prevented users from select anything but Material 
+Issue UOMs when entering a BOM item
+* [Products] Prevented deletion of Bills of Materials having valid 
+revisions
+* [Products] Fixed issue causing BOM components not to be copied 
+when copying a BOM
+* [Products] Fixed issue preventing addition of BOO items 
+* [Products] Restored missing Characteristics tab to Item master
+* [Products] Disabled editing of Max Desired Cost currency on Item 
+master
+* [Products] Liked UOM ratio formatting to Locale setting
+* [Products] Fixed PostBooks only issue preventing deletion of 
+Items
+* [P/D] Fixed BOO report to ignore expired Operations and also 
+added missing information
+* [Purchase] Changed PO report definition to dynamically find 
+Warehouse Address
+* [Sales] Enabled alternate Shipping Warehouse for Return 
+Authorizations
+* [Sales] Fixed issue with Availability information not being 
+displayed on the RA Item screen
+* [Sales] Fixed issue with new Order value being overwritten when 
+using RA authorize buttons
+* [Sales] Added Shipping Warehouse label to RA Item screen
+* [Sales] Fixed issue preventing creation of Sales Account 
+Assignments if Returns are enabled
+* [Sales] Added filtering on RA header to only show valid Sales 
+Orders for specified Customer
+* [Sales] Fixed issue with extraneous lot/serial numbers showing 
+up on Invoices having RA processing in their past
+* [Sales] Enabled changing of RA line item dispositions after 
+line items are created
+* [Sales] Fixed issue where default Warehouse always was showing 
+for returns, regardless of Warehouse specified
+* [Sales] Fixed issue preventing printing of RAs
+* [Sales] Fixed error found when attempting to create Work Orders 
+in S/O and R/A for Items that had BOM items with no Item Site
+* [Sales] Fixed error received when selecting to cancel a 
+newly-created RA after adding a line item
+* [Sales] Hid browse button next to New Order field on RA header
+* [Sales] Fixed crash behavior when showing pending availability 
+on Sales Order item screen
+* [Sales] Fixed pending availability as indented BOM on Sales 
+Order Item screen to properly show deeply nested BOMs
+* [Sales] Fixed issue with RA Checks getting a -1 value at first
+* [Sales] Fixed issue with RA item credit exceeding original qty.
+* [Sales] Fixed failing update of salesorder api if no shipto is 
+given
+* [Sales] Fixed Customer screen to use AR Terms only
+* [Sales] Fixed issue with right-click options working 
+inconsistently in Inventory Availability By Customer Type screen
+* [Sales] Fixed issue with Notes not saving on Returns
+* [Sales] Fixed font color inconsistencies on Inventory 
+Availability By Customer Type screen
+* [Schedule] Fixed planning BOM percentages to work properly
+* [System] Fixed error message received when running the 
+createbufferstatus function
+* [System] Fixed XML import error received with Item Type is 
+"Job"
+* [System] Rescaled user's initials field on Maintain Users 
+screen
+* [System] Removed non-functional Verisign credit card 
+authorization option
+* [System] Fixed issue preventing Hot Keys from working
+* [System] Fixed Item view which was incorrectly allowing 
+inserts without a Class Code
+* [System] Fixed issue causing Credit Card configuration screen 
+to crash
+* [System] Removed invalid XML found on Credit Card posting
+* [System] Fixed issue with Item Characteristics being hidden 
+when multi-Warehouse functionality was disabled
+* [System] Fixed XML import to read ID and Note codes properly
+* [System] Fixed issue where Yahoo XML contains Freight 
+information not found on Sales Order
+* [System] Fixed issue with actual Yahoo Store XML Order Numbers 
+being out of range
+* [System] Fixed issue which required Post Journal Entry permission 
+to post any transaction in the system
+* [System] Improved wording of error code returned when issuing to 
+Shipping
+

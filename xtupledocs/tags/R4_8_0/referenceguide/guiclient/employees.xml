@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="employees">
+  <title><indexterm significance="normal">
+      <primary>employees</primary>
+      <secondary>master list of</secondary>
+    </indexterm>List Employees</title>
+  <para>The "Employees" screen displays information on all existing Employees.
+  Using the search feature, you can quickly locate the Employee records you're
+  looking for. And with the right-click menu you can drill down into
+  individual records to examine them more closely.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use portions of Employee names in the search field to narrow your
+      search results.</para>
+    </listitem>
+    <listitem>
+      <para>Look up inactive Employees simply by adding that option to your
+      search criteria.</para>
+    </listitem>
+    <listitem>
+      <para>You can also use the search builder to query the Employee list on
+      a Site-by-Site basis.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Employees" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/employees.png" />
+        </imageobject>
+        <caption>Employees Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Employees" screen shows quantities for all
+  Items. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
