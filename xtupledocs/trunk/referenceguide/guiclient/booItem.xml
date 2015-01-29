@@ -4,30 +4,29 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="booItem">
   <title><indexterm significance="normal">
-      <primary>bills of operations</primary>
+      <primary>Routings</primary>
       <secondary>creating new operation in</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>operations</primary>
-      <secondary>adding new to BOOs</secondary>
-    </indexterm>Bill of Operations Item</title>
-  <para>To add a new Operation to a Bill of Operations, select the NEW button.
-  The following screen will appear:</para>
+      <secondary>adding new to Routings</secondary>
+    </indexterm>Routing Item</title>
+  <para>To add a new Operation to a Routing, select the NEW button. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/booItem.png" />
         </imageobject>
-        <caption>Add New Operation to Bill of Operations</caption>
+        <caption>Add New Operation to Routing</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When adding a new Operation to a Bill of Operations, you are presented
-  with the following options:</para>
+  <para>When adding a new Operation to a Routing, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
       <listitem>
-        <para>Displays Item Number specified in "Bill of Operations"
-        screen.</para>
+        <para>Displays Item Number specified in "Routing" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -74,7 +73,7 @@
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>execution days</primary>
-          <secondary>in BOOs</secondary>
+          <secondary>in routings</secondary>
         </indexterm>Execution Day</term>
       <listitem>
         <para>Select a number using the arrow buttons, or manually enter a
@@ -83,20 +82,19 @@
         have an Operation with an Execution Day = 5. This means the Operation
         is scheduled to begin five days after the start date of the Work
         Order. Components scheduled with this Operation are due the day before
-        the Operation starts&mdash;that is, on day four after the Work Order
-        start date&mdash;to ensure they will be available when the Operation
-        is scheduled to begin. If this option is not selected, then the
-        component scheduling will be governed by the start and due dates set
-        on the Work Order header. Based on the values entered for all listed
-        Operations, whichever Execution Day value is the maximum, that value
-        will be displayed as the production Lead Time for the Bill of
-        Operations.</para>
+        the Operation starts—that is, on day four after the Work Order start
+        date—to ensure they will be available when the Operation is scheduled
+        to begin. If this option is not selected, then the component
+        scheduling will be governed by the start and due dates set on the Work
+        Order header. Based on the values entered for all listed Operations,
+        whichever Execution Day value is the maximum, that value will be
+        displayed as the production Lead Time for the Routing.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>effectivity</primary>
-          <secondary>in BOOs</secondary>
+          <secondary>in routings</secondary>
         </indexterm>Effectivity</term>
       <listitem>
         <para>Specify the operation's effectivity, using the following
@@ -108,10 +106,10 @@
               <para>The system enables you to specify when an operation can be
               used in a Bill of Materials. For example, the company's
               engineering department may be working on a new design for an
-              existing Item&mdash;but that new design will not be available
-              for use until a given date in the future. In this case, you can
-              specify the "effective" date when the component will be
-              available for use.</para>
+              existing Item—but that new design will not be available for use
+              until a given date in the future. In this case, you can specify
+              the "effective" date when the component will be available for
+              use.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -121,28 +119,28 @@
               is planned to be obsoleted from (i.e., no longer used in) a Bill
               of Materials. As mentioned above, the company's engineering
               department may be working on a new design for an existing
-              Item&mdash;but that new design will not be available for use
-              until a given date in the future. In this case, the old
-              component Item must be marked for "expiration" on a given date.
-              This expiration date will most likely coincide with the
-              effective date of the replacement part. Setting this parameter
-              will instruct the system to stop using the specified component
-              on the date entered into this field.</para>
+              Item—but that new design will not be available for use until a
+              given date in the future. In this case, the old component Item
+              must be marked for "expiration" on a given date. This expiration
+              date will most likely coincide with the effective date of the
+              replacement part. Setting this parameter will instruct the
+              system to stop using the specified component on the date entered
+              into this field.</para>
             </listitem>
           </varlistentry>
         </variablelist>
         <note>
           <para>Standard Operations are intended as initial templates used to
-          set up Bill of Operations (BOO) Items. Any changes made to a
-          Standard Operation will not automatically ripple throughout all your
-          BOO Items that use the Standard Operation.</para>
+          set up Routing Items. Any changes made to a Standard Operation will
+          not automatically ripple throughout all your Routing Items that use
+          the Standard Operation.</para>
         </note>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>setup time</primary>
-          <secondary>in BOOs</secondary>
+          <secondary>in routings</secondary>
         </indexterm>Setup Time (min)</term>
       <listitem>
         <para>Amount entered represents the number of minutes required to set
@@ -169,7 +167,7 @@
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>run time</primary>
-          <secondary>in BOOs</secondary>
+          <secondary>in routings</secondary>
         </indexterm>Run Time (min)</term>
       <listitem>
         <para>Amount entered represents the number of minutes required to run
@@ -257,7 +255,7 @@
         <note>
           <para>Labor and <indexterm significance="normal">
               <primary>overhead</primary>
-              <secondary>in BOOs</secondary>
+              <secondary>in routings</secondary>
             </indexterm>overhead Costs associated with setup and run times
           must be reported if they are to be tracked in the G/L and elsewhere.
           To report setup and run times, select the appropriate boxes in the
@@ -268,16 +266,15 @@
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>units of measure</primary>
-          <secondary>in BOOs</secondary>
+          <secondary>in routings</secondary>
         </indexterm>Production UOM</term>
       <listitem>
-        <para>Select a Unit of Measure (UOM)&mdash;or enter a free-form UOM.
-        Specify a UOM to be used optionally when Work Order Operations are
-        posted for the specified Operation. Different Operations in a single
-        Bill of Operations may use different Production UOMs. For example, if
-        you are producing soup, you might mix the soup in one Operation using
-        UOM = BATCH. But when canning the soup, the canning Operation might
-        use UOM = CAN.</para>
+        <para>Select a Unit of Measure (UOM)—or enter a free-form UOM. Specify
+        a UOM to be used optionally when Work Order Operations are posted for
+        the specified Operation. Different Operations in a single Routing may
+        use different Production UOMs. For example, if you are producing soup,
+        you might mix the soup in one Operation using UOM = BATCH. But when
+        canning the soup, the canning Operation might use UOM = CAN.</para>
         <note>
           <para>When posting Work Order Operations, you are given the option
           to post Operations using Production UOMs or Inventory UOMs.</para>
@@ -300,8 +297,8 @@
         transaction, when the Operation is posted.</para>
         <note>
           <para>The "Receive Inventory" option may only be selected once per
-          Bill of Operations. Finished Items may only be received into
-          Inventory once in the Operations sequence.</para>
+          Routing. Finished Items may only be received into Inventory once in
+          the Operations sequence.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -354,19 +351,18 @@
         </indexterm>Throughput</term>
       <listitem>
         <para>Indicates the number of units, in the given Item's Inventory
-        UOM, that can be produced in a minute&mdash;and also the number of
-        minutes that are required to produce 1 unit, expressed in the given
-        Item's Inventory UOM.</para>
+        UOM, that can be produced in a minute—and also the number of minutes
+        that are required to produce 1 unit, expressed in the given Item's
+        Inventory UOM.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Bill of Materials (BOM) Items may be associated with
-  Operations&mdash;either materials, tools, or finished goods themselves. In
-  an effort to help manage this relationship, the Operation screen includes
-  the ability to both modify the source BOM and also modify the links between
-  the Operation and component Items. To view components associated with an
-  Operation, select the "Materials" tab. The following screen will
-  appear:</para>
+  <para>Bill of Materials (BOM) Items may be associated with Operations—either
+  materials, tools, or finished goods themselves. In an effort to help manage
+  this relationship, the Operation screen includes the ability to both modify
+  the source BOM and also modify the links between the Operation and component
+  Items. To view components associated with an Operation, select the
+  "Materials" tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>

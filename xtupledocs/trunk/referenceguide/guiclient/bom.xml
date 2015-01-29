@@ -87,14 +87,15 @@
               <para>This is the current, default Revision used for costing and
               Material Requirements Planning (MRP). Only one Revision can be
               active at the same time. Active Revisions may be modified.
-              However, once a Revision becomes inactive, it may no longer be
-              changed.</para>
+              However, once a Revision has been deactivated, it may only be
+              reactivated if you have enabled the configuration option to
+              allow for substitute Revisions.</para>
               <tip>
-                <para>The active Revision becomes inactive when a pending
-                Revision is activated. To activate a pending Revision,
-                right-click on the magnifying glass next to the Item number
-                and select "Activate". Inactive Revisions cannot be
-                modified.</para>
+                <para>The active Revision becomes inactive when a pending or
+                substitute Revision is activated. To activate a pending or
+                substitute Revision, right-click on the magnifying glass next
+                to the Item number and select "Activate". Inactive Revisions
+                cannot be modified.</para>
               </tip>
             </listitem>
           </varlistentry>
@@ -109,6 +110,16 @@
               next to the Item number. Select "Activate" from this context
               menu to convert a pending Revision to the active
               Revision.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Substitute</term>
+            <listitem>
+              <para>If you have enabled the configuration option to allow for
+              substitute Revisions, this status will be available. If enabled,
+              any active Revision will become a substitute Revision when it is
+              deactivated. Substitute Revisions serve as alternate Revisions
+              which can be activated at a later date.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
