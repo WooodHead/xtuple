@@ -4,69 +4,69 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="dspCheckRegister">
   <title><indexterm significance="normal">
-      <primary>checks</primary>
+      <primary>payments</primary>
       <secondary>register for</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>registers</primary>
-      <secondary>for checks</secondary>
-    </indexterm>Check Register</title>
-  <para>To view Check Registers by Bank Account, select the "Check Register"
-  option. The following screen will appear:</para>
+      <secondary>for payments</secondary>
+    </indexterm>Payment Register</title>
+  <para>To view Payment Registers by Bank Account, select the "Payment
+  Register" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/dspCheckRegister.png" />
         </imageobject>
-        <caption>Check Register</caption>
+        <caption>Payment Register</caption>
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>From the right-click menu you can view check details. You can also
-    void posted Checks. When voiding a Check, you will be given the option to
-    specify the void date. Apply-to records will also be reversed on the void
-    date you specify.</para>
+    <para>From the right-click menu you can view Payment details. You can also
+    void posted Payments. When voiding a Payment, you will be given the option
+    to specify the void date. Apply-to records will also be reversed on the
+    void date you specify.</para>
   </tip>
-  <para>When displaying Check Register information, you are presented with the
-  following options:</para>
+  <para>When displaying Payment Register information, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Bank Account</term>
       <listitem>
-        <para>Specify the Bank Account whose Check Register information you
+        <para>Specify the Bank Account whose Payment Register information you
         want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Check Number</term>
+      <term>Payment Number</term>
       <listitem>
-        <para>Enter a Check Number or Regular Expression. The display will
-        show Check(s) matching the specified Check Number(s).</para>
+        <para>Enter a Payment Number or Regular Expression. The display will
+        show Payment(s) matching the specified Payment Number(s).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show only checks written to:</term>
       <listitem>
         <para>Select if you want to limit the results to any of the following
-        Check recipient types:</para>
+        Payment recipient types:</para>
         <variablelist>
           <varlistentry>
             <term>Vendor</term>
             <listitem>
-              <para>Select to include only Checks written to Vendors in the
+              <para>Select to include only Payments written to Vendors in the
               report.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Customer</term>
             <listitem>
-              <para>Select to include only Checks written to Customers in the
-              report.</para>
+              <para>Select to include only Payments written to Customers in
+              the report.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Tax Authority</term>
             <listitem>
-              <para>Select to include only Checks written to Tax Authorities
+              <para>Select to include only Payments written to Tax Authorities
               in the report.</para>
             </listitem>
           </varlistentry>
@@ -76,33 +76,34 @@
     <varlistentry>
       <term>Start Date</term>
       <listitem>
-        <para>Checks posted on and after this date will be displayed.</para>
+        <para>Payments posted on and after this date will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem>
-        <para>Checks posted on and before this date will be displayed.</para>
+        <para>Payments posted on and before this date will be
+        displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Item Detail</term>
       <listitem>
-        <para>Select to include Check detail information in the display. If
-        selected, the Vouchers and/or Debit Memos associated with Checks will
-        be displayed in a nested list. Be sure to use the QUERY button after
-        selecting this option to ensure detail is included in the
+        <para>Select to include Payment detail information in the display. If
+        selected, the Vouchers and/or Debit Memos associated with Payments
+        will be displayed in a nested list. Be sure to use the QUERY button
+        after selecting this option to ensure detail is included in the
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Checks</term>
+      <term>Payments</term>
       <listitem>
-        <para>Display lists Checks by Bank Account, using the specified
+        <para>Display lists Payments by Bank Account, using the specified
         parameters. This display is a nested list, with a plus ("+") sign
         located to the far left of the display next to each date. By clicking
         your mouse on a plus sign, you reveal lower levels of information
-        related to transactions on that date. The total amount of all Checks
+        related to transactions on that date. The total amount of all Payments
         will also be displayed.</para>
       </listitem>
     </varlistentry>
