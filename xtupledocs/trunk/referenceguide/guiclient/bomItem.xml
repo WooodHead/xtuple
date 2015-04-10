@@ -86,6 +86,34 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Create Child W/O at Parent W/O Explosion</term>
+      <listitem>
+        <para>Select to create Work Orders for manufactured components when
+        their parent Items are exploded. This option applies only to
+        manufactured Items appearing as components on a Bill of Materials. If
+        selected, a Work Order will automatically be created for the
+        manufactured component when the parent Item is exploded. The impact on
+        Work Order numbers will be visible. For example, a "-1" will be
+        appended to the parent level Work Order and a "-2" to the child level
+        Work Order—as in, #1061-1 and #1061-2. If this option is not selected,
+        a child Work Order will not be created when the parent Item is
+        exploded.</para>
+        <note>
+          <para>The "Create Child W/O at Parent W/O Explosion" option will
+          cause the creation of lower level Work Orders BOTH at Work Order
+          explosion and also during the explosion that takes place during
+          Master Production Scheduling (MPS) and Material Requirements
+          Planning (MRP) runs.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue Child W/O to Parent W/O at Receipt</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Fixed Qty.</term>
       <listitem>
         <para>Use this option to specify a "flat" quantity of material
@@ -133,28 +161,6 @@
           is not selected, child Work Orders will need to be created
           independently.</para>
         </tip>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Create Child W/O at Parent W/O Explosion</term>
-      <listitem>
-        <para>Select to create Work Orders for manufactured components when
-        their parent Items are exploded. This option applies only to
-        manufactured Items appearing as components on a Bill of Materials. If
-        selected, a Work Order will automatically be created for the
-        manufactured component when the parent Item is exploded. The impact on
-        Work Order numbers will be visible. For example, a "-1" will be
-        appended to the parent level Work Order and a "-2" to the child level
-        Work Order—as in, #1061-1 and #1061-2. If this option is not selected,
-        a child Work Order will not be created when the parent Item is
-        exploded.</para>
-        <note>
-          <para>The "Create Child W/O at Parent W/O Explosion" option will
-          cause the creation of lower level Work Orders BOTH at Work Order
-          explosion and also during the explosion that takes place during
-          Master Production Scheduling (MPS) and Material Requirements
-          Planning (MRP) runs.</para>
-        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -234,6 +240,26 @@
         </note>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>engineering change notices</primary>
+          <secondary>in BOMs</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>ECN</primary>
+          <see>engineering change notices</see>
+        </indexterm>ECN #</term>
+      <listitem>
+        <para>Enter the Engineering Change Notice Number—if applicable—for the
+        specified component Item.</para>
+        <note>
+          <para>BOM-defined Substitutions are the only Substitutes which may
+          be implemented during Work Order processing. To substitute a
+          component Item on a Work Order, use the "Substitute" option found on
+          the right-click menu of the Maintain Work Order Material
+          Requirements screen.</para>
+        </note>
+      </listitem>
+    </varlistentry>
     <varlistentry role="manufacturing">
       <term>Used At</term>
       <listitem>
@@ -268,26 +294,6 @@
         to begin. If this option is not selected, then the component
         scheduling will be governed by the start and due dates set on the Work
         Order header.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>engineering change notices</primary>
-          <secondary>in BOMs</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>ECN</primary>
-          <see>engineering change notices</see>
-        </indexterm>ECN #</term>
-      <listitem>
-        <para>Enter the Engineering Change Notice Number—if applicable—for the
-        specified component Item.</para>
-        <note>
-          <para>BOM-defined Substitutions are the only Substitutes which may
-          be implemented during Work Order processing. To substitute a
-          component Item on a Work Order, use the "Substitute" option found on
-          the right-click menu of the Maintain Work Order Material
-          Requirements screen.</para>
-        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
