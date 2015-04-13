@@ -24,10 +24,39 @@
       </mediaobject>
     </screenshot></para>
   <para>The "Chart of Accounts" screen displays information on all existing
-  Ledger Account Numbers defined within the application, including Company
-  segment (if used), Profit Center (if used), Account Number, Subaccount
-  Number (if used), Account description, and Account Type. To see inactive
-  Account Numbers, select the "Show Inactive" option.</para>
+  Ledger Account Numbers defined within the application. The following options
+  are available to filter the Accounts displayed in the list:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify the Account Type of the Accounts you want to display. If
+        no Account Type is specified, all Account Types will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sub Account Type</term>
+      <listitem>
+        <para>Specify the Sub Account Type (associated with the Account Type)
+        you want to include in the display. If no Sub Account Type is
+        specified, all Sub Account Types will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show External Companies</term>
+      <listitem>
+        <para>Select to include Accounts belonging to External Companies in
+        the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Inactive</term>
+      <listitem>
+        <para>Select to include inactive Accounts in the display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <xi:include href="accountNumber.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
