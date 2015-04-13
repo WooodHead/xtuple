@@ -835,9 +835,22 @@
       <term>Balance Method</term>
       <listitem>
         <para>Specify a default procedure for handling cash receipts from
-        Customers. This notation is informational only. Balance Forward:
-        Select to apply cash receipts to the Customer's current balance
-        due.</para>
+        Customers. This notation is informational only.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Balance Forward</term>
+            <listitem>
+              <para>Select to apply cash receipts to the Customer's current
+              balance due.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Open Item</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
