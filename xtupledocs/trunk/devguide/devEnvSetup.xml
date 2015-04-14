@@ -156,36 +156,14 @@ specific configurations:
     </note>
   </section>
   <section>
-    <title>Get and install Subversion</title>
-    <para os="windows">You can find binary packages of Subversion at <ulink
-    url="http://subversion.tigris.org/project_packages.html">http://subversion.apache.org/download</ulink>.</para>
-    <para os="macosx">The command line utilities for Subversion are installed
-    with Xcode.</para>
-    <para os="linux">Most Linux distributions have packages available for
-    installing the SVN command line tools called "subversion".</para>
-    <para>If you need a graphical user interface environment for Subversion,
-    xTuple suggests using RapidSVN. Several of our developers use it in-house,
-    so we may be able to answer questions about it. If you decide to use
-    RapidSVN, you need to get that separately from <ulink
-    url="http://rapidsvn.tigris.org/">http://rapidsvn.tigris.org/</ulink>.</para>
-  </section>
-  <section role="xtconnect">
     <title>Get and install Git</title>
-    <para>Git is a version control system used by some of xTuple's development
-    partners. You will need it to build the email integration portions of
-    xTuple Connect.</para>
-    <para os="linux macosx" userlevel="installfrompkg">Go to <ulink
-    url="???">http://git-scm.com/</ulink> and click Download. Click on the
-    link for your operating system. Click on the link for your particular work
-    environment. Run the downloaded executable or open the .dmg.</para>
+    <para>Git is a version control system used for most of xTuple's source
+    code and documentation.</para>
+    <para os="macosx">Xcode includes git so Mac users don't have to do
+    anything special to install it.</para>
     <para os="linux">Most Linux distributions have a git package, typically
-    called "git". If yours does not, you will have to build git from
-    source.</para>
-    <para os="linux" userlevel="installfromsrc">To build Git from sources, go
-    to <ulink
-    url="http://www.kernel.org/pub/software/scm/git/">http://www.kernel.org/pub/software/scm/git/</ulink>
-    and click on the link for a recent <literal>git-version.tar.gz</literal>
-    to download it. Then follow the steps in the INSTALL file.</para>
+    called "git". Install that with your distribution's package
+    manager.</para>
     <para os="windows">For installation on Windows, go to <ulink
     url="http://help.github.com/win-set-up-git/">http://help.github.com/win-set-up-git/</ulink>.
     Follow the instructions and accept the default values.</para>
@@ -200,9 +178,9 @@ specific configurations:
     <table>
       <title>PostgreSQL compatibility</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*" />
-        <colspec colnum="2" colwidth="1*" />
-        <colspec colnum="3" colwidth="2*" />
+        <colspec colnum="1" colwidth="1*"/>
+        <colspec colnum="2" colwidth="1*"/>
+        <colspec colnum="3" colwidth="2*"/>
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -227,7 +205,7 @@ specific configurations:
                 </row>
               </tbody>
             </entrytbl>
-            <entry></entry>
+            <entry/>
           </row>
           <row>
             <entrytbl cols="2">
@@ -238,10 +216,15 @@ specific configurations:
                 </row>
                 <row>
                   <entry>3.7.4</entry>
-                  <entry></entry>
+                  <entry/>
                 </row>
                 <row>
                   <entry>3.8.0</entry>
+                  <entry>4.8.1</entry>
+                </row>
+                <row>
+                  <entry>4.9.0</entry>
+                  <entry/>
                 </row>
               </tbody>
             </entrytbl>
@@ -259,6 +242,13 @@ specific configurations:
                 </row>
                 <row>
                   <entry>8.4</entry>
+                  <entry>9.2</entry>
+                  <entry>9.1.1</entry>
+                </row>
+                <row>
+                  <entry>9.2</entry>
+                  <entry/>
+                  <entry>9.3.6</entry>
                 </row>
               </tbody>
             </entrytbl>
@@ -524,9 +514,9 @@ $ su
       <title>Qt versions required to build various releases of xTuple
       ERP</title>
       <tgroup cols="3">
-        <colspec colnum="1" colwidth="1*" />
-        <colspec colnum="2" colwidth="1*" />
-        <colspec colnum="3" colwidth="3*" />
+        <colspec colnum="1" colwidth="1*"/>
+        <colspec colnum="2" colwidth="1*"/>
+        <colspec colnum="3" colwidth="3*"/>
         <tbody>
           <row>
             <entry>xTuple ERP</entry>
@@ -542,8 +532,8 @@ $ su
                 </row>
               </tbody>
             </entrytbl>
-            <entry></entry>
-            <entry userlevel="installfromsrc"></entry>
+            <entry/>
+            <entry userlevel="installfromsrc"/>
           </row>
           <row>
             <entrytbl cols="2">
@@ -569,7 +559,7 @@ $ su
               <tbody>
                 <row>
                   <entry>4.0.0???</entry>
-                  <entry></entry>
+                  <entry/>
                 </row>
               </tbody>
             </entrytbl>
@@ -580,6 +570,37 @@ $ su
             -L/path/to/postgresql/lib -nomake examples -nomake
             demos</para><para os="macosx" userlevel="installfromsrc">-arch
             x86</para></entry>
+          </row>
+          <row>
+            <entrytbl cols="2">
+              <tbody>
+                <row>
+                  <entry>4.9.0Beta</entry>
+                  <entry>???</entry>
+                </row>
+              </tbody>
+            </entrytbl>
+            <entry>4.8.6</entry>
+            <entry userlevel="installfromsrc"><para>???</para><para
+            os="macosx" userlevel="installfromsrc">[ modified src/ssl to fix
+            interaction problems between the PostgreSQL connection and web
+            calls for xtdesktop and credit card processing (need pointer to
+            the fix description) ]</para></entry>
+          </row>
+          <row>
+            <entrytbl cols="2">
+              <tbody>
+                <row>
+                  <entry>4.9.0Beta (testing)</entry>
+                  <entry>???</entry>
+                </row>
+              </tbody>
+            </entrytbl>
+            <entry>5.4.1</entry>
+            <entry><para userlevel="installfromsrc">how did we configure
+            5.4.1?</para><para os="macosx" userlevel="installfromsrc">anything
+            mac-specific?</para><para os="linux"
+            userlevel="installfromsrc">how did we handle xcb?</para></entry>
           </row>
         </tbody>
       </tgroup>
@@ -601,7 +622,7 @@ $make</programlisting>
     directory:</para>
     <programlisting>$cd /where/qt/is/installed/QtSDK/Simulator/Qt/gcc/lib
 $cp /where/qt/is/installed/QtSDK/QtSources/version/src/plugins/sqldrivers/psql/libqsqlpsql.so .</programlisting>
-    <para></para>
+    <para/>
     <para condition="msvc" os="windows" userlevel="installfrompkg">The
     prebuilt package for Qt using MSVC can be downloaded from <ulink
     url="http://qt.nokia.com/downloads/windows-cpp-vs2008">http://qt.nokia.com/downloads/windows-cpp-vs2008</ulink>.
