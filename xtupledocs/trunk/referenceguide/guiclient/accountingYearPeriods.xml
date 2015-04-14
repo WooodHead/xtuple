@@ -37,6 +37,15 @@
         just like any other General Ledger Account.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>COPY YEAR</term>
+      <listitem>
+        <para>Highlight a Fiscal Year and then select this button to create a
+        new Fiscal Year based on the original. When copying Fiscal Years in
+        this way, all the underlying Accounting Periods for the year will also
+        be copied and created.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
   <xi:include href="accountingYearPeriod.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
