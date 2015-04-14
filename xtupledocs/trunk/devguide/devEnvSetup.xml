@@ -223,7 +223,7 @@ specific configurations:
                   <entry>4.8.1</entry>
                 </row>
                 <row>
-                  <entry>4.9.0</entry>
+                  <entry>4.9.0Beta</entry>
                   <entry/>
                 </row>
               </tbody>
@@ -509,7 +509,7 @@ $ su
     <literal>gmake</literal> instead of <literal>make</literal>.</para>
   </section>
   <section>
-    <title>Get Qt from Nokia</title>
+    <title>Get Qt</title>
     <table>
       <title>Qt versions required to build various releases of xTuple
       ERP</title>
@@ -576,31 +576,44 @@ $ su
               <tbody>
                 <row>
                   <entry>4.9.0Beta</entry>
-                  <entry>???</entry>
+                  <entry/>
                 </row>
               </tbody>
             </entrytbl>
             <entry>4.8.6</entry>
-            <entry userlevel="installfromsrc"><para>???</para><para
-            os="macosx" userlevel="installfromsrc">[ modified src/ssl to fix
-            interaction problems between the PostgreSQL connection and web
-            calls for xtdesktop and credit card processing (need pointer to
-            the fix description) ]</para></entry>
+            <entry><para os="windows">[ qt 4.8 SDK =
+            QtSdk-offline-win-x86-v1_2_1 ]</para><para os="macosx"
+            userlevel="installfromsrc">-opensource -debug-and-release -nomake
+            demos -nomake examples -no-declarative -no-declarative-debug
+            -plugin-sql-psql -confirm-license</para><para os="macosx"
+            userlevel="installfromsrc">[ We also modified the Mac Qt sources
+            as described in https://bugreports.qt.io/browse/QTBUG-15344
+            ]</para><para os="linux" userlevel="installfromsrc">-qt-zlib
+            -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg -plugin-sql-psql
+            -plugin-sql-odbc -plugin-sql-sqlite -I /usr/local/pgsql/include -L
+            /usr/local/pgsql/lib -lkrb5 -webkit -confirm-license
+            -font-config</para></entry>
           </row>
           <row>
             <entrytbl cols="2">
               <tbody>
                 <row>
                   <entry>4.9.0Beta (testing)</entry>
-                  <entry>???</entry>
+                  <entry/>
                 </row>
               </tbody>
             </entrytbl>
             <entry>5.4.1</entry>
-            <entry><para userlevel="installfromsrc">how did we configure
-            5.4.1?</para><para os="macosx" userlevel="installfromsrc">anything
-            mac-specific?</para><para os="linux"
-            userlevel="installfromsrc">how did we handle xcb?</para></entry>
+            <entry><para os="windows">qt 5.4.1 Windows SDK =
+            qt-opensource-windows-x86-mingw491_opengl-5.4.1</para><para
+            os="macosx" userlevel="installfromsrc">-opensource
+            -confirm-license -qt-sql-psql -qt-sql-sqlite -qt-zlib -qt-libpng
+            -qt-libjpeg -I /usr/local/pgsql/09.3.4/include -L
+            /usr/local/pgsql/09.3.4/lib</para><para os="linux"
+            userlevel="installfromsrc">-opensource -confirm-license -qt-xcb
+            -qt-zlib -qt-libpng -qt-libjpeg -plugin-sql-psql
+            -plugin-sql-sqlite -I /usr/include/postgresql -L
+            /usr/lib/postgresql/9.1/lib -nomake examples</para></entry>
           </row>
         </tbody>
       </tgroup>
