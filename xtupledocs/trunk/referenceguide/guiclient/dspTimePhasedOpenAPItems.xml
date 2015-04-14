@@ -98,21 +98,51 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Use Doc. Date</term>
+      <term>Use</term>
       <listitem>
-        <para>Select if you want to display A/P open items relative to the
-        Document sate.</para>
+        <para>Specify your date preference:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Document Date</term>
+            <listitem>
+              <para>Select to include open items as of their document
+              date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Distribution Date</term>
+            <listitem>
+              <para>Select to include open items as of their document
+              date.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Use G/L Dist. Date</term>
+      <term>Report</term>
       <listitem>
-        <para>Select if you want to display A/P open items relative to the G/L
-        distribution date.</para>
+        <para>Specify your report preference:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Detailed Report</term>
+            <listitem>
+              <para>Select if you want to see a detailed aging report. The
+              printed report will match the screen display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Summary Report</term>
+            <listitem>
+              <para>Select if you want to see a summarized aging report. The
+              printed report will match the screen display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>A/P Open Items</term>
+      <term>Payables Open Items</term>
       <listitem>
         <para>Display lists aging A/P open items, using the specified
         parameters.</para>

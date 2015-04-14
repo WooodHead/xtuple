@@ -10,24 +10,24 @@
       <primary>accounts receivable</primary>
       <secondary>aging report for</secondary>
     </indexterm>Receivables Aging</title>
-  <para>The Receivables Aging report gives you the ability to view open Receivables in a
-  bucketed, time-phased perspective. An open Item is recognized by the Receivables
-  Aging report "as of" the item's document or distribution date, depending on
-  your preference. In the case of Invoices, the document date is the Invoice
-  date. The distribution date is the date the Invoice shows up in the General
-  Ledger (G/L). For example, if you post an Invoice on January 1, but the
-  Invoice date is February 15, then the "as of" document date will be February
-  15. This means, if you run the Receivables Aging report with an "as of" document
-  date in January, the open item with an Invoice date of February 15 will not
-  appear in the report. In fact, it will not appear in the report until an "as
-  of" document date of February 15 or later is specified. Conversely, using
-  the distribution date option, the Invoice would appear "as of" January
-  1.</para>
+  <para>The Receivables Aging report gives you the ability to view open
+  Receivables in a bucketed, time-phased perspective. An open Item is
+  recognized by the Receivables Aging report "as of" the item's document or
+  distribution date, depending on your preference. In the case of Invoices,
+  the document date is the Invoice date. The distribution date is the date the
+  Invoice shows up in the General Ledger (G/L). For example, if you post an
+  Invoice on January 1, but the Invoice date is February 15, then the "as of"
+  document date will be February 15. This means, if you run the Receivables
+  Aging report with an "as of" document date in January, the open item with an
+  Invoice date of February 15 will not appear in the report. In fact, it will
+  not appear in the report until an "as of" document date of February 15 or
+  later is specified. Conversely, using the distribution date option, the
+  Invoice would appear "as of" January 1.</para>
   <tip>
     <para>You can view the document date for an open item by right-clicking on
-    a line in the Receivables Aging display. You can also find open item details on
-    other screens&mdash;for example, Receivables Workbench, Customer History, Open
-    Items by Customer, etc.</para>
+    a line in the Receivables Aging display. You can also find open item
+    details on other screens—for example, Receivables Workbench, Customer
+    History, Open Items by Customer, etc.</para>
   </tip>
   <para>The grouping of open items into time-phased buckets is driven by a
   document's due date. In other words, if a due date falls within 0-30 days of
@@ -35,9 +35,10 @@
   appear in the first bucket. If the due date falls 31-60 days past the
   specified "as of" date, then the open item will appear in the second bucket.
   And so on. But again, keep in mind that the document date for an open
-  Receivable (e.g., Invoice date) must be on or before the specified "as of" date
-  for the item to be recognized by the report. To view open Receivables from an aging perspective, select the "Receivables
-  Aging" option. The following screen will appear:</para>
+  Receivable (e.g., Invoice date) must be on or before the specified "as of"
+  date for the item to be recognized by the report. To view open Receivables
+  from an aging perspective, select the "Receivables Aging" option. The
+  following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -52,19 +53,19 @@
     <varlistentry>
       <term>Customer</term>
       <listitem>
-        <para>Select all or specific Customers whose Receivables information you want
-        to display.</para>
+        <para>Select all or specific Customers whose Receivables information
+        you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>As of</term>
       <listitem>
-        <para>Specify the date you want the open Receivables to be relative to.
-        The report will include any Receivable items which were open&mdash;that is,
-        not yet paid&mdash;as of the specified date. This feature provides
+        <para>Specify the date you want the open Receivables to be relative
+        to. The report will include any Receivable items which were open—that
+        is, not yet paid—as of the specified date. This feature provides
         "point-in-time" open balance functionality. But again, keep in mind
-        that the document date for an open Receivable (e.g., Invoice date) must
-        be on or before the specified "as of" date for the item to be
+        that the document date for an open Receivable (e.g., Invoice date)
+        must be on or before the specified "as of" date for the item to be
         recognized by the report.</para>
       </listitem>
     </varlistentry>
@@ -101,6 +102,28 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Report</term>
+      <listitem>
+        <para>Specify your report preference:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Detailed Report</term>
+            <listitem>
+              <para>Select if you want to see a detailed aging report. The
+              printed report will match the screen display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Summary Report</term>
+            <listitem>
+              <para>Select if you want to see a summarized aging report. The
+              printed report will match the screen display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Receivables Open Items</term>
       <listitem>
         <para>Display lists aging open Receivables, using the specified
@@ -125,10 +148,10 @@
       </mediaobject>
     </screenshot></para>
   <note>
-    <para>If a Customer's open Receivables balance exceeds their
-    Credit Limit, the Customer will automatically be placed on Credit Warning.
-    In addition, any new or open Sales Orders for the Customer will also be
-    placed on Credit Hold.</para>
+    <para>If a Customer's open Receivables balance exceeds their Credit Limit,
+    the Customer will automatically be placed on Credit Warning. In addition,
+    any new or open Sales Orders for the Customer will also be placed on
+    Credit Hold.</para>
   </note>
   <para>When displaying open Receivables using a custom Calendar, you are
   presented with the following options:</para>
