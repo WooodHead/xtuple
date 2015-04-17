@@ -55,13 +55,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>PRINT</term>
+      <term>PRINT/WRITTEN/PAID</term>
       <listitem>
-        <para>Select from one of the following print options. Only Bank
-        Accounts which require printing will have Payments to print. If the
-        specified Bank Account is configured to use Electronic Funds Transfer
-        (EFT), you will be presented with the option to create an EFT file
-        after selecting a print option.</para>
+        <para>Select from one of the following options. If a selected Payment
+        has already been written and/or paid, you will have the ability to
+        mark the Payment as such on the Print Payment screen. The options
+        presented here will be limited if the specified Bank Account does not
+        require Payments to be printed. Also, if the Bank Account is
+        configured to use Electronic Funds Transfer (EFT), you will be
+        presented with the option to create an EFT file on the Print Payment
+        screen.</para>
         <variablelist>
           <varlistentry>
             <term><indexterm significance="normal">
@@ -69,8 +72,9 @@
                 <secondary>printing individual</secondary>
               </indexterm>Selected Payment</term>
             <listitem>
-              <para>Highlight a Payment in the list of Payments and then
-              select this button to print the Payment.</para>
+              <para>Highlight a Payment in the list and then select this
+              button to either print the Payment or mark it as having been
+              already printed/paid. </para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -111,10 +115,11 @@
       <listitem>
         <para>Highlight a Payment in the list of Payments and then select this
         button to post the Payment. If the specified Bank Account requires
-        printing, the Payment must be printed before it can be posted. If
-        printing is not required, the Payment may be posted immediately. See
-        the "Printed" column in the display to determine a Payment's printed
-        status. The following additional option is provided:<variablelist>
+        printing, the Payment must be printed or marked as already
+        printed/paid before it can be posted. If printing is not required, the
+        Payment may be posted immediately. See the "Printed" column in the
+        display to determine a Payment's printed status. The following
+        additional option is provided:<variablelist>
             <varlistentry>
               <term>POST ALL</term>
               <listitem>
