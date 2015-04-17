@@ -69,32 +69,32 @@
         <para>Select if the Bank Account is used for Accounts Payable. If
         selected, the Bank Account will be available for use when making
         Payments. Not selecting means the Bank Account is not used for
-        Accounts Payable. Check specifications will be disabled if this option
-        is not selected.</para>
+        Accounts Payable. Payment specifications will be disabled if this
+        option is not selected.</para>
         <variablelist>
           <varlistentry>
             <term>Next Check #</term>
             <listitem>
-              <para>Indicate the next Check Number to be issued from the Bank
-              Account. Check Numbers will increment in intervals of one (1)
-              beginning with the Check Number entered here. By default, the
-              next available number will display.</para>
+              <para>Indicate the next Payment Number to be issued from the
+              Bank Account. Payment Numbers will increment in intervals of one
+              (1) beginning with the Payment Number entered here. By default,
+              the next available number will display.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Print Checks</term>
             <listitem>
-              <para>Select if you want to require that Checks issued against
+              <para>Select if you want to require that Payments issued against
               the Bank Account must be printed. Not selecting this option
-              means you want to by-pass printing and post Checks directly for
-              the Bank Account.</para>
+              means you want to by-pass printing and post Payments directly
+              for the Bank Account.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Check Format</term>
             <listitem>
-              <para>Specify the Check Format to be used when Checks drawn
-              against the Bank Account.</para>
+              <para>Specify the Payment Format to be used when Payments from
+              the Bank Account are printed.</para>
             </listitem>
           </varlistentry>
         </variablelist>

@@ -36,7 +36,7 @@
         Bank Accounts which require printing will have Payments to print. If
         the specified Bank Account is configured to use Electronic Funds
         Transfer (EFT), the CREATE EFT FILE button will be enabled on this
-        screen. </para>
+        screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -56,6 +56,14 @@
   </variablelist>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
+    <varlistentry>
+      <term>ALREADY PRINTED/PAID</term>
+      <listitem>
+        <para>Select if you want to mark the Payment as already printed or
+        paid. By marking a Payment in this way, you can manually bypass the
+        print requirement and move straight to posting the Payment.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>CREATE EFT FILE</term>
       <listitem>
