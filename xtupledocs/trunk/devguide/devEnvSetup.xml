@@ -591,8 +591,8 @@ $ su
             ]</para><para os="linux" userlevel="installfromsrc">-qt-zlib
             -qt-libtiff -qt-libpng -qt-libmng -qt-libjpeg -plugin-sql-psql
             -plugin-sql-odbc -plugin-sql-sqlite -I /usr/local/pgsql/include -L
-            /usr/local/pgsql/lib -lkrb5 -webkit -confirm-license
-            -font-config</para></entry>
+            /usr/local/pgsql/lib -lkrb5 -webkit -confirm-license -fontconfig
+            -nomake demos -nomake examples</para></entry>
           </row>
           <row>
             <entrytbl cols="2">
