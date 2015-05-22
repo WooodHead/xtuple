@@ -1063,15 +1063,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>UOM</term>
+      <term>Alias Number</term>
       <listitem>
-        <para>Inventory Unit of Measure.</para>
+        <para>This is the Alias number for the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Number</term>
+      <term>Associated Account</term>
       <listitem>
-        <para>This is the Alias number for the Item.</para>
+        <para>You have the option to link a CRM Account to the Item Alias. If
+        linked, the Alias will only be used on Quotes and Sales Orders related
+        to the specified Customer. If no Customer is specified, the Alias will
+        be displayed for all Customers you sell the Item to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
