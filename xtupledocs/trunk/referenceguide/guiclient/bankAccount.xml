@@ -73,7 +73,7 @@
         option is not selected.</para>
         <variablelist>
           <varlistentry>
-            <term>Next Check #</term>
+            <term>Next Payment #</term>
             <listitem>
               <para>Indicate the next Payment Number to be issued from the
               Bank Account. Payment Numbers will increment in intervals of one
@@ -82,7 +82,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Print Checks</term>
+            <term>Print Checks/EFT Payments</term>
             <listitem>
               <para>Select if you want to require that Payments issued against
               the Bank Account must be printed. Not selecting this option
@@ -146,10 +146,10 @@
   presented with the following options:</para>
   <para><variablelist>
       <varlistentry>
-        <term>Enable EFT Check Printing</term>
+        <term>Enable EFT Payments</term>
         <listitem>
           <para>Select to enable online processing or Electronic Funds
-          Transfer (EFT) Check printing.</para>
+          Transfer (EFT) payment printing.</para>
           <variablelist>
             <varlistentry>
               <term>Routing Number</term>
@@ -164,9 +164,9 @@
               </listitem>
             </varlistentry>
             <varlistentry>
-              <term>Create Check Number for EFT Checks</term>
+              <term>Create Payment Number for EFT File</term>
               <listitem>
-                <para>Select to create Check number for automated
+                <para>Select to create payment number for automated
                 transactions.</para>
               </listitem>
             </varlistentry>

@@ -289,12 +289,12 @@
               gains and credited for Currency losses arising from fluctuating
               Exchange Rates. Currency gains/losses may be recognized at the
               following points: 1) When posting a Cash Receipt applied to an
-              Invoice; 2) when posting a Payables Check applied to a Voucher;
-              3) when applying a Receivable Misc. Credit Memo to an Invoice;
-              and 4) when applying a Payables Misc. Credit Memo to a Voucher.
-              In each case, the gain or loss arises when the Exchange Rate
-              used for the Apply-To document differs from the Exchange Rate
-              used for the application.</para>
+              Invoice; 2) when posting a Payables payment applied to a
+              Voucher; 3) when applying a Receivable Misc. Credit Memo to an
+              Invoice; and 4) when applying a Payables Misc. Credit Memo to a
+              Voucher. In each case, the gain or loss arises when the Exchange
+              Rate used for the Apply-To document differs from the Exchange
+              Rate used for the application.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -349,7 +349,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Enable EFT Check Printing</term>
+      <term>Enable EFT Payments</term>
       <listitem>
         <para>Select to enable Electronic Funds Transfer (EFT) capability
         within the Accounts Payable module, including on Vendor
@@ -358,7 +358,7 @@
           <varlistentry>
             <term>Next Batch #</term>
             <listitem>
-              <para>Start number for the next batch of Checks issued.</para>
+              <para>Start number for the next batch of payments issued.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
