@@ -47,15 +47,10 @@
       <term>Customer P/N</term>
       <listitem>
         <para>Displays the Customer Part Number (i.e., Item Alias) that
-        corresponds to the Item Number entered in the Item Number field. The
-        Customer Part Number will display only if you enter an Item Alias in
-        the Item Number field. To enter an Item Alias, place the cursor in the
-        Item Number field and then use the keyboard shortcut "CTRL + A". After
-        you have entered a valid Item Alias, hit the TAB key. A list of Items
-        that use the specified Item Alias will be displayed. Select the
-        desired Item from the list. The Item Alias will display as the
-        Customer Part Number. Item Aliases are defined on the Item
-        master.</para>
+        corresponds to the Item Number entered in the Item Number field. If
+        the Alias is associated with a particular Customer account, then the
+        Alias will only be displayed for Sales Orders and Quotes entered for
+        that Customer. Item Aliases are defined on the Item master.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
