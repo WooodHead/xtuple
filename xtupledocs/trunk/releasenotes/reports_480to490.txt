@@ -1,0 +1,247 @@
+====================================================================
+REMOVED REPORTS:
+PurchaseOrderTypes
+====================================================================
+NEW REPORTS:
+APAgingSummary
+ARAgingSummary
+QualityTest
+====================================================================
+CHANGED REPORTS:
+AccountNumberMasterList
+DetailedInventoryHistoryByLotSerial
+PickList
+PurchaseOrderTypes
+Quote
+
+
+   ====================================================================
+   REPORT: AccountNumberMasterList
+   QUERY: detail
+-  select accnt_company,
++  SELECT accnt_company,
+          accnt_profit,
+          accnt_number,
+          accnt_sub,
+          accnt_descrip,
+          accnt_comments,
+          CASE WHEN(accnt_type='A') THEN text('Asset')
+               WHEN(accnt_type='L') THEN text('Liability')
+               WHEN(accnt_type='E') THEN text('Expense')
+               WHEN(accnt_type='R') THEN text('Revenue')
+               WHEN(accnt_type='Q') THEN text('Equity')
+               ELSE text(accnt_type)
+          END AS f_type
+-    from accnt
++  FROM accnt
++  LEFT OUTER JOIN subaccnttype ON (accnt_type=subaccnttype_accnt_type AND accnt_subaccnttype_code=subaccnttype_code)
++  WHERE ((true)
++  <? if exists("accnt_type") ?>
++    AND (accnt_type = <? value("accnt_type") ?>)
++  <? endif ?>
++  <? if exists("subaccnt_type") ?>
++    AND (subaccnttype_id = <? value("subaccnt_type") ?>)
++  <? endif ?>
++  )
+   ORDER BY accnt_number, accnt_sub, accnt_profit;
+
+   ====================================================================
+   REPORT: DetailedInventoryHistoryByLotSerial
+   QUERY: detail
+   SELECT (REPEAT(' ',(lshist_level-1)*4) || lshist_level) AS level,
+          lshist_warehous_code AS warehous_code,
+          formatDateTime(lshist_transdate) AS transdate,
+          lshist_transtype AS transtype,
+          lshist_ordernumber AS ordernumber,
+          invhist_invuom,
+          item_number,
+          item_descrip1,
+          item_descrip2,
+          lshist_lotserial as lotserial,
+          lshist_locationname AS location_name,
++         formatDate(lshist_expiration) AS expiration,
+          formatQty(lshist_transqty) AS transqty,
+          formatQty(lshist_qty_before) AS qohbefore,
+          formatQty(lshist_qty_after) AS qohafter,
+          invhist_user AS username
+   FROM lshist(<? value("itemid") ?>,<? value("warehouseid") ?>,<? value("lotSerial") ?>,
+   <? if exists("pattern") ?>
+   TRUE
+   <? else ?>
+   FALSE
+   <? endif ?>,
+   <? value("transType") ?>,<? value("startDate") ?>,<? value("endDate") ?>,<? value("trace") ?>,1), invhist, itemsite, item
+   WHERE ((invhist_id=lshist_id)
+   AND (invhist_itemsite_id=itemsite_id)
+   AND (itemsite_item_id=item_id));
+
+   ====================================================================
+   REPORT: PickList
+   QUERY: Head
+   SELECT formatWoNumber(wo_id) AS wonumber, wo_prodnotes,
+                   item_number, uom_name, item_descrip1, item_descrip2,
+                   warehous_code, formatQty(wo_qtyord) AS qtyord,
+                   formatQty(wo_qtyrcv) AS qtyrcv,
+                   formatDate(wo_startdate) AS startdate,
+                   formatDate(wo_duedate) AS duedate
+            FROM wo, itemsite, item, whsinfo, uom
+            WHERE ((wo_itemsite_id=itemsite_id)
+             AND (itemsite_item_id=item_id)
+             AND (item_inv_uom_id=uom_id)
+             AND (itemsite_warehous_id=warehous_id)
+-            AND (wo_id=%1))
++            AND (wo_id=<? value("wo_id") ?>))
+
+   --------------------------------------------------------------------
+
+   QUERY: Detail
+   SELECT item_number,
+          uom_name,
+          item_descrip1,
+          item_descrip2,
+          formatQty(womatl_qtyreq) AS qtyreq,
+          formatQty(womatl_qtyiss) AS qtyiss,
+          formatQty(noNeg(womatl_qtyreq - womatl_qtyiss)) AS qtybalance,
+          itemsite_location,
+          CASE WHEN (womatl_issuemethod='S') THEN text('Push')
+               WHEN (womatl_issuemethod='L') THEN text('Pull')
+               WHEN (womatl_issuemethod='M') THEN text('Mixed')
+               ELSE text(womatl_issuemethod)
+          END AS f_issuemethod
+     FROM womatl, itemsite, item, uom
+    WHERE ((item_picklist)
+      AND (womatl_itemsite_id=itemsite_id)
+      AND (itemsite_item_id=item_id)
+      AND (womatl_uom_id=uom_id)
+-     AND (womatl_wo_id=%1) );
++     AND (womatl_wo_id=<? value("wo_id") ?>) );
+
+   ====================================================================
+   REPORT: PurchaseOrderTypes
+   QUERY: detail
+   SELECT potype_id,
+-         potype_name,
+-         potype_descrip
+-    FROM potype
+-  ORDER BY potype_name;
++         potype_code,
++         potype_descr
++    FROM xt.potype
++  ORDER BY potype_code;
+
+   ====================================================================
+   REPORT: Quote
+   QUERY: head
+   SELECT quhead_number,quhead_shipto_cntct_email,
+          quhead_shipvia,
+          formatDate(quhead_quotedate) as f_orderdate,
+          formatDate(quhead_packdate) as f_packdate,
+-         salesrep_name,
++         salesrep_name,quhead_shipto_cntct_first_name,
+          formatScrap(quhead_commission) as f_commission,
+          (terms_code||' - '||terms_descrip) as f_terms,
+          cust_number,
+          quhead_billtoname,
+          formatAddr(quhead_billtoaddress1,
+                     quhead_billtoaddress2,
+                     quhead_billtoaddress3,
+                    (quhead_billtocity || ', ' || quhead_billtostate || ' ' || quhead_billtozip),
+                     quhead_billtocountry) AS f_billtoaddress,
+          CASE WHEN(quhead_shipto_id=-1) THEN text('')
+               ELSE (select text(shipto_num) from shipto where shipto_id=quhead_shipto_id)
+          END AS f_shiptonum,
+          quhead_shiptoname,
+          formatAddr(quhead_shiptoaddress1,
+                     quhead_shiptoaddress2,
+                     quhead_shiptoaddress3,
+                    (quhead_shiptocity || ', ' || quhead_shiptostate || ' ' || quhead_shiptozipcode),
+                     quhead_shiptocountry) AS f_shiptoaddress,
+-         quhead_custponumber,
+-         quhead_fob
++         quhead_custponumber,warehous_descrip,
++         cntct_phone,cntct_fax
++
+   FROM quhead
+        LEFT OUTER JOIN cust ON (quhead_cust_id = cust_id)
+        LEFT OUTER JOIN terms ON (quhead_terms_id = terms_id)
+        LEFT OUTER JOIN salesrep ON (quhead_salesrep_id = salesrep_id)
++     LEFT OUTER JOIN whsinfo ON(quhead_warehous_id=warehous_id)
++     LEFT OUTER JOIN cntct ON (warehous_cntct_id=cntct_id)
++
+   WHERE (quhead_id = <? value("quhead_id") ?>)
+
+   --------------------------------------------------------------------
+
+   QUERY: items
+   SELECT quitem_id,
+          quitem_linenumber,
+          quitem_custpn,
+-         item_number,
+-         item_prodweight,
+-         (item_prodweight * quitem_qtyord) AS totalprodweight,
+-         item_descrip1,
++         item.item_number AS item_number,
++         item.item_prodweight AS item_prodweight,
++         (item.item_prodweight * quitem_qtyord) AS totalprodweight,
++         item.item_descrip1 AS item_descrip1,
+           --The following 2 lines are new in 2.3
+          (select uom_name from uom where uom_id = quitem_qty_uom_id) AS uom_ordered,
+          (select uom_name from uom where uom_id = quitem_price_uom_id) AS uom_pricing,
+          warehous_code,
+          formatQty(quitem_qtyord) as f_ordered,
+          formatPrice(quitem_price) as f_price,
+          --The following line was changed in 2.3 from:
+-         --formatExtprice(quitem_qtyord * (quitem_price / iteminvpricerat(item_id))) as f_extprice
++         --formatExtprice(quitem_qtyord * (quitem_price / iteminvpricerat(item.item_id))) as f_extprice
+          --To:
+          formatExtprice((quitem_qtyord * quitem_qty_invuomratio) * (quitem_price / quitem_price_invuomratio)) as f_extprice,
+          quitem_memo,
+-         char_name,
+-         charass_value,
++         kititem.item_number AS kit_item_number,
++         kititem.item_descrip1 AS kit_item_descrip1,
++         bomitem_qtyper,
++         (select uom_name from uom where uom_id = kititem.item_inv_uom_id) AS kit_uom,
+          CASE WHEN url_url IS NULL THEN '' ELSE 'Click Here For More Info' END AS more_info,
+   CASE WHEN url_url IS NULL THEN '' ELSE '_________________________' END AS more_info_underline,
+   '<'||url_url||'>' AS specsheet
+
+
+
+   FROM quitem
+-       JOIN item ON (item_id=quitem_item_id)
++       JOIN item ON (item.item_id=quitem_item_id)
+        LEFT OUTER JOIN (itemsite JOIN warehous ON (itemsite_warehous_id=warehous_id)) ON (quitem_itemsite_id=itemsite_id)
+-       LEFT OUTER JOIN charass ON ((charass_target_id = quitem_id)
+-                              AND (charass_target_type = 'QI'))
+-       LEFT OUTER JOIN char ON (charass_char_id = char_id)
++       LEFT OUTER JOIN bomitem ON (bomitem_parent_item_id=quitem_item_id)
++       LEFT OUTER JOIN item kititem ON (kititem.item_id=bomitem_item_id)
+        LEFT OUTER JOIN (docass JOIN urlinfo ON ((url_id=docass_target_id) AND (url_title='Spec Sheet')))
+-  ON ((docass_source_id=item_id) AND (docass_source_type='I') AND (docass_target_type='URL'))
++  ON ((docass_source_id=item.item_id) AND (docass_source_type='I') AND (docass_target_type='URL'))
+      WHERE (quitem_quhead_id=<? value("quhead_id") ?>)
+   ORDER BY quitem_linenumber;
+
++
+   --------------------------------------------------------------------
+
++  QUERY: salesman
++  select (cntct_name)AS salesman_first,(cntct_last_name)salesman_last,(cntct_phone)AS sales_phone,
++  (cntct_fax)AS sales_fax,(cntct_email)AS sales_email, salesrep_emp_id from salesrep
++  JOIN emp ON(salesrep_emp_id=emp_id)
++  JOIN cntct ON(emp_cntct_id=cntct_id)
++  JOIN quhead ON(salesrep_id=quhead_salesrep_id)
++  WHERE (quhead_id = <? value("quhead_id") ?>)
++
++  --------------------------------------------------------------------
++
++  QUERY: insidesalesmen
++  select (cntct_first_name)AS salesinside,(cntct_phone)AS salesinside_phone,
++  (cntct_fax)AS salesinside_fax,(cntct_email)AS salesinside_email from charass
++  JOIN emp ON(charass_value=emp_username)
++  JOIN cntct ON(emp_cntct_id=cntct_id)
++  JOIN quhead ON( charass_target_id=quhead_id)
++  WHERE (quhead_id = <? value("quhead_id") ?>)
++  --------------------------------------------------------------------
++
