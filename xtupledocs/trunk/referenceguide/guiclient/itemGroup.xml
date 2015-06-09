@@ -81,6 +81,52 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To enter <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new for item groups</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>item groups having</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>item groups</primary>
+      <secondary>characteristics for</secondary>
+    </indexterm>Characteristics associated with an Item Group, select the NEW
+  button. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/characteristicAssignmentItemGroup.png" />
+        </imageobject>
+        <caption>Create New Item Group Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Characteristic</term>
+      <listitem>
+        <para>Select a Characteristic from the list of Characteristics
+        designated as being available for use as Item Group
+        Characteristics.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Value</term>
+      <listitem>
+        <para>Enter a value to associate with the Item Group
+        Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default</term>
+      <listitem>
+        <para>Select if the Value entered is the default Value for the
+        specified Characteristic. The default Value will be presented
+        initially wherever Item Characteristics are used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="../widgets/documents.xml" xpointer="documentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
