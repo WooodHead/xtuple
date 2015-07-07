@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title><indexterm significance="normal">
+      <primary>sale types</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Sale Type</title>
+  <para>Sale Types are used to distinguish one kind of sale from another, for
+  reporting purposes. They also impact sales accounting, as they appear as one
+  of the Account Assignment options on the Sales Assignments screen. To create
+  a new Sale Type, select the NEW button. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/saleType.png" />
+        </imageobject>
+        <caption>Create New Sale Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When creating a new Sale Type, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Code</term>
+      <listitem>
+        <para>Enter a unique code to identify the Sale Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Description</term>
+      <listitem>
+        <para>Enter a description to further identify the Sale Type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Active</term>
+      <listitem>
+        <para>Select to indicate the Sale Type is active. If not selected, the
+        Sale Type will be considered inactive.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default</term>
+      <listitem>
+        <para>Select if you want the Sale Type to be the default Sale Type
+        when entering Sales Orders.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
