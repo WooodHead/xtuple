@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="viewCheckRun">
+  <title><indexterm significance="normal">
+      <primary>payments</primary>
+      <secondary>viewing detailed list of</secondary>
+    </indexterm>View Payment Run</title>
+  <para>To view a detailed list of Payments prepared to be run, select the
+  "View Payment Run" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/viewCheckRun.png" />
+        </imageobject>
+        <caption>View Payment Run</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing the detailed list of Payments prepared to be run, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Vendor</term>
+      <listitem>
+        <para>Select all or specific Vendors whose Payments you would like to
+        view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bank Account</term>
+      <listitem>
+        <para>Specify the Bank Account whose Payment Run you want to
+        view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Payments</term>
+      <listitem>
+        <para>Display lists details for Payments included in the Payment Run.
+        This display is a nested list, with a plus ("+") sign located to the
+        far left of the display next to each Payment. By clicking your mouse
+        on a plus sign, you reveal lower levels of information related to the
+        Payment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PREPARE</term>
+      <listitem>
+        <para>Select to prepare a Payment Run. For more information on
+        preparing Payment Runs, see <xref linkend="prepareCheckRun" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT/WRITTEN/PAID</term>
+      <listitem>
+        <para>Select from one of the following options. If a selected Payment
+        has already been written and/or paid, you will have the ability to
+        mark the Payment as such on the Print Payment screen. The options
+        presented here will be limited if the specified Bank Account does not
+        require Payments to be printed. Also, if the Bank Account is
+        configured to use Electronic Funds Transfer (EFT), you will be
+        presented with the option to create an EFT file on the Print Payment
+        screen.</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>payments</primary>
+                <secondary>printing individual</secondary>
+              </indexterm>Selected Payment</term>
+            <listitem>
+              <para>Highlight a Payment in the list and then select this
+              button to either print the Payment or mark it as having been
+              already printed/paid. </para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>payment runs</primary>
+                <secondary>printing of</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>payments</primary>
+                <secondary>printing multiple</secondary>
+              </indexterm>Payment Run</term>
+            <listitem>
+              <para>Select to print the Payment Run, using the specified Bank
+              Account. For more information on printing Payment Runs, see
+              <xref linkend="printChecks" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Edit List</term>
+            <listitem>
+              <para>Prints a copy of the pending Payment Run for
+              review.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <tip>
+          <para>If Payments being printed contain reference lines which spill
+          over and exceed one standard page, then consider using the report
+          definition CheckMultiPage.xml. This Payment Form is designed to
+          support multiple pages for one Payment number.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>payments</primary>
+          <secondary>posting of</secondary>
+        </indexterm>POST</term>
+      <listitem>
+        <para>Highlight a Payment in the list of Payments and then select this
+        button to post the Payment. If the specified Bank Account requires
+        printing, the Payment must be printed or marked as already
+        printed/paid before it can be posted. If printing is not required, the
+        Payment may be posted immediately. See the "Printed" column in the
+        display to determine a Payment's printed status. The following
+        additional option is provided:<variablelist>
+            <varlistentry>
+              <term>POST ALL</term>
+              <listitem>
+                <para>Select to post all Payments available for
+                posting.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>payments</primary>
+          <secondary>voiding of</secondary>
+        </indexterm>VOID</term>
+      <listitem>
+        <para>Highlight a Payment in the list of Payments and then select this
+        button to void the Payment. Voided Payments may not be printed or
+        posted. When a Payment is voided, the payable amount will be reopened
+        on the Select Payments screen. In other words, if a Payment for
+        $100.00 is voided, that amount will once again be made available for
+        payment on the Select Payments screen. The reopened amount will again
+        be associated with the referring payable Document (i.e., Voucher or
+        Debit Memo).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Highlight a miscellaneous Payment and then select this button to
+        edit the Payment. Only unprinted miscellaneous Payments may be
+        edited.</para>
+        <note>
+          <para>Only unprinted miscellaneous Payments may be edited. Regular
+          Payments may not be edited.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a voided Payment in the list of Payments and then
+        select this button to delete the Payment. Only voided Payments may be
+        deleted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>payments</primary>
+          <secondary>replacing in payment run</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>payment runs</primary>
+          <secondary>replacing payments in</secondary>
+        </indexterm>REPLACE</term>
+      <listitem>
+        <para>Highlight a voided Payment in the list of Payments and then
+        select this button to replace the Payment. Payments must be voided
+        before they can be replaced. When a voided Payment is replaced, the
+        payable amount displayed on the Select Payments screen will be
+        removed. In other words, if a voided Payment for $500.00 is replaced,
+        that amount will no longer be available for payment on the Select
+        Payments screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>REPLACE ALL</term>
+      <listitem>
+        <para>Select this button to replace all Payments shown in the list of
+        Payments. Payments must be voided before they can be replaced.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

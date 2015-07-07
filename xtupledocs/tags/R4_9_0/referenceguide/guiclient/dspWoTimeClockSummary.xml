@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Time Clock Summary</title>
+  <note>
+    <para>This function is only available if Time &amp; Attendance is set to
+    be recorded by Employee. This setting can be found under
+    <guimenuitem>Manufacturing &gt; Setup &gt; Configure &gt;
+    Manufacture</guimenuitem>.</para>
+  </note>
+  <para>To view a summary of Time Clock information related to Employees,
+  select the "Time Clock Summary" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspWoTimeClockSummary.png" />
+        </imageobject>
+        <caption>Production Time Clock by Work Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>Click the MORE button to display more filtering options.</para>
+  </tip>
+  <para>When viewing Time Clock information related to Employees, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Time Clock entries posted on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Time Clock entries posted on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Time Entries</term>
+      <listitem>
+        <para>Display lists time entries according to the selected dates for
+        Employees who have clocked-in and clocked-out using the Time
+        Clock.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>POST EMPLOYEE</term>
+      <listitem>
+        <para>All the time for the selected Employee will be posted. Time not
+        associated with a Work Order will be posted to the labor overhead
+        account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST ALL</term>
+      <listitem>
+        <para>All unposted time displayed will be posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>You can edit unposted time for an Employee. The following screen
+        will appear when you click the EDIT button when a specific time entry
+        is selected:</para>
+        <para><mediaobject>
+            <imageobject>
+              <imagedata fileref="images/dspWoTimeClockDetail.png" />
+            </imageobject>
+          </mediaobject></para>
+        <tip>
+          <para>To reverse time, highlight the entry you wish to reverse and
+          click the REVERSE button.</para>
+        </tip>
+        <para>To edit a time entry, select the EDIT button. You will be
+        presented with a screen where you can change the start and end times
+        for the entry:</para>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/dspWoTimeClockEdit.png" />
+          </imageobject>
+        </mediaobject>
+        <variablelist>
+          <varlistentry>
+            <term>Employee</term>
+            <listitem>
+              <para>Displays the selected Employee.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Type</term>
+            <listitem>
+              <para>Displays the type of labor. Time not associated with a
+              Work Order is considered overhead.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Enables you to change the start date and/or time of the
+              time entry for the selected Employee.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Enables you to change the end date and/or time of the time
+              entry for the selected Employee.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Hours</term>
+            <listitem>
+              <para>Displays the number of hours that have been calculated
+              previously.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Overtime</term>
+            <listitem>
+              <para>Displays the number of hours that have been calculated
+              after the specified time in the Shift.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

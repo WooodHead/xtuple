@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="itemAvailabilityWorkbench">
+  <title><indexterm>
+      <primary>availability</primary>
+      <secondary>by item</secondary>
+    </indexterm> <indexterm>
+      <primary>availability</primary>
+      <secondary>workbench for</secondary>
+    </indexterm> <indexterm>
+      <primary>workbenches</primary>
+      <secondary>for item availability</secondary>
+    </indexterm> <indexterm>
+      <primary>items</primary>
+      <secondary>availability workbench for</secondary>
+    </indexterm>Item Availability Workbench</title>
+  <para id="Para678018">The Item Availability Workbench is designed to
+  consolidate on one screen the functions performed by personnel who manage
+  and track Inventory. To access the Item Availability Workbench, select the
+  "Item Availability Workbench" option. The following screen will
+  appear:</para>
+  <para id="Para678022"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench.png" />
+        </imageobject>
+        <caption>Item Availability on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The Item Availability Workbench displays the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678058">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Inventory Availability
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678059">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678051">To view Inventory Availability for the specified Item,
+  select the "Availability" option on the "Availability" tab.</para>
+  <para id="Para678057">When displaying Inventory Availability by Item, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678060">Show Availability as of</term>
+      <listitem>
+        <para>Show Availability using one of the following criteria:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Site Lead Time</term>
+            <listitem>
+              <para>Select to show projected Availability based on the Lead
+              Time specified in the Item Site master.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Look Ahead Days</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 1000. Future Availability for the
+              specified Item will be displayed based on the value entered
+              here.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Cutoff Date</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability as of
+              date entered up to a maximum of 1000 days.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Dates</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability for the
+              date range entered.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Display lists Inventory Availability by Item, using the specified
+  parameters. If Planned Availability displays in the color orange, this means
+  the actual or projected Quantity on Hand is at or below the Reorder Level.
+  If the color is red, the current or projected Quantity on Hand is below
+  0.</para>
+  <para>To display Running Availability, select the "Running Availability"
+  option on the "Availability" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/itemAvailabilityWorkbench_running.png" />
+    </imageobject>
+    <caption><para>Item Running Availability</para></caption>
+  </mediaobject>
+  <para id="Para678027">When displaying Running Availability, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678032">Site</term>
+      <listitem>
+        <para>Specify Site whose Running Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term id="Para678033">Show Planned Orders</term>
+      <listitem>
+        <para>Select to show Planned Orders in the display. Planned Orders
+        will display in blue type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678035">QOH</term>
+      <listitem>
+        <para>Displays the Quantity on Hand for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678036">Order Multiple</term>
+      <listitem>
+        <para>Displays the Order Multiple, which specifies the increments the
+        Item must be ordered in. The Order Multiple is maintained in the Item
+        Site master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678037">Reorder Level</term>
+      <listitem>
+        <para>Displays the Reorder Level, which specifies the minimum Quantity
+        on Hand allowed before an Item must be reordered. The Reorder Level is
+        maintained in the Item Site master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678038">Order Up To Qty</term>
+      <listitem>
+        <para>Indicates the quantity level that MRP Planned Replenishment
+        Orders will order up to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678039">Running Availability</term>
+      <listitem>
+        <para>Display lists Running Availability for the selected Item, using
+        the specified parameters. Red lettering indicates the due date has
+        passed or Running Availability has dropped below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678164" role="standard">To view Lot/Serial and/or Location
+  information for the specified Item, select the "Inventory Detail" tab. The
+  following screen will appear:</para>
+  <para id="Para678168" role="standard"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_lotserial.png" />
+        </imageobject>
+        <caption>Location/Lot/Serial Detail on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para678170" role="standard">When displaying detailed Inventory
+  information, you are presented with the following options:</para>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term id="Para678173">All Sites</term>
+        <listitem>
+          <para>Select to display detailed Location/Lot/Serial Number
+          information for all Sites.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para678174">Selected</term>
+        <listitem>
+          <para>Specify Site whose detailed Location/Lot/Serial Number
+          information you want to display.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para678175">Locations</term>
+        <listitem>
+          <para>Display lists Location/Lot/Serial Number detail, using the
+          specified parameters. Items will display in red type if the quantity
+          in question has expired.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
+  <para>To view Order Details for the Item, select the "Orders" tab. If you
+  want to view Purchase Order information for the Item, select the "Purchase
+  Orders" option. The following screen will appear:</para>
+  <para id="Para678055"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_purchaseOrders.png" />
+        </imageobject>
+        <caption>Item Purchase Order Details on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Purchase Orders for the Item, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term id="Para678068">All Sites</term>
+      <listitem>
+        <para>Select to display Inventory Availability for all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term id="Para678069">Selected</term>
+      <listitem>
+        <para>Specify Site whose Inventory Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Items</term>
+      <listitem>
+        <para>Select if you want to view all Purchase Orders for the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Items</term>
+      <listitem>
+        <para>Select if you only want to view Purchase Orders with open
+        Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Closed Items</term>
+      <listitem>
+        <para>Select if you only want to view Purchase Orders with closed
+        Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Purchasing Agents</term>
+      <listitem>
+        <para>Select if you do not want to filter on Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Select if you only want to see Purchase Orders for a single
+        Purchasing Agent. You will then need to select an agent from the
+        drop-down menu.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Purchase Order Items</term>
+      <listitem>
+        <para>Display lists Purchase Orders for the Item according to the
+        selected criteria.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Sales Order information for the Item, select the "Sales
+  Orders" option on the "Orders" tab. The following screen will appear:</para>
+  <para id="Para678055"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_salesOrders.png" />
+        </imageobject>
+        <caption>Sales Order Details on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Sales Orders for the Item, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Starting Order Date</term>
+      <listitem>
+        <para>Enter the earliest Order date you want to include in the
+        report.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ending Order Date</term>
+      <listitem>
+        <para>Enter the latest Order date you want to include in the
+        report.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales Orders</term>
+      <listitem>
+        <para>Display lists Sales Orders for the Item according to the
+        selected date range.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Quote information for the Item, select the "Quotes" option on
+  the "Orders" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/itemAvailabilityWorkbench_quotes.png" />
+    </imageobject>
+    <caption>Quote Details on Workbench</caption>
+  </mediaobject>
+  <para>When displaying Quotes for the Item, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Starting Order Date</term>
+      <listitem>
+        <para>Enter the earliest Quote date you want to include in the
+        report.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ending Order Date</term>
+      <listitem>
+        <para>Enter the latest Quote date you want to include in the
+        report.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Converted</term>
+      <listitem>
+        <para>Select to include Quotes that have been converted to Sales
+        Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Quotes</term>
+      <listitem>
+        <para>Display lists Quotes for the Item according to the specified
+        selections.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678120">To view Item pricing by Customer, select the "Customer
+  Prices" option on the "Orders" tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/itemAvailabilityWorkbench_custPrices.png" />
+    </imageobject>
+    <caption>Customer Price Details on Workbench</caption>
+  </mediaobject>
+  <para>When displaying Item Prices by Customer, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Customer #</term>
+      <listitem>
+        <para>Enter the Customer Number of the Customer whose Item Prices you
+        want to view. The lookup feature located to the right of the field
+        leads to a searchable Customers list. You may also access this list
+        using the keyboard shortcut "CTRL + L". Once a Customer Number is
+        entered, the Customer name and billing address will display. Click on
+        the magnifying glass or "$" symbol and select "Open" to view Customer
+        information for the specified Customer. If a Customer's credit is "In
+        Good Standing," the button will feature a magnifying glass icon. If
+        the icon turns to an orange dollar sign ("$"), the Customer's credit
+        Status is "On Credit Warning." A red dollar sign ("$") indicates the
+        Customer's credit Status is "On Credit Hold."</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Expired Prices</term>
+      <listitem>
+        <para>Select to display expired Prices.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Future Prices</term>
+      <listitem>
+        <para>Select to display future Prices.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Costs and Margins</term>
+      <listitem>
+        <para>Select to show Costs and margins using one of the following
+        costing parameters:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Standard Costs</term>
+            <listitem>
+              <para>Select to show Costs and margins using Standard
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Costs</term>
+            <listitem>
+              <para>Select to show Costs and margins using Actual
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Prices</term>
+      <listitem>
+        <para>Display lists Item Prices for the specified Customer. Cost and
+        margin columns will also appear if the "Show Costs and Margins"
+        parameter is selected. If the margin is negative, the value will
+        display in red type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view History details for the specified Item, select the "History"
+  tab. The following screen will appear:</para>
+  <para id="Para678124"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_history.png" />
+        </imageobject>
+        <caption>Item Inventory History on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Inventory history for the Item, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678148">Inventory History</term>
+      <listitem>
+        <para>Display lists Inventory history by Item, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view receiving history for the Item, select the "Receiving History"
+  option on the "History" tab. The following screen will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/itemAvailabilityWorkbench_receiving.png" />
+    </imageobject>
+    <caption>Item Receiving History on Workbench</caption>
+  </mediaobject>
+  <para id="Para678126">When displaying receiving history by Item, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term id="Para678068">All Sites</term>
+      <listitem>
+        <para>Select to display Inventory Availability for all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term id="Para678069">Selected</term>
+      <listitem>
+        <para>Specify Site whose Inventory Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Select to view all Purchase Orders for the Item.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Unvouchered</term>
+            <listitem>
+              <para>Select to include unvouchered Receipts in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Costs</term>
+            <listitem>
+              <para>Select to include Purchasing and Receiving Costs in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Purchasing Agents</term>
+      <listitem>
+        <para>Select to include all Purchasing Agents in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Purchasing Agent</term>
+      <listitem>
+        <para>Select if you only want to see Purchase Orders for a single
+        Purchasing Agent.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Purchasing Agent</term>
+      <listitem>
+        <para>Specify the Purchasing Agent. This option will not be available
+        if the "All Purchasing Agents" option is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Enter the earliest date for which you want to see receiving
+        history.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Enter the latest date for which you want to see receiving
+        history.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678129">Purchase Receipts and Returns</term>
+      <listitem>
+        <para>Display lists receiving history for the Item according to the
+        selected date range.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Sales History details for the specified Item, select the
+  "Sales History" option on the "History" tab. The following screen will
+  appear:</para>
+  <para id="Para678124"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_sales.png" />
+        </imageobject>
+        <caption>Item Sales History on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>To view Item Master details for the Item, select the "Item Master"
+  tab. The following screen will appear:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/itemAvailabilityWorkbench_master.png" />
+    </imageobject>
+    <caption><para>Item Master Detail on Workbench</para></caption>
+  </mediaobject>
+  <para>The information displayed on the Item Master tab is for viewing
+  purposes only. These viewable fields are described in detail in the Products
+  Chapter under <ulink url="item.xml">Item.</ulink></para>
+  <tip>
+    <para id="Para678098">Costed Indented BOM information will be displayed
+    only if the specified Item is a manufactured Item.</para>
+  </tip>
+  <para id="Para678091">To view Bill of Materials information for the
+  specified Item, select the "Bill of Materials" tab.</para>
+  <para id="Para678095"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_costed.png" />
+        </imageobject>
+        <caption>Costed Indented BOM on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para678099">When displaying Costs for an indented Bill of
+  Materials, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678101">Revision</term>
+      <listitem>
+        <para>Enter the Revision number for the Costed Indented BOM you want
+        to display. The status (active or inactive) will be displayed beneath
+        the revision number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678102">Use Standard Costs</term>
+      <listitem>
+        <para>Select to display Standard Costs for component Items in the
+        specified Item's Bill of Materials. Both the Unit Cost and Extended
+        Cost for each component Item, expressed in terms of Standard Cost,
+        will be displayed—assuming Standard Costs have been defined for each
+        component Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678104">Use Actual Costs</term>
+      <listitem>
+        <para>Select to display Actual Costs for component Items in the
+        specified Item's Bill of Materials. Both the Unit Cost and Extended
+        Cost for each component Item, expressed in terms of Actual Cost, will
+        be displayed—assuming Actual Costs have been defined for each
+        component Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678111">Costed Bill of Materials</term>
+      <listitem>
+        <para>Display lists Costed Indented Bill of Materials components,
+        using the specified parameters. The difference between the indented
+        view and the single level view is that the indented view displays all
+        subcomponents if there is a manufactured component listed on the Bill
+        of Materials. Actual Cost and Standard Cost will be calculated
+        automatically at the bottom of the display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>In the Costed Indented Bill of Materials, the totals displayed on
+    the screen are derived as follows:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Total Cost</term>
+        <listitem>
+          <para>This total is pulled from the Extended Cost column. The total
+          may vary, depending on whether "Use Standard Costs" or "Use Actual
+          Costs" is selected.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Actual Cost</term>
+        <listitem>
+          <para>This value represents the Actual Cost for the parent Item
+          whose Costed Indented BOM is being displayed.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Standard Cost</term>
+        <listitem>
+          <para>This value represents the Standard Cost for the parent Item
+          whose Costed Indented BOM is being displayed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </note>
+  <para id="Para678181">To view where the specified Item is used for
+  manufacturing, select the "Where Used" option on the "Bill of Materials"
+  tab. The following screen will appear:</para>
+  <para id="Para678185"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/itemAvailabilityWorkbench_whereused.png" />
+        </imageobject>
+        <caption>Single Level Where Used on Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para678187">When displaying a single level Bill of Materials, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678190">Effective</term>
+      <listitem>
+        <para>Enter the effective date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678196">Bill of Materials</term>
+      <listitem>
+        <para>Display lists single level Bill of Materials components, using
+        the effective date specified.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

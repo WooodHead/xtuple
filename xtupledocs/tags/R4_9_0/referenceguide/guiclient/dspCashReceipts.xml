@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspCashReceipts">
+  <title><indexterm significance="normal">
+      <primary>cash receipts</primary>
+      <secondary>history of</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>cash received from</secondary>
+    </indexterm>Cash Receipts</title>
+  <para>The "Cash Receipts" screen provides historical information about Cash
+  Receipts and their applied-to documents. Here are some tips for using this
+  screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Narrow your searches by funds type, customer type, or distribution
+      date range to simplify the process of locating records.</para>
+    </listitem>
+    <listitem>
+      <para>Be sure to select the QUERY button. If you are not seeing any
+      results, this is probably the reason why.</para>
+    </listitem>
+    <listitem>
+      <para>The display by option allows you to view either Cash Receipts
+      themselves or the documents they were applied to.</para>
+    </listitem>
+    <listitem>
+      <para>Use the right-click menu to void posted Cash Receipts. When a Cash
+      Receipt is voided, any applications will also be reversed. Keep in mind
+      that any Credit Memos or Customer Deposits created from the unapplied
+      balance when the original Cash Receipt was posted will not be reversed
+      when a Cash Receipt is voided. Instead, a misc. Receivables Debit Memo
+      will be created in the amount of the original unapplied balance.</para>
+    </listitem>
+    <listitem>
+      <para>To review Cash Receipt information prior to version 3.3.0, use the
+      Receivables Applications report. The "Cash Receipts" screen does not
+      support Cash Receipt history prior to version 3.3.0.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Cash Receipts" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspCashReceipts.png" />
+        </imageobject>
+        <caption>Cash Receipts</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Cash Receipts" screen shows Cash Receipts
+  for all Customers. You can build your own search criteria using the
+  following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
