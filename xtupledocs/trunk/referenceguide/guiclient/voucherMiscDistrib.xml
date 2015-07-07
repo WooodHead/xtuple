@@ -32,16 +32,14 @@
             <listitem>
               <para>Select a General Ledger Account to use for the
               distribution.</para>
-              <variablelist>
-                <varlistentry role="xtprjaccnt">
-                  <term>Project</term>
-                  <listitem>
-                    <para>Select a Project to associate with the transaction.
-                    The Project Number will be added as the final segment of
-                    the G/L Account Number.</para>
-                  </listitem>
-                </varlistentry>
-              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="xtprjaccnt">
+            <term>Project</term>
+            <listitem>
+              <para>Select a Project to associate with the transaction. The
+              Project Number will be added as the final segment of the G/L
+              Account Number.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -73,11 +71,10 @@
       <term>Discountable</term>
       <listitem>
         <para>Select if the Voucher Item is entitled to a Terms discount. This
-        option may be used on a line-by-line basis&mdash;all within one
-        Voucher. For example, purchased Items may be discountable; however,
-        freight charges may not be. When selecting a Voucher for payment
-        within the discount period, only discountable Items will be
-        discounted.</para>
+        option may be used on a line-by-line basis—all within one Voucher. For
+        example, purchased Items may be discountable; however, freight charges
+        may not be. When selecting a Voucher for payment within the discount
+        period, only discountable Items will be discounted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
