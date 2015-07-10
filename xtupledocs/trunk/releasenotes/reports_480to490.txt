@@ -13,6 +13,7 @@ DetailedInventoryHistoryByLotSerial
 PickList
 PurchaseOrderTypes
 Quote
+ShippingLabelsBySo
 
 
    ====================================================================
@@ -245,3 +246,37 @@ Quote
 +  WHERE (quhead_id = <? value("quhead_id") ?>)
 +  --------------------------------------------------------------------
 +
+
+   ====================================================================
+   REPORT: ShippingLabelsBySo
+   QUERY: detail
+   SELECT sequence_value,
+          cust_number,
+          cohead_number,
+
+   formataddr(cohead_shiptoaddress1, cohead_shiptoaddress2, cohead_shiptoaddress3, (cohead_shiptocity || '  ' ||   cohead_shiptostate || '  ' || cohead_shiptozipcode), cohead_shiptocountry) AS shipping_address,
+
+
+          cohead_custponumber,
+          cohead_shiptoname,
+          cohead_shiptoaddress1,
+          cohead_shiptoaddress2,
+          cohead_shiptoaddress3,
+          (COALESCE(cohead_shiptocity,'') || ' ' || COALESCE(cohead_shiptostate,'') || ' ' || COALESCE(cohead_shiptozipcode,'')) AS citystatezip
+-  FROM cohead, custinfo, sequence
++  FROM cohead
++  <? if exists("soitem_id") ?>
++    JOIN coitem ON cohead_id = coitem_cohead_id
++  <? endif ?>,
++    custinfo, sequence
+   WHERE ( (cohead_cust_id=cust_id)
++  <? if exists("labelFrom") ?>
+    AND (sequence_value BETWEEN <? value("labelFrom") ?> AND <? value("labelTo") ?>)
+-   AND (cohead_id=<? value("sohead_id") ?>) )
++  <? endif ?>
++   AND (cohead_id=<? value("sohead_id") ?>)
++  <? if exists("soitem_id") ?>
++   AND (coitem_id = <? value("soitem_id") ?>)
++  <? endif ?>
++  )
+   LIMIT <? value("labelTo") ?>;
