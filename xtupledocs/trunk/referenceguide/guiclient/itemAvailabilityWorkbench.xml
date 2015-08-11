@@ -88,12 +88,17 @@
         </variablelist>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Availability</term>
+      <listitem>
+        <para>Display lists Inventory Availability by Item, using the
+        specified parameters. If Planned Availability displays in the color
+        orange, this means the actual or projected Quantity on Hand is at or
+        below the Reorder Level. If the color is red, the current or projected
+        Quantity on Hand is below 0.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-  <para>Display lists Inventory Availability by Item, using the specified
-  parameters. If Planned Availability displays in the color orange, this means
-  the actual or projected Quantity on Hand is at or below the Reorder Level.
-  If the color is red, the current or projected Quantity on Hand is below
-  0.</para>
   <para>To display Running Availability, select the "Running Availability"
   option on the "Availability" tab. The following screen will appear:</para>
   <mediaobject>
@@ -153,7 +158,9 @@
       <listitem>
         <para>Display lists Running Availability for the selected Item, using
         the specified parameters. Red lettering indicates the due date has
-        passed or Running Availability has dropped below 0.</para>
+        passed or Running Availability has dropped below 0. The color orange
+        means the actual or projected Quantity on Hand is at or below the
+        Reorder Level.</para>
       </listitem>
     </varlistentry>
   </variablelist>
