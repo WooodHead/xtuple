@@ -612,7 +612,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Weight</term>
+      <term>Freight Weight</term>
       <listitem>
         <para>Displays the combined weight of all Sales Order Line Items.
         Freight weight represents the sum of an Item's product weight and
@@ -727,9 +727,71 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="../widgets/allocateARCreditMemo.xml"
-              xpointer="allocateARCMs"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para role="standard">Distribution and Enterprise Edition users will have
+  the option to enter Sales Order Line Items quickly on this screen:</para>
+  <para role="standard"><variablelist>
+      <varlistentry>
+        <term>Item Number</term>
+        <listitem>
+          <para>Enter the Item Number of the Item you want to sell. The Item
+          list will contain sold Items available for sale to the specified
+          Customer. The list of available Items may vary from Customer to
+          Customer, depending on how Pricing Schedules are implemented at your
+          site. Once an Item Number is entered, the Inventory Unit of Measure
+          and Item description will automatically appear.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Site</term>
+        <listitem>
+          <para>Specify the Site the Sales Order Item is sold from. Items may
+          be supplied to Sales Orders from multiple Item Sites. After an Item
+          Number is entered above, the system checks for available Item Sites
+          for the Item. Any Item Sites having the "Sold from" flag set on them
+          will be selectable from this Site list. By default, the Item Site
+          having the highest Ranking will be selected as the first available
+          Site. If more than one Item Site share a Ranking of "1," the Sites
+          will be sorted in alphabetical order. Item Site Rankings are set on
+          the Item Site master.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Qty. Ordered</term>
+        <listitem>
+          <para>Enter the quantity of the specified Item being ordered.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Scheduled Date</term>
+        <listitem>
+          <para>The scheduled date is the date when the Line Item quantity
+          should be shipped. The user who enters the Line Item is responsible
+          for determining the scheduled date. After entering the scheduled
+          date, hit the TAB key on your keyboard to display values in the
+          remaining display only fields.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Net Unit Price</term>
+        <listitem>
+          <para>Displays the Unit Price for the Sales Order Item. By default,
+          the system will choose the lower of the following two Prices: A) The
+          most-specific Pricing Schedule Assignment or B) any Sale in effect
+          at the time of Order entry. The specificity of Pricing Schedule
+          Assignments is determined in the following descending order: By
+          Customer Ship-To Address (most specific), by Customer, by Customer
+          Type, by Customer Type pattern, by all Customers. The lookup feature
+          located to the right of the field leads to a Price List
+          screen.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>ADD ITEM</term>
+        <listitem>
+          <para>Select to add another Line Item to the Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist></para>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
@@ -744,6 +806,15 @@
         </note>
       </listitem>
     </varlistentry>
+    <varlistentry role="standard">
+      <term>FAVORITES</term>
+      <listitem>
+        <para>Select this button to bring up an interactive screen showing a
+        list of Items the Customer has purchased in the past. On the Favorites
+        screen you'll have the option to add one or multiple Items from the
+        Customer's traditional favorite Items.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>CLOSE</term>
       <listitem id="salesOrderCLOSE1">
@@ -752,6 +823,27 @@
         already closed, this button will revert to an OPEN button, which may
         be used to open the closed Line Item. Closing the Sales Order Line
         Item will remove all existing reservations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>MOVE UP</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>MOVE DOWN</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>SMOOTH MARGIN</term>
+      <listitem>
+        <para>Highlight one or multiple Sales Order Line Items and then select
+        this button to reach the margin smoothing screen. On the Smooth Margin
+        screen you will be given the option to smooth the margin for the
+        selected Items by a percentage you determine.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -802,7 +894,27 @@
         </note>
       </listitem>
     </varlistentry>
+    <varlistentry role="standard">
+      <term>ISSUE ORDER AVAILABLE</term>
+      <listitem>
+        <para>Select this button to issue all material available to fill the
+        current Sales Order. Only stock that is available to be issued to
+        Shipping will be issued. If an Item is on backorder, that stock will
+        have to be issued at a future point.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SHIP ORDER</term>
+      <listitem>
+        <para>Highlight a Sales Order Line Item and then select this button to
+        ship the Order. This button will not be visible if the system is
+        configured to hide Shipping options at Sales Order entry.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
+  <xi:include href="../widgets/allocateARCreditMemo.xml"
+              xpointer="allocateARCMs"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To define or maintain relationships for Sales Orders, select the
   "Relationships" tab. The following will be displayed:</para>
   <para><screenshot>

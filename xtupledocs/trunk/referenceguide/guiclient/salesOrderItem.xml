@@ -56,15 +56,11 @@
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item you want to sell. The Item
-        list will contain sold Items available for purchase by the specified
+        list will contain sold Items available for sale to the specified
         Customer. The list of available Items may vary from Customer to
         Customer, depending on how Pricing Schedules are implemented at your
         site. Once an Item Number is entered, the Inventory Unit of Measure
         and Item description will automatically appear.</para>
-        <note>
-          <para>When an Item Number is typed and there are no results when
-          moving focus from the field, the Search window will appear.</para>
-        </note>
         <note>
           <para><indexterm significance="normal">
               <primary>job items</primary>
@@ -123,55 +119,62 @@
         Site. If more than one Item Site share a Ranking of "1," the Sites
         will be sorted in alphabetical order. Item Site Rankings are set on
         the Item Site master.</para>
+        <tip>
+          <para>If a preferred Selling Site is specified for the Customer,
+          then that Site will be selected here by default. If the preferred
+          Selling Site is not selected—and you think it should be—verify that
+          the Item Site master for the Line Item in question is marked as a
+          "Sold from" Site.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip role="manufacturing">
-    <para>If a preferred Selling Site is specified for the Customer, then that
-    Site will be selected here by default. If the preferred Selling Site is
-    not selected—and you think it should be—verify that the Item Site master
-    for the Line Item in question is marked as a "Sold from" Site.</para>
-  </tip>
-  <para role="standard"><variablelist>
-      <varlistentry>
-        <term>ADV. ITEM SEARCH</term>
-        <listitem>
-          <para>Advanced Item Search (AIS) is a feature designed specifically
-          with distribution in mind. This feature allows distributors and end
-          users to quickly search for both Items and Item Aliases―as well as
-          current inventory levels―filtering every keystroke. From this screen
-          you also have the ability to create an Item Alias.</para>
-          <note>
-            <para>When using the Advanced Item Search, you must enter at least
-            three characters (i.e., numbers, letters or a combination of both)
-            before any search results will be returned. This is for speed of
-            performance reasons.</para>
-          </note>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>VENDOR CATALOG</term>
-        <listitem>
-          <para>Select to use the External Vendor Catalog screen to view Items
-          as they appear within the various Vendor Catalogs you are subscribed
-          to.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist></para>
-  <variablelist>
+    <varlistentry role="standard">
+      <term>ADV. ITEM SEARCH</term>
+      <listitem>
+        <para>Advanced Item Search (AIS) is a feature designed specifically
+        with distribution in mind. This feature allows distributors and end
+        users to quickly search for both Items and Item Aliases―as well as
+        current inventory levels―filtering every keystroke. From this screen
+        you also have the ability to create an Item Alias.</para>
+        <note>
+          <para>When using the Advanced Item Search, you must enter at least
+          three characters (i.e., numbers, letters or a combination of both)
+          before any search results will be returned. This is for speed of
+          performance reasons.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>VENDOR CATALOG</term>
+      <listitem>
+        <para>Select to use the External Vendor Catalog screen to view Items
+        as they appear within the various Vendor Catalogs you are subscribed
+        to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>VIEW IMAGE</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>VIEW SPEC</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Qty. Ordered</term>
       <listitem>
         <para>Enter the quantity of the specified Item being ordered.</para>
+        <para role="standard"><note>
+            <para>If the Sales Order Item is being edited and the quantity
+            ordered is reduced then all reservations for the line item will be
+            removed.</para>
+          </note></para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The quantity ordered is based on the quantity Unit of Measure. If
-    the Sales Order Item is being edited and the quantity ordered is reduced
-    then all reservations for the line item will be removed.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Qty. UOM</term>
       <listitem>
@@ -229,18 +232,16 @@
         UOM is always chosen at the desired level of Price specificity, then
         your Pricing Schedules should include at least one UOM with a quantity
         break of 0.</para>
+        <tip>
+          <para>The system can be configured to prevent users from editing the
+          Net Unit Price. If your system is configured that way, the Net Unit
+          Price field will not be editable. The Unit Cost and Unit Cost Markup
+          % values on the Details tab can also be configured to be editable
+          with permission settings. These values, if changed, will adjust the
+          Net Unit Price.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
-    <tip>
-      <para>The system can be configured to prevent users from editing the Net
-      Unit Price. If your system is configured that way, the Net Unit Price
-      field will not be editable. The Unit Cost and Unit Cost Markup % values
-      on the Details tab can also be configured to be editable with permission
-      settings. These values, if changed, will adjust the Net Unit
-      Price.</para>
-    </tip>
     <varlistentry>
       <term>Price UOM</term>
       <listitem>
@@ -266,14 +267,12 @@
         for determining the scheduled date. After entering the scheduled date,
         hit the TAB key on your keyboard to display values in the remaining
         display only fields.</para>
+        <note>
+          <para>The Sales Order Item having the earliest scheduled date will
+          determine the ship date for the Sales Order.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The Sales Order Item having the earliest scheduled date will
-    determine the ship date for the Sales Order.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Promised Date</term>
       <listitem>
