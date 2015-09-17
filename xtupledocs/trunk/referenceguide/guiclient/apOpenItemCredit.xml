@@ -73,6 +73,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Use Prepaid Account</term>
+      <listitem>
+        <para>If you select this option, the default prepaid Account defined
+        for the Vendor Type under the Payables Assignments will be
+        used.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Distribution Account</term>
+      <listitem>
+        <para>Specify an alternate account to use in place of the default
+        prepaid Account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Terms</term>
       <listitem>
         <para>By default, the Terms defined on the Vendor master for the
@@ -120,29 +135,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To assign an alternate prepaid Account, select the "Account" tab at
-  the bottom of the screen. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/apOpenItemCreditAccount.png" />
-        </imageobject>
-        <caption>Enter Miscellaneous Credit Memo Account</caption>
-      </mediaobject>
-    </screenshot><variablelist>
-      <varlistentry>
-        <term>Use Alternate Prepaid Account</term>
-        <listitem>
-          <para>Select one of the following optional prepaid Accounts:</para>
-          <para>Alternate Prepaid Account: Specify an alternate prepaid
-          Account to use instead of the default prepaid Account.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist></para>
-  <note>
-    <para>If an alternate prepaid Account is not specified, the system will
-    use the default prepaid Account specified for the Vendor Type under Payables Assignments.</para>
-  </note>
   <para>To view Applications, select the "Applications" tab at the bottom of
   the screen. The following screen will appear:</para>
   <screenshot>
