@@ -532,14 +532,15 @@
       <term>Enable Customer Deposits</term>
       <listitem>
         <para>Select if you want unapplied Cash Receipts from Customers to be
-        handled by a Deferred Revenue Account. If selected, the Receivables
-        Account Assignments screen will include a Deferred Revenue Account
-        option. Not selecting this option will hide the Deferred Revenue
-        Account option on the Receivables Account assignments screen. Also
-        hidden will be Customer Deposit options on the Cash Receipts screen.
-        If the Deferred Revenue approach is not being used, then unapplied
-        Cash Receipts will be handled by the Asset Account for the specified
-        Bank Account.</para>
+        handled by a Deferred Revenue Account. This option impacts both Cash
+        Receipts entered manually and also Credit Card payments posted during
+        Sales Order entry. If selected, the Receivables Account Assignments
+        screen will include a Deferred Revenue Account option. Not selecting
+        this option will hide the Deferred Revenue Account option on the
+        Receivables Account assignments screen. Also hidden will be Customer
+        Deposit options on the Cash Receipts screen. If the Deferred Revenue
+        approach is not being used, then unapplied Cash Receipts will be
+        handled by the Asset Account for the specified Bank Account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
