@@ -26,15 +26,16 @@
     <varlistentry>
       <term>Customer #</term>
       <listitem>
-        <para>Displays the Customer Number of the Customer whose open Receivable
-        the amount is being applied to. The Customer name and billing address
-        will also display.</para>
+        <para>Displays the Customer Number of the Customer whose open
+        Receivable the amount is being applied to. The Customer name and
+        billing address will also display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Doc. Number</term>
       <listitem>
-        <para>Displays the Document Number associated with the open Receivable.</para>
+        <para>Displays the Document Number associated with the open
+        Receivable.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -67,6 +68,16 @@
       <listitem>
         <para>Displays the amount paid to date toward the original Document
         amount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pending</term>
+      <listitem>
+        <para>Displays the total amount of any pending Receivable
+        applications. Pending applications include unposted Cash Receipts, as
+        well as credit allocations to uninvoiced Sales Orders. To clear the
+        pending amounts, post the related Cash Receipts and/or invoice the
+        related Sales Orders.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

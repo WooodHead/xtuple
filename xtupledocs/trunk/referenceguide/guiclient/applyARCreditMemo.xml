@@ -7,8 +7,9 @@
       <primary>credit memos</primary>
       <secondary>applying unapplied</secondary>
     </indexterm>Apply Receivables Credit Memo</title>
-  <para>To apply a Credit Memo amount, select the APPLY button on the List
-  Unapplied Receivables Credit Memos screen. The following screen will appear:</para>
+  <para>To apply a Credit Memo to either open Invoices or open Debit Memos,
+  select the APPLY button on the List Unapplied Receivables Credit Memos
+  screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -17,10 +18,6 @@
         <caption>Apply Receivables Credit Memo</caption>
       </mediaobject>
     </screenshot></para>
-  <note>
-    <para>Credit Memo amounts may be applied to either open Invoices or open
-    miscellaneous Debit Memos.</para>
-  </note>
   <para>When applying a Credit Memo amount, you are presented with the
   following options:</para>
   <variablelist>
@@ -79,7 +76,8 @@
     <varlistentry>
       <term>Items</term>
       <listitem>
-        <para>Display lists open Receivables for the specified Customer.</para>
+        <para>Display lists open Receivables for the specified
+        Customer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -88,8 +86,8 @@
     <varlistentry>
       <term>APPLY TO BALANCE</term>
       <listitem>
-        <para>Select to apply the available balance to the open Receivables. If
-        the applied balance exceeds the amount due on an open Item, the
+        <para>Select to apply the available balance to the open Receivables.
+        If the applied balance exceeds the amount due on an open Item, the
         remaining balance will be applied to the next open amount.</para>
       </listitem>
     </varlistentry>
@@ -111,7 +109,11 @@
       <term>CLEAR APPLICATION</term>
       <listitem>
         <para>Highlight an Item and then select this button to remove any
-        amount applied toward the Item.</para>
+        amount applied toward the Item. If you encounter pending amounts you
+        cannot clear, check for unposted Cash Receipts or uninvoiced Sales
+        Orders having credit allocations on them. To clear the pending
+        amounts, post the related Cash Receipts and/or invoice the related
+        Sales Orders.</para>
       </listitem>
     </varlistentry>
   </variablelist>
