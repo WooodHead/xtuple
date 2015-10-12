@@ -95,6 +95,14 @@
         <para>Specify a code to describe the return.</para>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Receipts</term>
+      <listitem>
+        <para>If a Purchase Order Line Item was received separately on more
+        than one instance or date, you must specify which receipt the return
+        quantity is being returned against.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
@@ -102,11 +110,11 @@
       <term>RETURN</term>
       <listitem>
         <para>Select to return the specified Line Item quantity. When posting
-        a Return, privileged users will be given the option to generate a Payables
-        Credit Memo in the amount of the Return. This option is available when
-        returning against closed Purchase Order Line Items. Closed Purchase
-        Orders will be reopened automatically in this scenario to allow for
-        future Receipts.</para>
+        a Return, privileged users will be given the option to generate a
+        Payables Credit Memo in the amount of the Return. This option is
+        available when returning against closed Purchase Order Line Items.
+        Closed Purchase Orders will be reopened automatically in this scenario
+        to allow for future Receipts.</para>
       </listitem>
     </varlistentry>
   </variablelist>
