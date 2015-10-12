@@ -21,13 +21,14 @@
       </mediaobject>
     </screenshot></para>
   <tip>
-    <para>Privileged users will be given the option to generate an Payables Credit
-    Memo in the amount of the Return when the Return is posted. This option is
-    available when returning against closed Purchase Order Line Items. Closed
-    Purchase Orders will be reopened automatically in this scenario to allow
-    for future Receipts. If the option is not used&mdash;or if a Line Item is
-    not closed at the time of a Return&mdash;then the Return may be processed
-    normally from the "Uninvoiced Receipts and Returns" screen.</para>
+    <para>Privileged users will be given the option to generate an Payables
+    Credit Memo in the amount of the Return when the Return is posted. This
+    option is available when returning against closed Purchase Order Line
+    Items. Closed Purchase Orders will be reopened automatically in this
+    scenario to allow for future Receipts. If the option is not used—or if a
+    Line Item is not closed at the time of a Return—then the Return may be
+    processed normally from the "Uninvoiced Receipts and Returns"
+    screen.</para>
   </tip>
   <para>When entering a Purchase Order Return, you are presented with the
   following options:</para>
@@ -45,6 +46,13 @@
         <para>If your system is configured to use drop shipping, this
         informational, read-only field will be displayed. It will be selected
         if the Purchase Order entered was a drop ship Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Vendor Return Authority</term>
+      <listitem>
+        <para>Use this field to enter the Vendor's return material
+        authorization (RMA) code.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -79,8 +87,8 @@
       <listitem>
         <para>Highlight a Line Item, then select this button to remove the
         returned Line Item quantity from Inventory. For privileged users, an
-        Payables Credit Memo may be generated in the amount of the Return when the
-        Return is posted. This option is available when returning against
+        Payables Credit Memo may be generated in the amount of the Return when
+        the Return is posted. This option is available when returning against
         closed Line Items. If used, the Line Item will be automatically
         reopened to allow for future Receipts. Also, a Return report will be
         printed if the "Print Return Report" option is selected.</para>
