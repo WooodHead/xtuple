@@ -312,7 +312,8 @@
     <varlistentry>
       <term>Inventory</term>
       <listitem>
-        <para>Select option to view Inventory availability.</para>
+        <para>Select option to view Inventory availability. The display lists
+        Item availability for dependencies.</para>
         <variablelist>
           <varlistentry>
             <term>On Hand</term>
@@ -367,6 +368,29 @@
             </listitem>
           </varlistentry>
           <varlistentry>
+            <term>As Of</term>
+            <listitem>
+              <para>Show Availability using one of the following
+              criteria:</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Scheduled Date</term>
+                  <listitem>
+                    <para>Select to show projected Availability based on the
+                    scheduled date.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Lead Time</term>
+                  <listitem>
+                    <para>Select to show projected Availability based on the
+                    Lead Time specified in the Item Site master.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
             <term>Show Dependencies as Indented BOM</term>
             <listitem>
               <para>Displays component Items associated with sold manufactured
@@ -377,7 +401,6 @@
             </listitem>
           </varlistentry>
         </variablelist>
-        <para>The display lists Item availability for dependencies.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
