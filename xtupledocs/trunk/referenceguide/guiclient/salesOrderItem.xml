@@ -38,18 +38,30 @@
         </note>
       </listitem>
     </varlistentry>
+    <varlistentry>
+      <term>Refresh Order</term>
+      <listitem>
+        <para>Select to indicate you want the Sales Order header to be
+        refreshed immediately in the background. When the header is refreshed
+        immediately, you will be able to see the rows of Line Items being
+        added to the order. However, this feature can impact performance when
+        entering Sales Order Line Items. If you are experiencing performance
+        issues, you should not select this option. The Sales Order will be
+        refreshed when you close the Sales Order Line Item screen.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry role="standard">
       <term>Return Auth.#</term>
       <listitem>
-        <para>Displays any Return Authorization number associated with the
-        Sales Order.</para>
+        <para>Displays the Return Authorization number associated with the
+        Sales Order, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
       <term>Line #</term>
       <listitem>
         <para>Displays the Line Number for the Item listed on the Return
-        Authorization.</para>
+        Authorization, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
