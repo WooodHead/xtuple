@@ -40,6 +40,19 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Refresh Order</term>
+      <listitem>
+        <para>Select to indicate you want the Purchase Order header to be
+        refreshed immediately in the background. When the header is refreshed
+        immediately, you will be able to see the rows of Line Items being
+        added to the order. However, this feature can impact performance when
+        entering Purchase Order Line Items. If you are experiencing
+        performance issues, you should not select this option. The Purchase
+        Order will be refreshed when you close the Purchase Order Line Item
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Inventory Item</term>
       <listitem>
         <para>If the Item being purchased is an Inventory Item, select this
@@ -118,8 +131,8 @@
     <varlistentry>
       <term>Unit Price</term>
       <listitem>
-        <para>Enter the Unit Price for the specified Item&mdash;or use the
-        lookup&mdash;feature to look up pricing information, including pricing
+        <para>Enter the Unit Price for the specified Item—or use the
+        lookup—feature to look up pricing information, including pricing
         related to quantity breaks.</para>
       </listitem>
     </varlistentry>
@@ -164,14 +177,13 @@
         <para>If your system is configured to use Projects, select a Project
         Number to associate with the Purchase Order Line Item. If the Purchase
         Order Line Item is being created from a Purchase Request driven by
-        Sales Order demand&mdash;and the parent Sales Order had a Project
-        Number associated with it&mdash;then the Project Number from the
-        parent Sales Order will automatically be entered here. In this way,
-        Sales Orders and Purchase Order Line Items may be linked to the same
-        Project.</para>
+        Sales Order demand—and the parent Sales Order had a Project Number
+        associated with it—then the Project Number from the parent Sales Order
+        will automatically be entered here. In this way, Sales Orders and
+        Purchase Order Line Items may be linked to the same Project.</para>
         <para role="xtprjaccnt">When you have the xTuple Project Accounting
-        package installed&mdash;and you link a Project to the Purchase Order Line
-        Item&mdash;transactions related to the Purchase Order Line Item will include
+        package installed—and you link a Project to the Purchase Order Line
+        Item—transactions related to the Purchase Order Line Item will include
         the Project Number as the final segment of affected G/L Account
         Numbers. Account Numbers related to the following transactions will
         include Project Number as the final segment: Post Receipt, Correct
@@ -234,10 +246,10 @@
                 <para>The Inv./Vendor UOM Ratio specifies the ratio between
                 Inventory and Vendor Units of Measure (UOM). For example, if
                 you store an Item in single units, but a Vendor sells you the
-                Item in cases of 12, then the ratio would be 12&mdash;or 12:1.
-                When an Inv./Vend. ratio is specified, the system allows you
-                to purchase Items using the Vendor's UOM; however, when the
-                Items are received, the system will automatically convert the
+                Item in cases of 12, then the ratio would be 12—or 12:1. When
+                an Inv./Vend. ratio is specified, the system allows you to
+                purchase Items using the Vendor's UOM; however, when the Items
+                are received, the system will automatically convert the
                 Inventory to your Inventory UOM.</para>
               </note>
             </listitem>
@@ -311,9 +323,8 @@
     <varlistentry>
       <term>Comments</term>
       <listitem>
-        <para>To view system-generated Comments associated with an
-        Item&mdash;or to add new Comments of your own&mdash;select the
-        "Comments" option.</para>
+        <para>To view system-generated Comments associated with an Item—or to
+        add new Comments of your own—select the "Comments" option.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -360,7 +371,7 @@
         pre-defined Value; 3) manually enter a new Value in place of the
         pre-defined Value; or 4) make no selection. Making no selection means
         the Characteristics will not be associated with the Purchase Order
-        Item&mdash;except in the case of Characteristics inherited from Sales
+        Item—except in the case of Characteristics inherited from Sales
         Orders, by way of Purchase Requests.</para>
       </listitem>
     </varlistentry>
