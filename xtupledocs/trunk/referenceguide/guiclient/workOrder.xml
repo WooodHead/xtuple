@@ -92,9 +92,9 @@
     <varlistentry role="standard">
       <term>Site</term>
       <listitem>
-        <para>Specify supplying Site for selected Item. Only Sites that
-        contain supplying Item Sites for the selected Item may be
-        chosen.</para>
+        <para>Specify the Site where the Item is supplied at. For manufactured
+        Items to be included on a Work Order, their Item Site record must
+        indicate they are manufactured for the Site.</para>
         <note>
           <para>Order Parameters may have an impact on Work Order quantity if
           the "on Manual Orders" option is selected in the Item Site master
