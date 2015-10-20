@@ -63,24 +63,17 @@
             <listitem>
               <para>Enter the Item Number of the Item you want to add to the
               Purchase Order. You may also enter manufactured Items that you
-              normally make, but you occasionally buy.</para>
+              normally make, but you occasionally buy―as long as the Item Site
+              for the manufactured Item also indicates it may be
+              purchased.</para>
             </listitem>
           </varlistentry>
           <varlistentry role="standard">
-            <term>Supplying Site</term>
+            <term>Site</term>
             <listitem>
-              <para>Specify the Site the Item will be supplied from. The
-              supplying Site is the Site that supplies the Item in question to
-              the shipping Site for shipment to Customers. Sites may be
-              designated as supplying Sites in the Item Site
-              definition.</para>
-              <tip>
-                <para>The supplying Site may differ from the receiving Site(s)
-                for some Purchase Order Line Items. To update your Inventory
-                records to indicate that Items have been moved from the
-                receiving to the supplied from Site, perform an Inter-Site
-                Transfer.</para>
-              </tip>
+              <para>Specify the Site where the Item is supplied at. For
+              purchased Items, the Item Site must indicate the Item is
+              purchased.</para>
             </listitem>
           </varlistentry>
         </variablelist>
