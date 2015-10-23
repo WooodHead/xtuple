@@ -64,6 +64,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To view or enter general Vendor information, select the "General"
+  radio button. The following information will appear:</para>
   <variablelist>
     <varlistentry>
       <term>Default</term>
@@ -90,6 +92,70 @@
               in systems configured to use multiple Currencies.</para>
             </listitem>
           </varlistentry>
+          <varlistentry role="standard">
+            <term>Catalog Cost Column</term>
+            <listitem>
+              <para>Allows you to set the desired column from the External
+              Vendor Catalog for Item pricing. After setting the Catalog Cost
+              Column to the desired column, you must run an update to complete
+              the process.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="standard">
+            <term>Freight Allowed Amount</term>
+            <listitem>
+              <para>Provides the ability to set the freight requirements for
+              Purchase Orders by dollar amount. The Freight Allowed setting
+              will be displayed on the List Open Purchase Order screen.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry role="standard">
+            <term>Freight Allowed Weight</term>
+            <listitem>
+              <para>Provides the ability to set the freight requirements for
+              Purchase Orders by weight. The Freight Allowed setting will be
+              displayed on the List Open Purchase Order screen.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Miscellaneous Distribution</term>
+      <listitem>
+        <para>You have the option to select a default accounting distribution
+        option to be used when entering Vouchers for the Vendor:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Account</term>
+            <listitem>
+              <para>Select a General Ledger Account to use for the
+              distribution.</para>
+              <variablelist>
+                <varlistentry role="xtprjaccnt">
+                  <term>Project</term>
+                  <listitem>
+                    <para>Select a Project to associate with the transaction.
+                    The Project Number will be added as the final segment of
+                    the G/L Account Number.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expense Category</term>
+            <listitem>
+              <para>Select an Expense Category to use for the
+              distribution.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tax</term>
+            <listitem>
+              <para>Select a Tax Code to use for the distribution.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
@@ -109,7 +175,7 @@
         selecting one of the following options:</para>
         <variablelist>
           <varlistentry>
-            <term>Receiving Site FOB</term>
+            <term>Receiving Site</term>
             <listitem>
               <para>Select if receiving site is default FOB
               destination.</para>
@@ -118,7 +184,7 @@
         </variablelist>
         <variablelist>
           <varlistentry>
-            <term>Vendor Specific FOB</term>
+            <term>Vendor Specific</term>
             <listitem>
               <para>Select if Vendor specifies an FOB destination other than
               the receiving Site. Enter alternate FOB details in space
@@ -163,45 +229,6 @@
         Item.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Default Miscellaneous Distribution</term>
-      <listitem>
-        <para>You have the option to select a default accounting distribution
-        option to be used when entering Vouchers for the Vendor:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Account</term>
-            <listitem>
-              <para>Select a General Ledger Account to use for the
-              distribution.</para>
-              <variablelist>
-                <varlistentry role="xtprjaccnt">
-                  <term>Project</term>
-                  <listitem>
-                    <para>Select a Project to associate with the transaction.
-                    The Project Number will be added as the final segment of
-                    the G/L Account Number.</para>
-                  </listitem>
-                </varlistentry>
-              </variablelist>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Expense Category</term>
-            <listitem>
-              <para>Select an Expense Category to use for the
-              distribution.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Tax</term>
-            <listitem>
-              <para>Select a Tax Code to use for the distribution.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
   </variablelist>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
@@ -226,12 +253,12 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To view or enter Vendor Tax information, select the "Tax" tab. The
-  following screen will appear:</para>
+  <para>To view or enter Tax information for the Vendor, select the "Tax"
+  radio button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/vendor_taxTab.png" />
+          <imagedata fileref="images/vendor_tax.png" />
         </imageobject>
         <caption>Vendor Tax Information</caption>
       </mediaobject>
@@ -356,22 +383,6 @@
         linkend="contact" />.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <para>Just as Customers may have multiple Ship-To addresses, Vendors may
-  also maintain multiple Ship-From addresses. A Vendor address is a Ship-From
-  address. To add Vendor Addresses to a Vendor master, select the "Addresses"
-  tab. The following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/vendor_addressTab.png" />
-        </imageobject>
-        <caption>Add Vendor Addresses</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>When adding Vendor Addresses, you are presented with the following
-  options:</para>
-  <variablelist>
     <varlistentry>
       <term>Main</term>
       <listitem>
@@ -386,7 +397,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Alternates</term>
+      <term>Alternate Addresses</term>
       <listitem>
         <para>Select to list various alternate Addresses for Vendor.</para>
       </listitem>
@@ -486,40 +497,18 @@
         </listitem>
       </varlistentry>
     </variablelist></para>
-  <para>To add Notes related to a Vendor, select the "Notes" tab. The
-  following screen will appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/vendor_characteristics.png" />
-        </imageobject>
-        <caption>Add Vendor Notes</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para>Any Comments entered elsewhere in the CRM Module related to the
-  Vendor's CRM Account will also be shown here. To add or review Comments
-  related to a Vendor, select the "Comments" tab. The following screen will
-  appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/vendor_comments.png" />
-        </imageobject>
-        <caption>Add Vendor Comments</caption>
-      </mediaobject>
-    </screenshot></para>
-  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
-              xmlns:xi="http://www.w3.org/2001/XInclude" />
-  <para>To add purchasing Notes related to a Vendor, select the "Order Notes"
+  <para>To add Notes and/or Comments related to a Vendor, select the "Remarks"
   tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/vendor_notes.png" />
+          <imagedata fileref="images/vendor_remarksTab.png" />
         </imageobject>
-        <caption>Add Purchasing Notes</caption>
+        <caption>Add Vendor Notes</caption>
       </mediaobject>
     </screenshot></para>
+  <para>To add purchasing Notes related to a Vendor, select the "Order Notes"
+  tab. The following screen will appear:</para>
   <para>When adding purchasing Notes related to a Vendor, you are presented
   with the following options:</para>
   <variablelist>
@@ -539,6 +528,102 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>Any Comments entered elsewhere in the CRM Module related to the
+  Vendor's CRM Account will also be shown here. To add or review Comments
+  related to a Vendor, select the "Comments" tab. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_comments.png" />
+        </imageobject>
+        <caption>Add Vendor Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To view Orders associated with the Vendor, select the "Orders" tab.
+  The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_ordersSummary.png" />
+        </imageobject>
+        <caption>Vendor Order Summary</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_ordersPOs.png" />
+        </imageobject>
+        <caption>Vendor Purchase Orders</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_ordersReturns.png" />
+        </imageobject>
+        <caption>Vendor Receipts/Returns</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para>To view accounting information associated with the Vendor, select the
+  "Accounting" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_accountingPayables.png" />
+        </imageobject>
+        <caption>Vendor Receipts/Returns</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_accountingCMs.png" />
+        </imageobject>
+        <caption>Vendor Receipts/Returns</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_accountingAPHist.png" />
+        </imageobject>
+        <caption>Vendor Receipts/Returns</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
+  <para></para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/vendor_accountingChecks.png" />
+        </imageobject>
+        <caption>Vendor Receipts/Returns</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+  <para></para>
   <para role="xtconnect">The Electronic Data Interchange (EDI) system enables
   you to exchange information electronically with your Vendors. To set up a
   Vendor to receive Purchase Orders, select the "Transmission" tab and select
