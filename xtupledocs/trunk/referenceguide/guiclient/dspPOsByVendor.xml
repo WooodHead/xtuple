@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="dspPOsByVendor">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>summarized by date</secondary>
     </indexterm>P/Os by Vendor</title>
   <para>To see a summarized view of Purchase Orders by Vendor, select the
   "P/Os by Vendor" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspPOsByVendor.png"/>
+          <imagedata fileref="images/dspPOsByVendor.png" />
         </imageobject>
         <caption>Purchase Orders by Vendor</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>A Purchase Order will remain open if at least one of its Line Items
     is open. Once all Line Items are closed, the Purchase Order will also be
@@ -49,8 +47,7 @@
     <varlistentry role="standard">
       <term>Selected</term>
       <listitem>
-        <para>Specify Site whose Purchase Orders you want to
-        display.</para>
+        <para>Specify Site whose Purchase Orders you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -70,21 +67,47 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Show Closed P/Os</term>
+      <term>Order Date</term>
       <listitem>
-        <para>Select to display only closed Purchase Orders.</para>
+        <para>Select to display results by the Order date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Where Item Description contains</term>
+      <term>Due Date</term>
       <listitem>
-        <para>Select to display Purchase Orders whose Item Description matches
-        the value entered in the corresponding field. This field supports
-        pattern matching with Regular Expressions.</para>
+        <para>Select to display results by the due date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>P/Os</term>
+      <term>Receipt Date</term>
+      <listitem>
+        <para>Select to display results by the receipt date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Select from the following additional report options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Closed</term>
+            <listitem>
+              <para>Select to display only closed Purchase Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Where Item Description contains</term>
+            <listitem>
+              <para>Select to display Purchase Orders whose Item Description
+              matches the value entered in the corresponding field. This field
+              supports pattern matching with Regular Expressions.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Purchase Orders</term>
       <listitem>
         <para>Display lists Purchase Orders by Vendor, using the specified
         parameters.</para>
