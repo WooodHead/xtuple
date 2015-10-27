@@ -276,8 +276,8 @@
     <varlistentry>
       <term>PRINT</term>
       <listitem>
-        <para>Select to print a copy of the list displayed on the screen.
-        </para>
+        <para>Select to print a copy of the list displayed on the
+        screen.</para>
         <variablelist>
           <varlistentry>
             <term><indexterm significance="normal">
@@ -401,6 +401,48 @@
       <listitem>
         <para>Select this button to replace all Payments shown in the list of
         Payments. Payments must be voided before they can be replaced.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Accounts Payable (A/P) history by Vendor, select the "A/P
+  History" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/apWorkBench_apHistory.png" />
+        </imageobject>
+        <caption>A/P History by Vendor</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>You must select a single Vendor to view A/P history on this screen.
+    Viewing A/P history by all Vendors is not supported.</para>
+  </note>
+  <para>When viewing A/P history by Vendor, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Vendor activity entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Vendor activity entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Find Vend. Invoice#</term>
+      <listitem>
+        <para>To search for an Invoice in the Vendor History display, begin
+        typing an Invoice Number into this field. As you type, the list will
+        automatically scroll toward the Invoice Number you are typing. You can
+        also search for Invoices manually by scrolling through the
+        list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
