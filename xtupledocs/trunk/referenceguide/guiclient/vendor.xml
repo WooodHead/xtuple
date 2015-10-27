@@ -336,15 +336,15 @@
         Authority. The registration number is used by Tax Authorities to
         identify businesses and/or individuals. An Employer Identification
         Numbers (EIN) is an example of a Tax Registration Number.</para>
+        <tip>
+          <para>The Vendor's Tax Registration Number is used for identifying
+          the Vendor to relevant Tax Authorities. This information should not
+          be confused with the Tax Registration Numbers, which are used to
+          identify your company to relevant Tax Authorities.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>The Vendor's Tax Registration Number is used for identifying the
-    Vendor to relevant Tax Authorities. This information should not be
-    confused with the Tax Registration Numbers, which are used to identify
-    your company to relevant Tax Authorities.</para>
-  </tip>
   <para>To view or enter Vendor contact information, select the "Contact
   Information" tab. The following screen will appear:</para>
   <para><screenshot>
@@ -384,16 +384,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Main</term>
+      <term>Main Address</term>
       <listitem>
-        <para>Select to present primary address used by Vendor. Manually enter
-        Address information in the fields below—or use the lookup feature to
-        select pre-existing Address information. By default, this address will
-        appear as the main address when entering Purchase Orders for the
-        Vendor. If a new Address is manually entered here, that Address will
-        be added automatically to the master list of Addresses. For additional
-        documentation related to creating Addresses, see <xref
-        linkend="address" />.</para>
+        <para>Select to manually enter the primary Address information for the
+        Vendor—or use the lookup feature to select pre-existing Address
+        information. By default, this address will appear as the main address
+        when entering Purchase Orders for the Vendor. If a new Address is
+        manually entered here, that Address will be added automatically to the
+        master list of Addresses. For additional documentation related to
+        creating Addresses, see <xref linkend="address" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -406,8 +405,8 @@
   <para><indexterm significance="normal">
       <primary>vendor addresses</primary>
       <secondary>creating new</secondary>
-    </indexterm>To create a new Vendor Address, select the NEW button. The
-  following screen will appear:</para>
+    </indexterm>To create a alternate Vendor Address, select the NEW button.
+  The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -462,10 +461,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Comments</term>
+      <term>Notes</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        Comments related to the Vendor Address.</para>
+        Notes related to the Vendor Address.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -507,39 +506,24 @@
         <caption>Add Vendor Notes</caption>
       </mediaobject>
     </screenshot></para>
-  <para>To add purchasing Notes related to a Vendor, select the "Order Notes"
-  tab. The following screen will appear:</para>
-  <para>When adding purchasing Notes related to a Vendor, you are presented
-  with the following options:</para>
+  <para>When adding Notes related to a Vendor, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
       <listitem>
-        <para>Select the "Notes" tab to access this scrolling text field with
-        word-wrapping for entering general Notes related to the Vendor.</para>
+        <para>Use this field to enter general Notes related to the
+        Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Order Notes</term>
       <listitem>
-        <para>This is a scrolling text field with word-wrapping for entering
-        purchasing Notes related to the Vendor. These Notes are for internal
-        use only. Order Notes are drawn from the Vendor master.</para>
+        <para>Notes entered in this field may be used on Purchase Orders
+        entered for the Vendor with custom reporting.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Any Comments entered elsewhere in the CRM Module related to the
-  Vendor's CRM Account will also be shown here. To add or review Comments
-  related to a Vendor, select the "Comments" tab. The following screen will
-  appear:</para>
-  <para><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/vendor_comments.png" />
-        </imageobject>
-        <caption>Add Vendor Comments</caption>
-      </mediaobject>
-    </screenshot></para>
   <xi:include href="../widgets/comments.xml" xpointer="commentsWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <para>To view Orders associated with the Vendor, select the "Orders" tab.
@@ -552,9 +536,49 @@
         <caption>Vendor Order Summary</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>When viewing summary Order information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>First Purchase</term>
+      <listitem>
+        <para>Displays date of Vendor's first purchase.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Most Recent Purchase</term>
+      <listitem>
+        <para>Displays date of Vendor's most recent purchase.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Backlog</term>
+      <listitem>
+        <para>Displays the value of Purchase Order Line Items which have not
+        yet been received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Last Year's Purchases</term>
+      <listitem>
+        <para>Displays value of Vendor's purchases in the prior year.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>YTD Purchases</term>
+      <listitem>
+        <para>Displays value of Vendor's purchases year-to-date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Balance</term>
+      <listitem>
+        <para>Displays the Vendor's open payables balance.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Purchase Orders associated with the Vendor, select the
+  "Purchase Orders" radio button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -563,10 +587,81 @@
         <caption>Vendor Purchase Orders</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>When viewing Purchase Order information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Purchase Orders in all Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Purchase Orders you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Enter a start date based on the corresponding date filter you
+        choose. The following three date filters are available: Order Date,
+        Due Date, or Receipt Date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Enter an end date based on the corresponding date filter you
+        choose. The following three date filters are available: Order Date,
+        Due Date, or Receipt Date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order Date</term>
+      <listitem>
+        <para>Select to display results by the Order date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Select to display results by the due date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Receipt Date</term>
+      <listitem>
+        <para>Select to display results by the receipt date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Select from the following additional report options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Closed</term>
+            <listitem>
+              <para>Select to display only closed Purchase Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Where Item Description contains</term>
+            <listitem>
+              <para>Select to display Purchase Orders whose Item Description
+              matches the value entered in the corresponding field. This field
+              supports pattern matching with Regular Expressions.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Receipts and Returns associated with the Vendor, select the
+  "Receipts and Returns" radio button. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -575,9 +670,75 @@
         <caption>Vendor Receipts/Returns</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>When viewing Receipt and Return information, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Purchasing Agents</term>
+      <listitem>
+        <para>Select to display Receipts and Returns by date for all
+        Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Purchasing Agent whose Receipts and Returns by date you
+        want to display. Users may be designated as Purchasing Agents at the
+        system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>All Sites</term>
+      <listitem>
+        <para>Select to display Receipts and Returns by date for all
+        Sites.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Site whose Receipts and Returns by date you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Receipts and Returns entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Receipts and Returns entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show</term>
+      <listitem>
+        <para>Select from the following additional report options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Unvouchered</term>
+            <listitem>
+              <para>Select to include Receipts and Returns which have not been
+              vouchered yet in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Costs</term>
+            <listitem>
+              <para>Select to include Purchase Order costing information in
+              the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>To view accounting information associated with the Vendor, select the
   "Accounting" tab. The following screen will appear:</para>
   <para><screenshot>
@@ -585,49 +746,135 @@
         <imageobject>
           <imagedata fileref="images/vendor_accountingPayables.png" />
         </imageobject>
-        <caption>Vendor Receipts/Returns</caption>
+        <caption>Vendor Payables</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>When viewing Payables information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Specify all dates or a date range for Payables to include in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Credit Memos associated with the Vendor, select the "Credit
+  Memos" radio button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/vendor_accountingCMs.png" />
         </imageobject>
-        <caption>Vendor Receipts/Returns</caption>
+        <caption>Vendor Credit Memos</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>When viewing Credit Memo information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Unapplied Accounts Payable Credit Memos</term>
+      <listitem>
+        <para>Displays Vendor Credit Memos which have not yet been
+        applied.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Accounts Payable (A/P) history associated with the Vendor,
+  select the "A/P History" radio button. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/vendor_accountingAPHist.png" />
         </imageobject>
-        <caption>Vendor Receipts/Returns</caption>
+        <caption>Vendor A/P History</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>When viewing A/P history information, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Vendor activity entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Vendor activity entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Find Vend. Invoice#</term>
+      <listitem>
+        <para>To search for an Invoice in the Vendor History display, begin
+        typing an Invoice Number into this field. As you type, the list will
+        automatically scroll toward the Invoice Number you are typing. You can
+        also search for Invoices manually by scrolling through the
+        list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view Checks associated with the Vendor, select the "Checks" radio
+  button. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/vendor_accountingChecks.png" />
         </imageobject>
-        <caption>Vendor Receipts/Returns</caption>
+        <caption>Vendor Checks</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
-  <para></para>
-  <para role="xtconnect">The Electronic Data Interchange (EDI) system enables
-  you to exchange information electronically with your Vendors. To set up a
-  Vendor to receive Purchase Orders, select the "Transmission" tab and select
-  the "EDI Profiles" button. The following screen will appear:</para>
+  <para>When viewing Checks information, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Bank Account</term>
+      <listitem>
+        <para>Specify the Bank Account whose Payment Register information you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Payment Number</term>
+      <listitem>
+        <para>Enter a Payment Number or Regular Expression. The display will
+        show Payment(s) matching the specified Payment Number(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Payments posted on and after this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Payments posted on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Detail</term>
+      <listitem>
+        <para>Select to include Payment detail information in the display. If
+        selected, the Vouchers and/or Debit Memos associated with Payments
+        will be displayed in a nested list. Be sure to use the QUERY button
+        after selecting this option to ensure detail is included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The Electronic Data Interchange (EDI) system enables you to exchange
+  information electronically with your Vendors. To set up a Vendor to receive
+  Purchase Orders, select the "Transmission" tab and select the "EDI Profiles"
+  button. The following screen will appear:</para>
   <para role="xtconnect"><screenshot>
       <mediaobject>
         <imageobject>
