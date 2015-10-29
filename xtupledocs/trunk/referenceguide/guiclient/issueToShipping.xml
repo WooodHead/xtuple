@@ -213,8 +213,10 @@
     <varlistentry>
       <term>ISSUE ALL</term>
       <listitem>
-        <para>Select to issue all Line Items to Shipping
-        simultaneously.</para>
+        <para>Select to issue all Line Items to Shipping simultaneously. If
+        some Line Items have insufficient quantity to ship, these will be
+        prevented; however, all Line Items with sufficient quantity will be
+        issued.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
