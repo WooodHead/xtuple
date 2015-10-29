@@ -38,15 +38,28 @@
         sign ("$"), the Customer's credit Status is "On Credit Warning." A red
         dollar sign ("$") indicates the Customer's credit Status is "On Credit
         Hold."</para>
+        <tip>
+          <para>If you receive an overpayment from a Customer, you can go
+          ahead and apply the full Payment to an Invoice—even if the amount
+          exceeds the Invoice amount. In these cases, the system will
+          automatically generate an unapplied Credit Memo for the Customer, in
+          the overpayment amount.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer Group</term>
+      <listitem>
+        <para>Enter the name of the Customer Group whose Invoices you want to
+        apply cash to. When you enter a Customer Group in this field, any open
+        Invoices for Customers belonging to the group will be shown. Cash
+        Receipts for Customer Groups must be fully-applied before the Cash
+        Receipt can be posted. If partially-applied, you will be prevented
+        from posting the Cash Receipt until all the funds are applied to open
+        Invoices for Customers in the Customer Group.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <tip>
-    <para>If you receive an overpayment from a Customer, you can go ahead and
-    apply the full Payment to an Invoice—even if the amount exceeds the
-    Invoice amount. In these cases, the system will automatically generate an
-    unapplied Credit Memo for the Customer, in the overpayment amount.</para>
-  </tip>
   <variablelist>
     <varlistentry>
       <term>Amount Received</term>
@@ -283,7 +296,8 @@
       <term>Applications</term>
       <listitem>
         <para>Display lists open Receivables (i.e., Invoices and Debit Memos)
-        for the specified Customer.</para>
+        for the specified Customer or Customers within the specified Customer
+        Group.</para>
       </listitem>
     </varlistentry>
   </variablelist>
