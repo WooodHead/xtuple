@@ -21,7 +21,7 @@
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Order #</term>
+      <term>Return #</term>
       <listitem>
         <para>Displays the Return number for the current Return.</para>
       </listitem>
@@ -33,43 +33,40 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Item Number</term>
+      <term>Item Type</term>
       <listitem>
-        <para>Enter the Item Number of the Item you want to add to the Return.
-        If the Return is being applied to an Invoice, only those Line Items
-        which appeared on the Invoice will be available for selection—that is,
-        if the appropriate setting is selected at the system level. Invoices
-        are selected for application by a Return using the "Apply To" feature
-        on the Return header screen.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>The system-level configuration which determines whether Return Items
-    will be restricted to relevant Invoice Items is the setting "Restrict
-    Returns to Items that appear on their Apply-To Document." Selecting this
-    option narrows the Return Item selection process to only those Items which
-    appeared on the Invoice the Return is being applied to. If not selected, a
-    sold Item master list will appear instead when selecting Return Items for
-    Returns applied to a specific Invoice. This setting has no bearing on
-    unapplied Returns.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
-      <term>UOM</term>
-      <listitem>
-        <para>Inventory Unit of Measure.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry role="standard">
-      <term>Receiving Site</term>
-      <listitem>
-        <para>Specify the Site returned Inventory will be received into. Items
-        designated as Multiple Location Control Items may be received into
-        multiple Sites. If this is the case, be sure to specify the correct
-        receiving Site when entering a Return Line Item. The receiving Site
-        will not necessarily be the same Site as the Site the Item was shipped
-        from.</para>
+        <para>Indicate the Item Type for the Return Line Item, by selecting
+        one of the following options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item</term>
+            <listitem>
+              <para>The lookup feature located to the right of the field leads
+              to a searchable list of Inventory Items. If the Return is being
+              applied to a particular Invoice―and your Sales module is
+              configured to restrict Returns to Items appearing on their
+              apply-to document―then the Item list will show only Items on the
+              original Invoice. The ITEM/ALIAS SEARCH button can also be used
+              to help locate Return Items. Once an Item Number is entered, the
+              Inventory Unit of Measure and Item description will
+              automatically appear. Additionally, you may also specify the
+              Item's receiving Site. Commercial editions of xTuple allow Items
+              to be received into multiple Sites.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Miscellaneous</term>
+            <listitem>
+              <para>Enter a name and description for the miscellaneous,
+              non-Inventory Item you are billing the Customer for. The name
+              and description fields are free-form, meaning they accept
+              unlimited alphanumeric characters. You must also select a Sales
+              Category. Sales Categories are used to identify the General
+              Ledger (G/L) Accounts to be used when non-Inventory Sales
+              transactions take place.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -169,8 +166,6 @@
         </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Pricing UOM</term>
       <listitem>
@@ -203,32 +198,28 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>returns</primary>
+          <secondary>discount pricing for</secondary>
+        </indexterm>List Discount %</term>
+      <listitem>
+        <para>The default Customer discount (if any) will display here.
+        Default Customer discount percentages are defined in the Customer
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Tax Type</term>
       <listitem>
         <para>Specify the Tax Type for the Return Item.</para>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Tax</term>
       <listitem>
         <para>Displays the amount of Tax to be charged for the Return Line
         Item quantity. To get a detailed view of the Tax calculation, click on
         the Tax link using your mouse.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <variablelist>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>returns</primary>
-          <secondary>discount pricing for</secondary>
-        </indexterm>Discount % from List</term>
-      <listitem>
-        <para>The default Customer discount (if any) will display here.
-        Default Customer discount percentages are defined in the Customer
-        master.</para>
       </listitem>
     </varlistentry>
   </variablelist>
