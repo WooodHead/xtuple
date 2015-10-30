@@ -1220,6 +1220,9 @@
         <para>Use this field to enter the Customer's Check Number, transaction
         number, Credit Card number, or any other Document Number associated
         with the Cash Receipt.</para>
+        <para role="standard">The username of the logged-in user will display
+        as the default document number, when the XWD package is enabled. This
+        value can be changed, if desired.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -1228,6 +1231,8 @@
         <para>Use this field to specify the date on the Check you received.
         This is the Document date used when running the Receivables aging
         report.</para>
+        <para role="standard">The current date will display here, when the XWD
+        package is enabled. This date can be changed, if desired.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
