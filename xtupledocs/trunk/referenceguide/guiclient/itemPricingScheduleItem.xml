@@ -83,10 +83,13 @@
     <varlistentry>
       <term>Qty. UOM</term>
       <listitem>
-        <para>Specify the Unit of Measure you want to use for the Quantity
-        Break. By default, the Inventory UOM will appear here. However, if you
-        have Selling UOMs defined for the specified Item, you may also select
-        one of these. Selling UOMs are defined on the Item master.</para>
+        <para>Specify the Unit of Measure (UOM) to be used when selling the
+        Line Item. Sold Items may be assigned multiple Selling UOMs. These
+        alternate UOMs may be defined on the Item master. You may also select
+        a global conversion ratio here. Global conversions have the label
+        <literal>Global</literal> appended to them. If a Line Item has no
+        Selling UOM defined, then the Inventory UOM will be used here by
+        default.</para>
         <tip>
           <para>When using a Selling UOM for the Quantity Break, you may not
           select an alternate Price UOM. The reason for this is that selling
@@ -317,7 +320,7 @@
     </varlistentry>
   </variablelist>
   <para>Select the "Markup" option to calculate the Price as a markup on the
-  Wholesale Price. </para>
+  Wholesale Price.</para>
   <para><mediaobject>
       <imageobject>
         <imagedata fileref="images/itemPricingScheduleItem_markupSelected.png" />

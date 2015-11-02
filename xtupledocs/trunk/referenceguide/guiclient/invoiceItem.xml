@@ -144,10 +144,12 @@
     <varlistentry>
       <term>Qty. UOM</term>
       <listitem>
-        <para>Specify the Unit of Measure to be used when selling the Line
-        Item. Sold Items may be assigned multiple Selling UOMs. These
-        alternate UOMs may be defined on the Item master. If a Line Item has
-        no Selling UOM defined, then the Inventory UOM will be used here by
+        <para>Specify the Unit of Measure (UOM) to be used when selling the
+        Line Item. Sold Items may be assigned multiple Selling UOMs. These
+        alternate UOMs may be defined on the Item master. You may also select
+        a global conversion ratio here. Global conversions have the label
+        <literal>Global</literal> appended to them. If a Line Item has no
+        Selling UOM defined, then the Inventory UOM will be used here by
         default.</para>
       </listitem>
     </varlistentry>
@@ -193,8 +195,10 @@
       <listitem>
         <para>The Price Unit of Measure is the same as the Selling UOM. If an
         Item has Selling UOMs defined, then the Item may be sold and priced in
-        these alternate UOMs. If no Selling UOMs are defined, then the
-        Inventory UOM will be used here by default.</para>
+        these alternate UOMs. You may also select a global conversion ratio
+        here. Global conversions have the label <literal>Global</literal>
+        appended to them. If no Selling UOMs are defined, then the Inventory
+        UOM will be used here by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

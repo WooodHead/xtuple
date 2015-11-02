@@ -37,7 +37,9 @@
     <varlistentry>
       <term>UOM</term>
       <listitem>
-        <para>Inventory Unit of Measure.</para>
+        <para>Inventory Unit of Measure. You may also select a global
+        conversion ratio here. Global conversions have the label
+        <literal>Global</literal> appended to them.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -147,8 +149,10 @@
       <term>Issue UOM</term>
       <listitem>
         <para>Specify the Unit of Measure (UOM) you want to use when issuing
-        Item quantity to Work Orders. Unless you specify an alternate UOM, the
-        Inventory UOM will be used by default.</para>
+        Item quantity to Work Orders. You may also select a global conversion
+        ratio here. Global conversions have the label
+        <literal>Global</literal> appended to them. Unless you specify an
+        alternate UOM, the Inventory UOM will be used by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
