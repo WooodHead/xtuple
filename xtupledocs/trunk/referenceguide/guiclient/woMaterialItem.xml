@@ -114,8 +114,13 @@
             <term>Issue UOM</term>
             <listitem>
               <para>Specify the Unit of Measure (UOM) you want to use when
-              issuing Item quantity to the Work Order. Unless you specify an
-              alternate UOM, the Inventory UOM will be used by default.</para>
+              issuing Item quantity to the Work Order. Items may be assigned
+              multiple material issue UOMs. These alternate UOMs may be
+              defined on the Item master. You may also select a global
+              conversion ratio here. Global conversions have the label
+              <literal>Global</literal> appended to them. Unless you specify
+              an alternate UOM, the Inventory UOM will be used by
+              default.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
