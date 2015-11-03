@@ -33,6 +33,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Refresh Order</term>
+      <listitem>
+        <para>Select to indicate you want the Quote header to be refreshed
+        immediately in the background. When the header is refreshed
+        immediately, you will be able to see the rows of Line Items being
+        added to the order. However, this feature can impact performance when
+        entering Quote Line Items. If you are experiencing performance issues,
+        you should not select this option. The Quote will be refreshed when
+        you close the Quote Line Item screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item you want to sell. The Item
@@ -57,53 +69,87 @@
       <term>Substitute for</term>
       <listitem>
         <para>Optional selection used solely for gathering information related
-        to Sales Order Line Item substitutions. This feature can be used, for
-        example, to gather information about Inventory shortages or Customer
-        first preferences. There is no impact on the system of using this
-        feature. Its function is simply to store information in the database,
-        where it may be accessed for reporting purposes.</para>
+        to Line Item substitutions. This feature can be used, for example, to
+        gather information about Inventory shortages or Customer first
+        preferences. There is no impact on the system of using this feature.
+        Its function is simply to store information in the database, where it
+        may be accessed for reporting purposes.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry role="manufacturing">
       <term><indexterm significance="normal">
           <primary>sites</primary>
-          <secondary>sold from for sales orders</secondary>
+          <secondary>sold from for quotes</secondary>
         </indexterm><indexterm significance="normal">
-          <primary>sales orders</primary>
+          <primary>quotes</primary>
           <secondary>selling sites for</secondary>
         </indexterm>Site</term>
       <listitem>
-        <para>Specify the Site the Sales Order Item is sold from. Items may be
-        supplied to Sales Orders from multiple Item Sites. After an Item
-        Number is entered above, the system checks for available Item Sites
-        for the Item. Any Item Sites having the "Sold from" flag set on them
-        will be selectable from this Site list. By default, the Item Site
-        having the highest Ranking will be selected as the first available
-        Site. If more than one Item Site share a Ranking of "1," the Sites
-        will be sorted in alphabetical order. Item Site Rankings are set on
-        the Item Site master.</para>
+        <para>Specify the Site the Quote Item is sold from. Items may be
+        supplied to Quotes from multiple Item Sites. After an Item Number is
+        entered above, the system checks for available Item Sites for the
+        Item. Any Item Sites having the "Sold from" flag set on them will be
+        selectable from this Site list. By default, the Item Site having the
+        highest Ranking will be selected as the first available Site. If more
+        than one Item Site share a Ranking of "1," the Sites will be sorted in
+        alphabetical order. Item Site Rankings are set on the Item Site
+        master.</para>
+        <tip>
+          <para>If a preferred Selling Site is specified for the Customer,
+          then that Site will be selected here by default. If the preferred
+          Selling Site is not selected—and you think it should be—verify that
+          the Item Site master for the Line Item in question is marked as a
+          "Sold from" Site.</para>
+        </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <tip>
-    <para>If a preferred Selling Site is specified for the Customer, then that
-    Site will be selected here by default. If the preferred Selling Site is
-    not selected—and you think it should be—verify that the Item Site master
-    for the Line Item in question is marked as a "Sold from" Site.</para>
-  </tip>
-  <variablelist>
+    <varlistentry role="standard">
+      <term>ADV. ITEM SEARCH</term>
+      <listitem>
+        <para>Advanced Item Search (AIS) is a feature designed specifically
+        with distribution in mind. This feature allows distributors and end
+        users to quickly search for both Items and Item Aliases―as well as
+        current inventory levels―filtering every keystroke. From this screen
+        you also have the ability to create an Item Alias.</para>
+        <note>
+          <para>When using the Advanced Item Search, you must enter at least
+          three characters (i.e., numbers, letters or a combination of both)
+          before any search results will be returned. This is for speed of
+          performance reasons.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>VENDOR CATALOG</term>
+      <listitem>
+        <para>Select to use the External Vendor Catalog screen to view Items
+        as they appear within the various Vendor Catalogs you are subscribed
+        to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>VIEW IMAGE</term>
+      <listitem>
+        <para>Select to view an Item image, if available.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>VIEW SPEC</term>
+      <listitem>
+        <para>Select to view a specification sheet for the Item, if
+        available.</para>
+      </listitem>
+    </varlistentry>
     <varlistentry>
       <term>Qty. Ordered</term>
       <listitem>
         <para>Enter the quantity of the specified Item being ordered.</para>
+        <note>
+          <para>The quantity ordered is based on the Quantity Unit of
+          Measure.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The quantity ordered is based on the Quantity Unit of
-    Measure.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Qty. UOM</term>
       <listitem>
@@ -130,7 +176,7 @@
     </varlistentry>
     <varlistentry>
       <term><indexterm significance="normal">
-          <primary>sales orders</primary>
+          <primary>quotes</primary>
           <secondary>line item pricing for</secondary>
         </indexterm>Net Unit Price</term>
       <listitem>
@@ -162,8 +208,6 @@
         </tip>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <variablelist>
     <varlistentry>
       <term>Price UOM</term>
       <listitem>
@@ -189,14 +233,12 @@
         determining the scheduled date. After entering the scheduled date, hit
         the TAB key on your keyboard to display values in the remaining
         display only fields.</para>
+        <note>
+          <para>The Line Item having the earliest scheduled date will
+          determine the ship date for the Sales Order.</para>
+        </note>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>The Sales Order Item having the earliest scheduled date will
-    determine the ship date for the Sales Order.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term>Promised Date</term>
       <listitem>
@@ -206,9 +248,10 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>When entering Quotes you have the ability to view current availability
-  for Line Items. You may also create replenishment Orders if they are
-  needed.</para>
+  <para>When entering Quotes you have the ability to view current supply
+  considerations, including Item availability and dependencies. You may also
+  create replenishment Orders (if they are needed) and change Work Order
+  Materials and Operations.</para>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -217,13 +260,16 @@
         </indexterm>Show Availability</term>
       <listitem>
         <para>Select to display Availability information for the Quote Item in
-        the following categories:</para>
+        the following categories. If the feature is turned on, the
+        Availability totals will display only after a Scheduled Date has been
+        entered for the Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Inventory</term>
       <listitem>
-        <para>Select option to view Inventory availability.</para>
+        <para>Select option to view Inventory availability. The display lists
+        Item availability for dependencies.</para>
         <variablelist>
           <varlistentry>
             <term>On Hand</term>
@@ -240,9 +286,8 @@
               the Item—and that Line Item has not yet been issued to Shipping.
               An Item is considered allocated to a Work Order if the Item is a
               material requirement—and the material has not yet been issued to
-              the Work Order. Once the current Sales Order Line Item is saved,
-              the "Allocated" value will increase by the quantity
-              ordered.</para>
+              the Work Order. Once a Sales Order Line Item is saved, the
+              "Allocated" value will increase by the quantity ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -257,8 +302,8 @@
             <term>On Order</term>
             <listitem>
               <para>If the Quote Item is a manufactured Item, the quantity
-              ordered by current Work Orders will be displayed. If the Sales
-              Order Item is a purchased Item, the quantity ordered by current
+              ordered by current Work Orders will be displayed. If the Quote
+              Item is a purchased Item, the quantity ordered by current
               Purchase Orders will be displayed.</para>
             </listitem>
           </varlistentry>
@@ -277,63 +322,138 @@
               Item.</para>
             </listitem>
           </varlistentry>
+          <varlistentry>
+            <term>As Of</term>
+            <listitem>
+              <para>Show Availability using one of the following
+              criteria:</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Scheduled Date</term>
+                  <listitem>
+                    <para>Select to show projected Availability based on the
+                    scheduled date.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Lead Time</term>
+                  <listitem>
+                    <para>Select to show projected Availability based on the
+                    Lead Time specified in the Item Site master.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Show Dependencies as Indented BOM</term>
+            <listitem>
+              <para>Displays component Items associated with sold manufactured
+              Items in a nested list with a plus ("+") sign located to the far
+              left of the screen next to each line that may be expanded to
+              lower levels. By clicking your mouse on a plus sign, you reveal
+              lower levels of information related to the Line Item.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
-        <tip>
-          <para>The "Show Availability" feature can be turned on or off by
-          default at the system level. If the feature is turned on, the
-          Availability totals will display only after a Scheduled Date has
-          been entered for the Line Item.</para>
-        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>work orders generated by</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>work orders</primary>
-          <secondary>generated by sales orders</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>purchase requests</primary>
-          <secondary>generated by sales orders</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>sales orders</primary>
-          <secondary>purchase requests generated by</secondary>
-        </indexterm>Create Work Order</term>
+      <term>Supply Order</term>
       <listitem>
-        <para>If the Line Item is a manufactured Item, select this option to
-        automatically create a Work Order for the specified quantity. For
-        make-to-order manufactured Items, this option will be selected
-        automatically. A Work Order will be created to meet the Sales Order
-        demand once you save the Line Item to the Order. An Item is designated
-        as make-to-order if the "Stocked at" flag on the Item Site master is
-        not selected. A Work Order created automatically from a Sales Order
-        Line Item will assume the same Order Number as the Sales Order the
-        Line Item is associated with—even if that Order Number has already
-        been used by a previous Work Order.</para>
-        <note>
-          <para>For purchased Items, two different options may appear,
-          depending on how the Item Site for the Item is set up:</para>
-          <itemizedlist>
+        <para>If you wish to maintain Work Order materials and operations for
+        a manufactured Item, select the "Supply Order" option on the "Supply"
+        tab. The following will be displayed:<mediaobject>
+            <imageobject>
+              <imagedata fileref="images/salesOrderItem_availabilitySupply.png" />
+            </imageobject>
+            <caption><para>Supply Order Information For Manufactured
+            Item</para></caption>
+          </mediaobject><note>
+            <para>Supply Orders are created as soon as a valid Item, Order
+            quantity, and scheduled date are entered.</para>
+          </note></para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>quotes</primary>
+                <secondary>work orders generated by</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>work orders</primary>
+                <secondary>generated by quotes</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>purchase requests</primary>
+                <secondary>generated by quotes</secondary>
+              </indexterm><indexterm significance="normal">
+                <primary>quotes</primary>
+                <secondary>purchase requests generated by</secondary>
+              </indexterm>Create Work Order</term>
             <listitem>
-              <para>Create Purchase Request</para>
+              <para>If the Line Item is a manufactured Item, select this
+              option to automatically create a Work Order for the specified
+              quantity. For make-to-order manufactured Items, this option will
+              be selected automatically―as long as the Item Site's "Stocked"
+              flag is set to "False." The Work Order will be created once you
+              save the Quote Line Item. Work Orders created automatically from
+              a Quote will assume the same Order Number as the Quote—even if
+              that Order Number has already been used by a previous Work
+              Order.</para>
+              <para>For purchased Items, the following two different options
+              may appear, depending on how the Item Site for the Item is set
+              up: "Create Purchase Request" or "Create Purchase Order." In
+              either case, you will be given the option to override any Item
+              Source Price(s) which are in place. Also, linked Purchase Orders
+              will be updated when Quote details are changed. If your site is
+              configured to use drop shipping, an additional "Drop Ship" flag
+              will also be shown for linked Purchase Orders. The drop ship
+              function will search for an existing Purchase Order linked to
+              the Quote with a matching Ship-To Address and add the Line Item
+              to that Order—or create a new Order if none exists. Drop ship
+              Purchase Orders inherit the Ship-To Address and Contact
+              information from the Quote. Item Sources must be defined for
+              drop ship Items—including each component of a Kit Item.</para>
+              <tip>
+                <para>This option will not be selected by default if the
+                relevant Item Site has the "Stocked" setting selected.</para>
+              </tip>
+              <note>
+                <para>When changing an existing Quote Line Item, you will be
+                asked for confirmation before the Work Order is
+                rescheduled.</para>
+              </note>
             </listitem>
-            <listitem>
-              <para>Create Purchase Order</para>
-            </listitem>
-          </itemizedlist>
-          <para>In either case, you will be given the option to override any
-          Item Source Price(s) which are in place. Also, linked Purchase
-          Orders will be updated when Sales Order details are changed. If your
-          site is configured to use drop shipping, an additional "Drop Ship"
-          flag will also be shown for linked Purchase Orders. The drop ship
-          function will search for an existing Purchase Order linked to the
-          Sales Order with a matching Ship-To Address and add the Line Item to
-          that Order—or create a new Order if none exists. Drop ship Purchase
-          Orders inherit the Ship-To Address and Contact information from the
-          Sales Order. Item Sources must be defined for drop ship
-          Items—including each component of a Kit Item.</para>
-        </note>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Order #</term>
+      <listitem>
+        <para>The number of the newly created Work Order is displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>The Work Order Status is displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty.</term>
+      <listitem>
+        <para>The quantity ordered by the Quote Line Item will display here.
+        If the Line Item is a purchased Item, purchase quantity information
+        will appear instead. Whenever Quote Line Item quantity is changed, the
+        change will also be reflected in any linked Work Orders, Purchase
+        Orders, or Purchase Requests.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>The scheduled date of the Quote Line Item will display here. If
+        the Line Item is a purchased Item, the purchasing due dates will
+        appear instead.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="standard">
@@ -341,7 +461,7 @@
           <primary>sites</primary>
           <secondary>for make-to-order</secondary>
         </indexterm><indexterm significance="normal">
-          <primary>sales orders</primary>
+          <primary>quotes</primary>
           <secondary>supplying sites and</secondary>
         </indexterm>Supplying Site</term>
       <listitem>
@@ -354,26 +474,97 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Dependencies</term>
+      <term>W/O Materials and Operations</term>
       <listitem>
-        <para>Select option to review any components dependent on manufactured
-        line Item.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Show Dependencies as Indented BOM</term>
-            <listitem>
-              <para>Displays components Items associated with sold
-              manufactured Item in a nested list with a plus ("+") sign
-              located to the far left of the screen next to each line that may
-              be expanded to lower levels. By clicking your mouse on a plus
-              sign, you reveal lower levels of information related to the Line
-              Item.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Display lists an exploded view of the Materials and Operations
+        for the Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW MATL.</term>
+      <listitem>
+        <para>Select to add Materials to the BOM for the Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW OPER.</term>
+      <listitem>
+        <para>Select to add Operations to the BOO for this Order Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>The Materials and Operations can be changed from this screen
+        while placing the Order. To do this, click the EDIT button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>To remove Materials or Operations from the Work Order, highlight
+        the line in the exploded Work Order view and click the DELETE button.
+        Repeat for every line that needs to be removed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Rollup Prices</term>
+      <listitem>
+        <para>If this option is selected, the price will be based on the price
+        of all Materials and Operations. These Material and Operations prices
+        can be edited from the Quote Item screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>The following will be displayed when the Item is a purchased
+  Item:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/salesOrderItem_availabilitySupply2.png" />
+    </imageobject>
+    <caption><para>Supply Order Information For Bought Item</para></caption>
+  </mediaobject>
+  <variablelist>
+    <varlistentry>
+      <term>Override Price</term>
+      <listitem>
+        <para>If your site has enabled the "Allow Inventory Receipt Cost
+        Override" option in the Inventory setup, then you will be able to
+        override the default Unit Price here. This option applies only to
+        Average cost Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Drop Ship</term>
+      <listitem>
+        <para>Select this option if the Item should be automatically shipped
+        when the Purchase Order receipt is posted.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To see a list of Item Sources, select the "Item Sources" option on the
+  "Supply" tab. Available Item Sources will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/salesOrderItem_availabilityItemSources.png" />
+    </imageobject>
+    <caption><para>Available Item Sources</para></caption>
+  </mediaobject>
+  <para>To display a list of substitutes for the selected Item or Site with
+  availability information, select the "Substitutes" option on the "Supply"
+  tab. The following will be displayed:</para>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/salesOrderItem_availabilitySubstitutes.png" />
+    </imageobject>
+    <caption><para>Available Substitutes</para></caption>
+  </mediaobject>
+  <note>
+    <para>Substitutes are defined on the Item master. Right-click on an Item
+    in the list and select <guimenuitem>Substitute</guimenuitem> to set the
+    selected Item as a Line Item substitute. The original Line Item will be
+    moved to the <guilabel>Substitute For</guilabel> field.</para>
+  </note>
   <para>The following buttons are unique to this screen:</para>
   <variablelist>
     <varlistentry>
@@ -387,6 +578,36 @@
       <term>NEW</term>
       <listitem>
         <para>Select to create a new Quote Line Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view the Customer's sales history, select the "History" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/quoteItem_history.png" />
+        </imageobject>
+        <caption>Customer History Information</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When viewing Customer history, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Costs History</term>
+      <listitem>
+        <para>Select to display historical costing information for the Item
+        inside a specified date range. Purchased costs for the Item will be
+        shown, if the Item has ever been received on a Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sales History</term>
+      <listitem>
+        <para>Select to display historical sales information for the Item
+        inside a specified date range. Invoices for the Item will be shown, if
+        the Item has ever been sold previously.</para>
       </listitem>
     </varlistentry>
   </variablelist>
