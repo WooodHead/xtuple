@@ -7,54 +7,88 @@
       <primary>taxes</primary>
       <secondary>1099 information</secondary>
     </indexterm>Info for 1099's</title>
-  <para></para>
-  <para>To view 1099 information, select the "Info for 1099" option. The
-  following screen will appear:</para>
+  <para>The 1099 information features are designed to help you organize and
+  manage your 1099 Vendors, as well as your Accounts used for 1099 reporting.
+  The following terms are used:</para>
+  <para><itemizedlist>
+      <listitem>
+        <para><emphasis role="bold">1099 forms</emphasis> are U.S. Federal tax
+        documents with payment information for independent contractors,
+        government payments, interest payments, etc.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">1099-MISC forms</emphasis> are related but
+        are used to report on miscellaneous income that 1099 forms do not
+        usually cover.</para>
+      </listitem>
+      <listitem>
+        <para><emphasis role="bold">1096 forms</emphasis> are used to total up
+        all the 1099's and 1099-MISC forms in your database.</para>
+      </listitem>
+    </itemizedlist>In xTuple ERP, 1099 form information is determined based on
+  the combination of vendors marked as 1099 recipients and General Ledger (GL)
+  accounts marked to be included in 1099 amounts. For more information about
+  working with 1099's in xTuple, please see the following article: <ulink
+  url="https://www.xtuple.org/docs/1099-information-package">https://www.xtuple.org/docs/1099-information-package</ulink>.</para>
+  <note>
+    <para>The reports provided to support this feature were formatted to match
+    preprinted forms available at Staples.</para>
+  </note>
+  <para>To view and manage your 1099 information, select the "Info for 1099"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspTaxHistory.png" />
+          <imagedata fileref="images/dspTax1099.png" />
         </imageobject>
         <caption>Info for 1099's</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When displaying 1099 information, you are presented with the following
-  options:</para>
+  <para>When viewing and managing 1099 information, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>From Date</term>
       <listitem>
-        <para></para>
+        <para>Specify the starting date for the date range you want to include
+        1099 information for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>To Date</term>
       <listitem>
-        <para></para>
+        <para>Specify the ending date for the date range you want to include
+        1099 information for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Summary 1099</term>
       <listitem>
-        <para></para>
+        <para>Select to display summary payment information for all your 1099
+        Vendors.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Summary All</term>
       <listitem>
-        <para></para>
+        <para>Select to display summary information about all Vendor payments
+        during the specified date range, regardless of Vendors' 1099
+        status.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Detail 1099</term>
       <listitem>
-        <para></para>
+        <para>Select to display detailed payment information for all your 1099
+        Vendors.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Detail All</term>
       <listitem>
-        <para></para>
+        <para>Select to display detailed information about all Vendor payments
+        during the specified date range, regardless of Vendors' 1099
+        status.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -63,25 +97,32 @@
     <varlistentry>
       <term>PRINT 1099</term>
       <listitem>
-        <para></para>
+        <para>Select to print a summary 1099 report for all your 1099 Vendors.
+        This button is only available when using the "Summary 1099"
+        option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>PRINT 1096</term>
       <listitem>
-        <para></para>
+        <para>Select to print a summary 1096 report for all your 1099 Vendors.
+        This button is only available when using the "Summary 1099"
+        option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SELECT ACCOUNTS</term>
       <listitem>
-        <para></para>
+        <para>Select to open a list of Accounts which you can manually
+        designate as being used for 1099 reporting.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SELECT VENDORS</term>
       <listitem>
-        <para></para>
+        <para>Highlight a Vendor in the list and then select this button to
+        update the Vendor's 1099 status. Using this button is equivalent to
+        turning ON/OFF the "Receives a 1099" flag on the Vendor record.</para>
       </listitem>
     </varlistentry>
   </variablelist>
