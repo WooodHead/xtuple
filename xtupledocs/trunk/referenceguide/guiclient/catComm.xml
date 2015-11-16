@@ -7,8 +7,8 @@
       <primary>commodity codes</primary>
       <secondary>creating new</secondary>
     </indexterm>External Vendor Commodity Code</title>
-  <para>To create a new External Vendor Commodity Code Code, select the NEW
-  button. The following screen will appear:</para>
+  <para>To create a new External Vendor Commodity Code, select the NEW button.
+  The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -23,31 +23,41 @@
     <varlistentry>
       <term>Provider</term>
       <listitem>
-        <para></para>
+        <para>By default when expanding the External Vendor Commodity Codes,
+        the Provider will be set to "Internal" to denote it is custom.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Code</term>
       <listitem>
-        <para></para>
+        <para>Enter a code to help create a sequence and structure for the
+        Commodity Codes. Using codes breaks the Items into groups and sub
+        groups based on the numbering structure you define.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Description</term>
       <listitem>
-        <para></para>
+        <para>Enter a description for the Code to identify the item or group
+        structure it relates to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Parent</term>
       <listitem>
-        <para></para>
+        <para>Select an already-existing code from the drop-down list to
+        create your custom structure. Codes will be displayed as nested within
+        the parent codes you specify.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Level</term>
       <listitem>
-        <para></para>
+        <para>The level will increment as you create your structure. For
+        example, when you add your first Commodity Code it will assume level
+        1. If you return to the Commodity Codes list screen and select NEW
+        again, the level will increment to 2, based on the parent
+        selected.</para>
       </listitem>
     </varlistentry>
   </variablelist>
