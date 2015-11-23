@@ -21,7 +21,31 @@
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Selected Customer</term>
+      <term>Customer Ship-To</term>
+      <listitem>
+        <para>Specify the Customer Ship-To Address you want to assign a
+        Pricing Schedule to. This is an optional setting which may be used in
+        conjunction with the "Selected Customer" setting. The Ship-To option
+        gives you the added flexibility of being able to assign multiple
+        Pricing Schedules to a single Customer based on separate Ship-To
+        Addresses.</para>
+        <tip>
+          <para>When entering Credit Memos, make sure the Ship-To Address on
+          the Credit Memo matches the Ship-To Address on the Customer's
+          Pricing Schedule. If they don"t match, you won"t be able to issue
+          credit for exclusively sold Items.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer Ship-To Pattern</term>
+      <listitem>
+        <para>Enter a Ship-To Address pattern to select a range of Ship-To
+        Addresses for the selected Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer</term>
       <listitem>
         <para>Select to assign a Pricing Schedule to an individual
         Customer.</para>
@@ -46,34 +70,10 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Selected Customer Ship-To</term>
-      <listitem>
-        <para>Specify the Customer Ship-To Address you want to assign a
-        Pricing Schedule to. This is an optional setting which may be used in
-        conjunction with the "Selected Customer" setting. The Ship-To option
-        gives you the added flexibility of being able to assign multiple
-        Pricing Schedules to a single Customer based on separate Ship-To
-        Addresses.</para>
-      </listitem>
-    </varlistentry>
   </variablelist>
-  <tip>
-    <para>When entering Credit Memos, make sure the Ship-To Address on the
-    Credit Memo matches the Ship-To Address on the Customer's Pricing
-    Schedule. If they don"t match, you won"t be able to issue credit for
-    exclusively sold Items.</para>
-  </tip>
   <variablelist>
     <varlistentry>
-      <term>Selected Cust. Ship-To Pattern</term>
-      <listitem>
-        <para>Enter a Ship-To Address pattern to select a range of Ship-To
-        Addresses for the selected Customer.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Selected Customer Type</term>
+      <term>Customer Type</term>
       <listitem>
         <para>Specify the Customer Type you want to assign a Pricing Schedule
         to.</para>
@@ -84,6 +84,20 @@
       <listitem>
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Shipping Zone</term>
+      <listitem>
+        <para>Specify the Shipping Zone you want to assign a Pricing Schedule
+        to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sale Type</term>
+      <listitem>
+        <para>Specify the Sale Type you want to assign a Pricing Schedule
+        to.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
