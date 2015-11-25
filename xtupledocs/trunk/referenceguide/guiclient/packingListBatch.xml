@@ -46,21 +46,22 @@
   <para>When printing Packing Lists in batch mode, you are presented with the
   following options:</para>
   <variablelist>
-    <varlistentry>
+    <varlistentry role="standard">
       <term>Site</term>
       <listitem>
+        <para>Specify the site(s) whose orders you want to include in the
+        list.</para>
         <variablelist>
           <varlistentry>
             <term>All Sites</term>
             <listitem>
-              <para>Select if you wish to include all Sites.</para>
+              <para>Select to include orders for all Sites.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Selected</term>
             <listitem>
-              <para>Choose this option if you wish to include only the
-              selected Site.</para>
+              <para>Specify Site whose orders you want to include.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -90,6 +91,39 @@
             <term>Pick List</term>
             <listitem>
               <para>Select to print Pick Lists only.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Orders on Hold</term>
+      <listitem>
+        <para>Orders having the following hold types may also be included in
+        the list:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Credit Hold</term>
+            <listitem>
+              <para>Select to include orders on credit hold in the list. If
+              not selected, orders having this hold type will be
+              excluded.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Packing Hold</term>
+            <listitem>
+              <para>Select to include orders on packing hold in the list. If
+              not selected, orders having this hold type will be
+              excluded.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Hold</term>
+            <listitem>
+              <para>Select to include orders on shipping hold in the list. If
+              not selected, orders having this hold type will be
+              excluded.</para>
             </listitem>
           </varlistentry>
         </variablelist>
