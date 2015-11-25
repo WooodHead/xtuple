@@ -7,15 +7,14 @@
       <primary>vendor catalog</primary>
       <secondary>costs for</secondary>
     </indexterm>Vendor Catalog Costs</title>
-  <para>The Vendor Catalog Costs screen helps you manage your stock Items,
-  when using data providers through the External Vendor Catalog. This screen
-  displays the underlying data stored in the <literal>catcost</literal> table
-  in your xTuple database. If the <literal>catcost</literal> table is
-  populated with information and you update your Catalog, the Catalog will
-  check the table first. If an Item has been added, then the Item and its
-  purchased cost can be managed and updated from here.</para>
-  <para>To view and manage your Vendor Catalog Costs, select the "Vendor
-  Catalog Costs" option. The following screen will appear.</para>
+  <para>The Vendor Catalog Costs screen allows you to manage the costs
+  associated with any External Vendor Catalog items which you've converted to
+  Inventory Items in xTuple. From this one screen you can both view your
+  converted Items and manage their Item costing information. Changes you make
+  to an Item's costing information on this screen will be transferred to the
+  xTuple Items when you run the update option.</para>
+  <para>To view and manage your converted Vendor Catalog Items, select the
+  "Vendor Catalog Costs" option. The following screen will appear.</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -24,11 +23,11 @@
         <caption>Vendor Catalog Costs</caption>
       </mediaobject>
     </screenshot></para>
-  <para>The Vendor Catalog Costs screen displays pricing information related
-  to Items in your Vendor Catalog. Item Master and Item Source records are
-  both displayed here. Setting these records will prevent any costs in the
-  Catalog from being updated. To update information for an Item, select the
-  "Edit" option from the right-click menu.</para>
+  <para>The Vendor Catalog Costs screen displays cost and pricing information
+  for xTuple Inventory Items converted from your External Vendor Catalog. Item
+  Master and Item Source records are both displayed here. To modify
+  information for an Item, select the "Edit" option from the right-click
+  menu.</para>
   <note>
     <para>If your pricing configuration is configured to "Use Wholesale Price
     for Unit Cost for Markups," then your sales commission is based on the
@@ -36,6 +35,35 @@
     used to manage those costs, as well, reflecting a true cost for
     commissions.</para>
   </note>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>UPDATE CATCOST</term>
+      <listitem>
+        <para>Select to update your xTuple Item information with the
+        information shown on the Vendor Catalog Cost screen. If the two sets
+        of information are in sync, no changes will be made.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE CATCOST</term>
+      <listitem>
+        <para>Select to temporarily clear all Item information from the
+        Catalog Cost table. When you select the UPDATE CATCOST button, this
+        information will be refreshed with the current xTuple Item information
+        on file.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UPDATE ITEMS</term>
+      <listitem>
+        <para>Select to update the Catalog Cost data using information from
+        your external Vendors' Price Sheet(s). If you are coordinating with
+        multiple Price Sheets, you will be given the option to pick and choose
+        the one(s) you want to apply.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <xi:include href="catCost.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
 </section>
