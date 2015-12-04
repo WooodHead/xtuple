@@ -38,8 +38,9 @@
     <varlistentry>
       <term>Standard Oper.</term>
       <listitem>
-        <para>Select a Standard Operation to use for the Operation, if
-        any.</para>
+        <para>Select a Standard Operation to use for the Operation, if any.
+        Instructions associated with the Standard Operation will be displayed
+        below.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -455,7 +456,12 @@
       <term>Instructions</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
-        instructions related to the Operation.</para>
+        instructions related to the Operation. If you are using a Standard
+        Operation, the instructions (if any) associated with the Standard
+        Operation will be displayed here. You have the option to edit these
+        instructions, but any edits are ad hoc in nature. Edits are not saved
+        back to the Standard Operation and they will be lost if you change
+        Standard Operations for any reason.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
