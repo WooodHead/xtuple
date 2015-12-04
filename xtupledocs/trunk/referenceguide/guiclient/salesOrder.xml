@@ -248,18 +248,15 @@
           <secondary>commissions on</secondary>
         </indexterm>Sales Rep.</term>
       <listitem>
-        <note>
-          <para>This field is not available when the Enhanced Commissions
-          package is enabled. When the xWD package is installed, the field is
-          called "Outside Rep."</para>
-        </note>
-        <para>Specify the Sales Representative associated with the Order.
-        Sales Representatives are linked to a Customer on the Customer
-        master—either by a default setting or through the assignment of
-        Ship-To Addresses. Each Ship-To Address may have a different Sales
-        Representative associated with it. Consequently, the name of the Sales
-        Representative appearing on the Sales Order header will be the same as
-        specified for the Ship-To Address being used.</para>
+        <para>Specify the Sales Representative―or Outside Rep, in the
+        Distribution Edition―associated with the Order. Sales Representatives
+        are linked to a Customer on the Customer master—either by a default
+        setting or through the assignment of Ship-To Addresses. Each Ship-To
+        Address may have a different Sales Representative associated with it.
+        Consequently, the name of the Sales Representative appearing on the
+        Sales Order header will be the same as specified for the Ship-To
+        Address being used. If you are using the Enhanced Commissions package,
+        the Sales Rep information is moved to a separate tab.</para>
         <note>
           <para>When creating a new Sales Order, only active Sales Reps will
           be available for selection. For future changes to an existing Sales
@@ -998,7 +995,9 @@
         <listitem>
           <para>Select a Characteristic from the list of Characteristics
           designated as being available for use as Sales Order
-          Characteristics.</para>
+          Characteristics. In the Distribution Edition, a Characteristic will
+          automatically be created identifying the current user entering the
+          Order as the Inside Sales Rep.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
