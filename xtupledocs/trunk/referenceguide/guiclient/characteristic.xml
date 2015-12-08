@@ -85,6 +85,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Allow unique characteristic assignment only</term>
+      <listitem>
+        <para>Select if you want to restrict use of the Characteristic to only
+        once per object association. For example, if want to make sure a
+        Contact characteristic is used only once per Contact record, then you
+        should select this option.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>May be used on</term>
       <listitem>
         <para>Select one or more of the following Characteristic assignment
@@ -92,55 +101,76 @@
         then be available for use in the specified screen(s).</para>
         <itemizedlist>
           <listitem>
-            <para>Address</para>
-          </listitem>
-          <listitem>
             <para>Account</para>
           </listitem>
           <listitem>
-            <para>Item</para>
-          </listitem>
-          <listitem>
-            <para>Quote</para>
-          </listitem>
-          <listitem>
-            <para>Vendor</para>
-          </listitem>
-          <listitem>
-            <para>Projects</para>
+            <para>Address</para>
           </listitem>
           <listitem>
             <para>Contact</para>
           </listitem>
           <listitem>
-            <para>Employee</para>
-          </listitem>
-          <listitem>
-            <para>Lot/Serial</para>
-          </listitem>
-          <listitem>
-            <para>Sales Order</para>
-          </listitem>
-          <listitem>
-            <para>Purchase Order</para>
-          </listitem>
-          <listitem>
-            <para>Project Tasks</para>
-          </listitem>
-          <listitem>
             <para>Customer</para>
+          </listitem>
+          <listitem>
+            <para>Employee</para>
           </listitem>
           <listitem>
             <para>Incident</para>
           </listitem>
           <listitem>
-            <para>Opportunity</para>
-          </listitem>
-          <listitem>
             <para>Invoice</para>
           </listitem>
           <listitem>
+            <para>Invoice Item</para>
+          </listitem>
+          <listitem>
+            <para>Item</para>
+          </listitem>
+          <listitem>
+            <para>Item Group</para>
+          </listitem>
+          <listitem>
+            <para>Lot/Serial</para>
+          </listitem>
+          <listitem>
+            <para>Opportunity</para>
+          </listitem>
+          <listitem>
+            <para>Project</para>
+          </listitem>
+          <listitem>
+            <para>Project Task</para>
+          </listitem>
+          <listitem>
+            <para>Purchase Order</para>
+          </listitem>
+          <listitem>
+            <para>Purchase Order Item</para>
+          </listitem>
+          <listitem>
+            <para>Purchase Request</para>
+          </listitem>
+          <listitem>
+            <para>Quote</para>
+          </listitem>
+          <listitem>
+            <para>Quote Item</para>
+          </listitem>
+          <listitem>
+            <para>Sales Order</para>
+          </listitem>
+          <listitem>
+            <para>Sales Order Item</para>
+          </listitem>
+          <listitem>
+            <para>Vendor</para>
+          </listitem>
+          <listitem>
             <para>Voucher</para>
+          </listitem>
+          <listitem>
+            <para>Work Order</para>
           </listitem>
         </itemizedlist>
       </listitem>
