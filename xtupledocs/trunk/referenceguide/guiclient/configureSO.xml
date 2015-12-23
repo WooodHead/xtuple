@@ -1083,4 +1083,83 @@
         </listitem>
       </varlistentry>
     </variablelist></para>
+  <para>To enable and/or configure the simple Sales Order screen, select the
+  "Simple S/O" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/configureSO_simpleSO.png" />
+        </imageobject>
+        <caption>Simple Sales Order Configuration</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When enabling or configuring the simple Sales Order screen, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Enable Simple S/O</term>
+      <listitem>
+        <para>Select to enable the simple Sales Order screen. The simple Sales
+        Order is an easy-to-use alternative interface for quickly processing
+        non-complex Sales Orders. The screen is ideally suited for
+        environments where complex order information is not required (e.g.,
+        counter sales, retail, etc.). If enabled, the screen will be available
+        from the <guimenuitem>Sales &gt; Sales Order</guimenuitem> menu. If
+        disabled, the menu option will not appear.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cash Customer #</term>
+      <listitem>
+        <para>Enter a Customer Number to be used as the default cash-paying
+        Customer when entering simple Sales Orders. During order entry, you
+        may easily override the default with either pre-existing other or new
+        Customer information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sale Type</term>
+      <listitem>
+        <para>Specify the Sale Type to be used for Sales Orders entered using
+        the simple Sales Order screen. The Sale Type selection impacts the
+        Sales Account Assignment for orders entered using this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Require Sufficient Inventory to Ship</term>
+      <listitem>
+        <para>Select to ensure you have enough Quantity on Hand (QOH) in stock
+        of a Line Item prior to shipping. If selected, this option will
+        prevent you from shipping a Line Item if doing so would force QOH for
+        the Item Site to fall below zero. Not selecting this option means
+        shipping may drive QOH negative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print S/O Acknowledgement (Hold Only)</term>
+      <listitem>
+        <para>Select to automatically prompt for printing a Sales Order
+        acknowledgement form when a simple Sales Order is held. If not
+        selected, users won't be prompted to print the acknowledgement form
+        when holding a simple Sales Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Shipping Packing List</term>
+      <listitem>
+        <para>Select to automatically prompt for printing a shipping Packing
+        List when payment for the simple Sales Order is posted. If not
+        selected, users won't be prompted to print the Packing List when
+        posting payment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Print Invoice</term>
+      <listitem>
+        <para>Select to automatically prompt for printing an Invoice when
+        payment for the simple Sales Order is posted. If not selected, users
+        won't be prompted to print an Invoice when posting payment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
