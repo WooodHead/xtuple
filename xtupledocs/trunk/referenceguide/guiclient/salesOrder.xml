@@ -136,7 +136,7 @@
     <varlistentry>
       <term>Cust. PO #</term>
       <listitem>
-        <para>PO #: Enter a Customer Purchase Order Number, as needed.</para>
+        <para>Enter a Customer Purchase Order Number, as needed.</para>
         <note>
           <para>You will be required to enter a Customer Purchase Order Number
           for Customers who require them. If required, duplicate numbers will
@@ -539,14 +539,13 @@
     <varlistentry>
       <term>Require sufficient Inventory</term>
       <listitem>
-        <para>Select to ensure you have enough Quantity on Hand of a Line Item
-        prior to issuing Stock to Shipping. If selected, this option will
-        prevent you from issuing Line Item quantity to Shipping if doing so
-        would force Quantity on Hand for the Item Site to fall below zero. Not
+        <para>Select to ensure you have enough Quantity on Hand (QOH) in stock
+        of a Line Item prior to issuing Stock to Shipping. If selected, this
+        option will prevent you from issuing Line Item quantity to Shipping if
+        doing so would force QOH for the Item Site to fall below zero. Not
         selecting this option means issuing Stock to Shipping may drive Item
-        Site Quantity on Hand negative. This option will not be visible if the
-        system is configured to hide Shipping options at Sales Order
-        entry.</para>
+        Site QOH negative. This option will not be visible if the system is
+        configured to hide Shipping options at Sales Order entry.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
