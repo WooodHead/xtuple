@@ -10,10 +10,10 @@
       <primary>accounts receivable</primary>
       <secondary>entering debit memos for</secondary>
     </indexterm>New Misc. Debit Memo</title>
-  <para>A miscellaneous Debit Memo is like an Invoice&mdash;the main
-  difference being that a miscellaneous Debit Memo is not necessarily linked
-  to a Sales Order. To enter a miscellaneous Debit Memo, select the "Enter
-  Misc. Debit Memo" option. The following screen will appear:</para>
+  <para>A miscellaneous Debit Memo is like an Invoice—the main difference
+  being that a miscellaneous Debit Memo is not necessarily linked to a Sales
+  Order. To enter a miscellaneous Debit Memo, select the "Enter Misc. Debit
+  Memo" option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -126,12 +126,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax Zone</term>
+      <listitem>
+        <para>Displays the Tax Zone associated with the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Tax</term>
       <listitem>
-        <para>Enter the Tax, if any, associated with the Debit Memo. To enter
-        Tax, simply select the blue Tax link next to this field. If Tax is
-        entered, the amount will be charged to the General Ledger account for
-        the relevant Tax Code.</para>
+        <para>Tax will be calculated automatically if the associated Tax Code
+        is configured to calculate Tax on Memos. You can link a Tax Code to
+        Memos with a Tax Assignment that matches the Tax Code, the Tax Zone,
+        and the system-defined "Adjustment" Tax Type. To manually enter Tax,
+        select the blue Tax link which serves as the label for this field. If
+        Tax is entered manually, the amount will be charged to the General
+        Ledger account for the relevant Tax Code.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

@@ -134,12 +134,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax Zone</term>
+      <listitem>
+        <para>Displays the Tax Zone associated with the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Tax</term>
       <listitem>
-        <para>Enter the Tax, if any, associated with the Credit Memo. To enter
-        Tax, simply select the blue Tax link next to this field. If Tax is
-        entered, the amount will be charged to the General Ledger account for
-        the relevant Tax Code.</para>
+        <para>Tax will be calculated automatically if the associated Tax Code
+        is configured to calculate Tax on Memos. You can link a Tax Code to
+        Memos with a Tax Assignment that matches the Tax Code, the Tax Zone,
+        and the system-defined "Adjustment" Tax Type. To manually enter Tax,
+        select the blue Tax link which serves as the label for this field. If
+        Tax is entered manually, the amount will be charged to the General
+        Ledger account for the relevant Tax Code.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -157,11 +167,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>If an alternate Prepaid Account is not specified, the system will
-    use the default Prepaid Account specified for the Customer Type under
-    Receivables Account Assignments.</para>
-  </note>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
@@ -197,6 +202,11 @@
       <caption>Enter Miscellaneous Credit Memo Account</caption>
     </mediaobject>
   </screenshot>
+  <note>
+    <para>If an alternate Prepaid Account is not specified, the system will
+    use the default Prepaid Account specified for the Customer Type under
+    Receivables Account Assignments.</para>
+  </note>
   <variablelist>
     <varlistentry>
       <term>Use Alternate Prepaid Account</term>

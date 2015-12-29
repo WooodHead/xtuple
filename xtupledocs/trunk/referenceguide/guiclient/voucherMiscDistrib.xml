@@ -50,9 +50,13 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Tax</term>
+            <term>Tax Code</term>
             <listitem>
-              <para>Select a Tax Code to use for the distribution.</para>
+              <para>Select a Tax Code to use for the distribution. When using
+              this option, the distribution amount will be charged to the
+              General Ledger account associated with the Tax Code. To have Tax
+              calculated automatically for the distribution, use the "Tax
+              Type" option.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -65,6 +69,14 @@
         is a balance still to be distributed once all Voucher Items have been
         distributed, then that remaining amount will be entered here by
         default.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Tax Type</term>
+      <listitem>
+        <para>Select a Tax Type to associate with the distribution. Tax will
+        be calculated automatically if a Tax Assignment matches both the Tax
+        Type and the specified Tax Zone.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

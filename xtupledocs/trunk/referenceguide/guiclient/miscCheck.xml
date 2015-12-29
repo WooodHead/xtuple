@@ -69,6 +69,32 @@
               <para>Specify the Expense Category you want to distribute the
               payment to. This option is available for all recipient
               types.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Tax Zone</term>
+                  <listitem>
+                    <para>Displays the Tax Zone associated with the specified
+                    Vendor or Customer.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Tax Type</term>
+                  <listitem>
+                    <para>Select a Tax Type to indicate you want to calculate
+                    Tax for the payment. Tax will be calculated automatically
+                    if a Tax Assignment matches both the Tax Type and the
+                    specified Tax Zone. By not selecting a Tax Type, you can
+                    avoid calculating Tax.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Tax</term>
+                  <listitem>
+                    <para>Displays the amount of calculated Tax, if
+                    any.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
             </listitem>
           </varlistentry>
           <varlistentry>
