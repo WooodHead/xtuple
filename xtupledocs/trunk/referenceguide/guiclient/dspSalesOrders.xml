@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspSalesOrders">
+  <title><indexterm significance="normal">
+      <primary>sales orders</primary>
+      <secondary>search for</secondary>
+    </indexterm>Search Orders</title>
+  <para>The "Search Orders" screen allows you to quickly and easily locate the
+  Sales Orders you're looking for. Use the search filter options to narrow
+  down your search.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Narrow your search using a date range. By default, the date range
+      is set to the current date.</para>
+    </listitem>
+    <listitem>
+      <para>Use the Customer's original P/O Number to locate a Sales
+      Order.</para>
+    </listitem>
+    <listitem>
+      <para>Find all Orders related to a specific Sales Rep.</para>
+    </listitem>
+    <listitem>
+      <para>Hide closed Orders to only show open Orders during a date range
+      you specify.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Search Orders" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspSalesOrders.png" />
+        </imageobject>
+        <caption>Search Sales Orders</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Search Orders" screen shows all Sales
+  Orders created on the current date. You can build your own search criteria
+  using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
