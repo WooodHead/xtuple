@@ -71,7 +71,41 @@
     <varlistentry>
       <term>Tax Authority</term>
       <listitem>
-        <para>Select a valid Tax Authority.</para>
+        <para>Select a valid Tax Authority. This selection is required if you
+        want to generate Tax Returns for a specified Tax Authority. The link
+        between Tax Codes and Tax Authorities is the key driver behind the Tax
+        Return report.</para>
+        <note>
+          <para>For transaction information to be included in the Tax Return
+          report, the Tax Authority must be linked to one or more Tax
+          Codes.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Auto Apply to Memos</term>
+      <listitem>
+        <para>Select if you want the Tax Code rate to be automatically applied
+        to miscellaneous Credit/Debit Memos. This feature is designed
+        primarily to support Value Added Tax (VAT) scenarios. If this option
+        is not selected, Tax will not be calculated automatically for
+        Memos.</para>
+        <variablelist>
+          <varlistentry>
+            <term>A/P Memos</term>
+            <listitem>
+              <para>Select to have the Tax Code rate automatically applied to
+              miscellaneous Payables Credit/Debit Memos.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>A/R Memos</term>
+            <listitem>
+              <para>Select to have the Tax Code rate automatically applied to
+              miscellaneous Receivables Credit/Debit Memos.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

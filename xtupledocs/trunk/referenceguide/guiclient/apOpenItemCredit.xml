@@ -122,9 +122,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax Zone</term>
+      <listitem>
+        <para>Displays the Tax Zone associated with the specified
+        Vendor.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Tax</term>
       <listitem>
-        <para>Select the Tax hyperlink and enter applicable taxes.</para>
+        <para>Tax will be calculated automatically if the associated Tax Code
+        is configured to calculate Tax on Memos. You can link a Tax Code to
+        Memos with a Tax Assignment that matches the Tax Code, the Tax Zone,
+        and the system-defined "Adjustment" Tax Type. To manually enter Tax,
+        select the blue Tax link which serves as the label for this field. If
+        Tax is entered manually, the amount will be charged to the General
+        Ledger account for the relevant Tax Code.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
