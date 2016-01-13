@@ -462,12 +462,12 @@
           <secondary>for credit card service</secondary>
         </indexterm>Server Name</term>
       <listitem>
-        <para>Enter the URL for the specified Verification Service's server.
-        The URL specified may vary, depending on whether you are working in
-        test mode or production mode. If this is empty then the application
-        will use the default URL for this Verification Service, which again
-        may vary depending on whether you are working in test mode or
-        production mode.</para>
+        <para>Enter the URL for the specified Verification Service's
+        server―or, leave this field blank to automatically use the correct
+        default URL. If you manually enter a URL, keep in mind that the
+        address needed may vary depending on whether you are working in test
+        mode or production mode. By leaving this field blank, you can be
+        assured the correct default path will always be used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
