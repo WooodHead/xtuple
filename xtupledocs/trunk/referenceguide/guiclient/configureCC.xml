@@ -74,9 +74,11 @@
             <term>Authorize.Net</term>
             <listitem>
               <para>Select if you will be using the Authorize.Net payment
-              gateway for handling Credit Card transactions. Specific
-              Authorize.Net options will be enabled on the screen if you
-              select this service.</para>
+              gateway for handling Credit Card transactions. Please be aware
+              that xTuple only supports the card not present (CNP) account
+              type through Authorize.Net. The card present (CP) account type
+              is not currently supported. If selected, specific Authorize.Net
+              options will be enabled on the screen.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
