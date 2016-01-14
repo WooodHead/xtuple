@@ -138,7 +138,7 @@
     </section>
     <section>
       <title>Sales Order</title>
-      <para>Sales Order lookup section</para>
+      <para>Sales Order lookup section.</para>
       <xi:include href="guiclient/dspSalesOrdersByCustomerType.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
@@ -149,6 +149,13 @@
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/dspSalesOrdersByItem.xml"
+                  xpointer="element(/1)"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
+    </section>
+    <section>
+      <title>Return Auth.</title>
+      <para>Return Authorization lookup section.</para>
+      <xi:include href="guiclient/dspReturnAuthorizationsByItem.xml"
                   xpointer="element(/1)"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>

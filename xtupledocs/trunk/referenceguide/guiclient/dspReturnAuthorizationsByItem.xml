@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspReturnAuthorizationsByItem">
+  <title><indexterm significance="normal">
+      <primary>return authorizations</primary>
+      <secondary>looking up by item</secondary>
+    </indexterm> Return Authorization Lookup by Item</title>
+  <para>To view Return Authorizations by Item, select the "Return
+  Authorizations Lookup by Item" option from the "Reports" menu. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspReturnAuthorizationsByItem.png" />
+        </imageobject>
+        <caption>Return Authorization Lookup by Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Return Authorizations by Item, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Return Authorizations
+        you want to view. The lookup feature located to the right of the field
+        leads to a searchable list of make and buy items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Starting Order Date</term>
+      <listitem>
+        <para>Return Authorizations entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ending Order Date</term>
+      <listitem>
+        <para>Return Authorizations entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Return Authorizations</term>
+      <listitem>
+        <para>Display lists Return Authorizations for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
