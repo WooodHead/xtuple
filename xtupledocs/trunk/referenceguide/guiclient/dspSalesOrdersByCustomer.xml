@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="dspSalesOrdersByCustomer">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>finding by customer</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,18 +11,16 @@
       <secondary>finding sales orders for</secondary>
     </indexterm>Sales Order Lookup by Customer</title>
   <para>To view Sales Orders by Customer, select the "Sales Order Lookup by
-  Customer" option from the "Displays" menu. The following screen will
+  Customer" option from the "Reports" menu. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/dspSalesOrdersByCustomer.png"/>
+          <imagedata fileref="images/dspSalesOrdersByCustomer.png" />
         </imageobject>
         <caption>Sales Order Lookup by Customer</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying Sales Orders by Customer, you are presented with the
   following options:</para>
   <variablelist>
@@ -34,12 +32,12 @@
         leads to a searchable Customers list. You may also access this list
         using the keyboard shortcut "CTRL + L". Once a Customer Number is
         entered, the Customer name and billing address will display. Select
-        the "?" or "$" symbol to view Customer
-        information for the specified Customer. If a Customer's credit is "In
-        Good Standing," the button will feature a black question mark ("?")
-        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
-        credit Status is "On Credit Warning." A red dollar sign ("$")
-        indicates the Customer's credit Status is "On Credit Hold."</para>
+        the "?" or "$" symbol to view Customer information for the specified
+        Customer. If a Customer's credit is "In Good Standing," the button
+        will feature a black question mark ("?") icon. If the icon turns to an
+        orange dollar sign ("$"), the Customer's credit Status is "On Credit
+        Warning." A red dollar sign ("$") indicates the Customer's credit
+        Status is "On Credit Hold."</para>
       </listitem>
     </varlistentry>
     <varlistentry>
