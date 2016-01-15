@@ -258,6 +258,15 @@
               Ship-To Address.</para>
             </listitem>
           </varlistentry>
+          <varlistentry role="standard">
+            <term>Preferred Selling Site</term>
+            <listitem>
+              <para>Specify the preferred selling Site for the Ship-To
+              Address. If no default Ship-To Address exists, Sales Orders
+              entered for the Customer will try to match this setting with the
+              Site selection at the Sales Order header level.</para>
+            </listitem>
+          </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
