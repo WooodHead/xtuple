@@ -648,6 +648,112 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To view historical information related to the Sales Order Line Item,
+  select the "History" tab. The following screen will appear:</para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/salesOrderItem_costsHistory.png" />
+      </imageobject>
+      <caption><para>Costs History</para></caption>
+    </mediaobject></para>
+  <para>When viewing costing history for the Sales Order Line Item, you will
+  be presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Purchase Orders entered on or after this date will be included
+        in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Purchase Orders entered on or before this date will be included
+        in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory Costing Method:</term>
+      <listitem>
+        <para>Displays the Item's Inventory costing method (i.e., Standard,
+        Average, or Job).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory Unit Cost</term>
+      <listitem>
+        <para>Displays the Item's Inventory Unit Cost.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Purchase Orders</term>
+      <listitem>
+        <para>Display lists Purchase Orders for the Item, using the specified
+        date range.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To view sales history for the Sales Order Line Item, select the "Sales
+  History" tab. The following screen will appear:</para>
+  <para><mediaobject>
+      <imageobject>
+        <imagedata fileref="images/salesOrderItem_salesHistory.png" />
+      </imageobject>
+      <caption><para>Sales History</para></caption>
+    </mediaobject></para>
+  <para>When viewing sales history for the Sales Order Line Item, you will be
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Invoices entered on or after this date will be included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem>
+        <para>Invoices entered on or before this date will be included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Orders</term>
+      <listitem>
+        <para>Displays the total number of historical Sales Orders for the
+        Item, within the date range specified.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty. per Order</term>
+      <listitem>
+        <para>Displays the calculated average quantity per historical Sales
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory Costing Method:</term>
+      <listitem>
+        <para>Displays the Item's Inventory costing method (i.e., Standard,
+        Average, or Job).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Inventory Unit Cost</term>
+      <listitem>
+        <para>Displays the Item's Inventory Unit Cost.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Purchase Orders</term>
+      <listitem>
+        <para>Display lists Invoices for the Item, using the specified date
+        range.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>If an Item has Characteristics associated with it, you have the option
   of linking those Characteristics to a Sales Order Line Item. And, in the
   case where Sales Order demand automatically generates either a Purchase
