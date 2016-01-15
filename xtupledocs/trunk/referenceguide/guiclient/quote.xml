@@ -73,122 +73,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>quotes</primary>
-          <secondary>setting terms for</secondary>
-        </indexterm>Terms</term>
-      <listitem>
-        <para>Specify the billing Terms associated with the Order. By default,
-        the Customer's standard billing Terms will appear in the field.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>sales representatives</primary>
-          <secondary>commissions for</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>quotes</primary>
-          <secondary>commissions on</secondary>
-        </indexterm>Sales Rep.</term>
-      <listitem>
-        <para>Specify the Sales Representative associated with the Order.
-        Sales Representatives are linked to a Customer on the Customer
-        master—either by a default setting or through the assignment of
-        Ship-To Addresses. Each Ship-To Address may have a different Sales
-        Representative associated with it. Consequently, the name of the Sales
-        Representative appearing on the Quote header will be the same as
-        specified for the Ship-To Address being used.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Commission</term>
-      <listitem>
-        <para>By default, the commission percentage recorded on the Customer
-        master will be automatically entered in this field. If for some reason
-        you select a non-default Sales Representative at Order entry, the
-        commission rate will not change. To adjust the commission rate, you
-        must make the change manually. This field can be viewed by selecting
-        the MORE button.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>tax zones</primary>
-          <secondary>for quotes</secondary>
-        </indexterm>Tax Zone</term>
-      <listitem>
-        <para>Specify the Tax Zone associated with the Quote. The Tax Zone for
-        the specified Ship-To Address will be entered here by default.
-        Otherwise, the primary Tax Zone for the Customer will be entered. This
-        field can be viewed upon selecting the MORE button.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Site</term>
-      <listitem>
-        <para>Specify the shipping Site associated with the Quote. The Site
-        selected here acts as the default free on board (FOB) location. A Site
-        may be designated as a shipping Site on the Site master. This field
-        can be viewed upon selecting the MORE button.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Originated By</term>
-      <listitem>
-        <para>Specify the origin of the Quote using the options below. This
-        field can be viewed upon selecting the MORE button.</para>
-        <variablelist>
-          <varlistentry>
-            <term>Customer</term>
-            <listitem>
-              <para>Indicates the Order was originated by the Customer.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Internet</term>
-            <listitem>
-              <para>Indicates the Order was originated by an Internet
-              lead.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Sales Rep.</term>
-            <listitem>
-              <para>Indicates the Order was originated by the Sales
-              Representative.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Sales Type</term>
-      <listitem>
-        <para>Specify the Sales Type. Sales account assignments by Sales Type
-        are available.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
       <term>Print on Save</term>
       <listitem>
         <para>Select to automatically print the Quote when it is saved.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Quote Status</term>
-      <listitem>
-        <para>Displays the current status of the Quote. There are two possible
-        values: open and converted. Quotes get the converted status after they
-        have been converted to Sales Orders. If your Sales module is
-        configured to show Quotes after they have been converted, you may view
-        historical Quotes from the Customer Workbench. Converted Quotes will
-        not be visible on the list of open Quotes.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Expire</term>
-      <listitem>
-        <para>Enter the date when the Quote expires, if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -222,37 +109,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>quotes</primary>
-          <secondary>billing information for</secondary>
-        </indexterm>Bill-To Name</term>
+      <term>Name</term>
       <listitem>
-        <para>Displays the Customer's Bill-To name.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Bill-To Phone</term>
-      <listitem>
-        <para>Displays the Customer's Bill-To phone number.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>Displays the Customer's Bill-To Address. You may manually
-        override the displayed Address information in the fields below—or use
-        the lookup feature to select another Address. If a new Address is
-        manually entered here, that Address will be added automatically to the
-        master list of Addresses. For additional documentation related to
-        creating Addresses, see <xref linkend="address" />.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Copy to Ship-to -\&gt;</term>
-      <listitem>
-        <para>Select to copy contents of billing address into Ship-To address
-        field. This option is enabled if the Customer master for the specified
-        Customer indicates that free-form Ship-To's are allowed.</para>
+        <para>The Customer name is displayed in an editable text field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -267,38 +126,9 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>quotes</primary>
-          <secondary>ship-to details for</secondary>
-        </indexterm>Ship-To Name</term>
+      <term>Name</term>
       <listitem>
-        <para>Displays the name for the specified Ship-To.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Ship-To Phone</term>
-      <listitem>
-        <para>Displays the phone number for the specified Ship-To.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Address</term>
-      <listitem>
-        <para>Displays the specified Ship-To Address. You may manually
-        override the displayed Address information in the fields below—or use
-        the lookup feature to select another Address. If a new Address is
-        manually entered here, that Address will be added automatically to the
-        master list of Addresses. For additional documentation related to
-        creating Addresses, see <xref linkend="address" />.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>F.O.B.</term>
-      <listitem>
-        <para>Enter free on board (FOB) Terms for the Order. By default, FOB.
-        Terms entered on the Shipping Site master will appear in this field.
-        The default Terms may be changed during Order entry—and also at later
-        stages during the billing cycle.</para>
+        <para>The Ship-To name is displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -311,6 +141,98 @@
           only be allowed if the Customer uses blanket Purchase Orders. All
           Customer requirements are specified on the Customer master.</para>
         </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Site</term>
+      <listitem>
+        <para>Specify the shipping Site associated with the Quote. The Site
+        selected here acts as the default free on board (FOB) location. A Site
+        may be designated as a shipping Site on the Site master. This field
+        can be viewed upon selecting the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Sale Type</term>
+      <listitem>
+        <para>Specify the Sales Type. Sales account assignments by Sales Type
+        are available.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>For additional Header Information, make sure that the "Header
+  Information" tab is selected.<note>
+      <para>If the Sales Order setup setting "Display Sales Order Line Items
+      Tab by Default" is checked, the "Line Items" tab will be displayed on
+      the opening window for Quote entry.</para>
+    </note></para>
+  <variablelist>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>setting terms for</secondary>
+        </indexterm>Terms</term>
+      <listitem>
+        <para>Specify the billing Terms associated with the Order. By default,
+        the Customer's standard billing Terms will appear in the field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>sales representatives</primary>
+          <secondary>commissions for</secondary>
+        </indexterm><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>commissions on</secondary>
+        </indexterm>Sales Rep.</term>
+      <listitem>
+        <para>Specify the Sales Representative―or Outside Rep, in the
+        Distribution Edition―associated with the Quote. Sales Representatives
+        are linked to a Customer on the Customer master—either by a default
+        setting or through the assignment of Ship-To Addresses. Each Ship-To
+        Address may have a different Sales Representative associated with it.
+        Consequently, the name of the Sales Representative appearing on the
+        Quote header will be the same as specified for the Ship-To Address
+        being used. If you are using the Enhanced Commissions package, the
+        Sales Rep information is moved to a separate tab.</para>
+        <note>
+          <para>When creating a new Quote, only active Sales Reps will be
+          available for selection. For future changes to an existing Quote,
+          all Sales Reps (active and inactive) will be listed to ensure that
+          the original Sales Rep will still appear.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commission</term>
+      <listitem>
+        <para>By default, the commission percentage recorded on the Customer
+        master will be automatically entered in this field. If for some reason
+        you select a non-default Sales Representative at Order entry, the
+        commission rate will not change. To adjust the commission rate, you
+        must make the change manually. This field can be viewed by selecting
+        the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>tax zones</primary>
+          <secondary>for quotes</secondary>
+        </indexterm>Tax Zone</term>
+      <listitem>
+        <para>Specify the Tax Zone associated with the Quote. The Tax Zone for
+        the specified Ship-To Address will be entered here by default.
+        Otherwise, the primary Tax Zone for the Customer will be entered. This
+        field can be viewed upon selecting the MORE button.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>F.O.B.</term>
+      <listitem>
+        <para>Enter free on board (FOB) Terms for the Order. By default, FOB.
+        Terms entered on the Shipping Site master will appear in this field.
+        The default Terms may be changed during Order entry—and also at later
+        stages during the billing cycle.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -335,91 +257,98 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>hold types</primary>
-          <secondary>for quotes</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>quotes</primary>
-          <secondary>hold types for</secondary>
-        </indexterm>Hold Type</term>
+      <term>Quote Status</term>
       <listitem>
-        <para>Specify a hold type (if any) from the available options:</para>
+        <para>Displays the current status of the Quote. There are two possible
+        values: open and converted. Quotes get the converted status after they
+        have been converted to Sales Orders. If your Sales module is
+        configured to show Quotes after they have been converted, you may view
+        historical Quotes from the Customer Workbench. Converted Quotes will
+        not be visible on the list of open Quotes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Expire</term>
+      <listitem>
+        <para>Enter the date when the Quote expires, if any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term><indexterm significance="normal">
+          <primary>quotes</primary>
+          <secondary>billing information for</secondary>
+        </indexterm>Bill-To</term>
+      <listitem>
+        <para>Specify the Customer billing information below:</para>
         <variablelist>
           <varlistentry>
-            <term>None</term>
+            <term>Address</term>
             <listitem>
-              <para>Indicates no hold is applied, meaning the Order may be
-              processed and shipped.</para>
+              <para>Displays the Customer's Bill-To Address. You may manually
+              override the displayed Address information in the fields
+              below—or use the lookup feature to select another Address. If a
+              new Address is manually entered here, that Address will be added
+              automatically to the master list of Addresses. For additional
+              documentation related to creating Addresses, see <xref
+              linkend="address" />.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Credit</term>
+            <term>Billing Contact</term>
             <listitem>
-              <para>Indicates the open balance for the Customer has exceeded
-              the credit limit defined on their Customer master record. Users
-              will be prevented from issuing Stock to Shipping with this hold
-              type.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Shipping</term>
-            <listitem>
-              <para>Indicates a Shipping hold has been placed on the Order.
-              Users who attempt to ship an Order on Shipping hold will be
-              prevented from doing so.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Packing</term>
-            <listitem>
-              <para>Indicates a Packing hold has been placed on the Order.
-              Users who attempt to issue stock to Shipping for an Order on
-              Packing hold will be prevented from doing so.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Return</term>
-            <listitem>
-              <para>This hold type is set automatically when a Quote is
-              created from a Return Authorization and the disposition requires
-              Inventory to be received before the replacement Order can be
-              shipped.</para>
+              <para>Displays the Customer's billing Contact. You may manually
+              override the displayed Contact information in the fields
+              below—or use the lookup feature to select another Contact. If a
+              new Contact is manually entered here, that Contact will be added
+              automatically to the master list of Contacts. For additional
+              documentation related to creating Addresses, see <xref
+              linkend="contact" />.</para>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
-          <primary>quotes</primary>
-          <secondary>shipping charges on</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>shipping</primary>
-          <secondary>charges on quotes</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>quotes</primary>
-          <secondary>shipping forms on</secondary>
-        </indexterm><indexterm significance="normal">
-          <primary>shipping forms</primary>
-          <secondary>selecting on quotes</secondary>
-        </indexterm>Shipping Chgs.</term>
+      <term>Copy to Ship-to -&gt;</term>
       <listitem>
-        <para>Specify the Shipping charges associated with the Order. The
-        preferred Shipping Charges Type for the Customer will appear in the
-        field. This field can be viewed upon selecting the MORE button.</para>
+        <para>Select to copy contents of billing address into Ship-To address
+        field. This option is enabled if the Customer master for the specified
+        Customer indicates that free-form Ship-To's are allowed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Shipping Form</term>
+      <term><indexterm significance="normal">
+          <primary>sales orders</primary>
+          <secondary>ship-to details for</secondary>
+        </indexterm>Ship-To</term>
       <listitem>
-        <para>Specify the Shipping Form associated with the Order. The
-        preferred Shipping Form for the Customer will appear in the field.
-        This field can be viewed upon selecting the MORE button.</para>
-        <note>
-          <para>Shipping defaults specified on the Customer master will
-          transfer to the Quote header when a new Quote is entered for a
-          Customer.</para>
-        </note>
+        <para>Specify shipping details below:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Address</term>
+            <listitem>
+              <para>Displays the specified Ship-To Address. You may manually
+              override the displayed Address information in the fields
+              below—or use the lookup feature to select another Address. If a
+              new Address is manually entered here, that Address will be added
+              automatically to the master list of Addresses. For additional
+              documentation related to creating Addresses, see <xref
+              linkend="contact" />.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Contact</term>
+            <listitem>
+              <para>Displays the shipping Contact for the Ship-To Address. You
+              may manually override the displayed Contact information in the
+              fields below—or use the lookup feature to select another
+              Contact. If a new Contact is manually entered here, that Contact
+              will be added automatically to the master list of Contacts. For
+              additional documentation related to creating Addresses, see
+              <xref linkend="contact" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -454,46 +383,6 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>$ Margin</term>
-      <listitem>
-        <para>Displays the total profit margin for the Quote. The profit
-        margin is based on the following formula:</para>
-        <para>Quote Subtotal - Total Standard Costs for all Line Items</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Subtotal</term>
-      <listitem>
-        <para>Displays the subtotal for the Quote Line Items.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Tax</term>
-      <listitem>
-        <para>Displays the amount of Tax that will be added to the Sales
-        Order, as defined by the specified Tax Code. To get a detailed view of
-        the Tax calculation, click on the Tax link using your mouse.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Misc. Charge Amount</term>
-      <listitem>
-        <para>Enter the amount of any miscellaneous charge. Examples of
-        miscellaneous charges include palletization costs, co-op refund, etc.
-        Before entering a miscellaneous charge amount, you must first assign
-        the charge to a Sales Account and also enter a description of the
-        charge.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <tip>
-    <para>If you do not use Miscellaneous Charges at your site, you can hide
-    these fields so they are not visible when entering Sales Orders. To do so,
-    simply select the "Hide Misc. Charges" option in the system-level
-    configuration.</para>
-  </tip>
-  <variablelist>
-    <varlistentry>
       <term>Misc. Charge Description</term>
       <listitem>
         <para>Enter a description to identify the miscellaneous charge.</para>
@@ -518,6 +407,44 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Margin</term>
+      <listitem>
+        <para>Displays the total profit margin for the Quote. The profit
+        margin is based on the following formula:</para>
+        <para>Quote Subtotal - Total Standard Costs for all Line Items</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Margin %</term>
+      <listitem>
+        <para>Displays the profit margin percentage for the Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subtotal</term>
+      <listitem>
+        <para>Displays the subtotal for the Quote Line Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Misc. Charge</term>
+      <listitem>
+        <para>Enter the amount of any miscellaneous charge. Examples of
+        miscellaneous charges include palletization costs, co-op refund, etc.
+        Before entering a miscellaneous charge amount, you must first assign
+        the charge to a Sales Account and also enter a description of the
+        charge.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If you do not use Miscellaneous Charges at your site, you can hide
+    these fields so they are not visible when entering Sales Orders. To do so,
+    simply select the "Hide Misc. Charges" option in the system-level
+    configuration.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>freight</primary>
           <secondary>on sales orders</secondary>
@@ -532,16 +459,99 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Tax</term>
+      <listitem>
+        <para>Displays the amount of Tax that will be added to the Sales
+        Order, as defined by the specified Tax Code. To get a detailed view of
+        the Tax calculation, click on the Tax link using your mouse.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Total</term>
       <listitem>
         <para>Displays the total amount of the Quote.</para>
+        <note>
+          <para>Any Quote Line Item may be shipped—even if the Item or Item
+          Site in question becomes inactive after the Quote has been
+          created.</para>
+        </note>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Quick Item Entry</term>
+      <listitem>
+        <para>Distribution Edition users will have the option to enter Line
+        Items quickly on this screen, without having to first open the Sales
+        Order Item screen:</para>
+        <para><variablelist>
+            <varlistentry>
+              <term>Item Number</term>
+              <listitem>
+                <para>Enter the Item Number of the Item you want to sell. The
+                Item list will contain sold Items available for sale to the
+                specified Customer. The list of available Items may vary from
+                Customer to Customer, depending on how Pricing Schedules are
+                implemented at your site. Once an Item Number is entered, the
+                Inventory Unit of Measure and Item description will
+                automatically appear.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Site</term>
+              <listitem>
+                <para>Specify the Site the Sales Order Item is sold from.
+                Items may be supplied to Sales Orders from multiple Item
+                Sites. After an Item Number is entered above, the system
+                checks for available Item Sites for the Item. Any Item Sites
+                having the "Sold from" flag set on them will be selectable
+                from this Site list. By default, the Item Site having the
+                highest Ranking will be selected as the first available Site.
+                If more than one Item Site share a Ranking of "1," the Sites
+                will be sorted in alphabetical order. Item Site Rankings are
+                set on the Item Site master.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Qty. Ordered</term>
+              <listitem>
+                <para>Enter the quantity of the specified Item being ordered.
+                The quantity will be set to "1" by default.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Scheduled Date</term>
+              <listitem>
+                <para>The scheduled date is the date when the Line Item
+                quantity should be shipped. The user who enters the Line Item
+                is responsible for determining the scheduled date. After
+                entering the scheduled date, hit the TAB key on your keyboard
+                to display values in the remaining display only fields.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Net Unit Price</term>
+              <listitem>
+                <para>Displays the Unit Price for the Sales Order Item. By
+                default, the system will choose the lower of the following two
+                Prices: A) The most-specific Pricing Schedule Assignment or B)
+                any Sale in effect at the time of Order entry. The specificity
+                of Pricing Schedule Assignments is determined in the following
+                descending order: By Customer Ship-To Address (most specific),
+                by Customer, by Customer Type, by Customer Type pattern, by
+                all Customers. The lookup feature located to the right of the
+                field leads to a Price List screen.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>ADD ITEM</term>
+              <listitem>
+                <para>Select to add another Line Item to the Order.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <note>
-    <para>Any Quote Line Item may be shipped—even if the Item or Item Site in
-    question becomes inactive after the Quote has been created.</para>
-  </note>
   <para>To define or maintain relationships for Quotes, select the
   "Relationships" tab. The following screen will appear:</para>
   <para><screenshot>
