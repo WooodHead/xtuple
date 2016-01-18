@@ -27,7 +27,7 @@
     </screenshot></para>
   <note>
     <para>The screen options will vary depending on which EDI delivery method
-    you select&mdash;Email or FTP.</para>
+    you select—Email or FTP.</para>
   </note>
   <para>When creating an EDI Profile using the Email delivery type, you are
   presented with the following options:</para>
@@ -37,7 +37,7 @@
       <listitem>
         <para>Enter a brief name to identify the EDI Profile. This is the name
         which will appear when the Profile is cross-referenced throughout the
-        application&mdash;in the Customer master, for example.</para>
+        application—in the Customer master, for example.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -47,6 +47,20 @@
         Selecting the "Email" option indicates that recipients will receive
         EDI documents via electronic mail. Most documents will be attached to
         the email after the Message Body.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Review Before Sending</term>
+      <listitem>
+        <para>Select if you want to review outgoing emails before they are
+        sent. When selected, users will be presented with an editable view of
+        the outgoing email. During the review step, you will have the option
+        to either continue (i.e., send) or cancel the email. Edits made to the
+        view of the email will be received by the recipient but will not be
+        saved to the database. To make permanent changes, you must cancel the
+        email, make edits/changes in the xTuple client, then send again. If
+        this option is not selected, emails will be sent automatically without
+        review.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -129,10 +143,10 @@
       <term>Forms</term>
       <listitem>
         <para>Displays the EDI Form(s) associated with the Profile. Forms
-        control which types of document can be sent using this EDI
-        Profile&mdash;if the EDI Profile does not have a form for a document
-        type, that document type cannot be sent using this EDI Profile. Forms
-        also control the names and values of replacement tokens (see <xref
+        control which types of document can be sent using this EDI Profile—if
+        the EDI Profile does not have a form for a document type, that
+        document type cannot be sent using this EDI Profile. Forms also
+        control the names and values of replacement tokens (see <xref
         linkend="ediForm" />).</para>
       </listitem>
     </varlistentry>
@@ -328,7 +342,7 @@
       <listitem>
         <para>Enter a brief name to identify the EDI Profile. This is the name
         which will appear when the Profile is cross-referenced throughout the
-        application&mdash;in the Customer master, for example.</para>
+        application—in the Customer master, for example.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
