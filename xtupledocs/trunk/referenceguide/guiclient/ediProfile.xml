@@ -64,6 +64,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Suppress Printing</term>
+      <listitem>
+        <para>Select to suppress the operating system print dialog when
+        printing documents for Customers/Vendors linked to the EDI Profile.
+        Users will still be presented with an xTuple "print" dialog. However,
+        the operating system's print dialog will be suppressed, effectively
+        preventing the actual printing of the document. If not selected,
+        documents may be printed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>From</term>
       <listitem>
         <para>This is the email address of the person sending the email. It
