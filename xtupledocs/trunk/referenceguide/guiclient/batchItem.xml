@@ -4,8 +4,8 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="batchItem">
   <title>Scheduled Job</title>
-  <para>To reschedule an xTuple Connect Job, select the RESCHEDULE button. The
-  following screen will appear:</para>
+  <para>To edit an xTuple Connect Job, select the EDIT button. The following
+  screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -14,7 +14,7 @@
         <caption>Reschedule Batch Item</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When rescheduling an xTuple Connect Job, you are presented with the
+  <para>When editing an xTuple Connect Job, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
@@ -30,11 +30,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Response Email</term>
+      <term>Email To</term>
       <listitem>
-        <para>Displays the email address—typically belonging to the submitting
-        user—where the Batch Manager will send the Job results once they are
-        completed.</para>
+        <para>Displays the email address of the person who will receive the
+        email or Job results once the scheduled action is run. Send to
+        multiple recipients, using a comma to separate each email
+        address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -48,14 +49,13 @@
       <term>Parameter</term>
       <listitem>
         <para>Displays an additional piece of information about the Action, if
-        pertinent. For example, if the Action is "RunReport" then the
-        Parameter is the name of the report to run.</para>
+        relevant. For example, if the Action is "RunReport" then the Parameter
+        is the name of the report to run.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Scheduled</term>
       <listitem>
-        <para>Schedule a date and time to run the Batch Item.</para>
         <para>Specify a date in the first field using a standard date format.
         Use the arrow buttons in the second field to specify a time of
         day.</para>
@@ -89,12 +89,23 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/batchItem_parameterLit.png" />
+          <imagedata fileref="images/batchItem_parameterList.png" />
         </imageobject>
         <caption><para>Parameter details passed to a Scheduled
         Job</para></caption>
       </mediaobject>
     </screenshot></para>
-  <para>To see the details of the Email pertaining to the Scheduled Job,
-  select the "Email Details" tab. </para>
+  <para>To review the details of the Email pertaining to the Scheduled Job,
+  select the "Email Details" tab. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/batchItem_emailTab.png" />
+        </imageobject>
+        <caption><para>Parameter details passed to a Scheduled
+        Job</para></caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When reviewing the details of the Email, you are presented with the
+  following options:</para>
 </section>
