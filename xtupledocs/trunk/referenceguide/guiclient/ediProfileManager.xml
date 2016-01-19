@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="ediProfileManager" role="xtconnect">
+  <title><indexterm significance="normal">
+      <primary>profiles</primary>
+      <secondary>managing assignments for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>electronic data interchange</primary>
+      <secondary>managing assignments for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>email</primary>
+      <secondary>management of</secondary>
+    </indexterm>Manage EDI Profile Assignments</title>
+  <para>EDI Profiles can be assigned at the record level (i.e., on Customer,
+  Prospect, Tax Authority or Vendor records). However, you may need at times
+  to also manage EDI Profiles and their recipient assignments at a global
+  level. To access the utility for managing EDI Profile Assignments, select
+  the "Manage EDI Profile Assignments" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/ediProfileManager.png" />
+        </imageobject>
+        <caption>Manage EDI Profile Assignments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When managing EDI Profile Assignments, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>EDI Profiles</term>
+      <listitem>
+        <para>Displays the list of EDI Profiles you have defined. Use the
+        search filter to customize how the Profiles are displayed, including
+        grouping by document type.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDI Recipients</term>
+      <listitem>
+        <para>Displays the list of potential recipients of EDI Profiles. The
+        list will include your Customers, Prospects, Tax Authorities, and
+        Vendors. Use the search filter to customize how the list of recipients
+        is displayed―for example, by Customer or Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are located between the EDI Profiles and EDI
+  Recipients columns:</para>
+  <variablelist>
+    <varlistentry>
+      <term>ATTACH-&gt;</term>
+      <listitem>
+        <para>Highlight one or more EDI Profiles and also one or more EDI
+        recipients, then select this button to attach the EDI Profile to the
+        selected recipient(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>&lt;-DETACH</term>
+      <listitem>
+        <para>Highlight one or more EDI recipients, then select this button to
+        remove the EDI Profile from the selected recipient(s).</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
