@@ -95,8 +95,9 @@
         Job</para></caption>
       </mediaobject>
     </screenshot></para>
-  <para>To review the details of the Email pertaining to the Scheduled Job,
-  select the "Email Details" tab. The following screen will appear:</para>
+  <para>To review the details of the Email notification related to a Scheduled
+  Job, select the "Email Details" tab. The following screen will
+  appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -106,6 +107,51 @@
         Job</para></caption>
       </mediaobject>
     </screenshot></para>
-  <para>When reviewing the details of the Email, you are presented with the
-  following options:</para>
+  <tip>
+    <para>Email details can be manually changed on this screen. However, if
+    you find yourself making changes frequently, you may want to consider
+    updating your EDI Profile. That way routine changes will become part of
+    the template.</para>
+  </tip>
+  <para>When reviewing the details of an Email notification, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>From</term>
+      <listitem>
+        <para>Displays the Email address the Email is being sent from.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cc:</term>
+      <listitem>
+        <para>Displays any Email addresses being copied on the Email.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reply To:</term>
+      <listitem>
+        <para>Displays the reply-to Email address.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Bcc:</term>
+      <listitem>
+        <para>Displays any Email addresses being blind copied on the
+        Email.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Subject</term>
+      <listitem>
+        <para>Displays the subject line of the Email</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Email</term>
+      <listitem>
+        <para>Displays the contents of the email.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
