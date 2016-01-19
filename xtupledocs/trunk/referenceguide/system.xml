@@ -121,6 +121,10 @@
   <section id="Section975141">
     <title>Utilities</title>
     <para>System Utilities section.</para>
+    <xi:include href="guiclient/fixACL.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/fixSerial.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Maintain CSV Atlases</title>
       <para>The xTuple data import tool CSVimp has been added as a plug-in to
@@ -128,10 +132,6 @@
       <ulink url="http://www.xtuple.org/DataImportTool">CSVimp
       documentation</ulink>.</para>
     </section>
-    <xi:include href="guiclient/fixACL.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/fixSerial.xml" xpointer="element(/1)"
-                xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/importXML.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/exportData.xml" xpointer="element(/1)"
@@ -148,6 +148,8 @@
     </section>
     <xi:include href="guiclient/createRecurringItems.xml"
                 xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
+    <xi:include href="guiclient/ediProfileManager.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
