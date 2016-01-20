@@ -138,26 +138,9 @@
             <see>electronic data interchange</see>
           </indexterm>Send Electronic Invoice</title>
         <para>To send a copy of a Customer Invoice electronically, select the
-        "Send Electronic Invoice" option. The following screen will
-        appear:</para>
-        <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="guiclient/images/submitEDI_invoice.png" />
-            </imageobject>
-            <caption><para>E-mail Invoice Form</para></caption>
-          </mediaobject>
-        </screenshot>
-        <para>Type the Invoice Number in the "Invoice" field. You may also
-        select one from a list by clicking on the "..." button, typing Ctrl-L
-        (Command-L on Mac), or typing Ctrl-S (Command-S on Mac). You will only
-        be shown Invoices for Customers who are set up to receive Invoices by
-        EDI.</para>
-        <note>
-          <para>Customers are set up to receive electronic deliveries of
-          information using the "Transmission" tab on the Customer
-          master.</para>
-        </note>
+        "Send Electronic Invoice" option.</para>
+        <xi:include href="widgets/submitEDI.xml" xpointer="submitEDIWidget"
+                    xmlns:xi="http://www.w3.org/2001/XInclude" />
         <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
                     xmlns:xi="http://www.w3.org/2001/XInclude" />
       </section>

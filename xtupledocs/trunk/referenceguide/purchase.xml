@@ -176,25 +176,9 @@
           <secondary>Purchase Order delivery using</secondary>
         </indexterm>Send Electronic Purchase Order</title>
       <para>To send a copy of a Purchase Order electronically, select the
-      "Send Electronic Purchase Order" option. The following screen will
-      appear:</para>
-      <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="guiclient/images/submitEDI_purchase.png" />
-          </imageobject>
-          <caption><para>E-mail Purchase Order Form</para></caption>
-        </mediaobject>
-      </screenshot>
-      <para>Type the Purchase Order Number in the "Order #" field. You may
-      also select one from a list by clicking on the "..." button, typing
-      Ctrl-L (Command-L on Mac), or typing Ctrl-S (Command-S on Mac). You will
-      only be shown Purchase Orders for Vendors who are set up to receive
-      Purchase Orders by EDI.</para>
-      <note>
-        <para>Vendors are set up to receive electronic deliveries of
-        information using the "Transmission" tab on the Vendor master.</para>
-      </note>
+      "Send Electronic Purchase Order" option.</para>
+      <xi:include href="widgets/submitEDI.xml" xpointer="submitEDIWidget"
+                  xmlns:xi="http://www.w3.org/2001/XInclude" />
       <xi:include href="guiclient/submitEDI.xml" xpointer="submitEDI"
                   xmlns:xi="http://www.w3.org/2001/XInclude" />
     </section>
