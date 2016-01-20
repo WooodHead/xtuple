@@ -2,22 +2,26 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="submitEDI" role="xtconnect">
+<section role="xtconnect">
   <title>Send Document Electronically</title>
-  <para><informalexample>
-      <para>You may be presented with one of two screens, depending on whether
-      the document will be sent by email or by FTP. If you do not see either
-      screen, the EDI Profile has been set to disable review before sending
-      and will automatically be sent to the xTuple Connect Batch
-      Manager.</para>
-      <para>If the document will be sent by email, you will see the following
-      screen:</para>
+  <para id="submitEDIWidget"><informalexample>
+      <para>When sending a document electronically, you may be presented with
+      one of two screens, depending on whether the document will be sent by
+      Email or by FTP. If you do not see either screen, that suggests the EDI
+      Profile has been set to disable review before sending and will
+      automatically be sent to the xTuple Connect Batch Manager.</para>
+      <para><note>
+          <para>Customers/Vendors are set up to receive electronic deliveries
+          of information using the "Transmission" tab on the Customer
+          master.</para>
+        </note></para>
+      <para>If the document will be sent by Email, the following screen will
+      appear:</para>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/submitEDI_email.png" />
         </imageobject>
-        <caption><para>Review EDI Before Sending a document by
-        email</para></caption>
+        <caption><para>Review EDI Before Sending by Email</para></caption>
       </mediaobject>
       <para>The fields at the top of the window show basic information about
       the EDI that will be sent:</para>
@@ -39,7 +43,7 @@
         <varlistentry>
           <term>EDI Type</term>
           <listitem>
-            <para>This shows whether the EDI will be sent by email or
+            <para>This shows whether the EDI will be sent by Email or
             FTP.</para>
           </listitem>
         </varlistentry>
@@ -47,60 +51,60 @@
       <para>The information in the following fields will be populated from the
       EDI Profile. If you have the "EditEDIBeforeSending" privilege, you will
       be allowed to edit the contents of these fields. You are presented with
-      the following email-specific options:</para>
+      the following Email-specific options:</para>
       <variablelist>
         <varlistentry>
-          <term>From</term>
+          <term>To</term>
           <listitem>
-            <para>This is the email address of the person sending the email.
-            It can be set to the address of the user running the application
-            or a generic address (e.g. "sales@xtuple.com"). If it is left
-            blank on this screen, the xTuple Connect Batch Manager will fill
-            in the email address of the user running the application at the
-            time the EDI was prepared.</para>
+            <para>This is the Email address of the primary intended recipient
+            of the Email.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Cc</term>
+          <listitem>
+            <para>This is the carbon copy (i.e., Cc:) Email address—a copy of
+            the Email will be sent to this address.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Bcc</term>
+          <listitem>
+            <para>This is the blind carbon copy (i.e., Bcc:) Email address—a
+            copy of the Email will be sent to this address but none of the
+            recipients will see this address.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>Reply To</term>
           <listitem>
             <para>This is the reply-to address that will be set on the
-            outgoing email message. This controls the email address used when
-            someone replies to the email sent by xTuple ERP.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>To</term>
-          <listitem>
-            <para>This is the email address of the primary intended recipient
-            of the email.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Cc</term>
-          <listitem>
-            <para>This is the carbon copy (i.e., Cc:) email address—a copy of
-            the email will be sent to this address.</para>
-          </listitem>
-        </varlistentry>
-        <varlistentry>
-          <term>Bcc</term>
-          <listitem>
-            <para>This is the blind carbon copy (i.e., Bcc:) email address—a
-            copy of the email will be sent to this address but none of the
-            recipients will see this address.</para>
+            outgoing Email message. This controls the Email address used when
+            someone replies to the Email sent by xTuple ERP.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>Subject</term>
           <listitem>
             <para>This is the subject line that will be used for this
-            email.</para>
+            Email.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>From</term>
+          <listitem>
+            <para>This is the Email address of the person sending the Email.
+            It can be set to the address of the user running the application
+            or a generic address (e.g. "sales@xtuple.com"). If it is left
+            blank on this screen, the xTuple Connect Batch Manager will fill
+            in the Email address of the user running the application at the
+            time the EDI was prepared.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>Message Body</term>
           <listitem>
-            <para>This is the body of the email message that will be sent.
+            <para>This is the body of the Email message that will be sent.
             This is a scrolling text field with word-wrapping.</para>
           </listitem>
         </varlistentry>
@@ -115,21 +119,21 @@
           <term>Attachment Options</term>
           <listitem>
             <para>Use the Attachment Options to control the contents and
-            format of the file attached to this email. The following options
+            format of the file attached to this Email. The following options
             are available, depending on the settings in the EDI
             Profile:</para>
             <variablelist>
               <varlistentry>
                 <term>No Attachment</term>
                 <listitem>
-                  <para>No file will be attached to the email.</para>
+                  <para>No file will be attached to the Email.</para>
                 </listitem>
               </varlistentry>
               <varlistentry>
                 <term>Report</term>
                 <listitem>
                   <para>The named report will be run by the Batch Manager and
-                  attached to the email as a .PDF file.</para>
+                  attached to the Email as a .PDF file.</para>
                 </listitem>
               </varlistentry>
               <varlistentry>
@@ -137,7 +141,7 @@
                 <listitem>
                   <para>If the document is a Sales Order or an Invoice, the
                   Customer Form Assignment will be used. That report will be
-                  run by the Batch Manager and attached to the email as a .PDF
+                  run by the Batch Manager and attached to the Email as a .PDF
                   file.</para>
                 </listitem>
               </varlistentry>
@@ -195,7 +199,7 @@
               <varlistentry>
                 <term>Output File</term>
                 <listitem>
-                  <para>This is the name that will be given to the email
+                  <para>This is the name that will be given to the Email
                   attachment. For Forms and Reports it should end with a
                   ".pdf" suffix. For comma-delimited files the output file
                   should end with ".csv". Tab-delimited files should have a
@@ -221,8 +225,8 @@
           <term>ACCEPT</term>
           <listitem>
             <para>Select to submit the requested action to the Batch Manager
-            for processing. If the EDI will be sent by email, there must be at
-            least one email address in either the To, Cc, or Bcc
+            for processing. If the EDI will be sent by Email, there must be at
+            least one Email address in either the To, Cc, or Bcc
             fields.</para>
           </listitem>
         </varlistentry>
@@ -233,10 +237,9 @@
         <imageobject>
           <imagedata fileref="images/submitEDI_ftp.png" />
         </imageobject>
-        <caption><para>Review EDI Before Sending a document by
-        FTP</para></caption>
+        <caption><para>Review EDI Before Sending by FTP</para></caption>
       </mediaobject>
-      <para>The Attachment Options will be the same as for sending email but
+      <para>The Attachment Options will be the same as for sending Email but
       the transmission options will be different. Get the values for these
       from the EDI recipient (either your Vendor or Customer, depending on the
       document type). See the xTuple Connect Product Guide for one suggestion
@@ -274,7 +277,7 @@
       </variablelist>
       <para>If both the "Login Name" and "Password" fields are empty, the
       xTuple Connect Batch Manager will attempt an anonymous FTP, using the
-      name "anonymous" for the "Login Name" and the email address of the user
+      name "anonymous" for the "Login Name" and the Email address of the user
       submitting the EDI for the "Password".</para>
     </informalexample></para>
 </section>
