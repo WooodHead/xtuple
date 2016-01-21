@@ -11,7 +11,7 @@
       Profile has been set to disable review before sending and will
       automatically be sent to the xTuple Connect Batch Manager.</para>
       <para><note>
-          <para>Customers/Vendors are set up to receive electronic deliveries
+          <para>Customers Vendors are set up to receive electronic deliveries
           of information using the "Transmission" tab on the Customer
           master.</para>
         </note></para>
@@ -27,23 +27,17 @@
       the EDI that will be sent:</para>
       <variablelist>
         <varlistentry>
-          <term>Open Receivable</term>
-          <term>Credit Memo</term>
-          <term>Customer #</term>
-          <term>Invoice</term>
-          <term>Order #</term>
-          <term>Quote</term>
+          <term>Document Type/Number</term>
           <listitem>
-            <para>This shows the document number of the document you want to
-            schedule for delivery. Which label appears depends on the document
-            being sent. The "Customer #" is shown when sending A/R
-            Statements.</para>
+            <para>The type of document and document number will vary depending
+            on the context. The following document types are supported: Quote,
+            Sales Order, Invoice, Purchase Order.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>EDI Type</term>
           <listitem>
-            <para>This shows whether the EDI will be sent by Email or
+            <para>Displays whether the EDI will be sent by Email or
             FTP.</para>
           </listitem>
         </varlistentry>
@@ -57,14 +51,19 @@
           <term>To</term>
           <listitem>
             <para>This is the Email address of the primary intended recipient
-            of the Email.</para>
+            of the Email. You can add Email addresses from a <link
+            linkend="submitEDI-contactSearch">searchable list</link> of your
+            CRM Contacts by clicking on the TO button.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>Cc</term>
           <listitem>
             <para>This is the carbon copy (i.e., Cc:) Email address—a copy of
-            the Email will be sent to this address.</para>
+            the Email will be sent to this address. You can add Email
+            addresses from a <link
+            linkend="submitEDI-contactSearch">searchable list</link> of your
+            CRM Contacts by clicking on the CC button.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -72,7 +71,9 @@
           <listitem>
             <para>This is the blind carbon copy (i.e., Bcc:) Email address—a
             copy of the Email will be sent to this address but none of the
-            recipients will see this address.</para>
+            recipients will see this address. You can add Email addresses from
+            a <link linkend="submitEDI-contactSearch">searchable list</link>
+            of your CRM Contacts by clicking on the BCC button.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -222,7 +223,7 @@
       <para>The following buttons are unique to this screen:</para>
       <variablelist>
         <varlistentry>
-          <term>ACCEPT</term>
+          <term>OK</term>
           <listitem>
             <para>Select to submit the requested action to the Batch Manager
             for processing. If the EDI will be sent by Email, there must be at
@@ -231,20 +232,60 @@
           </listitem>
         </varlistentry>
       </variablelist>
-      <para>If the document will be sent by FTP, you will see the following
-      screen.</para>
+      <para id="submitEDI-contactSearch">To search for Email addresses from
+      within your CRM Contacts, select either the TO, CC, or BCC buttons. The
+      following screen will appear:</para>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/submitEDI_contacts.png" />
+        </imageobject>
+        <caption><para>Search for Email Contacts</para></caption>
+      </mediaobject>
+      <para>When searching for Email Contacts, you are presented with the
+      following options:</para>
+      <variablelist>
+        <varlistentry>
+          <term>Search for</term>
+          <listitem>
+            <para>Enter a string of letters or a full name to search for
+            matches in your CRM Contacts list. The Contacts list will be empty
+            by default until you begin entering letters to search and match
+            for.</para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Contacts</term>
+          <listitem>
+            <para>Display will be empty at first but will populate with CRM
+            Contact records as soon as letters are entered in the search
+            field. </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>SELECT</term>
+          <listitem>
+            <para>Highlight a Contact and then use the SELECT button to choose
+            the Contact record. The selected Contact's Email address (assuming
+            it exists) will be added to the outbound Email, in the address
+            field you specify.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+      <para>If the document will be sent by FTP, the following screen will
+      appear:</para>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/submitEDI_ftp.png" />
         </imageobject>
         <caption><para>Review EDI Before Sending by FTP</para></caption>
       </mediaobject>
-      <para>The Attachment Options will be the same as for sending Email but
-      the transmission options will be different. Get the values for these
-      from the EDI recipient (either your Vendor or Customer, depending on the
-      document type). See the xTuple Connect Product Guide for one suggestion
-      on how to store these data. You are presented with the following
-      FTP-specific options:</para>
+      <para>While the FTP attachment options will be the same as for sending
+      Email, the transmission options will be different. Get the values for
+      these from the EDI recipient (either your Vendor or Customer, depending
+      on the document type). See the xTuple Connect Product Guide for
+      suggestions on how to store these data.</para>
+      <para>When entering FTP information, you are presented with the
+      following options:</para>
       <variablelist>
         <varlistentry>
           <term>Server</term>
@@ -280,4 +321,5 @@
       name "anonymous" for the "Login Name" and the Email address of the user
       submitting the EDI for the "Password".</para>
     </informalexample></para>
+  <para></para>
 </section>
