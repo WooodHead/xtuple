@@ -221,7 +221,7 @@
         <para>Select if you want to post the Invoice automatically as soon as
         you hit the SAVE button. If not selected, the Invoice will need to be
         posted in another step. This option is "sticky," meaning the screen
-        will remember your choice the next time you create an Invoice. </para>
+        will remember your choice the next time you create an Invoice.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -423,6 +423,10 @@
   </screenshot>
   <xi:include href="../widgets/recurrencewidget.xml"
               xpointer="recurrenceWidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+  <para>To view Email associated with the Invoice, select the "Email" tab. The
+  following screen will appear:</para>
+  <xi:include href="../widgets/emailWidget.xml" xpointer="emailWidget"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
   <xi:include href="invoiceItem.xml" xpointer="element(/1)"
               xmlns:xi="http://www.w3.org/2001/XInclude" />
