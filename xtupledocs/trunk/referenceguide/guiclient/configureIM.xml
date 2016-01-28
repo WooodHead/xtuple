@@ -189,6 +189,41 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>When Posting a Count Tag for Avg. Cost Items</term>
+      <listitem>
+        <para>Specify how you want the Inventory value of Average Costed Items
+        to be handled when posting Count Tags:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Standard Cost</term>
+            <listitem>
+              <para>Select if you want to use the Item's Standard Cost when
+              posting Count Tags. This option assumes you are maintaining
+              Standard Costs for your Average Cost Items.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Average Cost</term>
+            <listitem>
+              <para>Select to use the Item's Average Cost when posting Count
+              Tags. If no prior Average Cost exists, the Inventory value of a
+              posted Count Tag will be $0.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Cost if no Average Cost</term>
+            <listitem>
+              <para>Select to use the Item's Actual Cost if no Average Cost
+              exists when posting Count Tags. This option provides an
+              alternate method for valuing Inventory in the scenario where no
+              prior Average Cost exists and also when Standard Costs are not
+              in use.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>count tags</primary>
           <secondary>count slip discrepancies and</secondary>
@@ -215,18 +250,17 @@
             <listitem>
               <para>Select to prevent Count Tag quantity from being posted if
               it exceeds the Item's Count Slip quantity.</para>
+              <note>
+                <para>By default, the system allows only one unposted Count
+                Tag per Item Site. If an unposted Count Tag already exists for
+                an Item Site, then an additional duplicate Count Tag may not
+                be added.</para>
+              </note>
             </listitem>
           </varlistentry>
         </variablelist>
       </listitem>
     </varlistentry>
-  </variablelist>
-  <note>
-    <para>By default, the system allows only one unposted Count Tag per Item
-    Site. If an unposted Count Tag already exists for an Item Site, then an
-    additional duplicate Count Tag may not be added.</para>
-  </note>
-  <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>count slips</primary>
@@ -237,14 +271,14 @@
         methods:</para>
         <variablelist>
           <varlistentry>
-            <term>No Slip # Checks, allow Duplications</term>
+            <term>Allow Duplications</term>
             <listitem>
               <para>Allows any Count Slip numbers to be used. Duplicate Count
               Slip numbers will also be allowed.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Disallow Unposted Slip # Duplications within a Site</term>
+            <term>No Unposted Slip # Duplications within a Site</term>
             <listitem>
               <para>Prevents duplicate "Unposted" Count Slip numbers from
               existing within a given Site. However, duplicate "Unposted"
@@ -252,14 +286,14 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Disallow All Unposted Slip # Duplications</term>
+            <term>No Unposted Slip # Duplications</term>
             <listitem>
               <para>Prevents duplicate "Unposted" Count Slip numbers from
               existing within multiple Sites.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Disallow All Slip # Duplications within a Site</term>
+            <term>No Slip # Duplications within a Site</term>
             <listitem>
               <para>Prevents duplicate Count Slip numbers from existing within
               a given Site. However, duplicate Count Slip numbers may exist
@@ -267,7 +301,7 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Disallow All Slip # Duplications</term>
+            <term>No Slip # Duplications</term>
             <listitem>
               <para>Prevents duplicate Count Slip Numbers from existing within
               multiple Sites.</para>
@@ -388,6 +422,24 @@
             </listitem>
           </varlistentry>
         </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Update Item's Actual Cost on Receipt</term>
+      <listitem>
+        <para>Select if you want the Actual Cost for a Purchase Order Item to
+        be updated when that Item is received. This feature complements and
+        does not replace the standard process, whereby a received Item's
+        Actual Cost is updated at the point when a Voucher for that Item is
+        posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Add Eligible S/O's to Packing List Batch on Receipt</term>
+      <listitem>
+        <para>Select if you want Sales Orders linked to Purchase Orders to be
+        automatically added to the Packing List Batch when line items on the
+        Purchase Order are received.</para>
       </listitem>
     </varlistentry>
   </variablelist>
