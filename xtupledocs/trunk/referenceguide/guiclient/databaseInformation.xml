@@ -182,6 +182,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Enforce User Password Reset</term>
+      <listitem>
+        <para>Select if you want to require system users to reset their
+        passwords on a defined interval. Resetting user passwords on a regular
+        basis (e.g., every 90 days) is a requirement of Payment Card Industry
+        (PCI) compliance for companies who process Credit Card
+        transactions.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Password change every (Days)</term>
+            <listitem>
+              <para>Specify how frequently you want users to be required to
+              reset their passwords, measured in days.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Comments</term>
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
