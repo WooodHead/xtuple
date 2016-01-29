@@ -284,6 +284,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Perform Credit Limit check on S/O Save</term>
+      <listitem>
+        <para>Select if you want to perform a check of Customers' credit
+        before their Sales Orders are saved. This credit check compares the
+        Customer's credit limit to the sum of their open Sales Orders and open
+        Receivables. If the Customer is found to be over their credit limit,
+        the Sales Order cannot be saved―except by users with the override
+        privilege. If this option is not selected, normal credit checking will
+        occur during the shipping phase.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Date Control</term>
       <listitem>
         <para>Select from the following date control options:</para>
