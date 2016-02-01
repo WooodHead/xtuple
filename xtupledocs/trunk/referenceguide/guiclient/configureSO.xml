@@ -347,50 +347,8 @@
         </variablelist>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Credit Control</term>
-      <listitem>
-        <para>Select from the following credit control options:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Restrict Credit Memos to Items that appear on their Apply-To
-            Document</term>
-            <listitem>
-              <para>Select if you want to restrict Credit Memo Items to their
-              Apply-To Document. Selecting this option narrows the Credit Memo
-              Item selection process to only those Items which appeared on the
-              Invoice the Credit Memo is being applied to. If not selected, a
-              sold Item master list will appear instead when selecting Credit
-              Memo Items for Credit Memos applied to a specific Invoice. This
-              setting has no bearing on unapplied Credit Memos.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Allocate Credit Memos to New Sales Order on Save</term>
-            <listitem>
-              <para>Select to have open Credit Memos for a Customer
-              automatically allocated to any new Sales Orders entered for that
-              Customer. This functionality helps reduce Customer credit
-              balances by ensuring that Customer credits are consumed when new
-              Sales Orders are entered. Any available, open Credit Memos are
-              eligible for allocation. The allocation of available Credit
-              Memos occurs only once—when a Sales Order is saved for the first
-              time. Subsequent saves will not result in additional
-              allocations. Credit Memos which have been allocated to a Sales
-              Order are applied at the point when the Invoice resulting from
-              the Sales Order is posted. Once the full balance of a Credit
-              Memo has been applied, the Credit Memo is then closed. The
-              printed Invoice the Customer receives will indicate whether
-              Credit Memos have been applied. In addition, the total due from
-              the Customer will be automatically adjusted to reflect any
-              applied credits.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
-      </listitem>
-    </varlistentry>
     <varlistentry role="standard">
-      <term>Enable Sales Reservations</term>
+      <term>Enable Reservations</term>
       <listitem>
         <para>Select to enable the Sales Order Reservations functionality
         system-wide. This feature allows for the hard allocation of quantity
@@ -464,7 +422,7 @@
         <para>Select from the following ship control options:</para>
         <variablelist>
           <varlistentry>
-            <term>Always show "Save and Add to Packing List" button on Sales
+            <term>Show 'Save and Add to Packing List' button on Sales
             Order</term>
             <listitem>
               <para>Select if you want the SAVE AND ADD TO PACKING LIST button
@@ -493,9 +451,9 @@
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Check "Select for Billing" option on Ship Order</term>
+            <term>Check 'Approve for Billing' option on Ship Order</term>
             <listitem>
-              <para>Select if you want the "Select for Billing" option to be
+              <para>Select if you want the "Approve for Billing" option to be
               selected by default whenever you ship Sales Order Line Items.
               Selecting this option reduces steps in the billing process.
               Specifically, if an Order is selected for billing when it is
@@ -509,11 +467,61 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Show Quotes After converted to Sales Order</term>
+      <term>Return Control</term>
+      <listitem>
+        <para>Select from the following Return control options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Restrict Returns to Items that appear on their Apply-To
+            Document</term>
+            <listitem>
+              <para>Select if you want to restrict Return Items to their
+              Apply-To Document. Selecting this option narrows the Return Item
+              selection process to only those Items which appeared on the
+              Invoice the Return is being applied to. If not selected, a sold
+              Item master list will appear instead when selecting Return Items
+              for Returns applied to a specific Invoice. This setting has no
+              bearing on unapplied Returns.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Allocate Returns to New Sales Order on Save</term>
+            <listitem>
+              <para>Select to have open Returns for a Customer automatically
+              allocated to any new Sales Orders entered for that Customer.
+              This functionality helps reduce Customer credit balances by
+              ensuring that Customer credits are consumed when new Sales
+              Orders are entered. Any available, open Returns are eligible for
+              allocation. The allocation of available Returns occurs only
+              once—when a Sales Order is saved for the first time. Subsequent
+              saves will not result in additional allocations. Returns which
+              have been allocated to a Sales Order are applied at the point
+              when the Invoice resulting from the Sales Order is posted. Once
+              the full balance of a Return has been applied, the Return is
+              then closed. The printed Invoice the Customer receives will
+              indicate whether Returns have been applied. In addition, the
+              total due from the Customer will be automatically adjusted to
+              reflect any applied credits.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Show Quotes After Converted</term>
       <listitem>
         <para>Select if you want to be able to view historical Quotes after
         they have been converted to Sales Orders. If you don't select this
         option, converted Quote information will not be saved.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="xtconnect">
+      <term>Use Enhanced Commissions</term>
+      <listitem>
+        <para>Select to enable the Enhanced Commissions package. To learn more
+        about this feature set, please see the <ulink
+        url="https://www.xtuple.org/sites/default/files/prodguide/enhanced-commissions/index.html">Enhanced
+        Commissions product guide</ulink>. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -521,6 +529,19 @@
       <listitem>
         <para>Select to display the Sales Order window with the Line Items tab
         displayed initially.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="standard">
+      <term>Use Inside Sales Rep</term>
+      <listitem>
+        <para>Select if you want the user entering a Sales Order to be
+        recorded automatically as the Inside Sales Rep. If enabled, a
+        Characteristic called <literal>INSIDEREP</literal> will be added to
+        the Sales Order with the value being the username of the user who is
+        entering the Order. The Inside Rep information will be included in the
+        Gross Margin Commissions report. If you don't select this option,
+        users entering Sales Orders will not be identified as Inside
+        Reps.</para>
       </listitem>
     </varlistentry>
   </variablelist>
