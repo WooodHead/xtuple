@@ -186,20 +186,9 @@
     <para>Purchase Reports section.</para>
     <xi:include href="guiclient/itemSites.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/buyCard.xml" xpointer="element(buyCard)"
+    <xi:include href="guiclient/itemSources.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section>
-      <title>Purchase Requests</title>
-      <para>Purchase Request Reports section.</para>
-      <xi:include href="guiclient/dspPurchaseReqsByPlannerCode.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-      <xi:include href="guiclient/dspPurchaseReqsByItem.xml"
-                  xpointer="element(/1)"
-                  xmlns:xi="http://www.w3.org/2001/XInclude" />
-    </section>
-    <xi:include href="guiclient/dspPoItemsByBufferStatus.xml"
-                xpointer="element(/1)"
+    <xi:include href="guiclient/buyCard.xml" xpointer="element(buyCard)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <section>
       <title>Receipts and Returns</title>
@@ -240,8 +229,8 @@
     <xi:include href="guiclient/dspPoReturnsByVendor.xml"
                 xpointer="element(dspPoReturnsByVendor)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <xi:include href="guiclient/openVouchers.xml"
-                xpointer="element(openVouchers)"
+    <xi:include href="guiclient/dspPoItemsByBufferStatus.xml"
+                xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section>
