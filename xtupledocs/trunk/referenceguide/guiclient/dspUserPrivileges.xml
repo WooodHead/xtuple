@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspUserPrivileges">
+  <title><indexterm significance="normal">
+      <primary>users</primary>
+      <secondary>privileges for</secondary>
+    </indexterm>User Privileges</title>
+  <para>The "User Privileges" screen lists system Users and the
+  privileges/roles they are assigned to. In addition to listing User
+  privileges, this screen can also be used to maintain Users.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Use the right-click menu to maintain a User's record.</para>
+    </listitem>
+    <listitem>
+      <para>You can also maintain User Roles from the right-click menu,
+      impacting a broader range of Users.</para>
+    </listitem>
+    <listitem>
+      <para>Isolate a single User's privileges with the per user filter
+      option.</para>
+    </listitem>
+    <listitem>
+      <para>Using the filter option, identify all Users assigned to a
+      particular Role.</para>
+    </listitem>
+    <listitem>
+      <para>See who is assigned to one particular privilege using the filter
+      tools.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "User Privileges" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspUserPrivileges.png" />
+        </imageobject>
+        <caption>User Privileges</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "User Privileges" screen shows privileges
+  for all Users. You can build your own search criteria using the following
+  options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
