@@ -2,14 +2,15 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="dspEarnedCommissions" role="manufacturing">
+<section id="dspEarnedCommissions">
   <title><indexterm significance="normal">
       <primary>commissions</primary>
       <secondary>earned</secondary>
     </indexterm>Earned Commissions</title>
-  <para>The Earned Commissions report is part of the Enhanced Commissions
-  package. To view Earned Commissions, select the "Earned Commissions" option.
-  The following screen will appear:</para>
+  <para>The Earned Commissions report is a stock Commissions report, which
+  gets replaced by a different report when the Enhanced Commissions package is
+  installed. To view Earned Commissions, select the "Earned Commissions"
+  option. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -22,10 +23,6 @@
     <para>To mark a commission as having been paid, use the "Edit" option on
     any of the sales history or bookings screens.</para>
   </tip>
-  <para role="standard"><note>
-      <para>For users of the Distribution Edition, this report is not
-      compatible with Gross Margin Commissions reporting.</para>
-    </note></para>
   <para>When displaying Earned Commissions, you are presented with the
   following options:</para>
   <variablelist>
@@ -55,6 +52,13 @@
       <listitem>
         <para>Earned Commissions occurring on or before this date will
         display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Include Misc. Charges and Items</term>
+      <listitem>
+        <para>Select to include miscellaneous charges and miscellaneous items
+        in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

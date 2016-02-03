@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="salesRepComm" role="xtcommission">
+  <title><indexterm significance="normal">
+      <primary>commissions</primary>
+      <secondary>earned</secondary>
+    </indexterm>Sales Rep Commissions</title>
+  <para>The Sales Rep Commissions report is part of the Enhanced Commissions
+  package. It replaces the stock Commissions report when the Enhanced
+  Commissions package is installed. To view Sales Rep Commission information,
+  select the "Sales Rep Commissions" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/salesRepComm.png" />
+        </imageobject>
+        <caption>Sales Rep Commissions</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Sales Rep Commission information, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Parameters</term>
+      <listitem>
+        <para>Display lists Commission information for the specified Sales
+        Representative(s) using the specified parameters.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Sales Rep</term>
+            <listitem>
+              <para>Select the Sales Rep whose Commission information you want
+              to include in the display. To see information for all Sales
+              Reps, choose the "Show All" option.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Commissions occurring on or after this date will
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Commissions occurring on or before this date will
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Status</term>
+            <listitem>
+              <para>Specify which Commission status you want to include in the
+              display. The following statuses are available: show all
+              commissionable, show closed/paid commissionable, show
+              closed/unpaid commissionable, and show open commissionable. The
+              "show closed/unpaid commissionable" status will cause the PAY
+              COMMISSIONS button to be enabled.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Select All</term>
+            <listitem>
+              <para>Select this option to choose all displayed Commission
+              information for payment. The alternative is to select rows of
+              information individually.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Commissions</term>
+      <listitem>
+        <para>Display lists Commissions for the specified Sales Rep(s) using
+        the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following button is unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PAY COMMISSIONS</term>
+      <listitem>
+        <para>Highlight a row(s) of information and then select this button to
+        pay the commission. This button will be enabled when the "show
+        closed/unpaid commissionable" status is specified.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
