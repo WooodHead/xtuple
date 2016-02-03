@@ -2,15 +2,15 @@
 <!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="dspBriefEarnedCommissions" role="manufacturing">
+<section id="dspBriefEarnedCommissions">
   <title><indexterm significance="normal">
       <primary>commissions</primary>
       <secondary>brief earned</secondary>
     </indexterm>Brief Earned Commissions</title>
-  <para>The brief Earned Commissions report is part of the Enhanced
-  Commissions package. To view brief Earned Commissions, select the "Brief
-  Earned Commissions" option from the "Reports" menu. The following screen
-  will appear:</para>
+  <para>The brief Earned Commissions report displays a summarized version of
+  the information found in the Earned Commissions report. To view brief Earned
+  Commissions, select the "Brief Earned Commissions" option from the "Reports"
+  menu. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -19,10 +19,6 @@
         <caption>Brief Earned Commissions</caption>
       </mediaobject>
     </screenshot></para>
-  <para role="standard"><note>
-      <para>For users of the Distribution Edition, this report is not
-      compatible with Gross Margin Commissions reporting.</para>
-    </note></para>
   <para>When displaying brief Earned Commissions, you are presented with the
   following options:</para>
   <variablelist>
@@ -52,6 +48,13 @@
       <listitem>
         <para>Brief Earned Commissions occurring on or before this date will
         display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Include Misc. Charges and Items</term>
+      <listitem>
+        <para>Select to include miscellaneous charges and miscellaneous items
+        in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
