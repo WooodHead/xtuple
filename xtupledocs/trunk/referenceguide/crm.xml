@@ -107,14 +107,8 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
     <xi:include href="guiclient/projectTypes.xml" xpointer="element(/1)"
                 xmlns:xi="http://www.w3.org/2001/XInclude" />
-    <section role="xtte">
-      <title>Time and Expense</title>
-      <para>The Time and Expense package is a free xTuple ERP extension
-      package designed to provide service billing and expense reporting
-      features for Project Management. For detailed information about the Time
-      and Expense package, please see <ulink
-      url="???">www.xtuple.org/docs/reference-guide#xtte</ulink>.</para>
-    </section>
+    <xi:include href="guiclient/timeExpenseSheets.xml" xpointer="element(/1)"
+                xmlns:xi="http://www.w3.org/2001/XInclude" />
   </section>
   <section id="Section574766">
     <title>Opportunity</title>
