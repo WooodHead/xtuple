@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="timeExpenseSheetItem" role="xtte">
+  <title><indexterm significance="normal">
+      <primary>worksheets</primary>
+      <secondary>management of</secondary>
+    </indexterm>Worksheet Item</title>
+  <para>To review a Worksheet, select the "Worksheet" option. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/timeExpenseSheetItem.png" />
+        </imageobject>
+        <caption>Worksheet Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When reviewing a Worksheet, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Employees</term>
+      <listitem>
+        <para>Specify which Employee Worksheets you want to include in the
+        display, using the specified date range:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All</term>
+            <listitem>
+              <para>Select to include Worksheets for all Employees in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Select to include a specific Employee's Worksheets in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Week of</term>
+      <listitem>
+        <para>Specify a date range for the Worksheets you want to
+        review:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Worksheets dated on and after this date will be included
+              in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Worksheets dated on and before this date will be included
+              in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Open</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Approved</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Closed</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Worksheets</term>
+      <listitem>
+        <para>Display will list Worksheets based on the specified parameters.
+        By right-clicking on a Worksheet, you can perform several actions,
+        including edit, print, delete, and approve.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>When Processing</term>
+      <listitem>
+        <para></para>
+        <variablelist>
+          <varlistentry>
+            <term>Invoice</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voucher</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Post Time</term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/timeExpenseSheetItem_tabNotes.png" />
+        </imageobject>
+        <caption>Worksheet Item Notes</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para></para>
+</section>
