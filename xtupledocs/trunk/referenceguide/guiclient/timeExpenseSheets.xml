@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="timeExpenseSheets" role="xtte">
+  <title><indexterm significance="normal">
+      <primary>worksheets</primary>
+      <secondary>management of</secondary>
+    </indexterm>Worksheets</title>
+  <para>Worksheets are documents used to capture time and expenses for
+  Employees and Contractors. When Worksheets are created, they appear on this
+  workbench screen where managers can review and approve them all in one
+  place.</para>
+  <para>The following set up information will help ensure your Worksheets are
+  complete when you process them: </para>
+  <variablelist>
+    <varlistentry>
+      <term>Employees</term>
+      <listitem>
+        <para>Should have compensation rate defined, but billing rate is
+        optional. The compensation rate is used to determine the labor cost of
+        Employees when their time entries are posted to the General Ledger
+        (G/L). The billing rate may be used when Employees are doing billable
+        work for a Customer, depending on the billing rate hierarchy defined
+        for the Customer. To ensure Employees can be reimbursed for their
+        expenses, Employees must also be defined as Vendors in the
+        system.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Contractors</term>
+      <listitem>
+        <para>Should also have compensation rate, but billing rate is
+        optional. For Contractors, the compensation rate is used to determine
+        the amount owed to Contractors for their time entries. Contractor
+        costs are not posted directly as a Labor cost, as they are for
+        Employees. Instead, Contractor time is vouchered and then Checks are
+        written to the Contractors—thereby closing the Vouchers. Because
+        Contractors are paid both for their time and their expenses,
+        Contractors must be defined as Vendors in the system. Like Employees,
+        the billing rate for Contractors may be used when Contractors are
+        doing billable work for a Customer, depending on the billing rate
+        hierarchy defined for the Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To review Worksheets, select the "Worksheets" option. The following
+  screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/timeExpenseSheets.png" />
+        </imageobject>
+        <caption>Worksheets</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>For more information on using Worksheets to help manage projects,
+    please see the eBook <ulink
+    url="https://www.xtuple.org/sites/default/files/prodguide/project/index.html">Managing
+    Projects with xTuple</ulink>.</para>
+  </note>
+  <para>When reviewing Worksheets, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Employees</term>
+      <listitem>
+        <para>Specify which Employee Worksheets you want to include in the
+        display, using the specified date range:</para>
+        <variablelist>
+          <varlistentry>
+            <term>All</term>
+            <listitem>
+              <para>Select to include Worksheets for all Employees in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Select to include a specific Employee's Worksheets in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Week of</term>
+      <listitem>
+        <para>Specify a date range for the Worksheets you want to
+        review:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Start Date</term>
+            <listitem>
+              <para>Worksheets dated on and after this date will be included
+              in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Date</term>
+            <listitem>
+              <para>Worksheets dated on and before this date will be included
+              in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Specify which Worksheet statuses you want to include in the
+        display:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Open</term>
+            <listitem>
+              <para>Select to include open Worksheets in the display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Approved</term>
+            <listitem>
+              <para>Select to include approved Worksheets in the
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Closed</term>
+            <listitem>
+              <para>Select to include closed Worksheets in the display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Worksheets</term>
+      <listitem>
+        <para>Display will list Worksheets based on the specified parameters.
+        By right-clicking on a Worksheet, you can perform several actions,
+        including edit, print, delete, and approve.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>When Processing</term>
+      <listitem>
+        <para>Select one or more of the following options to be performed
+        automatically when processing Worksheets:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Invoice</term>
+            <listitem>
+              <para>Select to generate an Invoice to bill the specified
+              Customer for their billable time and/or expense entries on the
+              selected Worksheet(s). This option only applies to billable
+              entries.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voucher</term>
+            <listitem>
+              <para>Select to generate a Voucher to reimburse Contractor type
+              Employees for their expenses. In the case of Contractors,
+              expense reimbursement may also be combined with payment for
+              hours worked. Regular Employees are not paid in this way.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Post Time</term>
+            <listitem>
+              <para>Select to post Employee labor and overhead costs to the
+              General Ledger. This step applies to Employees only and does not
+              apply to Contractors.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Select this button to create a new Worksheet.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>APPROVE</term>
+      <listitem>
+        <para>Highlight one or multiple open Worksheets and then select this
+        button to approve the highlighted Worksheets.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PROCESS</term>
+      <listitem>
+        <para>Highlight one or multiple open Worksheets and then select this
+        button to process the highlighted Worksheets, using the processing
+        instructions indicated at the bottom of the screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="timeExpenseSheet.xml" xpointer="element(/1)"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
