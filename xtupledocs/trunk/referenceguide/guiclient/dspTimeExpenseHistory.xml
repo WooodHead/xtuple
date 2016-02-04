@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 1998-2013 by xTuple. All rights reserved. -->
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="dspTimeExpenseHistory">
+  <title><indexterm significance="normal">
+      <primary>worksheets</primary>
+      <secondary>history of</secondary>
+    </indexterm>Worksheet History</title>
+  <para>The "Worksheet History" screen lists Worksheets according to the
+  parameters you define. In addition to providing historical information about
+  Worksheets, this screen can also be used to edit individual
+  Worksheets.</para>
+  <para>Here are some tips for using this screen:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Enter a date range to focus your search on a specific time
+      period.</para>
+    </listitem>
+    <listitem>
+      <para>Search for Worksheets entered by a specific Employee or Employee
+      Group.</para>
+    </listitem>
+    <listitem>
+      <para>Worksheets related to a specific Project can be searched on, using
+      the search filters.</para>
+    </listitem>
+    <listitem>
+      <para>You can edit Worksheets using the right-click menu, but know that
+      closed Worksheets cannot be edited. Only open or approved worksheets are
+      editable.</para>
+    </listitem>
+  </itemizedlist>
+  <para>The following screenshot shows the "Worksheet History" screen:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/dspTimeExpenseHistory.png" />
+        </imageobject>
+        <caption>Worksheet History</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The default filter on the "Worksheet History" screen shows all
+  Worksheets for the current date. You can build your own search criteria
+  using the following options:</para>
+  <xi:include href="../widgets/parameterwidget.xml" xpointer="parameterwidget"
+              xmlns:xi="http://www.w3.org/2001/XInclude" />
+</section>
