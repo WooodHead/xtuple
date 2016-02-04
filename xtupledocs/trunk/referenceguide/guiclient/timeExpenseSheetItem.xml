@@ -7,8 +7,9 @@
       <primary>worksheets</primary>
       <secondary>management of</secondary>
     </indexterm>Worksheet Item</title>
-  <para>To review a Worksheet, select the "Worksheet" option. The following
-  screen will appear:</para>
+  <para>The Worksheet Item screen is where Employees record their actual time
+  or expenses related to a Project. To add a time or expense entry, select the
+  NEW button on the Worksheet screen. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -17,110 +18,205 @@
         <caption>Worksheet Item</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When reviewing a Worksheet, you are presented with the following
-  options:</para>
+  <para>When adding a time or expense entry, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
-      <term>Employees</term>
+      <term>Worksheet</term>
       <listitem>
-        <para>Specify which Employee Worksheets you want to include in the
-        display, using the specified date range:</para>
-        <variablelist>
-          <varlistentry>
-            <term>All</term>
-            <listitem>
-              <para>Select to include Worksheets for all Employees in the
-              display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Selected</term>
-            <listitem>
-              <para>Select to include a specific Employee's Worksheets in the
-              display.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Displays the system-generated number of the Worksheet.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Week of</term>
+      <term>Line #</term>
       <listitem>
-        <para>Specify a date range for the Worksheets you want to
-        review:</para>
-        <variablelist>
-          <varlistentry>
-            <term>Start Date</term>
-            <listitem>
-              <para>Worksheets dated on and after this date will be included
-              in the display.</para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>End Date</term>
-            <listitem>
-              <para>Worksheets dated on and before this date will be included
-              in the display.</para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
+        <para>Displays the line number assigned to the time or expense
+        entry.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Status</term>
+      <term>Week Of</term>
+      <listitem>
+        <para>Displays the date for the parent Worksheet.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Project #</term>
+      <listitem>
+        <para>Enter the number of the Project associated with the entry. This
+        is a required field. Depending on how the Project is configured, many
+        of the other fields in the entry (e.g., Customer and Item numbers)
+        will be filled out automatically from the Project information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Task</term>
+      <listitem>
+        <para>Select a Task from the list of Project Tasks to associate with
+        the entry. This is a required field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Work Date</term>
+      <listitem>
+        <para>Enter the date the work was performed or the expense was
+        incurred.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Type</term>
+      <listitem>
+        <para>Specify whether the entry is a time or expense type
+        entry.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Customer</term>
+      <listitem>
+        <para>Enter the number of the Customer associated with the entry. This
+        field may be filled automatically from the Project information,
+        depending on how the Project is configured. The Customer is needed for
+        billable entries, so the system knows who to invoice for the time
+        and/or expense.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Cust. PO#</term>
+      <listitem>
+        <para>Enter the Customer Purchase Order number, if any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter an Item Number to associate with the entry, if one is not
+        already linked from the the specified Project Task. This is a required
+        field. The Item Number is needed to map an Expense Account to the
+        Task, which is required for subsequent General Ledger transactions.
+        Only Reference Items which have been configured specifically to work
+        with time and expense entries (on the "Project" tab of the Item
+        master) may be selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Employee</term>
+      <listitem>
+        <para>Displays the name of the Employee indicated on the parent
+        Worksheet.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Hours</term>
+      <listitem>
+        <para>For time entries, enter the number of hours worked on the
+        specified Task.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Qty</term>
+      <listitem>
+        <para>For expense entries, enter the quantity of expenses incurred.
+        For example, if mileage is being reimbursed, enter the number of
+        miles.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Billable</term>
+      <listitem>
+        <para>Select if the work performed or the expense incurred is billable
+        to the specified Customer. If not selected, time entries will be
+        booked to overhead and expense entries will be reimbursable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Rate</term>
+      <listitem>
+        <para>For time entries, </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Unit Cost</term>
+      <listitem>
+        <para>For expense entries, </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total</term>
       <listitem>
         <para></para>
-        <variablelist>
-          <varlistentry>
-            <term>Open</term>
-            <listitem>
-              <para></para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Approved</term>
-            <listitem>
-              <para></para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Closed</term>
-            <listitem>
-              <para></para>
-            </listitem>
-          </varlistentry>
-        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Worksheets</term>
-      <listitem>
-        <para>Display will list Worksheets based on the specified parameters.
-        By right-clicking on a Worksheet, you can perform several actions,
-        including edit, print, delete, and approve.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>When Processing</term>
+      <term>Hourly Cost</term>
       <listitem>
         <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Total Cost</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Summary</term>
+      <listitem>
+        <para>When viewing the summary for a time and expenses summary for a
+        Project, you are presented with the following information:</para>
         <variablelist>
           <varlistentry>
-            <term>Invoice</term>
+            <term>Task</term>
             <listitem>
               <para></para>
+              <variablelist>
+                <varlistentry>
+                  <term>Planned Hours</term>
+                  <listitem>
+                    <para>Displays the total Task hours budgeted for the
+                    Project.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Actual Hours</term>
+                  <listitem>
+                    <para>Displays the actual Task hours used for the
+                    Project.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Planned Expense</term>
+                  <listitem>
+                    <para>Displays the total Task expenses budgeted for the
+                    Project.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Actual Expense</term>
+                  <listitem>
+                    <para>Displays the actual Task expenses used for the
+                    Project.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term>Voucher</term>
+            <term>Employee</term>
             <listitem>
-              <para></para>
-            </listitem>
-          </varlistentry>
-          <varlistentry>
-            <term>Post Time</term>
-            <listitem>
-              <para></para>
+              <para><variablelist>
+                  <varlistentry>
+                    <term>Day Total</term>
+                    <listitem>
+                      <para></para>
+                    </listitem>
+                  </varlistentry>
+                  <varlistentry>
+                    <term>Worksheet Total</term>
+                    <listitem>
+                      <para></para>
+                    </listitem>
+                  </varlistentry>
+                </variablelist></para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -128,6 +224,24 @@
     </varlistentry>
   </variablelist>
   <para>The following buttons are unique to this screen:</para>
+  <variablelist>
+    <varlistentry>
+      <term>PREV</term>
+      <listitem>
+        <para>Select to view the previous time or expense entry. If none
+        exists, this button will be disabled.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEXT</term>
+      <listitem>
+        <para>Select to view the next time or expense entry. If none exists,
+        this button will be disabled.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To enter notes related to a time or expense entry, select the "Notes"
+  tab. The following screen will appear:</para>
   <para><screenshot>
       <mediaobject>
         <imageobject>
@@ -136,5 +250,6 @@
         <caption>Worksheet Item Notes</caption>
       </mediaobject>
     </screenshot></para>
-  <para></para>
+  <para>The "Notes" tab provides a text area where you can add miscellaneous
+  notes related to the time or expense entry.</para>
 </section>
