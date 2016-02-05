@@ -117,7 +117,7 @@
       <listitem>
         <para>For expense entries, enter the quantity of expenses incurred.
         For example, if mileage is being reimbursed, enter the number of
-        miles.</para>
+        miles. For hotel stays, enter the number of days.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -131,70 +131,79 @@
     <varlistentry>
       <term>Rate</term>
       <listitem>
-        <para>For time entries, </para>
+        <para>For billable time entries, enter the rate to be billed to the
+        Customer. Depending on how the Project is configured, this information
+        may be filled in automatically for you.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Unit Cost</term>
       <listitem>
-        <para>For expense entries, </para>
+        <para>For expense entries, enter the per unit cost of the expense
+        item. For example, enter $0.25 per mile for mileage reimbursements or
+        $125 per night for hotel costs.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Total</term>
       <listitem>
-        <para></para>
+        <para>Displays the total billable amount for time entries and the
+        total reimbursement amount for expense entries.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Hourly Cost</term>
       <listitem>
-        <para></para>
+        <para>For time entries, displays the Employee's hourly rate (or cost),
+        as distinguished from the billable rate charged to the Customer.
+        </para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Total Cost</term>
       <listitem>
-        <para></para>
+        <para>For time entries, displays the total cost for the Employee's
+        time spent on the task, based on the Employee's hourly rate.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Summary</term>
       <listitem>
-        <para>When viewing the summary for a time and expenses summary for a
-        Project, you are presented with the following information:</para>
+        <para>When viewing the summary for a time and expense entry, you are
+        presented with the following information:</para>
         <variablelist>
           <varlistentry>
             <term>Task</term>
             <listitem>
-              <para></para>
+              <para>Displays the following information related to the selected
+              Project Task:</para>
               <variablelist>
                 <varlistentry>
                   <term>Planned Hours</term>
                   <listitem>
-                    <para>Displays the total Task hours budgeted for the
-                    Project.</para>
+                    <para>Displays the total hours budgeted for the
+                    Task.</para>
                   </listitem>
                 </varlistentry>
                 <varlistentry>
                   <term>Actual Hours</term>
                   <listitem>
-                    <para>Displays the actual Task hours used for the
-                    Project.</para>
+                    <para>Displays the actual hours logged against the
+                    Task.</para>
                   </listitem>
                 </varlistentry>
                 <varlistentry>
                   <term>Planned Expense</term>
                   <listitem>
-                    <para>Displays the total Task expenses budgeted for the
-                    Project.</para>
+                    <para>Displays the total expenses budgeted for the
+                    Task.</para>
                   </listitem>
                 </varlistentry>
                 <varlistentry>
                   <term>Actual Expense</term>
                   <listitem>
-                    <para>Displays the actual Task expenses used for the
-                    Project.</para>
+                    <para>Displays the actual expenses logged against the
+                    Task.</para>
                   </listitem>
                 </varlistentry>
               </variablelist>
@@ -203,17 +212,20 @@
           <varlistentry>
             <term>Employee</term>
             <listitem>
-              <para><variablelist>
+              <para>Displays the following information for the Employee
+              associated with the Worksheet:<variablelist>
                   <varlistentry>
                     <term>Day Total</term>
                     <listitem>
-                      <para></para>
+                      <para>Displays the number of hours entered for the
+                      Employee on the given work date.</para>
                     </listitem>
                   </varlistentry>
                   <varlistentry>
                     <term>Worksheet Total</term>
                     <listitem>
-                      <para></para>
+                      <para>Displays the Employee's total hours on the parent
+                      Worksheet.</para>
                     </listitem>
                   </varlistentry>
                 </variablelist></para>
